@@ -1,4 +1,6 @@
-# 3.3. Nine Functional Groups
+﻿# Functional Groups
+
+<!-- EXTENDED: Tiêu đề đổi từ "3.3. Nine Functional Groups" → "Functional Groups" để phản ánh số lượng group đã tăng lên 11 -->
 
 **Project:** DineVina – Smart Restaurant Reservation and Event Booking System (Group 8)  
 **Author:** Nguyen Trung Kien (24127068), Backend Engineer  
@@ -27,8 +29,15 @@ DineVina serves three actors: **Customer**, **Restaurant Partner**, and **Admini
 | 7 | Availability and partner dashboard | Partner | Release 1 (basic), Release 2 (full) |
 | 8 | Promotions and editorial | Partner, Admin, Customer | Release 2 |
 | 9 | Intelligent assistance | Customer, Admin | Release 3 |
+| 10 | Notifications | Customer, Partner | Release 1 |
+| 11 | Ratings and reviews | Customer, Admin | Release 2 |
+| — | Cancellation policy | Customer, Partner | Release 1 (rules only) |
+
+<!-- ADDED: Rows 10, 11, and Cancellation Policy added to Overview table -->
 
 ### Group Dependencies
+
+<!-- EXTENDED: Thêm nodes G10, G11 + các cạnh G5→G10, G6→G10, G5→G11 vào dependency diagram -->
 
 ```mermaid
 flowchart TD
@@ -41,6 +50,8 @@ flowchart TD
     G7["⑦ Availability & Dashboard"]
     G8["⑧ Promotions & Editorial"]
     G9["⑨ Intelligent Assistance"]
+    G10["⑩ Notifications"]
+    G11["⑪ Ratings & Reviews"]
 
     G1 --> G2
     G1 --> G3
@@ -61,6 +72,10 @@ flowchart TD
 
     G3 --> G9
     G4 --> G9
+
+    G5 --> G10
+    G6 --> G10
+    G5 --> G11
 ```
 
 > **Conventions for proposed APIs:** Endpoints are proposals to confirm with the frontend. Every protected endpoint checks role and ownership. All errors use one shared format. List endpoints are paginated.
@@ -592,6 +607,206 @@ POST /recommendations/{id}/feedback
 
 ---
 
+<!-- ADDED: Group 10 – Notifications (entire section is new, not in commit aa1e8ca) -->
+
+## 10. Notifications
+
+**Purpose:** Keep customers and partners informed of every status change without requiring them to poll the application.
+
+### Main Functions
+
+- Send an email to both parties on every reservation and event status change.
+- Send an in-app notification badge on login (or via WebSocket if real-time is added later).
+- Partner receives an alert when a new reservation request arrives.
+- Customer receives confirmation when a reservation is confirmed, rejected, or expires.
+- Notifications are queued and retried; a failed delivery is logged but does not block the triggering action.
+
+### Notification Trigger Flow
+
+```mermaid
+flowchart TD
+    A["Business event occurs\n(reservation status change, event proposal, etc.)"] --> B["Backend emits notification task\nto queue"]
+    B --> C["Notification worker picks up task"]
+    C --> D{Delivery channel}
+    D -- Email --> E["Send via SMTP / email provider"]
+    D -- In-app --> F["Write to notifications table"]
+    E --> G{Delivery success?}
+    G -- Yes --> H["Mark as sent"]
+    G -- No --> I["Retry up to N times\nThen mark as failed + log"]
+    F --> H
+```
+
+### Proposed API
+
+```
+GET    /me/notifications           (list unread notifications)
+PATCH  /me/notifications/{id}/read
+DELETE /me/notifications/{id}
+```
+
+### Data Schema
+
+| Table | Columns |
+|-------|---------|
+| `notifications` | `id`, `user_id`, `type`, `payload` (JSON), `read_at`, `created_at` |
+| `notification_log` | `id`, `notification_id`, `channel` (email / in-app), `status`, `attempts`, `last_attempted_at` |
+
+### Business Rules
+
+- Every status transition in groups 5 and 6 triggers a notification to both the customer and the relevant partner.
+- Email content uses templates; no dynamic code is executed in the template engine.
+- A notification failure does not roll back the transaction that triggered it.
+- Unread count is shown on the navigation bar after login.
+
+### Acceptance Criteria
+
+- Within 30 seconds of a status change an email is dispatched to the affected users.
+- A failed email is retried at least twice before being marked as failed.
+- The in-app list shows all notifications in reverse chronological order; marking one read clears its badge.
+
+---
+
+<!-- ADDED: Group 11 – Ratings and Reviews (entire section is new, not in commit aa1e8ca) -->
+
+## 11. Ratings and Reviews
+
+**Purpose:** Give future customers reliable social proof based on actual visits, and give partners structured feedback.
+
+### Main Functions
+
+- After a reservation reaches a terminal confirmed state and the visit date has passed, the customer is invited to leave a rating (1–5 stars) and an optional text review.
+- Customer can edit or delete their own review within a grace period.
+- Administrator can hide a review that violates community rules, with a recorded reason.
+- Venue detail page shows the aggregated star rating and a paginated list of reviews.
+- Partner can reply to a review once.
+
+### Review Lifecycle
+
+```mermaid
+stateDiagram-v2
+    [*] --> Eligible : Visit date passes + reservation Confirmed
+    Eligible --> Submitted : Customer submits review
+    Submitted --> Published : Auto-published
+    Published --> Edited : Customer edits within grace period
+    Edited --> Published
+    Published --> Hidden : Admin hides with reason
+    Hidden --> Published : Admin restores
+    Published --> [*]
+    Hidden --> [*]
+```
+
+### Proposed API
+
+```
+GET    /venues/{id}/reviews                (public)
+POST   /reservations/{id}/review           (customer submits)
+PATCH  /reviews/{id}                       (customer edits, within grace period)
+DELETE /reviews/{id}                       (customer deletes, within grace period)
+POST   /reviews/{id}/reply                 (partner replies)
+POST   /admin/reviews/{id}/hide
+POST   /admin/reviews/{id}/restore
+```
+
+### Data Schema
+
+| Table | Columns |
+|-------|---------|
+| `reviews` | `id`, `reservation_id`, `customer_id`, `venue_id`, `rating` (1–5), `body`, `status`, `created_at`, `edited_at` |
+| `review_replies` | `id`, `review_id`, `partner_id`, `body`, `created_at` |
+| `review_moderation` | `id`, `review_id`, `admin_id`, `action` (hide/restore), `reason`, `acted_at` |
+
+### Business Rules
+
+- Only customers with a past `Confirmed` reservation at that venue may submit a review.
+- One review per reservation; a second submission on the same reservation is rejected.
+- A customer may edit or delete their review within 7 days of submission (grace period TBC with team).
+- A partner may reply once per review and cannot edit the reply afterward.
+- Aggregate rating = average of all published ratings, recalculated on each new submission.
+- Hidden reviews are excluded from the aggregate and public listing but remain accessible to the admin.
+
+### Acceptance Criteria
+
+- A customer without a confirmed past reservation at the venue cannot submit a review (`403`).
+- A second review on the same reservation is rejected (`409`).
+- After a review is hidden the aggregate rating updates accordingly.
+- The partner reply appears below the review on the venue page.
+
+---
+
+<!-- ADDED: Cancellation Policy (entire section is new, not in commit aa1e8ca) -->
+
+## Cancellation Policy
+
+**Purpose:** Define clear, consistent rules for when and how reservations can be cancelled, protecting both customer experience and partner planning.
+
+### Policy Rules
+
+| Scenario | Who | Allowed? | Condition |
+|----------|-----|----------|-----------|
+| Customer cancels a `Pending` request | Customer | ✅ Always | No cutoff applies |
+| Customer cancels a `Confirmed` reservation | Customer | ✅ Yes | Must be before the cutoff window |
+| Customer cancels after cutoff | Customer | ❌ No | API returns `409` |
+| Partner rejects a `Pending` request | Partner | ✅ Always | — |
+| Partner cancels a `Confirmed` reservation | Partner | ⚠️ Contact admin | Out of normal flow |
+| System auto-expires a `Pending` reservation | System (cron) | ✅ Yes | After the response window |
+
+### Cutoff & Response Window (Open — see Open Questions)
+
+```mermaid
+flowchart LR
+    A["Reservation created"] --> B["Response window\n(e.g. 4 h — TBC)"]
+    B -- Partner responds --> C["Confirmed or Rejected"]
+    B -- No response --> D["Auto-Expired by cron"]
+    C --> E["Cancellation window\n(e.g. 2 h before visit — TBC)"]
+    E -- Before cutoff --> F["Customer can cancel"]
+    E -- After cutoff --> G["Cancel blocked (409)"]
+```
+
+### Implementation Notes
+
+- The cutoff is stored as a system-wide config value so it can be adjusted without a code deploy.
+- The scheduled job that expires `Pending` reservations runs at a cadence short enough that no request sits expired-but-unlabelled for more than a few minutes.
+- All cancellation events write a `reservation_status_history` row (same as group 5).
+
+---
+
+<!-- ADDED: Non-Functional Requirements (entire section is new, not in commit aa1e8ca) -->
+
+## Non-Functional Requirements
+
+### Performance
+
+| Target | Requirement |
+|--------|-------------|
+| Search (Group 3) | p95 response ≤ 300 ms under typical load |
+| Reservation submit (Group 5) | p95 response ≤ 500 ms; capacity check + insert in one transaction |
+| List endpoints | All paginated; default page size 20 |
+| Notification dispatch | Email dispatched within 30 s of trigger |
+
+### Security
+
+- All endpoints use HTTPS; HTTP connections are redirected.
+- JWT access tokens expire in 15 minutes; refresh tokens are rotated on use.
+- Role and ownership checks are enforced in a shared middleware layer applied to every protected endpoint.
+- Passwords use bcrypt with a minimum cost factor of 12.
+- No credentials, PII, or tokens are written to application logs or committed to Git.
+- File uploads (venue images, dish images) are validated for MIME type and size before being stored.
+
+### Scalability
+
+- The FastAPI application is stateless; horizontal scaling is achieved by running multiple instances behind a load balancer.
+- PostgreSQL is the single source of truth; read replicas may be added for search queries if needed.
+- The notification queue decouples email delivery from the request path, preventing slow SMTP calls from affecting API latency.
+- Database migrations run via Alembic and are backwards-compatible where possible.
+
+### Reliability
+
+- The API returns a structured error for every foreseeable failure; no stack traces are exposed to clients.
+- Capacity checks use `SELECT ... FOR UPDATE` or equivalent to prevent double booking under concurrent load.
+- A failing AI component (Group 9) falls back to ordinary filters without returning an error to the user.
+
+---
+
 ## Cross-Cutting Backend Work (Kien)
 
 - One error format and shared role and ownership dependencies for all endpoints.
@@ -604,10 +819,12 @@ POST /recommendations/{id}/feedback
 
 ## Scope
 
+<!-- EXTENDED: Bảng Scope mở rộng thêm Group 10 (Notifications) và Group 11 (Ratings & Reviews); Release 1 nguyên gốc chỉ có "Groups 1–5 and the basic part of group 7" -->
+
 | Category | Items |
 |----------|-------|
-| **Release 1** | Groups 1–5 and the basic part of group 7 |
-| **Release 2** | Event booking (6), full dashboard (7), promotions and editorial (8) |
+| **Release 1** | Groups 1–5, basic group 7, notifications (10), cancellation policy |
+| **Release 2** | Event booking (6), full dashboard (7), promotions and editorial (8), ratings and reviews (11) |
 | **Release 3** | Intelligent assistance (9) |
 | **Out of scope** | Online payment, deposits, full restaurant accounting, native mobile applications |
 
@@ -615,6 +832,13 @@ POST /recommendations/{id}/feedback
 
 ## Open Questions for the Team
 
-1. Response window before a `Pending` reservation expires, and the cancellation cutoff.
-2. Whether capacity is counted in **seats** or in **tables**.
-3. Whether the first release includes event briefs or leaves them to Release 2.
+<!-- EXTENDED: Từ 3 câu hỏi gốc → 8 câu hỏi; các câu 4–8 là mới -->
+
+1. Response window before a `Pending` reservation expires (proposed: 4 hours — needs team agreement).
+2. Cancellation cutoff before the visit time (proposed: 2 hours — needs team agreement).
+3. Whether capacity is counted in **seats** or in **tables**.
+4. Whether the first release includes event briefs or leaves them to Release 2.
+5. Grace period for editing/deleting a review (proposed: 7 days — needs team agreement).
+6. Whether the partner reply to a review can be edited or is immutable.
+7. Email provider choice (e.g. SendGrid, AWS SES) and whether a transactional queue (e.g. Celery + Redis) is in scope for Release 1.
+8. Whether in-app notifications use polling or WebSocket in Release 1.
