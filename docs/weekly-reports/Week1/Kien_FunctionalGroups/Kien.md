@@ -830,15 +830,3 @@ flowchart LR
 
 ---
 
-## Open Questions for the Team
-
-<!-- EXTENDED: Từ 3 câu hỏi gốc → 8 câu hỏi; các câu 4–8 là mới -->
-
-1. Response window before a `Pending` reservation expires (proposed: 4 hours — needs team agreement).
-2. Cancellation cutoff before the visit time (proposed: 2 hours — needs team agreement).
-3. Whether capacity is counted in **seats** or in **tables**.
-4. Whether the first release includes event briefs or leaves them to Release 2.
-5. Grace period for editing/deleting a review (proposed: 7 days — needs team agreement).
-6. Whether the partner reply to a review can be edited or is immutable.
-7. Email provider choice (e.g. SendGrid, AWS SES) and whether a transactional queue (e.g. Celery + Redis) is in scope for Release 1.
-8. Whether in-app notifications use polling or WebSocket in Release 1.
