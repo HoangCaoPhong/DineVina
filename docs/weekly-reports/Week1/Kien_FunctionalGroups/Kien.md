@@ -548,68 +548,7 @@ POST   /admin/content/{id}/hide
 - Administrator-hidden content disappears from public pages but stays in the partner's list with the reason.
 
 ---
-
-## 9. Intelligent Assistance
-
-**Purpose:** Reduce search effort with explainable recommendations, without replacing ordinary filters.
-
-### Main Functions (Staged)
-
-| Stage | Name | Description |
-|-------|------|-------------|
-| **A** | Recommender | Customer enters cuisine, area, price and group size; system removes ineligible venues, scores the rest and shows ranked results with reasons (menu match, suitable capacity). Customer can mark a suggestion as useful or not. |
-| **B** | Retrieval-based assistant *(future)* | Answers questions from approved menu and policy records, with source links and a clear statement when uncertain. |
-| **C** | Menu OCR *(future)* | Creates editable draft menu items for partner review. |
-
-### Stage A Recommendation Flow
-
-```mermaid
-flowchart TD
-    A([Customer]) --> B["Enter preferences\n(cuisine, area, price, group size)"]
-    B --> C["Filter: remove ineligible venues\n(capacity, closed, suspended)"]
-    C --> D["Score remaining venues\n(menu match, capacity fit, etc.)"]
-    D --> E["Return ranked list\nwith explanations"]
-    E --> F{Customer action}
-    F -- Uses recommendation --> G["Proceed to booking"]
-    F -- Ignores --> H["Uses ordinary filters instead"]
-    F -- Gives feedback --> I["Log: useful / not useful"]
-    J["AI component fails / times out"] --> K["Fallback to ordinary filters"]
-```
-
-### Proposed API
-
-```
-POST /recommendations         (preferences in, ranked venues with reasons out)
-POST /recommendations/{id}/feedback
-```
-
-> The backend calls the AI component and falls back to ordinary filters if it fails or times out.
-
-### Data Schema
-
-| Table | Columns |
-|-------|---------|
-| `recommendation_logs` | `id`, `user_id` (optional), `query`, `result_ids`, `created_at` — kept to a minimum and free of credentials |
-| `recommendation_feedback` | `recommendation_id`, `venue_id`, `useful` |
-
-### Business Rules
-
-- Only verified, approved venue attributes are used for ranking and explanations.
-- Generated content is never published without human review.
-- Stored preferences need customer consent.
-- The feature is not claimed to outperform existing products until it is evaluated.
-
-### Acceptance Criteria
-
-- Each recommendation shows at least one reason that matches a real venue attribute.
-- Venues that fail hard constraints (e.g. capacity) never appear in the ranked list.
-- On a small labeled set of realistic queries the team can report ranking quality and the number of bad suggestions.
-
----
-
-<!-- ADDED: Group 10 – Notifications (entire section is new, not in commit aa1e8ca) -->
-
-## 10. Notifications
+## 9. Notifications
 
 **Purpose:** Keep customers and partners informed of every status change without requiring them to poll the application.
 
@@ -668,7 +607,7 @@ DELETE /me/notifications/{id}
 
 <!-- ADDED: Group 11 – Ratings and Reviews (entire section is new, not in commit aa1e8ca) -->
 
-## 11. Ratings and Reviews
+## 10. Ratings and Reviews
 
 **Purpose:** Give future customers reliable social proof based on actual visits, and give partners structured feedback.
 
@@ -806,27 +745,3 @@ flowchart LR
 - A failing AI component (Group 9) falls back to ordinary filters without returning an error to the user.
 
 ---
-
-## Cross-Cutting Backend Work (Kien)
-
-- One error format and shared role and ownership dependencies for all endpoints.
-- Database migrations for every table above, plus seed data for local development.
-- Pagination on list endpoints.
-- Connect the frontend and the AI component through the backend API.
-- Keep credentials, tokens and customer data out of Git.
-
----
-
-## Scope
-
-<!-- EXTENDED: Bảng Scope mở rộng thêm Group 10 (Notifications) và Group 11 (Ratings & Reviews); Release 1 nguyên gốc chỉ có "Groups 1–5 and the basic part of group 7" -->
-
-| Category | Items |
-|----------|-------|
-| **Release 1** | Groups 1–5, basic group 7, notifications (10), cancellation policy |
-| **Release 2** | Event booking (6), full dashboard (7), promotions and editorial (8), ratings and reviews (11) |
-| **Release 3** | Intelligent assistance (9) |
-| **Out of scope** | Online payment, deposits, full restaurant accounting, native mobile applications |
-
----
-
