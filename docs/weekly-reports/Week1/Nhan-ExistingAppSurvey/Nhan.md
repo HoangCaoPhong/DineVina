@@ -1,123 +1,132 @@
-# Báo cáo Khảo sát và Phân tích Ứng dụng Hiện có: PasGo vs. KiotViet F&B
+# Existing App Survey: PasGo vs Eatigo
 
-**Dự án:** DineVina  
-**Hạng mục:** Báo cáo khảo sát ứng dụng tuần 1 (Existing App Survey - Week 1)  
-**Người thực hiện:** Lương Thiện Nhân  
-**Đối tượng khảo sát:** [PasGo](https://pasgo.vn/) và [KiotViet F&B](https://www.kiotviet.vn/bar-cafe-nha-hang)
+[PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) and [Eatigo](https://eatigo.com/en) are leading online restaurant reservation platforms in the region, each following a distinct product philosophy. [PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) focuses on group dining, banquet booking, and venue marketing in Vietnam, while [Eatigo](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/) operates on a time-based yield management model with dynamic discounts across Southeast Asia.
 
----
+### 1. Software Category: E-commerce or SaaS?
 
-## 1. Tổng quan và Phân loại Mô hình Phần mềm
+Neither platform is a pure SaaS product. Both operate as **O2O (Online-to-Offline) two-sided service marketplaces with SaaS-enabled merchant tooling (SaaS-enabled Marketplace)**:
 
-### 1.1. Bối cảnh và Chuỗi giá trị mục tiêu
-Dù cùng phục vụ ngành dịch vụ ăn uống (F&B) tại thị trường Việt Nam, [PasGo](https://pasgo.vn/tin-tuc/gioi-thieu-pasgo-101) và [KiotViet F&B](https://www.kiotviet.vn/bar-cafe-nha-hang) giải quyết hai bài toán khác biệt trong chuỗi giá trị vận hành nhà hàng:
-- **PasGo** tập trung vào phân hệ tạo nhu cầu và thu hút khách hàng (Demand Generation / Front-end), kết nối thực khách từ bên ngoài vào bàn ăn.
-- **KiotViet F&B** là hệ thống quản trị và xử lý vận hành nội bộ (Operations / Back-end), bao quát từ quy trình gọi món, điều phối chế biến đến quản lý tồn kho và đối soát doanh thu, kế toán.
+> * **E-commerce core (primary revenue driver):** Both [PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) and [Eatigo](https://eatigo.com/en) act as intermediary platforms connecting diners (B2C) with restaurants (B2B), earning commission (CPA) on each successful reservation or charging advertising and promotion fees ([PasGo Partnership Process](https://pasgo.vn/blog/quy-trinh-hop-tac-dich-vu-dat-cho-voi-pasgo-5789)).
+> * **Bundled SaaS component (ecosystem lock-in tool):** Both provide cloud-based management software for restaurant partners — [MB PasGo](https://play.google.com/store/apps/details?id=com.onepas.android.pasgo.manager&hl=vi) and [Eatigo Merchant Dashboard](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/). Unlike standalone POS/SaaS systems (e.g. iPOS, KiotViet), these tools focus on receiving marketplace orders, controlling table availability, and reconciling payables ([PasGo for Restaurants](https://pasgo.vn/danh-cho-nha-hang)).
 
-### 1.2. Phân loại mô hình kiến trúc: E-Commerce Marketplace (O2O) vs. Cloud SaaS POS
-Xét về cấu trúc sản phẩm và phương thức cung ứng dịch vụ, hai nền tảng đại diện cho hai mô hình giải pháp phần mềm riêng biệt nhưng có sự giao thoa:
+| Criterion | PasGo | Eatigo |
+| :---- | :---- | :---- |
+| **Core positioning** | O2O reservation marketplace combined with food/SEO content channel ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)) | Time-slot discount marketplace (Yield Management Marketplace) ([Eatigo Blog](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/)) |
+| **B2C transaction flow** | No upfront payment, no voucher sales; diners pay 100% at the restaurant ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)) | Diners pay at the restaurant after discount is applied; also sells [Eatigo Cash Voucher (ECV)](https://help.eatigo.com/hc/en-us/articles/47187614682777-What-is-an-Eatigo-Cash-Voucher-ECV-code) codes and [Eatigo Market](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/) deals |
+| **B2B fee model** | Commission (avg. 3%–7% of actual revenue), onboarding fee, and advertising/promotion packages ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)) | Fixed per-diner commission on seated guests and display campaign packages ([Ortem Case Study](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/)) |
+| **SaaS automation level** | Semi-automated: combines [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) software, Zalo reminders, and call-center agents ([PasGo Process](https://pasgo.vn/blog/quy-trinh-hop-tac-dich-vu-dat-cho-voi-pasgo-5789)) | Highly automated: instant booking against real-time seat inventory with POS integration ([Ortem Case Study](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/)) |
 
-- **PasGo – Sàn giao dịch Thương mại Điện tử O2O (Online-to-Offline Marketplace) kết hợp B2B SaaS:**
-  - **Phân hệ B2C (Thương mại điện tử dịch vụ / O2O):** Hoạt động như sàn giao dịch trung gian kết nối [thực khách với hơn 2.000 nhà hàng đối tác](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786). Nền tảng cung cấp công cụ tìm kiếm địa điểm, áp dụng ưu đãi trực tiếp và đặt chỗ trước mà không yêu cầu khách hàng mua voucher trả trước ([Quy chế hoạt động PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
-  - **Phân hệ B2B (SaaS quản lý đặt chỗ & Performance Marketing):** Cung cấp hệ thống quản trị nhà hàng [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) thông qua [3 gói dịch vụ (Cơ Bản, Cốt Lõi, Cao Cấp)](https://pasgo.vn/blog/gioi-thieu-cac-goi-dich-vu-cua-nen-tang-dat-ban-nha-hang-pasgo-va-lua-chon-5711). Nguồn thu kết hợp giữa phí duy trì định kỳ và hoa hồng dựa trên kết quả tiếp thị thực tế (Performance Marketing từ 3%–7% doanh thu hoặc 10.000đ–35.000đ/lượt khách thực đến).
-- **KiotViet – Hệ thống Cloud SaaS POS & Quản trị vận hành đa kênh (Omnichannel Operations):**
-  - **Phân hệ B2B SaaS cốt lõi:** Phần mềm quản lý bán hàng vận hành trên nền tảng điện toán đám mây (Cloud POS/ERP tinh gọn) với hình thức thu phí thuê bao định kỳ theo chi nhánh ([270.000đ – 490.000đ/tháng](https://www.kiotviet.vn/phi-dich-vu)). Hệ thống chịu trách nhiệm toàn bộ quy trình vận hành nội bộ: tiếp nhận order, điều phối bếp/bar, trừ tồn kho nguyên vật liệu theo định lượng và hỗ trợ kế toán thuế ([Tổng quan F&B KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-chuyen-nganh/tong-quan-mo-hinh-fnb/)).
-  - **Phân hệ mở rộng đa kênh (Web Builder & Omnichannel):** Cung cấp giải pháp [KiotViet Web](https://web.kiotviet.vn/) cho phép từng cơ sở tự xây dựng website gọi món/thực đơn điện tử QR riêng biệt, đồng thời đồng bộ đơn hàng tập trung từ các nền tảng giao thức ăn trực tuyến ([GrabFood, ShopeeFood](https://diendandoanhnghiep.vn/kiotviet-fnb-ra-mat-tinh-nang-quan-ly-ban-hang-da-kenh-10156150.html)).
+### 2. Feature Comparison and Killer Features
 
----
+| Feature Group | PasGo | Eatigo |
+| :---- | :---- | :---- |
+| **Search & Filters** | By area, cuisine (Hot Pot, Buffet, Seafood), price range, and **detailed physical amenities** (private rooms, karaoke, car parking, kids' area) ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)) | By city/area, hotel brand, theme (Hotel Dining, All-You-Can-Eat) and **time-slot discount filter (10%–50%)** ([Eatigo](https://eatigo.com/en)) |
+| **Discount mechanism** | Fixed promotions by day/week (10%–30% off or complimentary items) with minimum party-size conditions ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)) | Variable discounts every 30 minutes (10%–50% off food bill) based on restaurant occupancy ([Eatigo Yield Management](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/)) |
+| **Booking flow** | Select date/time, adults/children count, promo package/set menu, special requests; await restaurant or call-center confirmation ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)) | Select a time slot with its attached discount % and party size; system deducts seat inventory and confirms instantly (Instant Booking) ([Eatigo](https://eatigo.com/en)) |
+| **Call center / Chat booking** | Strong: free booking assistance and venue consultation via hotline and contextual live chat ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)) | Fully self-service via app/web; live chat (Zendesk) only for dispute resolution ([Eatigo Help Center](https://help.eatigo.com/hc/en-us)) |
+| **Vouchers & Takeaway** | No prepaid vouchers; dine-in experience only ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)) | [Eatigo Cash Voucher (ECV)](https://help.eatigo.com/hc/en-us/articles/47187614682777-What-is-an-Eatigo-Cash-Voucher-ECV-code) stackable on time-based discounts; [Eatigo Market](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/) for QSR chains |
+| **Content & SEO** | Extensive [Collections](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786), SEO-optimized PR articles, food blog, and video reviews | Minimal long-form SEO content; focuses on concise deal listings ([Eatigo](https://eatigo.com/en)) |
+| **Restaurant management (B2B)** | [MB PasGo](https://play.google.com/store/apps/details?id=com.onepas.android.pasgo.manager&hl=vi) app: accept/reject orders, update actual guest count, upload receipt photos, approve end-of-period statements ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)) | [Eatigo Merchant Dashboard](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/): adjust seat limits and discount % per 30-min slot, mark guests as attended or no-show |
 
-## 2. So sánh Chi tiết các Nhóm Tính năng (Feature-by-Feature Comparison)
+> * **PasGo killer features:**
+>   * **SEO-driven Collections system & advanced banquet filters:** Addresses the "where to eat with a large group" use case by classifying private-room capacity, AV equipment, outdoor seating, and parking, combined with live call-center assistance ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)).
+>   * **48-hour attendance lock & auto-close on [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo):** Automates revenue reconciliation — if a restaurant does not update guest count or receipt within 48 hours of the reservation time, the system locks the record using the original booking data and finalizes the statement at 12:00 noon on the last day of the month.
+> * **Eatigo killer features:**
+>   * **30-minute dynamic discount chart (Time-based Yield Management):** Visualizes discounts from 10% (peak hours) up to **50% (off-peak, e.g. 14:00–17:00 or after 20:30)** directly on the restaurant card, incentivizing diners to shift meal times for better prices without requiring prepaid vouchers ([Eatigo Yield Management](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/)).
+>   * **Capacity protection via [Fair User Policy (FUP)](https://eatigo.com/en/fair-user-policy):** Strictly enforces arrival time and party size (similar to budget airline ticketing), ensuring restaurants actually fill the vacant tables in their desired time slots.
 
-| Nhóm tính năng | PasGo (Web/App PasGo & MB PasGo) | KiotViet F&B (POS, Quản lý, Nhân viên, Bếp) |
-| :--- | :--- | :--- |
-| **Tìm kiếm & Thu hút khách (Acquisition)** | Cung cấp danh bạ hơn 2.000 nhà hàng, bộ lọc theo vị trí, khoảng giá, loại hình ẩm thực, tiện ích (phòng riêng, karaoke, chỗ đỗ xe), kèm [bản đồ chỉ đường theo thời gian thực](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786). | Không có sàn tìm kiếm tập trung; cung cấp công cụ cho chủ quán tự khởi tạo [website gọi món riêng](https://www.kiotviet.vn/tao-website-ban-hang-ngay-tren-phan-mem-quan-ly-kiotviet-nganh-fnb/) và liên kết qua Zalo OA/Facebook ([Phí dịch vụ KiotViet](https://www.kiotviet.vn/phi-dich-vu)). |
-| **Đặt bàn & Sơ đồ phòng bàn (Booking & Table)** | Nhận đơn đặt bàn trực tuyến 24/7 từ thực khách (chọn khung giờ, số lượng khách, ghi chú yêu cầu tiệc) và hỗ trợ xử lý xác nhận hoặc từ chối đặt chỗ qua [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo). | Quản lý sơ đồ phòng bàn trực quan theo thời gian thực (trạng thái trống/đang phục vụ), hỗ trợ đặt bàn trước, gộp bàn, tách bàn và chuyển bàn linh hoạt ([KiotViet Bar-Cafe-Nhà hàng](https://www.kiotviet.vn/bar-cafe-nha-hang)). |
-| **Gọi món & Xử lý Order (Ordering)** | Cho phép thực khách chọn trước gói combo/set menu ưu đãi khi đặt chỗ; không can thiệp vào quy trình gọi món chi tiết tại bàn ([Quy chế hoạt động PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)). | Hỗ trợ gọi món tại quầy, order tại bàn qua điện thoại/tablet, quét mã QR tự gọi món, ghi chú tùy chọn món (gia vị, thành phần) và quản lý mô hình buffet nhiều lượt ([Mô hình F&B KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-chuyen-nganh/tong-quan-mo-hinh-fnb/)). |
-| **Điều phối Bếp / Bar (KDS & In chế biến)** | Không hỗ trợ nghiệp vụ điều phối khu vực chế biến bếp/bar nội bộ ([PasGo Dành cho nhà hàng](https://pasgo.vn/danh-cho-nha-hang)). | Tự động chuyển lệnh order xuống [màn hình hiển thị bếp (KDS) hoặc máy in bếp/bar](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-che-bien/thong-bao-che-bien/) phân chia theo từng trạm chế biến, gom món tự động và in tem nhãn dán ly cốc ([KiotViet Bar-Cafe-Nhà hàng](https://www.kiotviet.vn/bar-cafe-nha-hang)). |
-| **Quản lý Kho & Định lượng nguyên liệu** | Không hỗ trợ quản lý kho hàng và nguyên vật liệu ([PasGo Dành cho nhà hàng](https://pasgo.vn/danh-cho-nha-hang)). | Tự động khấu trừ kho nguyên vật liệu theo công thức định lượng chi tiết ngay khi xuất bán món, cảnh báo ngưỡng tồn kho an toàn, kiểm kê kho và quản lý nhập/hủy nguyên liệu với nhà cung cấp ([Mô hình F&B KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-chuyen-nganh/tong-quan-mo-hinh-fnb/)). |
-| **Giao đồ ăn (Delivery)** | Không hỗ trợ dịch vụ giao thức ăn; tập trung chuyên biệt vào mô hình **dùng bữa tại chỗ (Dine-in)** và đặt bàn trước ([Hợp tác PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)). | Đồng bộ trực tiếp đơn hàng và thực đơn từ các đối tác giao hàng ([ShopeeFood, GrabFood](https://diendandoanhnghiep.vn/kiotviet-fnb-ra-mat-tinh-nang-quan-ly-ban-hang-da-kenh-10156150.html)) về chung màn hình POS của thu ngân. |
-| **Thanh toán, Kế toán & Hóa đơn điện tử** | Không thực hiện thu hộ chi phí bữa ăn; áp dụng quy trình **đối soát lượt khách thực đến trong 48 giờ** và tự động khóa bảng kê đối soát phí dịch vụ định kỳ trên [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo). | Tính tiền theo món hoặc theo thời lượng sử dụng (Bida/Karaoke), hỗ trợ tạo mã VietQR động, kết ca bàn giao, tích hợp sẵn giải pháp [Hóa đơn điện tử khởi tạo từ máy tính tiền, Chữ ký số và Kế toán hộ kinh doanh](https://www.kiotviet.vn/phi-dich-vu). |
-| **Marketing, CRM & Chăm sóc khách hàng** | Cung cấp dịch vụ truyền thông chuẩn SEO, gắn nhãn Top Bộ sưu tập theo chủ đề, vị trí Banner nổi bật và thiết lập chương trình ưu đãi theo khung giờ thấp điểm ([Hợp tác PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)). | Quản lý tích điểm, phân hạng hội viên, phát hành voucher/mã giảm giá và gửi tin nhắn chăm sóc tự động qua kênh [Zalo ZNS/SMS](https://www.kiotviet.vn/phi-dich-vu). |
-| **Quản lý Nhân sự (HRM)** | Chỉ lưu trữ thông tin nhân sự đầu mối để phối hợp tiếp nhận và xác thực đơn đặt chỗ ([Quy chế hoạt động PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)). | Tích hợp chấm công bằng vân tay/mã QR, xếp lịch ca làm việc, tự động tính lương, quản lý thưởng phạt chuyên cần và trích thưởng hoa hồng theo doanh số bán hàng ([Phí dịch vụ KiotViet](https://www.kiotviet.vn/phi-dich-vu)). |
+### 3. Target Customer Segments (B2C & B2B)
 
----
+> * **PasGo:**
+>   * **Individual & corporate diners (B2C):** Primarily targets **group dining** — office workers booking company dinners, client entertainment, families organizing birthdays or gatherings requiring guaranteed seating, private rooms, and VAT invoices ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)).
+>   * **Restaurant partners (B2B):** Over 2,000 mid-to-high-end restaurants in Vietnam (major hot-pot/BBQ/buffet chains such as Goldsun Food, Hoang Yen, Al Fresco's, seafood restaurants, and large garden-style venues) needing to fill large-party tables and boost Google brand visibility ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)).
+> * **Eatigo:**
+>   * **Individual diners (B2C):** Primarily targets **deal-seekers and flexible diners** — young professionals, couples, independent travelers, and office workers willing to dine 1–2 hours outside peak time for up to 50% off ([Eatigo Yield Management](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/)).
+>   * **Restaurant partners (B2B):** 4,500–6,000+ restaurants across Singapore, Thailand, Malaysia, Hong Kong, and the Philippines, especially strong in **4–5 star hotel buffets** (Sheraton, Novotel, Marriott), fine dining, and F&B chains in shopping malls with high fixed rent/staff costs but low afternoon occupancy ([CleverTap Case Study](https://clevertap.com/case-study/how-eatigo-boosted-reservations/)).
 
-## 3. Các Tính năng Tạo Lợi thế Cạnh tranh Cốt lõi (Core Differentiating Features)
+### 4. User Roles
 
-### 3.1. Điểm nổi bật của PasGo
-- **Đặt bàn giữ chỗ kèm ưu đãi trực tiếp (Không áp dụng hình thức voucher trả trước):** Loại bỏ rào cản thanh toán trước của mô hình deal/voucher truyền thống. Thực khách được đảm bảo giữ chỗ miễn phí và thanh toán trực tiếp tại nhà hàng với mức giảm trừ ưu đãi áp dụng ngay trên hóa đơn (từ 10% đến 50%) ([Hợp tác PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)).
-- **Mô hình tiếp thị theo kết quả (Performance-based Marketing) & SLA đối soát 48 giờ:** Nhà hàng giảm thiểu rủi ro từ chi phí quảng cáo cố định, chỉ chi trả phí dịch vụ (3%–7% doanh thu, thấp hơn đáng kể so với mức chiết khấu 20%–30% của các ứng dụng giao thức ăn) dựa trên số khách thực tế đến sử dụng dịch vụ; số liệu được kiểm soát minh bạch qua cơ chế đối soát 48 giờ và chốt bảng kê tự động trên [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo).
-- **Hệ thống SEO chuyên sâu và Bộ sưu tập ẩm thực theo chủ đề:** Tận dụng thứ hạng cao trên các công cụ tìm kiếm nhằm phân phối lưu lượng truy cập trực tiếp đến các nhà hàng đối tác dựa trên nhu cầu tìm kiếm cụ thể (đặt tiệc liên hoan, hội họp công ty, không gian gia đình) ([Gói dịch vụ PasGo](https://pasgo.vn/blog/gioi-thieu-cac-goi-dich-vu-cua-nen-tang-dat-ban-nha-hang-pasgo-va-lua-chon-5711)).
+Both platforms implement a multi-tier authorization structure for their two-sided marketplace, comprising **six core role groups**:
 
-### 3.2. Điểm nổi bật của KiotViet F&B
-- **Cơ chế vận hành ngoại tuyến (Offline Mode) và in bếp qua mạng LAN (KiotViet Proxy):** Đảm bảo tính liên tục của chu trình phục vụ ngay cả khi mất kết nối Internet. Nhân viên phục vụ tiếp tục ghi nhận order tại bàn và truyền lệnh in trực tiếp đến bếp/bar thông qua mạng nội bộ nhờ ứng dụng [KiotViet Proxy](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-lam-quen-voi-kiotviet/huong-dan-chon-ung-dung-cho-kiotviet-fnb/), dữ liệu sau đó sẽ tự động đồng bộ lên đám mây khi kết nối mạng được tái lập ([KiotViet Bar-Cafe-Nhà hàng](https://www.kiotviet.vn/bar-cafe-nha-hang)).
-- **Gói giải pháp pháp lý và tuân thủ thuế tích hợp:** Giải quyết bài toán tuân thủ quy định pháp luật và thuế cho cơ sở kinh doanh F&B bằng việc tích hợp sẵn giải pháp hóa đơn điện tử khởi tạo từ máy tính tiền, chứng thư số và phân hệ ghi chép sổ sách kế toán hộ kinh doanh trực tiếp trong hệ sinh thái phần mềm ([Phí dịch vụ KiotViet](https://www.kiotviet.vn/phi-dich-vu)).
-- **Cơ chế tính giá dịch vụ linh hoạt theo khung giờ chuyển tiếp và quản lý định lượng chi tiết:** Tự động điều chỉnh biểu giá linh hoạt theo thời gian sử dụng dịch vụ (áp dụng cho các mô hình tính giờ như Billiards, Karaoke) và tự động trừ kho nguyên vật liệu theo công thức định lượng chi tiết cho từng đơn vị sản phẩm chế biến/pha chế ([Mô hình F&B KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-chuyen-nganh/tong-quan-mo-hinh-fnb/)).
+> 1. **Guest (Unregistered User):** Browse restaurants, filter deals, view menus, and read articles on both [PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) and [Eatigo](https://eatigo.com/en). On PasGo, guests can also submit a phone number via a consultation form or call the hotline to book without signing in.
+> 2. **Registered Diner (Member):** Make online reservations, manage booking history, cancel/modify orders, save favorites, redeem [Eatigo Cash Voucher (ECV)](https://help.eatigo.com/hc/en-us/articles/47187614682777-What-is-an-Eatigo-Cash-Voucher-ECV-code) codes (Eatigo), and write service reviews ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
+> 3. **Restaurant Outlet Staff:** Log in to a branch account on [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) (up to 3 mobile devices per account) or [Eatigo Merchant Dashboard](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/) to receive new-order notifications, check in guests (attended), flag no-shows, and upload receipt photos.
+> 4. **Merchant Manager / Chain Admin:** Use a master management account across locations on [MB PasGo Web](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) or the Eatigo merchant portal to configure prime-time slots, adjust discount rates and seat availability, update menus, and approve end-of-month billing statements.
+> 5. **Platform Operations / Call Center / Account Manager:** Particularly critical at [PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo), where the customer-service and sales team directly assists via the call center, creates bookings on behalf of diners, moderates venue listings, and sends partner reminders via Zalo ([PasGo Process](https://pasgo.vn/blog/quy-trinh-hop-tac-dich-vu-dat-cho-voi-pasgo-5789)).
+> 6. **System Admin & CMS Editor:** Manages platform-wide configuration, role-based access control, automatic statement locking, marketing/SEO campaigns, and user review moderation ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
 
----
+### 5. AI Feature Comparison
 
-## 4. Phân khúc Khách hàng Mục tiêu (Target Customers)
+> * [**Eatigo**](https://clevertap.com/case-study/how-eatigo-boosted-reservations/) **(Deep AI/ML integration for personalization & conversion optimization):**
+>   * **AI Recommendation Engine ([CleverAI](https://clevertap.com/case-study/how-eatigo-boosted-reservations/)):** [Eatigo](https://clevertap.com/case-study/how-eatigo-boosted-reservations/) integrates CleverTap's AI/ML system, combining real-time behavioral analytics, booking history, and psychographics to automate three retention workflows:
+>     1. *Cancellation recovery:* AI immediately suggests 5 alternative restaurants of similar cuisine and price segment to retain the transaction within the same session.
+>     2. *Browse abandonment:* AI automatically sends contextual restaurant recommendations to push conversion after a user views a listing without booking.
+>     3. *30-day churn prevention:* The system triggers a multi-channel campaign (SMS, email, push notification) with a dynamically personalized restaurant list for users inactive for 30+ days, resulting in a **2× increase in booking conversion rate** ([CleverTap Case Study](https://clevertap.com/case-study/how-eatigo-boosted-reservations/)).
+>   * **Yield Management & Dynamic Pricing algorithm:** Helps restaurants analyze historical occupancy data to optimize seat allocation and discount levels per time slot ([Eatigo Yield Management](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/)).
+> * [**PasGo**](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) **(Rule-based filtering & human-assisted consultation):**
+>   * **No prominent AI/GenAI features in the product:** [PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) uses GPS-based recommendation to suggest nearby venues and stores booking history/favorites to surface preference-matched listings ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
+>   * **Human-in-the-loop approach:** Instead of an AI chatbot or automated recommendations, [PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) auto-attaches the current venue context to chat/inquiry forms for **live call-center agents to advise directly**. This human-plus-tool approach suits the complexity of group/banquet bookings in Vietnam (menu negotiation, private rooms, deposits) but lacks the automated scalability and real-time personalization of [Eatigo](https://clevertap.com/case-study/how-eatigo-boosted-reservations/) for individual diners.
 
-### 4.1. Phân khúc khách hàng của PasGo (Mô hình hai đầu B2B và B2C)
-- **Khách hàng đối tác nhà hàng (B2B):** Hướng tới các **nhà hàng thuộc phân khúc trung và cao cấp** sở hữu không gian phục vụ tại chỗ quy mô vừa và lớn (Buffet, Lẩu & Nướng, Hải sản, Ẩm thực Á - Âu, nhà hàng khách sạn 4-5 sao, chuỗi ẩm thực lớn như Goldsun Food, Al Fresco's, Hoàng Yến) có nhu cầu tối ưu công suất bàn trống và thu hút các đoàn khách đặt tiệc ([Hợp tác PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)). Mô hình không hướng tới các quán ăn vỉa hè nhỏ lẻ hoặc quầy bán mang đi.
-- **Khách hàng người dùng cuối (B2C):** Nhân viên văn phòng, người phụ trách tổ chức tiệc cơ quan, họp mặt gia đình hoặc tiếp khách đối tác có nhu cầu xác nhận giữ chỗ trước (yêu cầu phòng riêng, sức chứa lớn) và mong muốn tối ưu chi phí ([Giới thiệu PasGo](https://pasgo.vn/tin-tuc/gioi-thieu-pasgo-101)).
+### 6. User Flow Diagrams
 
-### 4.2. Phân khúc khách hàng của KiotViet F&B (Mô hình 100% B2B)
-Hướng tới độ phủ diện rộng trên toàn bộ thị trường F&B, từ **hộ kinh doanh cá thể quy mô nhỏ đến các chuỗi nhà hàng quy mô vừa và lớn** (phục vụ hơn 50.000 cơ sở kinh doanh tại 34 tỉnh thành), được phân tách theo 3 nhóm mô hình nghiệp vụ ([Mô hình F&B KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-chuyen-nganh/tong-quan-mo-hinh-fnb/)):
-- **Nhóm dịch vụ tiện lợi / phục vụ nhanh:** Quán ăn truyền thống (phở, bún, cơm văn phòng), quán Cafe, Trà sữa, mô hình bán mang đi (Take-away).
-- **Nhóm dịch vụ tính phí theo thời gian:** Điểm kinh doanh Billiards (Bida), Karaoke, Bar/Pub/Club.
-- **Nhóm dịch vụ phục vụ chuyên nghiệp:** Nhà hàng gọi món (A la carte), nhà hàng Buffet, Fine Dining, căng-tin và các trạm dừng nghỉ ẩm thực ([KiotViet Bar-Cafe-Nhà hàng](https://www.kiotviet.vn/bar-cafe-nha-hang)).
+#### PasGo User Flow (B2C Reservation & B2B Reconciliation via MB PasGo)
 
----
+```mermaid
+flowchart TD
+    A(["Diner visits PasGo web/app"]) --> B["Search by area / SEO collection / amenity filters"]
+    B --> C["View venue page: menu, promotions, booking conditions"]
+    C --> D{"Select booking method"}
 
-## 5. Phân chia Vai trò Người dùng và Cơ chế Phân quyền (User Roles & Access Control)
+    D -->|"Online booking"| E["Enter adult/child count, date/time, select promo package & notes"]
+    D -->|"Banquet/group consultation"| F["Call hotline 0931006005 or submit contextual chat form"]
 
-Cấu trúc vai trò người dùng phản ánh rõ nét sự khác biệt giữa mô hình Sàn giao dịch kết nối đa bên (Multi-sided Platform) của PasGo và Hệ thống quản trị vận hành nội bộ phân quyền theo vai trò (Role-Based Access Control - RBAC) của KiotViet:
+    E --> G["Confirm reservation"]
+    F --> H["PasGo agent advises & creates order on behalf of diner"]
 
-### 5.1. Mô hình vai trò trong hệ sinh thái PasGo
-- **Thực khách (Customer / Member):** Đăng nhập ứng dụng hoặc website PasGo để tìm kiếm địa điểm, lưu trữ mục yêu thích, gửi yêu cầu đặt chỗ, hủy đơn và thực hiện đánh giá chất lượng dịch vụ ([Quy chế hoạt động PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
-- **Quản trị cơ sở / Bộ phận tiếp đón (Reception / Branch Manager trên MB PasGo):** Mỗi điểm kinh doanh được cấp tài khoản [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) (giới hạn tối đa 3 thiết bị di động đồng thời trên ứng dụng di động, không giới hạn trên giao diện web) để tiếp nhận thông báo đặt chỗ, xử lý xác nhận hoặc từ chối yêu cầu, và cập nhật số lượng khách/giá trị hóa đơn thực tế trong vòng 48 giờ.
-- **Quản lý chuỗi & Kế toán đối tác (Chain Manager / Partner Accountant trên MB PasGo):** Dành cho thương hiệu sở hữu nhiều chi nhánh nhằm theo dõi số liệu toàn chuỗi, rà soát dữ liệu đối soát và thực hiện phê duyệt nghiệm thu bảng kê phí dịch vụ định kỳ trước hạn cuối tháng ([Quy chế hoạt động PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
-- **Quản trị nền tảng & Tổng đài viên (Platform Admin / Customer Support):** Đội ngũ vận hành của PasGo chịu trách nhiệm thẩm định tính hợp pháp của cơ sở nhà hàng, kiểm duyệt thông tin và đánh giá, điều phối đặt chỗ và hỗ trợ xử lý khiếu nại dịch vụ ([Quy chế hoạt động PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
+    G --> I["System pushes order to restaurant's MB PasGo"]
+    H --> I
 
-### 5.2. Hệ thống phân quyền RBAC trong KiotViet F&B
-- **Chủ gian hàng / Quản trị cấp cao (Super Admin):** Nắm toàn quyền thiết lập hệ thống, truy xuất hệ thống báo cáo kết quả kinh doanh (doanh thu, lợi nhuận gộp, giá vốn), cấu hình thuế, tích hợp hóa đơn điện tử và khai thác trợ lý phân tích dữ liệu AI ([Trợ lý KiCi](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/retail-thiet-lap/tro-ly-kici/)).
-- **Quản lý chi nhánh (Branch Manager):** Sử dụng ứng dụng [KiotViet Quản lý](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-lam-quen-voi-kiotviet/huong-dan-chon-ung-dung-cho-kiotviet-fnb/) để quản lý thực đơn, kiểm soát tồn kho, chấm công nhân sự và theo dõi báo cáo doanh thu trong phạm vi cơ sở được phân công ([Quản lý người dùng KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/retail-thiet-lap/quan-ly-nguoi-dung/)).
-- **Nhân viên Thu ngân (Cashier):** Sử dụng ứng dụng [KiotViet Thu ngân / Thiết bị POS](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-lam-quen-voi-kiotviet/huong-dan-chon-ung-dung-cho-kiotviet-fnb/) để sắp xếp bàn, tạo đơn tại quầy, tiếp nhận đơn từ các ứng dụng giao đồ ăn (GrabFood, ShopeeFood), in hóa đơn thanh toán, thu tiền và thực hiện bàn giao ca làm việc.
-- **Nhân viên Phục vụ (Waitstaff / Order Taker):** Sử dụng ứng dụng [KiotViet Nhân viên](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-lam-quen-voi-kiotviet/huong-dan-chon-ung-dung-cho-kiotviet-fnb/) trên thiết bị di động để ghi nhận order tại bàn, hỗ trợ chuyển bàn/gộp bàn và chuyển lệnh chế biến xuống khu vực bếp/bar; không có quyền truy cập doanh thu tổng hoặc tự ý hủy hóa đơn đã tạo.
-- **Bộ phận Bếp / Quầy pha chế (Kitchen / Bar Staff):** Tiếp nhận thông tin chế biến qua màn hình điều phối bếp (KDS) hoặc phiếu in từ [ứng dụng In Bar – Bếp](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/in-bar-bep-kvprinter/cai-dat-in-bar-bep/), cập nhật tiến độ chế biến và xác nhận hoàn tất món ([Thông báo chế biến KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/fnb-che-bien/thong-bao-che-bien/)).
-- **Vai trò tùy biến bổ sung (Custom Roles):** Cho phép thiết lập các vai trò đặc thù (như Thủ kho, Kế toán cơ sở) với ma trận phân quyền chi tiết (ẩn giá vốn sản phẩm, giới hạn quyền theo nhóm hàng hóa, giới hạn khung giờ đăng nhập theo ca làm việc) ([Quản lý người dùng KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/retail-thiet-lap/quan-ly-nguoi-dung/)).
+    I --> J{"Restaurant checks table availability on MB PasGo"}
+    J -->|"Declined (no tables)"| K["Notify diner & call center suggests alternatives"]
+    J -->|"Accepted"| L["Diner receives booking confirmation"]
 
----
+    L --> M{"Diner status at scheduled time"}
+    M -->|"Cancelled or no-show"| N["Order auto-transitions to Cancelled"]
+    M -->|"Diner arrives and dines"| O["PasGo promo applied & diner pays at restaurant"]
 
-## 6. Tính năng Trí tuệ Nhân tạo (AI): So sánh và Đánh giá Kỹ thuật
+    O --> P{"MB PasGo update within 48 hours"}
+    P -->|"Restaurant confirms"| Q["Update actual guest count, enter bill total & upload receipt photo"]
+    P -->|"No action after 48h"| R["System auto-locks record using original booking data"]
 
-Mức độ ứng dụng công nghệ AI giữa hai nền tảng có sự phân hóa rõ rệt: **KiotViet đã triển khai nhiều tính năng AI tạo sinh (Generative AI) và AI phân tích chuyên sâu**, trong khi **PasGo chủ yếu khai thác các thuật toán gợi ý dựa trên quy tắc và hành vi (Rule-based & Recommendation Algorithms)**.
+    Q --> S(["Lock order data & aggregate into monthly statement on the 26th"])
+    R --> S
+```
 
-### 6.1. Phân hệ Trí tuệ Nhân tạo của KiotViet F&B
-- **Trợ lý ảo AI KiCi (Conversational BI & Thị giác máy tính chẩn đoán lỗi):** Được tích hợp trên giao diện quản trị, cho phép chủ cơ sở truy vấn các chỉ số kinh doanh trọng yếu (doanh thu, biên lợi nhuận, nhóm mặt hàng đóng góp doanh thu cao, công nợ) bằng ngôn ngữ tự nhiên, tự động kết xuất biểu đồ trực quan, lập lịch gửi báo cáo và ứng dụng thị giác máy tính (**Computer Vision**) để nhận diện ảnh chụp màn hình nhằm hỗ trợ phát hiện lỗi thao tác trong ca làm việc ([Trợ lý KiCi](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/retail-thiet-lap/tro-ly-kici/)).
-- **Phân tích kinh doanh dự đoán (Predictive Analytics):** Được cung cấp trong [Gói Cao Cấp (490.000đ/tháng)](https://www.kiotviet.vn/phi-dich-vu), sử dụng thuật toán phân cụm khách hàng (khách hàng trung thành, khách hàng tiềm năng, khách hàng có dấu hiệu rời bỏ), dự báo tỷ lệ rời bỏ (Churn Rate), ước tính mức doanh thu tiềm ẩn nguy cơ tổn thất, thiết lập biểu đồ nhiệt (Heatmap) khung giờ cao điểm và biểu đồ thác nước (Waterfall) bóc tách các yếu tố biến động doanh thu ([Phân tích KiotViet](https://www.kiotviet.vn/huong-dan-su-dung-kiotviet/salon-phan-tich/phan-tich/)).
-- **Tạo đơn hàng bằng giọng nói qua AI (Voice-to-Order trên Knote):** Ứng dụng di động [Knote của KiotViet](https://tienphong.vn/len-don-bang-ai-pho-cap-cong-nghe-cho-ho-kinh-doanh-nho-va-sieu-nho-post1756764.tpo) tích hợp mô hình ngôn ngữ lớn được tinh chỉnh riêng cho ngữ cảnh tiếng Việt (có khả năng nhận dạng thuật ngữ khẩu ngữ, phương ngữ vùng miền và xử lý tạp âm môi trường quán F&B) nhằm tự động tạo đơn và tính tiền dựa trên câu lệnh thoại (ví dụ: *"Một cafe sữa đá 20.000 đồng"*).
-- **Hỗ trợ sinh nội dung tự động trên KiotViet Web:** Tích hợp mô hình AI tạo sinh nhằm hỗ trợ tạo tự động bản mô tả sản phẩm và nội dung giới thiệu khi thiết lập website bán hàng ([KiotViet Web](https://web.kiotviet.vn/)).
+#### Eatigo User Flow (Time-slot Discount Booking & AI Recommendations)
 
-### 6.2. Ứng dụng Thuật toán Thông minh của PasGo
-- **Hiện trạng về Generative AI:** Chưa tích hợp các mô hình trợ lý ngôn ngữ lớn (LLM) hoặc chatbot AI hội thoại tự nhiên trên cả ứng dụng thực khách lẫn giao diện quản trị [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo).
-- **Hệ sinh thái gợi ý dựa trên định vị và hành vi người dùng (Recommendation & Location Intelligence):** Khai thác dữ liệu lịch sử đặt chỗ, tần suất xem địa điểm, sở thích ẩm thực và dữ liệu định vị địa lý theo thời gian thực để cá nhân hóa danh sách gợi ý nhà hàng ([Quy chế hoạt động PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)); đồng thời hỗ trợ phân tích hành vi khách hàng và tự động hóa quy trình đối soát số liệu tại [Gói Cốt Lõi và Gói Cao Cấp](https://pasgo.vn/blog/gioi-thieu-cac-goi-dich-vu-cua-nen-tang-dat-ban-nha-hang-pasgo-va-lua-chon-5711).
+```mermaid
+flowchart TD
+    A(["Diner opens Eatigo web/app"]) --> B["Select city, date, party size & search restaurants"]
+    B --> C["View restaurant details & 30-min discount % chart"]
 
----
+    C --> D{"User behavior"}
+    D -->|"Leaves without booking"| E["CleverAI triggers push/email with similar restaurant suggestions"]
+    E --> C
 
-## 7. Tổng hợp Đánh giá và Định hướng Ứng dụng cho Dự án DineVina
+    D -->|"Selects 10%–50% discount time slot"| F["Enter details & Eatigo Cash Voucher ECV code if available"]
+    F --> G["System deducts seat inventory & confirms instantly (Instant Booking)"]
 
-### 7.1. Tính chất bổ trợ giữa hai mô hình
-Phân tích chuỗi giá trị F&B cho thấy hai mô hình không loại trừ lẫn nhau mà đóng vai trò tương hỗ trong hệ sinh thái:
-- **Hệ thống POS nội bộ (đại diện bởi KiotViet F&B):** Đóng vai trò là hệ thống vận hành cốt lõi (Core Operations System), chịu trách nhiệm duy trì tính chính xác trong xử lý order tại chỗ, giao tiếp giữa phục vụ và bếp, kiểm soát kho nguyên vật liệu và đáp ứng chuẩn mực pháp lý về hóa đơn thuế.
-- **Nền tảng kết nối đặt bàn (đại diện bởi PasGo):** Đóng vai trò là kênh thu hút nhu cầu (Demand Generation Channel), vận hành như phễu tiếp thị từ bên ngoài nhằm tăng lượng thực khách mới, tiếp cận nhóm khách hàng đặt tiệc số lượng lớn và lấp đầy công suất bàn vào các khung giờ thấp điểm.
+    G --> H{"Pre-meal status"}
+    H -->|"Diner cancels via app"| I["CleverAI displays 5 real-time alternative restaurants"]
+    I --> C
 
-### 7.2. Định hướng và Bài học rút ra cho Dự án DineVina
-Căn cứ vào phạm vi sản phẩm của DineVina (tập trung vào Discovery, Menus, Table Reservations, Event Booking và AI Assistance; không bao gồm quản lý toàn diện SME như kho hàng chuyên sâu hay kế toán thuế), việc khảo sát hai nền tảng mang lại các cơ sở thiết kế hệ thống quan trọng:
-1. **Xác định ranh giới chức năng rõ ràng (Scope Boundaries):** DineVina cần tập trung tối ưu trải nghiệm khám phá nhà hàng, đặt bàn và hỗ trợ đặt tiệc/sự kiện (tương tự giá trị cốt lõi của PasGo), tránh sa đà vào các tính năng quản lý vận hành nội bộ phức tạp tại điểm bán (như điều phối bếp KDS chi tiết, trừ kho theo gram hay hóa đơn thuế kế toán) vốn thuộc về phạm vi của các phần mềm POS chuyên dụng.
-2. **Thiết kế phân hệ phân quyền người dùng (Role-Based Access Control):** Kế thừa kinh nghiệm phân tách vai trò rõ ràng giữa Thực khách (Customer), Quản lý cơ sở (Restaurant Partner) và Quản trị nền tảng (Platform Admin) để đảm bảo luồng thông tin đặt chỗ và kiểm soát trạng thái bàn diễn ra thông suốt, an toàn.
-3. **Ứng dụng AI có trọng tâm và giải quyết nhu cầu thực tế:** Thay vì phân tán nguồn lực, định hướng tích hợp AI của DineVina nên tập trung vào:
-   - Hệ thống gợi ý nhà hàng cá nhân hóa (Personalized Recommendations) dựa trên ngữ cảnh và sở thích người dùng.
-   - Trợ lý thông tin hỏi đáp (RAG Assistant) nhằm giải đáp thông tin món ăn, chính sách đặt bàn từ dữ liệu đã xác thực của nhà hàng.
-   - Hỗ trợ trích xuất thực đơn tự động (Menu OCR) từ hình ảnh/tài liệu của đối tác nhà hàng nhằm tối ưu hóa quy trình đưa đối tác lên hệ thống (Onboarding).
+    H -->|"Diner keeps reservation"| J{"Fair User Policy (FUP) check at restaurant"}
+    J -->|"Late arrival or party size mismatch"| K["Restaurant may refuse table/discount & mark as no-show"]
+    J -->|"On-time arrival & correct party size"| L["Restaurant marks Attended on Eatigo Merchant Dashboard"]
+
+    L --> M["Diner receives bill with time-based discount % + ECV applied"]
+    M --> N["Diner pays restaurant directly & submits review"]
+    N --> O{"30-day activity check"}
+    O -->|"No new booking"| P(["CleverAI sends multi-channel churn prevention campaign with personalized suggestions"])
+    O -->|"Re-books within 30 days"| B
+```
