@@ -29,6 +29,7 @@ The team uses the following tools:
 - Members must notify the team in advance if they cannot attend a meeting.
 - Important decisions and meeting outcomes must be documented.
 - Members must update their assigned tasks on Trello and report difficulties promptly.
+- Questions and clarifications about a task should be discussed in the Trello card comments.
 - All discussions should remain respectful and constructive.
 
 **Meeting Schedule:**
@@ -51,14 +52,19 @@ The project follows Scrum with **five sprints**, each corresponding to a Project
 
 The team will follow official assignment deadlines announced through Moodle. Detailed task deadlines will be managed on Trello.
 
-**Task and Deadline Rules:**
+**Task Assignment, Review, and Deadline Rules:**
 
-1. All tasks, including coding, documentation, testing, and self-training, must be recorded on Trello before work begins.
-2. Each task must have exactly one responsible member and a separate reviewer.
-3. Task records must include creation, assignment, and actual completion dates, along with the agreed deadline.
-4. Members must update task progress regularly and complete assigned work on time.
-5. If delays occur, the responsible member must notify the team, explain the issue, and propose a revised deadline.
-6. The team may adjust schedules or reassign unfinished tasks when necessary.
+1. The Scrum Master drafts sprint tasks and their acceptance criteria on Trello.
+2. When assigning a task, the team agrees on the responsible member, one reviewer, and the deadline.
+3. A task normally has one responsible member. Two members may work on a larger task when necessary.
+4. The reviewer should not be directly responsible for completing the task.
+5. The responsible member updates the task status and discusses questions or clarifications in the Trello card comments.
+6. When the work is complete, the responsible member attaches the relevant document, commit, pull request, or other evidence and moves the task to **In Review**.
+7. The reviewer checks the acceptance criteria. An approved task is moved to **Done**; otherwise, it is returned for revision.
+8. If a task is reassigned, the current responsible member leaves a short comment describing the completed and remaining work.
+9. If delays occur, the responsible member notifies the team, explains the issue, and proposes a revised deadline.
+
+The Trello workflow is **Product Backlog → Sprint To Do → In Progress → In Review → Done**. The number of tasks in progress depends on the sprint workload and the team's available capacity.
 
 Members will coordinate their availability through Zalo. Work sessions and meetings may be adjusted to accommodate academic schedules and unexpected circumstances, provided that project deadlines and required deliverables are maintained.
 
@@ -135,3 +141,19 @@ All members must review and agree to the initial contract before starting the pr
 **Team Agreement**
 
 By agreeing to this contract, all members commit to fulfilling their responsibilities, following the established rules, and collaborating throughout the development of DineVina.
+
+## 4.9. Final Approval
+
+All five team members reviewed and approved this Team Contract on 16 October 2026.
+
+| Member | Approval Status | Approval Date |
+|---|---|---|
+| Hoàng Cao Phong | Approved | 16 October 2026 |
+| Võ Mỹ Ngọc | Approved | 16 October 2026 |
+| Lương Thiện Nhân | Approved | 16 October 2026 |
+| Nguyễn Trung Kiên | Approved | 16 October 2026 |
+| Trương Khánh Duy | Approved | 16 October 2026 |
+
+**Contract Version:** 1.0
+
+**Status:** Approved by all five team members
