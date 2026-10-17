@@ -15,7 +15,7 @@ class DataStore:
             {
                 "id": "evt_101",
                 "venue_id": "v3",
-                "venue_name": "Dim Tu Tac - Ẩm Thực Quảng Đông",
+                "venue_name": "Cung Đình Dimsum - Mỹ Vị Phương Đông",
                 "customer_id": "cust_1",
                 "customer_name": "Nguyễn Văn A",
                 "customer_phone": "0912 345 678",
@@ -37,8 +37,8 @@ class DataStore:
                     {
                         "id": "m2",
                         "sender_role": "partner",
-                        "sender_name": "Quản lý Dim Tu Tac",
-                        "body": "Dạ Dim Tu Tac xin chào quý khách. Nhà hàng có phòng VIP Hoa Mai sức chứa tối đa 22 khách, set menu Tiệc Phúc Lộc Thọ 550.000đ/người kèm Vịt quay Bắc Kinh 2 món và hỗ trợ setup backdrop sinh nhật miễn phí.",
+                        "sender_name": "Quản lý Cung Đình Dimsum",
+                        "body": "Dạ Cung Đình Dimsum xin chào quý khách. Nhà hàng có phòng VIP Hoa Mai sức chứa tối đa 22 khách, set menu Tiệc Phúc Lộc Thọ 550.000đ/người kèm Vịt quay giòn bì 2 món và hỗ trợ setup backdrop sinh nhật miễn phí.",
                         "created_at": "2026-10-15 11:00"
                     }
                 ],
@@ -57,9 +57,9 @@ class DataStore:
             },
             "partner_1": {
                 "id": "partner_1",
-                "email": "doitac@manwah.vn",
-                "full_name": "Quản Lý Nhà Hàng (Manwah)",
-                "phone": "028 7300 7981",
+                "email": "doitac@lauhoanggia.vn",
+                "full_name": "Quản Lý Nhà Hàng (Chi nhánh 01)",
+                "phone": "028 7300 1111",
                 "role": "partner",
                 "avatar_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
                 "role_label": "Đối tác nhà hàng"

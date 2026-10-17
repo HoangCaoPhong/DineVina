@@ -13,12 +13,12 @@ def test_venues_discovery():
     assert res.status_code == 200
     data = res.json()
     assert len(data) > 0
-    assert any("Manwah" in v["name"] for v in data)
+    assert any("Lẩu Hoàng Gia" in v["name"] for v in data)
 
 def test_venue_detail_and_menu():
     res = client.get("/api/venues/v1")
     assert res.status_code == 200
-    assert res.json()["name"].startswith("Manwah")
+    assert res.json()["name"].startswith("Nhà Hàng Lẩu Hoàng Gia")
 
     menu_res = client.get("/api/venues/v1/menu")
     assert menu_res.status_code == 200

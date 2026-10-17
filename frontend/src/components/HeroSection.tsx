@@ -67,7 +67,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <input
                   type="text"
                   className="input-field"
-                  placeholder="Tìm tên nhà hàng, món ăn (VD: Manwah, Gyu-Kaku, Dim Tu Tac)..."
+                  placeholder="Tìm tên nhà hàng, món ăn (VD: Lẩu Hoàng Gia, Nướng Sakura, Cung Đình Dimsum)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleKeyDown}

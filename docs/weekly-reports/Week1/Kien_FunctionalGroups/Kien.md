@@ -1,8 +1,8 @@
-﻿# Functional Groups
+# Functional Groups
 
-<!-- EXTENDED: Tiêu đề đổi từ "3.3. Nine Functional Groups" → "Functional Groups" để phản ánh số lượng group đã tăng lên 11 -->
+<!-- EXTENDED: Tiêu đề "Functional Groups" phản ánh 10 functional groups chính của hệ thống -->
 
-**Project:** DineVina – Smart Restaurant Reservation and Event Booking System (Group 8)  
+**Project:** DineVina – Restaurant Reservation and Event Booking System (Group 8)  
 **Author:** Nguyen Trung Kien (24127068), Backend Engineer  
 **Planned stack:** React with TypeScript, FastAPI, PostgreSQL, Docker Compose  
 
@@ -12,7 +12,7 @@
 
 ## Introduction
 
-DineVina serves three actors: **Customer**, **Restaurant Partner**, and **Administrator**. The nine groups cover the journey from account creation to a confirmed table or an event request. Payment processing and restaurant accounting are out of scope, and no native mobile application is included.
+DineVina serves three actors: **Customer**, **Restaurant Partner**, and **Administrator**. The ten groups cover the journey from account creation to a confirmed table or an event request. Payment processing and restaurant accounting are out of scope, and no native mobile application is included.
 
 ---
 
@@ -28,9 +28,8 @@ DineVina serves three actors: **Customer**, **Restaurant Partner**, and **Admini
 | 6 | Event booking | Customer, Partner | Release 2 |
 | 7 | Availability and partner dashboard | Partner | Release 1 (basic), Release 2 (full) |
 | 8 | Promotions and editorial | Partner, Admin, Customer | Release 2 |
-| 9 | Intelligent assistance | Customer, Admin | Release 3 |
-| 10 | Notifications | Customer, Partner | Release 1 |
-| 11 | Ratings and reviews | Customer, Admin | Release 2 |
+| 9 | Notifications | Customer, Partner | Release 1 |
+| 10 | Ratings and reviews | Customer, Admin | Release 2 |
 | — | Cancellation policy | Customer, Partner | Release 1 (rules only) |
 
 <!-- ADDED: Rows 10, 11, and Cancellation Policy added to Overview table -->
@@ -49,9 +48,8 @@ flowchart TD
     G6["⑥ Event Booking"]
     G7["⑦ Availability & Dashboard"]
     G8["⑧ Promotions & Editorial"]
-    G9["⑨ Intelligent Assistance"]
-    G10["⑩ Notifications"]
-    G11["⑪ Ratings & Reviews"]
+    G9["⑨ Notifications"]
+    G10["⑩ Ratings & Reviews"]
 
     G1 --> G2
     G1 --> G3
@@ -60,22 +58,17 @@ flowchart TD
     G1 --> G6
     G1 --> G7
     G1 --> G8
-    G1 --> G9
 
     G2 --> G3
     G2 --> G4
     G2 --> G5
     G2 --> G6
-    G2 --> G9
 
     G7 --> G5
 
-    G3 --> G9
-    G4 --> G9
-
+    G5 --> G9
+    G6 --> G9
     G5 --> G10
-    G6 --> G10
-    G5 --> G11
 ```
 
 > **Conventions for proposed APIs:** Endpoints are proposals to confirm with the frontend. Every protected endpoint checks role and ownership. All errors use one shared format. List endpoints are paginated.
@@ -90,7 +83,7 @@ flowchart TD
 
 - Register, sign in, sign out, and reset a forgotten password by email.
 - View and edit profile: name, phone, avatar; partners also keep a contact person.
-- Optional customer preferences (cuisine, area, price, usual party size), stored with consent and reused by group 9.
+- Optional customer preferences (cuisine, area, price, usual party size), stored with consent.
 - Change password; delete account on request.
 
 ### Proposed API
@@ -249,7 +242,7 @@ GET /venues/{id}
 
 ## 4. Menus
 
-**Purpose:** Let customers judge whether a venue suits them before reserving, and give group 9 verified menu data.
+**Purpose:** Let customers judge whether a venue suits them before reserving, and provide verified menu data.
 
 ### Main Functions
 
@@ -742,6 +735,5 @@ flowchart LR
 
 - The API returns a structured error for every foreseeable failure; no stack traces are exposed to clients.
 - Capacity checks use `SELECT ... FOR UPDATE` or equivalent to prevent double booking under concurrent load.
-- A failing AI component (Group 9) falls back to ordinary filters without returning an error to the user.
 
 ---
