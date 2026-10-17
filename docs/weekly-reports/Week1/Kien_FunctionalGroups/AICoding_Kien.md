@@ -19,16 +19,19 @@ The objective of this setup is to establish an efficient, reproducible, and secu
 
 ## 2. Configured Foundation Models and Provider Accounts
 
-To power local command-line and agentic development without incurring unexpected costs, the following cloud model accounts and model endpoints ("các con model dự kiến dùng") have been set up and verified:
+From the verified roster of **141 available models** on Alibaba Cloud Model Studio, the following top-tier foundation models ("các con model dự kiến dùng") have been benchmarked and selected for DineVina's backend engineering workflow:
 
-| # | Provider / Platform | Model Code / Name | Model Type | Allocation / Quota | Primary Use Case in DineVina |
-|---|-------------------|-------------------|------------|--------------------|------------------------------|
-| 1 | **Alibaba Cloud Model Studio** | `qwen3.5-122b-a10b` | MoE Large Language Model | 1,000,000 free tokens (Valid to 2027/01/14) | High-reasoning code generation, complex refactoring, API contract design |
-| 2 | **Alibaba Cloud Model Studio** | `qwen2.5-coder-32b-instruct` | Specialized Code LLM | High-throughput coding quota | Fast inline code completion, function generation, test fixture creation |
-| 3 | **Google AI / Antigravity Agent** | Gemini 2.5 / 3.0 Series | Autonomous Agentic Engine | IDE Developer Quota | Architecture planning, fullstack prototype scaffold, GCP cloud deployment |
+| # | Model Code / Identifier | Model Family & Architecture | Primary Specialization | Role & Practical Value in DineVina |
+|---|-------------------------|----------------------------|------------------------|------------------------------------|
+| 1 | **`qwen3.5-122b-a10b`** | Alibaba Qwen (MoE 122B) | General / MoE Reasoning | **Primary Account Anchor:** 1M free quota active; high-throughput architectural drafting and data modeling. |
+| 2 | **`kimi-k2.7-code`** | Moonshot Kimi Code Engine | Specialized Code Generation | **Core Pair Programming:** Deep code understanding, syntax correctness for FastAPI endpoints, Pydantic schemas. |
+| 3 | **`deepseek-v4-pro`** / `deepseek-v4.1-flash` | DeepSeek V4 Architecture | Algorithmic & Logic Reasoning | **Concurrency & State Machines:** Designing reservation transaction locking (`FOR UPDATE`), cutoff enforcement, and test fixtures. |
+| 4 | **`qwen3.8-max`** / `qwen3.7-max` | Qwen 3.8 Flagship Series | Frontier Reasoning & System Design | **Architecture & Security:** Multi-tenant partner permission auditing, database schema constraints, and edge-case diagnosis. |
+| 5 | **`qwen3-coder-flash`** | Qwen 3 Coder Series | Low-latency Code Editing | **Terminal CLI Assistant:** High-speed pair programming with Aider CLI for rapid refactoring and Git diffs. |
+| 6 | **`text-embedding-v4`** & `qwen3-rerank` | Embedding & Rerank Engine | Semantic Vector Search | **Data Retrieval:** Powering semantic discovery matching and restaurant recommendation ranking. |
 
 ### Account Verification Status
-* **Personal Account Registration:** Confirmed on Alibaba Cloud Model Studio.
+* **Personal Account Registration:** Confirmed on Alibaba Cloud Model Studio (Quota verified: 141 models accessible).
 * **Environment Configuration:** API key exported locally via environment variables (`DASHSCOPE_API_KEY` / `OPENAI_API_BASE`).
 * **Secret Protection:** No API keys are written to repository files, shell configuration scripts, or Trello cards.
 
