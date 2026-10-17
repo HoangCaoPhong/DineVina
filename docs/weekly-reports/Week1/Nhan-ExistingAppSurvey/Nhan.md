@@ -102,6 +102,26 @@ flowchart TD
     R --> S
 ```
 
+##### PasGo User Flow Interface Evidence
+
+* **Step A — Diner visits PasGo web/app (`pasgo.vn/ho-chi-minh`):**
+  ![Step A - PasGo HCMC Landing Page](Pasgo_HomePage.png)
+
+* **Step B — Search by area / SEO collection / amenity filters:**
+  ![Step B - Search and Filter System](Pasgo_Search.png)
+
+* **Step C — View venue page (menu, promotions, booking conditions):**
+  ![Step C - Venue Details](Pasgo_VenueDetails.png)
+
+* **Step D & E — Online booking form (party size, date/time, contact info & notes):**
+  ![Step D & E - Reservation Form](Pasgo_BookingForm.png)
+
+* **Step F — Banquet/group consultation via live chat & hotline (`0931.006.005`):**
+  ![Step F - Consultation Chat](Pasgo_ConsultationChat.png)
+
+* **Step G — Confirm reservation & phone verification modal:**
+  ![Step G - Reservation Confirmation](Pasgo_BookingConfirmation.png)
+
 #### Eatigo User Flow (Time-slot Discount Booking & AI Recommendations)
 
 ```mermaid
