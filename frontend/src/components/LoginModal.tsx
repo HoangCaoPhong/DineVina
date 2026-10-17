@@ -190,7 +190,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                 >
                   <UserIcon size={16} color="var(--pasgo-red)" />
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1e293b' }}>Khách hàng</span>
-                  <span style={{ fontSize: '0.65rem', color: '#64748b' }}>Kiên Nguyễn</span>
+                  <span style={{ fontSize: '0.65rem', color: '#64748b' }}>Nguyễn Văn A</span>
                 </button>
 
                 <button
@@ -214,7 +214,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                 >
                   <Store size={16} color="#0284c7" />
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1e293b' }}>Đối tác</span>
-                  <span style={{ fontSize: '0.65rem', color: '#64748b' }}>Quản lý quán</span>
+                  <span style={{ fontSize: '0.65rem', color: '#64748b' }}>Quản lý nhà hàng</span>
                 </button>
 
                 <button
@@ -238,7 +238,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                 >
                   <ShieldCheck size={16} color="#059669" />
                   <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1e293b' }}>Admin</span>
-                  <span style={{ fontSize: '0.65rem', color: '#64748b' }}>Duyệt quán</span>
+                  <span style={{ fontSize: '0.65rem', color: '#64748b' }}>Quản trị viên</span>
                 </button>
               </div>
             </div>

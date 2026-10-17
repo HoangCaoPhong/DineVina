@@ -37,7 +37,7 @@ export const EventBookingView: React.FC<EventBookingViewProps> = ({
     try {
       await createEvent({
         venue_id: selectedVenueId,
-        customer_name: 'Nguyễn Trung Kiên',
+        customer_name: 'Nguyễn Văn A',
         customer_phone: '0912 345 678',
         occasion,
         headcount,
@@ -62,7 +62,7 @@ export const EventBookingView: React.FC<EventBookingViewProps> = ({
     try {
       await sendEventMessage(eventId, {
         sender_role: 'customer',
-        sender_name: 'Nguyễn Trung Kiên',
+        sender_name: 'Nguyễn Văn A',
         body: text.trim()
       })
       setReplyText({ ...replyText, [eventId]: '' })

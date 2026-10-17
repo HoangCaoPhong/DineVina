@@ -17,7 +17,7 @@ class DataStore:
                 "venue_id": "v3",
                 "venue_name": "Dim Tu Tac - Ẩm Thực Quảng Đông",
                 "customer_id": "cust_1",
-                "customer_name": "Nguyễn Trung Kiên",
+                "customer_name": "Nguyễn Văn A",
                 "customer_phone": "0912 345 678",
                 "occasion": "Tiệc sinh nhật gia đình",
                 "headcount": 18,
@@ -30,7 +30,7 @@ class DataStore:
                     {
                         "id": "m1",
                         "sender_role": "customer",
-                        "sender_name": "Nguyễn Trung Kiên",
+                        "sender_name": "Nguyễn Văn A",
                         "body": "Chào nhà hàng, mình muốn đặt phòng riêng cho 18 người dịp sinh nhật ba mình. Nhờ nhà hàng tư vấn set menu tiệc.",
                         "created_at": "2026-10-15 09:30"
                     },
@@ -38,7 +38,7 @@ class DataStore:
                         "id": "m2",
                         "sender_role": "partner",
                         "sender_name": "Quản lý Dim Tu Tac",
-                        "body": "Dạ Dim Tu Tac xin chào anh Kiên. Nhà hàng có phòng VIP Hoa Mai sức chứa tối đa 22 khách, set menu Tiệc Phúc Lộc Thọ 550.000đ/người kèm Vịt quay Bắc Kinh 2 món và hỗ trợ setup backdrop sinh nhật miễn phí.",
+                        "body": "Dạ Dim Tu Tac xin chào quý khách. Nhà hàng có phòng VIP Hoa Mai sức chứa tối đa 22 khách, set menu Tiệc Phúc Lộc Thọ 550.000đ/người kèm Vịt quay Bắc Kinh 2 món và hỗ trợ setup backdrop sinh nhật miễn phí.",
                         "created_at": "2026-10-15 11:00"
                     }
                 ],
@@ -48,8 +48,8 @@ class DataStore:
         self.users = {
             "cust_1": {
                 "id": "cust_1",
-                "email": "kien.nguyen@dinevina.vn",
-                "full_name": "Nguyễn Trung Kiên",
+                "email": "khachhang@dinevina.vn",
+                "full_name": "Nguyễn Văn A",
                 "phone": "0912 345 678",
                 "role": "customer",
                 "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
@@ -57,8 +57,8 @@ class DataStore:
             },
             "partner_1": {
                 "id": "partner_1",
-                "email": "partner@manwah.vn",
-                "full_name": "Trần Hải Long (Quản lý Manwah)",
+                "email": "doitac@manwah.vn",
+                "full_name": "Quản Lý Nhà Hàng (Manwah)",
                 "phone": "028 7300 7981",
                 "role": "partner",
                 "avatar_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
@@ -67,7 +67,7 @@ class DataStore:
             "admin_1": {
                 "id": "admin_1",
                 "email": "admin@dinevina.vn",
-                "full_name": "Hoàng Cao Phong",
+                "full_name": "Ban Quản Trị Hệ Thống",
                 "phone": "0909 888 999",
                 "role": "admin",
                 "avatar_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",

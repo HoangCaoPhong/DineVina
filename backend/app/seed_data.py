@@ -347,7 +347,7 @@ SEED_RESERVATIONS: List[Dict[str, Any]] = [
         "venue_address": "417 An Dương Vương, Phường 3, Quận 5",
         "venue_image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
         "customer_id": "cust_1",
-        "customer_name": "Nguyễn Trung Kiên",
+        "customer_name": "Nguyễn Văn A",
         "customer_phone": "0912 345 678",
         "reserved_date": "2026-10-18",
         "reserved_time": "18:00",
@@ -364,7 +364,7 @@ SEED_RESERVATIONS: List[Dict[str, Any]] = [
                 "from_status": "Initial",
                 "to_status": "Pending",
                 "actor_id": "cust_1",
-                "actor_name": "Nguyễn Trung Kiên (Khách hàng)",
+                "actor_name": "Nguyễn Văn A (Khách hàng)",
                 "reason": "Yêu cầu đặt bàn mới",
                 "changed_at": "2026-10-16 10:30"
             },
@@ -386,7 +386,7 @@ SEED_RESERVATIONS: List[Dict[str, Any]] = [
         "venue_address": "Tầng B3-17, 72 Lê Thánh Tôn, Bến Nghé, Quận 1",
         "venue_image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80",
         "customer_id": "cust_1",
-        "customer_name": "Nguyễn Trung Kiên",
+        "customer_name": "Nguyễn Văn A",
         "customer_phone": "0912 345 678",
         "reserved_date": "2026-10-19",
         "reserved_time": "11:30",
@@ -403,7 +403,7 @@ SEED_RESERVATIONS: List[Dict[str, Any]] = [
                 "from_status": "Initial",
                 "to_status": "Pending",
                 "actor_id": "cust_1",
-                "actor_name": "Nguyễn Trung Kiên",
+                "actor_name": "Nguyễn Văn A",
                 "reason": "Yêu cầu đặt bàn kèm ưu đãi 30%",
                 "changed_at": "2026-10-16 14:10"
             }
