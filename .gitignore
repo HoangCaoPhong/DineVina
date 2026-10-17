@@ -42,3 +42,6 @@ Thumbs.db
 # Course reports: source and final PDF are intentionally versioned.
 
 docs/ans
+
+# Aider chat history and input
+.aider*
