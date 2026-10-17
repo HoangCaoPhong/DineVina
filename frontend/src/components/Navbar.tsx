@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="brand-name">
               Dine<span>Vina</span>
             </div>
-            <div className="brand-tagline">Đặt Bàn Nhà Hàng & Giờ Vàng Eatigo</div>
+            <div className="brand-tagline">Đặt Bàn Nhà Hàng & Ưu Đãi Giờ Vàng</div>
           </div>
         </div>
 

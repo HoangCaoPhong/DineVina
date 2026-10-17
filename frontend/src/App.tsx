@@ -178,10 +178,10 @@ export function App() {
             <div className="section-header-row">
               <div className="section-title-wrap">
                 <h2 className="section-title">
-                  ⚡ Giờ Vàng Eatigo & Nhà Hàng Hot ({venues.length})
+                  Khung Giờ Ưu Đãi & Nhà Hàng Nổi Bật ({venues.length})
                 </h2>
                 <p className="section-subtitle">
-                  Đặt chỗ giữ bàn miễn phí qua DineVina · Nhận ưu đãi chiết khấu trực tiếp tới 50%
+                  Đặt chỗ giữ bàn trực tuyến qua DineVina · Áp dụng chiết khấu trực tiếp theo khung giờ
                 </p>
               </div>
 
@@ -272,7 +272,7 @@ export function App() {
           </div>
           <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.82rem' }}>
             <span>🍽️ Khám phá</span>
-            <span>⚡ Giờ vàng Eatigo</span>
+            <span>⚡ Khung giờ ưu đãi</span>
             <span>🛡️ Chính sách hủy bàn Cutoff</span>
             <span>🏪 Quản lý đối tác</span>
           </div>

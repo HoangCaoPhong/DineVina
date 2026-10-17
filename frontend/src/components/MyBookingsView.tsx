@@ -196,7 +196,7 @@ export const MyBookingsView: React.FC<MyBookingsViewProps> = ({
                   </span>
                   {res.discount_percent > 0 && (
                     <span style={{ color: 'var(--pasgo-red)', fontWeight: 800 }}>
-                      ⚡ Giảm {res.discount_percent}% Eatigo
+                      ⚡ Ưu đãi giảm {res.discount_percent}%
                     </span>
                   )}
                 </div>
@@ -278,7 +278,7 @@ export const MyBookingsView: React.FC<MyBookingsViewProps> = ({
                             }}
                             onClick={() => handleCancelSubmit(res.id)}
                           >
-                            Hủy ngay
+                            Xác nhận hủy
                           </button>
                         </div>
                       </div>
@@ -360,7 +360,7 @@ export const MyBookingsView: React.FC<MyBookingsViewProps> = ({
                 style={{ width: '100%' }}
                 disabled={submittingReview}
               >
-                {submittingReview ? 'Đang gửi đánh giá...' : 'Gửi Đánh Giá Ngay'}
+                {submittingReview ? 'Đang gửi đánh giá...' : 'Gửi đánh giá'}
               </button>
             </form>
           </div>

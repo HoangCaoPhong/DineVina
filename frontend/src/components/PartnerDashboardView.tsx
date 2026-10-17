@@ -96,7 +96,7 @@ export const PartnerDashboardView: React.FC<PartnerDashboardProps> = ({
           </div>
           <h1 className="section-title">Bảng Điều Khiển Quản Lý Đặt Bàn</h1>
           <p className="section-subtitle">
-            Tiếp nhận yêu cầu đặt bàn tức thì, kiểm tra công suất ({venues.length} nhà hàng đối tác) và phản hồi cho thực khách.
+            Tiếp nhận yêu cầu đặt bàn, kiểm tra công suất ({venues.length} nhà hàng đối tác) và phản hồi cho thực khách.
           </p>
         </div>
 
@@ -353,7 +353,7 @@ export const PartnerDashboardView: React.FC<PartnerDashboardProps> = ({
                 </div>
                 {res.discount_percent > 0 && (
                   <div style={{ color: '#ef4444', fontSize: '0.82rem', fontWeight: 700, marginTop: '2px' }}>
-                    ⚡ Ưu đãi Eatigo: Giảm {res.discount_percent}%
+                    ⚡ Ưu đãi khung giờ: Giảm {res.discount_percent}%
                   </div>
                 )}
                 {res.note && (

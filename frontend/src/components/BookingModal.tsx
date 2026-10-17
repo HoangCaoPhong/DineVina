@@ -123,7 +123,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <div><strong>Số lượng khách:</strong> {createdReservation.party_size} người</div>
                 {createdReservation.discount_percent > 0 && (
                   <div style={{ color: 'var(--pasgo-red)', fontWeight: 800 }}>
-                    ⚡ Ưu đãi Eatigo áp dụng: Giảm {createdReservation.discount_percent}% tổng hóa đơn thức ăn
+                    ⚡ Ưu đãi áp dụng: Giảm {createdReservation.discount_percent}% tổng hóa đơn thức ăn
                   </div>
                 )}
                 <div><strong>Trạng thái ban đầu:</strong> <span className="status-pill pending">Chờ nhà hàng xác nhận (Pending)</span></div>
@@ -206,7 +206,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
                   <label className="form-label">
                     <Clock size={14} style={{ display: 'inline', marginRight: '4px' }} />
-                    Khung giờ & Mức giảm giá Eatigo:
+                    Khung giờ & Mức giảm giá:
                   </label>
                   {selectedDiscount > 0 && (
                     <span style={{ color: '#ef4444', fontSize: '0.8rem', fontWeight: 800 }}>

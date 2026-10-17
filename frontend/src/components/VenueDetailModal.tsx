@@ -348,7 +348,7 @@ export const VenueDetailModal: React.FC<VenueDetailModalProps> = ({
               onOpenBooking(venue)
             }}
           >
-            Đặt chỗ ngay (Nhận ưu đãi)
+            Đặt bàn giữ chỗ
           </button>
         </div>
       </div>

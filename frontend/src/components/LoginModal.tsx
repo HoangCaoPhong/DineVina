@@ -165,7 +165,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({
                 gap: '4px'
               }}>
                 <Sparkles size={14} />
-                Đăng Nhập Nhanh Để Demo (Không cần gõ mật khẩu):
+                Tài khoản mẫu để trải nghiệm hệ thống:
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.5rem' }}>
@@ -357,8 +357,8 @@ export const LoginModal: React.FC<LoginModalProps> = ({
               {submitting
                 ? 'Đang xử lý...'
                 : mode === 'login'
-                ? 'Đăng Nhập Ngay'
-                : 'Hoàn Tất Đăng Ký'}
+                ? 'Đăng nhập'
+                : 'Đăng ký tài khoản'}
             </button>
           </form>
         </div>

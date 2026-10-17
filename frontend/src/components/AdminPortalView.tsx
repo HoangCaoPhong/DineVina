@@ -126,7 +126,7 @@ export const AdminPortalView: React.FC<AdminPortalProps> = ({ onRefreshAll }) =>
                   onClick={() => handleApprove(v.id)}
                 >
                   <CheckCircle2 size={16} />
-                  Duyệt Xuất Bản (Approve)
+                  Phê duyệt xuất bản
                 </button>
               </div>
             </div>

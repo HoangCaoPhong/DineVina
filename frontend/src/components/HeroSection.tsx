@@ -48,14 +48,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="hero-content-wrap">
           <div className="hero-pill-badge">
             <Zap size={15} fill="currentColor" />
-            NỀN TẢNG ĐẶT BÀN GIỮ CHỖ PASGO & ƯU ĐÃI GIỜ VÀNG EATIGO
+            HỆ THỐNG ĐẶT BÀN NHÀ HÀNG & ƯU ĐÃI GIỜ VÀNG DINEVINA
           </div>
 
           <h1 className="hero-title">
             Đặt Chỗ Nhà Hàng · <span>Giữ Chỗ Miễn Phí & Giảm Tới 50%</span>
           </h1>
           <p className="hero-subtitle">
-            Khám phá hơn 1.000+ điểm ăn uống chọn lọc tại TP.HCM. Đặt bàn nhanh chóng trong 30 giây, không cần mua voucher.
+            Khám phá các điểm ẩm thực chọn lọc tại TP.HCM. Đặt giữ chỗ trực tuyến tiện lợi, xác nhận trực tiếp cùng nhà hàng.
           </p>
 
           {/* PasGo Signature Floating Search Box */}
@@ -158,7 +158,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="promo-banners-row">
           <div className="promo-banner-card banner-1">
             <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', opacity: 0.9 }}>
-              ⚡ EATIGO O'CLOCK
+              ⚡ KHUNG GIỜ VÀNG
             </div>
             <div className="banner-title">Giảm 50% Khung Giờ Vàng</div>
             <div className="banner-sub">Áp dụng cho giờ thấp điểm 11:00 & 14:00 mỗi ngày</div>
@@ -166,7 +166,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           <div className="promo-banner-card banner-2">
             <div style={{ fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase', opacity: 0.9 }}>
-              🎉 PASGO TIỆC & SỰ KIỆN
+              🎉 ĐẶT TIỆC & SỰ KIỆN
             </div>
             <div className="banner-title">Đặt Tiệc Tặng Phòng Riêng VIP</div>
             <div className="banner-sub">Ưu đãi đoàn đông từ 15 khách, giảm thêm 10% bill thức ăn</div>

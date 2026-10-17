@@ -453,7 +453,7 @@ class DataStore:
             explanation = "Các nhà hàng có không gian phòng riêng sang trọng, phù hợp họp mặt gia đình hoặc tiếp khách."
         elif "rẻ" in q_lower or "ưu đãi" in q_lower or "giảm" in q_lower:
             matched = sorted(self.venues, key=lambda x: x.get("max_discount", 0), reverse=True)
-            explanation = "Tổng hợp các nhà hàng có mức giảm sâu nhất theo mô hình Eatigo (lên tới 50%)."
+            explanation = "Tổng hợp các nhà hàng có mức giảm sâu nhất theo khung giờ vàng (lên tới 50%)."
         else:
             matched = sorted(self.venues, key=lambda x: x.get("rating", 0), reverse=True)
             explanation = f"Gợi ý các nhà hàng được đánh giá cao nhất phù hợp với yêu cầu: '{query}'."

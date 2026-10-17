@@ -21,7 +21,7 @@ SEED_VENUES: List[Dict[str, Any]] = [
         "amenities": ["Phòng riêng", "Chỗ đỗ ô tô", "Ghế trẻ em", "Điều hòa", "Thanh toán thẻ"],
         "status": "approved",
         "max_discount": 30,
-        "deal_label": "Ưu đãi Eatigo giảm tới 30% buffet",
+        "deal_label": "Ưu đãi giảm tới 30% buffet",
         "opening_hours": "10:30 - 22:00",
         "description": "Lẩu Đài Loan truyền thống với nước dùng hầm xương thảo mộc thượng hạng và quầy tráng miệng kem Haagen-Dazs không giới hạn.",
         "full_description": "Manwah đưa thực khách vào hành trình khám phá phong vị ẩm thực xứ Đài với hương vị lẩu ngọt thanh từ thảo mộc quý cùng các loại thịt bò nhập khẩu hảo hạng: Bò Mỹ Iberico, gầu bò Úc, mực nút giòn sần sật.",
@@ -320,7 +320,7 @@ SEED_REVIEWS: List[Dict[str, Any]] = [
         "venue_id": "v1",
         "customer_name": "Trần Minh Quân",
         "rating": 5,
-        "body": "Đặt bàn qua DineVina được giảm ngay 30% giờ 11:00. Nhân viên giữ bàn chu đáo, đồ ăn ngon và kem Haagen-Dazs ăn thả ga!",
+        "body": "Đặt bàn qua DineVina được giảm 30% vào khung giờ 11:00. Nhân viên giữ bàn chu đáo, đồ ăn ngon và kem Haagen-Dazs ăn thỏa thích!",
         "created_at": "2026-10-14 13:40",
         "partner_reply": "Cảm ơn bạn Quân đã tin chọn Manwah! Hẹn gặp lại bạn lần tới nhé ạ.",
         "is_hidden": False
@@ -425,7 +425,7 @@ SEED_NOTIFICATIONS: List[Dict[str, Any]] = [
     {
         "id": "notif_2",
         "user_id": "cust_1",
-        "title": "Ưu đãi Eatigo mới",
+        "title": "Ưu đãi khung giờ mới",
         "message": "Gyu-Kaku vừa mở thêm 5 suất giảm 50% khung giờ 14:00 hôm nay!",
         "type": "deal",
         "read": True,

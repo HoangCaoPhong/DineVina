@@ -65,7 +65,7 @@ export const VenueCard: React.FC<VenueCardProps> = ({
         {/* Eatigo Time-slot discounts */}
         {venue.time_slots && venue.time_slots.length > 0 && (
           <div className="eatigo-slots-preview">
-            <div className="eatigo-slots-title">⚡ Chọn giờ ăn hưởng ưu đãi Eatigo:</div>
+            <div className="eatigo-slots-title">⚡ Chọn khung giờ nhận ưu đãi giảm giá:</div>
             <div className="slots-grid">
               {venue.time_slots.slice(0, 4).map((slot, idx) => (
                 <button
@@ -91,7 +91,7 @@ export const VenueCard: React.FC<VenueCardProps> = ({
             Menu & Chi tiết
           </button>
           <button className="btn-primary" onClick={() => onOpenBooking(venue)}>
-            Đặt bàn ngay
+            Đặt bàn
             <ChevronRight size={15} />
           </button>
         </div>

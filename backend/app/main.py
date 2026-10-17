@@ -15,7 +15,7 @@ from app.schemas import (
 from app.store import store
 
 app = FastAPI(
-    title="DineVina API - PasGo & Eatigo Clone Prototype",
+    title="DineVina API - Restaurant Reservation & Event Booking",
     version="0.2.0",
     description="Smart Restaurant Reservation & Event Booking System (Group 8 - CSC13002)"
 )
@@ -43,12 +43,12 @@ def system_info():
         "groups_implemented": [
             "1. Accounts & Profiles",
             "2. Restaurant Onboarding",
-            "3. Restaurant Discovery (PasGo/Eatigo)",
+            "3. Restaurant Discovery",
             "4. Menus",
             "5. Table Reservations",
             "6. Event Booking",
             "7. Availability & Partner Dashboard",
-            "8. Promotions (Eatigo Time-slot discounts)",
+            "8. Promotions (Time-slot discounts)",
             "9. Intelligent Assistance (AI Search)",
             "10. Notifications",
             "11. Ratings & Reviews",

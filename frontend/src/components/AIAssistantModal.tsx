@@ -173,7 +173,7 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({
 
                       {v.max_discount > 0 && (
                         <div style={{ fontSize: '0.75rem', color: 'var(--pasgo-red)', fontWeight: 800, marginBottom: '8px' }}>
-                          ⚡ Giảm tới {v.max_discount}% giờ vàng Eatigo
+                          ⚡ Giảm tới {v.max_discount}% theo khung giờ
                         </div>
                       )}
 
