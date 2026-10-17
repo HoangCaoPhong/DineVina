@@ -150,3 +150,20 @@ flowchart TD
     O -->|"No new booking"| P(["CleverAI sends multi-channel churn prevention campaign with personalized suggestions"])
     O -->|"Re-books within 30 days"| B
 ```
+
+##### Eatigo User Flow Interface Evidence
+
+* **Step A — Diner opens Eatigo web/app (`eatigo.com/en`):**
+  ![Step A - Eatigo Homepage](Eatigo_HomePage.png)
+
+* **Step B — Select city, date, party size & search restaurants (dynamic discount filtering):**
+  ![Step B - Search and Dynamic Discount Filters](Eatigo_SearchFilter.png)
+
+* **Step C — View restaurant details, 30-min discount % chart & AI foodie summary:**
+  ![Step C - Venue Details and Yield Management Discount Matrix](Eatigo_VenueDiscountChart.png)
+
+* **Step D & F — Select 10%–50% discount time slot & reservation modal:**
+  ![Step D & F - Time-Slot Selection and Booking Modal](Eatigo_BookingModal.png)
+
+* **Step G & J — Fair User Policy (FUP), Special Conditions & Cancellation Policy:**
+  ![Step G & J - Fair User Policy and Booking Conditions](Eatigo_SpecialConditions_FUP.png)
