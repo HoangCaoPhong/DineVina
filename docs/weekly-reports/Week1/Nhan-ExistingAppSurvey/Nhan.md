@@ -1,8 +1,9 @@
 # Existing App Survey: PasGo vs Eatigo
+*Performed by: Lương Thiện Nhân (Data Management Lead) | Reviewed by: Hoàng Cao Phong (Scrum Master) | Edited by: Võ Mỹ Ngọc (Product Owner)*
 
-[PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) and [Eatigo](https://eatigo.com/en) are leading online restaurant reservation platforms in the region, each following a distinct product philosophy. [PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) focuses on group dining, banquet booking, and venue marketing in Vietnam, while [Eatigo](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/) operates on a time-based yield management model with dynamic discounts across Southeast Asia.
+[PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) and [Eatigo](https://eatigo.com/en) are leading online restaurant reservation platforms in the region, each following a distinct product philosophy. [PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cac-thuc-hop-tac-voi-pasgo-5786) focuses on group dining, banquet booking, and venue marketing in Vietnam, while [Eatigo](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/) operates on a time-based yield management model with dynamic discounts across Southeast Asia.
 
-### 1. Software Category: E-commerce or SaaS?
+## 1. Software Category: E-commerce or SaaS?
 
 Neither platform is a pure SaaS product. Both operate as **O2O (Online-to-Offline) two-sided service marketplaces with SaaS-enabled merchant tooling (SaaS-enabled Marketplace)**:
 
@@ -16,7 +17,7 @@ Neither platform is a pure SaaS product. Both operate as **O2O (Online-to-Offlin
 | **B2B fee model** | Commission (avg. 3%–7% of actual revenue), onboarding fee, and advertising/promotion packages ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)) | Fixed per-diner commission on seated guests and display campaign packages ([Ortem Case Study](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/)) |
 | **SaaS automation level** | Semi-automated: combines [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) software, Zalo reminders, and call-center agents ([PasGo Process](https://pasgo.vn/blog/quy-trinh-hop-tac-dich-vu-dat-cho-voi-pasgo-5789)) | Highly automated: instant booking against real-time seat inventory with POS integration ([Ortem Case Study](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/)) |
 
-### 2. Feature Comparison and Killer Features
+## 2. Feature Comparison and Killer Features
 
 | Feature Group | PasGo | Eatigo |
 | :---- | :---- | :---- |
@@ -35,7 +36,7 @@ Neither platform is a pure SaaS product. Both operate as **O2O (Online-to-Offlin
 >   * **30-minute dynamic discount chart (Time-based Yield Management):** Visualizes discounts from 10% (peak hours) up to **50% (off-peak, e.g. 14:00–17:00 or after 20:30)** directly on the restaurant card, incentivizing diners to shift meal times for better prices without requiring prepaid vouchers ([Eatigo Yield Management](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/)).
 >   * **Capacity protection via [Fair User Policy (FUP)](https://eatigo.com/en/fair-user-policy):** Strictly enforces arrival time and party size (similar to budget airline ticketing), ensuring restaurants actually fill the vacant tables in their desired time slots.
 
-### 3. Target Customer Segments (B2C & B2B)
+## 3. Target Customer Segments (B2C & B2B)
 
 > * **PasGo:**
 >   * **Individual & corporate diners (B2C):** Primarily targets **group dining** — office workers booking company dinners, client entertainment, families organizing birthdays or gatherings requiring guaranteed seating, private rooms, and VAT invoices ([PasGo Blog](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786)).
@@ -44,7 +45,7 @@ Neither platform is a pure SaaS product. Both operate as **O2O (Online-to-Offlin
 >   * **Individual diners (B2C):** Primarily targets **deal-seekers and flexible diners** — young professionals, couples, independent travelers, and office workers willing to dine 1–2 hours outside peak time for up to 50% off ([Eatigo Yield Management](https://blog.eatigo.com/singapore/how-eatigo-uses-yield-management-to-help-restaurants-maximise-profits/)).
 >   * **Restaurant partners (B2B):** 4,500–6,000+ restaurants across Singapore, Thailand, Malaysia, Hong Kong, and the Philippines, especially strong in **4–5 star hotel buffets** (Sheraton, Novotel, Marriott), fine dining, and F&B chains in shopping malls with high fixed rent/staff costs but low afternoon occupancy ([CleverTap Case Study](https://clevertap.com/case-study/how-eatigo-boosted-reservations/)).
 
-### 4. User Roles
+## 4. User Roles
 
 Both platforms implement a multi-tier authorization structure for their two-sided marketplace, comprising **six core role groups**:
 
@@ -55,7 +56,7 @@ Both platforms implement a multi-tier authorization structure for their two-side
 > 5. **Platform Operations / Call Center / Account Manager:** Particularly critical at [PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo), where the customer-service and sales team directly assists via the call center, creates bookings on behalf of diners, moderates venue listings, and sends partner reminders via Zalo ([PasGo Process](https://pasgo.vn/blog/quy-trinh-hop-tac-dich-vu-dat-cho-voi-pasgo-5789)).
 > 6. **System Admin & CMS Editor:** Manages platform-wide configuration, role-based access control, automatic statement locking, marketing/SEO campaigns, and user review moderation ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
 
-### 5. AI Feature Comparison
+## 5. AI Feature Comparison
 
 > * [**Eatigo**](https://clevertap.com/case-study/how-eatigo-boosted-reservations/) **(Deep AI/ML integration for personalization & conversion optimization):**
 >   * **AI Recommendation Engine ([CleverAI](https://clevertap.com/case-study/how-eatigo-boosted-reservations/)):** [Eatigo](https://clevertap.com/case-study/how-eatigo-boosted-reservations/) integrates CleverTap's AI/ML system, combining real-time behavioral analytics, booking history, and psychographics to automate three retention workflows:
@@ -67,9 +68,9 @@ Both platforms implement a multi-tier authorization structure for their two-side
 >   * **No prominent AI/GenAI features in the product:** [PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) uses GPS-based recommendation to suggest nearby venues and stores booking history/favorites to surface preference-matched listings ([PasGo Terms](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo)).
 >   * **Human-in-the-loop approach:** Instead of an AI chatbot or automated recommendations, [PasGo](https://pasgo.vn/blog/pasgo-la-gi-cac-cach-thuc-hop-tac-voi-pasgo-5786) auto-attaches the current venue context to chat/inquiry forms for **live call-center agents to advise directly**. This human-plus-tool approach suits the complexity of group/banquet bookings in Vietnam (menu negotiation, private rooms, deposits) but lacks the automated scalability and real-time personalization of [Eatigo](https://clevertap.com/case-study/how-eatigo-boosted-reservations/) for individual diners.
 
-### 6. User Flow Diagrams
+## 6. User Flow Diagrams & Interface Evidence
 
-#### PasGo User Flow (B2C Reservation & B2B Reconciliation via MB PasGo)
+### 6.1 PasGo User Flow (B2C Reservation & B2B Reconciliation via MB PasGo)
 
 ```mermaid
 flowchart TD
@@ -102,27 +103,39 @@ flowchart TD
     R --> S
 ```
 
-##### PasGo User Flow Interface Evidence
+#### PasGo User Flow Interface Evidence
 
 * **Step A — Diner visits PasGo web/app (`pasgo.vn/ho-chi-minh`):**
   ![Step A - PasGo HCMC Landing Page](Pasgo_HomePage.png)
+  * *Screen description:* The localized landing page for Ho Chi Minh City displaying top promotional banners, quick cuisine/district category chips, and curated dining collections (Buffet, Seafood, Family gatherings).
+  * *Feature mechanics:* The platform resolves the user's geographic location, renders active campaign banners, and provides categorized search pathways to guide users into venue exploration.
 
 * **Step B — Search by area / SEO collection / amenity filters:**
   ![Step B - Search and Filter System](Pasgo_Search.png)
+  * *Screen description:* The multi-attribute search and filtering interface featuring district selectors, cuisine categories, price-range sliders, and granular amenity checkboxes.
+  * *Feature mechanics:* Diners toggle specific physical filters (e.g., Private rooms, Car parking, Kids' play areas, Outdoor seating); the engine executes real-time faceted filtering against the restaurant database and updates the candidate venue list.
 
 * **Step C — View venue page (menu, promotions, booking conditions):**
   ![Step C - Venue Details](Pasgo_VenueDetails.png)
+  * *Screen description:* Dedicated restaurant profile page (D'Maris Buffet) showing verified physical address, opening hours, photography galleries, promotional terms, and policy details.
+  * *Feature mechanics:* Diners review operating hours, eligible discount packages, party-size restrictions, and click the primary "Book Table" (Đặt chỗ) action to initiate the reservation workflow.
 
 * **Step D & E — Online booking form (party size, date/time, contact info & notes):**
   ![Step D & E - Reservation Form](Pasgo_BookingForm.png)
+  * *Screen description:* Standard reservation input form capturing adult/children guest counts, arrival date, time slot, preferred promotional deal, and diner contact notes.
+  * *Feature mechanics:* The system validates operating hours, party-size constraints, and promotion eligibility; upon submission, it transitions to order verification and sends data to the partner venue.
 
 * **Step F — Banquet/group consultation via live chat & hotline (`0931.006.005`):**
   ![Step F - Consultation Chat](Pasgo_ConsultationChat.png)
+  * *Screen description:* Embedded customer-support chat drawer and hotline contact widget pre-populated with the current restaurant context.
+  * *Feature mechanics:* Designed for large groups and corporate banquets requiring customized menus or private room assignments; diners can bypass standard forms to connect directly with a PasGo consultation agent.
 
 * **Step G — Confirm reservation & phone verification modal:**
   ![Step G - Reservation Confirmation](Pasgo_BookingConfirmation.png)
+  * *Screen description:* Booking confirmation and phone verification modal displaying a booking summary, diner phone number field, and terms acknowledgement.
+  * *Feature mechanics:* Enforces anti-abuse verification via mobile number before finalizing the order, ensuring valid diner identity before pushing the booking record to the restaurant's [MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) app.
 
-#### Eatigo User Flow (Time-slot Discount Booking & AI Recommendations)
+### 6.2 Eatigo User Flow (Time-slot Discount Booking & AI Recommendations)
 
 ```mermaid
 flowchart TD
@@ -150,3 +163,77 @@ flowchart TD
     O -->|"No new booking"| P(["CleverAI sends multi-channel churn prevention campaign with personalized suggestions"])
     O -->|"Re-books within 30 days"| B
 ```
+
+#### Eatigo User Flow Interface Evidence
+
+* **Step A — Diner opens Eatigo web/app (`eatigo.com/en`):**
+  ![Step A - Eatigo Homepage](Eatigo_HomePage.png)
+  * *Screen description:* The multi-market homepage featuring global city navigation, promotional deal banners, search bar with party size, and date/time selection.
+  * *Feature mechanics:* Diners establish their dining parameters (target city, meal session, party size); the platform loads active dynamic discount inventories across participating restaurants.
+
+* **Step B — Select city, date, party size & search restaurants (dynamic discount filtering):**
+  ![Step B - Search and Dynamic Discount Filters](Eatigo_SearchFilter.png)
+  * *Screen description:* Discovery search results feed displaying restaurant cards with prominent discount tags (10% to 50% off), location filters, and cuisine classifications.
+  * *Feature mechanics:* Diners filter by discount tier or cuisine; the yield-management search engine queries real-time merchant table availability and surfaces off-peak slots with deeper discounts.
+
+* **Step C — View restaurant details, 30-min discount % chart & AI foodie summary:**
+  ![Step C - Venue Details and Yield Management Discount Matrix](Eatigo_VenueDiscountChart.png)
+  * *Screen description:* Restaurant details page featuring the signature 30-minute Yield Management discount matrix and an AI-generated foodie summary highlighting venue specialties.
+  * *Feature mechanics:* The matrix dynamically plots fluctuating discount percentages across operating hours (up to 50% during non-peak windows); selecting a specific time chip locks in that discount percentage for the reservation.
+
+* **Step D & F — Select 10%–50% discount time slot & reservation modal:**
+  ![Step D & F - Time-Slot Selection and Booking Modal](Eatigo_BookingModal.png)
+  * *Screen description:* Two-step booking modal showing the chosen time slot, applicable discount rate, party size, diner contact inputs, and promotional voucher code field.
+  * *Feature mechanics:* Allows diners to review discount terms, enter optional [Eatigo Cash Voucher (ECV)](https://help.eatigo.com/hc/en-us/articles/47187614682777-What-is-an-Eatigo-Cash-Voucher-ECV-code) codes, and confirm the table instantly against live seat quota without requiring upfront payment.
+
+* **Step G & J — Fair User Policy (FUP), Special Conditions & Cancellation Policy:**
+  ![Step G & J - Fair User Policy and Booking Conditions](Eatigo_SpecialConditions_FUP.png)
+  * *Screen description:* Policy disclosure modal detailing the Fair User Policy (FUP), 15-minute arrival grace period, discount exclusions (e.g., drinks, set menus), and cancellation rules.
+  * *Feature mechanics:* Enforces diner compliance with arrival timing and party size requirements before final order submission, safeguarding restaurant capacity against late arrivals and invalid discount claims.
+
+## 7. Strategic Comparison & DineVina Product Roadmap
+
+### 7.1 Common Features Across Existing Apps
+
+Both PasGo and Eatigo share foundational architecture and operational patterns characteristic of SaaS-enabled reservation marketplaces:
+
+1. **Two-Sided Service Marketplace Architecture:** Both platforms connect diners looking for table availability with restaurant operators looking to maximize seat utilization and foot traffic.
+2. **Multi-Attribute Search & Discovery:** Users can browse listings filtered by geographic area, cuisine, date, time, and party size.
+3. **Structured Venue Profiles:** Both platforms provide comprehensive restaurant detail pages containing address, operating hours, food galleries, promotional terms, and specific dining policies.
+4. **Reservation Management & Verification:** Both systems enforce anti-abuse mechanisms (SMS OTP / phone number verification) and provide reservation lifecycle tracking (pending, confirmed, seated/attended, cancelled, no-show).
+5. **Merchant Operations Tooling:** Both platforms provide dedicated B2B merchant software ([MB PasGo](https://pasgo.vn/quy-che-hoat-dong-cua-nen-tang-pasgo) and [Eatigo Merchant Dashboard](https://ortemtech.com/case-studies/eatigo-restaurant-reservations/)) enabling restaurant managers and floor staff to accept/decline table requests, monitor daily arrivals, flag no-shows, and reconcile monthly billing statements.
+6. **No Upfront B2C Payment for Reservations:** Both platforms allow diners to reserve tables free of charge and settle their bills directly at the restaurant upon dining, lowering the booking friction for users.
+
+### 7.2 What DineVina Will Do Differently and Better
+
+While PasGo and Eatigo address core booking needs, they present clear limitations in operational scalability, personalization, and partner onboarding. DineVina innovates across these dimensions:
+
+1. **Explainable AI Recommendations vs. Black-Box / Static Listings:**
+   * *Existing limitation:* PasGo relies on manual editorial collections and basic location sorting, offering no real-time personalized matching. Eatigo uses proprietary third-party ML (CleverTap) as a black box without transparency.
+   * *DineVina improvement:* DineVina implements an **Explainable Recommendation Engine** that pairs user dietary preferences, party dynamics, and budget constraints with verified restaurant attributes, accompanied by transparent justifications (e.g., *"Recommended because it matches your preferred Vietnamese cuisine, fits your 250k–500k VND budget, and accommodates 8 guests with private room availability"*). This eliminates decision fatigue and builds consumer trust.
+2. **Retrieval-Augmented (RAG) Menu & Policy Assistant vs. Manual Call Centers / Generic Help Desks:**
+   * *Existing limitation:* PasGo relies heavily on a human call center and manual chat operators to answer specific inquiries (e.g., private room equipment, corkage fees, allergy accommodations), which creates high operational labor costs and delays outside business hours. Eatigo offers no intelligent inquiry support, directing users to generic FAQ pages or ticketing.
+   * *DineVina improvement:* DineVina incorporates an **AI Conversational Assistant using RAG** trained strictly on verified restaurant documents, menus, and operating policies. It provides instantaneous, accurate answers with direct source citations back to the restaurant's profile, backed by strict uncertainty handling that refuses to hallucinate facts when data is unavailable.
+3. **AI-Powered Menu Digitization (OCR) for Partner Onboarding:**
+   * *Existing limitation:* Onboarding a new venue on PasGo or Eatigo requires tedious manual dish-by-dish data entry, leading to high friction, outdated menu catalogs, and onboarding backlogs.
+   * *DineVina improvement:* DineVina equips restaurant partners with an **OCR menu extraction pipeline** that automatically parses physical menu photos or PDF menus into structured, editable drafts (dish names, prices, categories, descriptions), allowing partners to review and publish a 50-item menu in minutes.
+4. **End-to-End Digital Event & Banquet Booking:**
+   * *Existing limitation:* PasGo delegates group and banquet requests to offline phone consultation, while Eatigo exclusively supports standard table reservations (typically capped at 8–10 people).
+   * *DineVina improvement:* DineVina introduces a dedicated **Digital Event Booking functional group**, enabling corporate and event planners to submit structured event briefs (guest count, budget per head, AV/private room needs, set menu requests) and receive transparent quotes and confirmations directly within the platform.
+5. **Strict Data Verification & Human-in-the-Loop Governance:**
+   * *DineVina improvement:* Unlike generic crowd-sourced review platforms where outdated menus and fake listings degrade trust, DineVina enforces partner-verified restaurant profiles and human-in-the-loop review for all AI-generated drafts prior to customer-facing publication.
+
+### 7.3 UI/UX Patterns Adopted for DineVina
+
+DineVina synthesizes proven, user-tested interface patterns from both industry benchmarks:
+
+1. **Granular Amenity & Occasion Filter Chips (from PasGo):**
+   * Adopting prominent filter tags for physical venue attributes (e.g., *Private Rooms*, *Car Parking*, *Karaoke / AV*, *Kids' Play Area*, *Outdoor Seating*). These attributes are critical for Vietnamese diners organizing family gatherings and corporate dinners.
+2. **Dynamic Slot-Based Availability Selector (from Eatigo):**
+   * Adopting Eatigo's horizontal, interactive time-slot picker that displays seat availability and promotional tiers directly on the restaurant overview page, enabling diners to select their preferred time slot in a single click without opening multiple sub-pages.
+3. **Streamlined 2-Step Reservation Drawer / Modal (from PasGo & Eatigo):**
+   * Implementing a compact, non-intrusive booking modal that captures essential fields (date, time, party size, dietary/seating notes, and contact phone number) in minimal steps, avoiding disruptive full-page redirects.
+4. **Transparent Cancellation and Fair User Policy (FUP) Notices (from Eatigo):**
+   * Prominently displaying table holding grace periods (e.g., 15-minute grace window) and cancellation terms immediately before the final booking submission button, setting clear expectations and minimizing restaurant no-shows.
+5. **Clean, Responsive Partner Management Console (from PasGo MB & Eatigo Merchant):**
+   * Adapting a clean web/tablet-first partner dashboard featuring one-tap reservation acceptance/rejection, real-time guest status toggling (Arrived / Seated / No-show), and straightforward monthly statement reconciliation.
