@@ -150,12 +150,12 @@ def create_reservation(payload: ReservationCreate):
 
 @app.get("/api/reservations")
 def list_my_reservations():
-    return store.reservations
+    return store.get_all_reservations()
 
 
 @app.get("/api/reservations/{res_id}")
 def get_reservation(res_id: str):
-    res = next((r for r in store.reservations if r["id"] == res_id), None)
+    res = next((r for r in store.get_all_reservations() if r["id"] == res_id), None)
     if not res:
         raise HTTPException(status_code=404, detail="Không tìm thấy đơn đặt bàn")
     return res
@@ -181,7 +181,7 @@ def cancel_reservation(res_id: str, payload: CancelPayload = CancelPayload()):
 # --- Partner Operations (Group 7 & Group 5) ---
 @app.get("/api/partner/reservations")
 def get_partner_reservations():
-    return store.reservations
+    return store.get_all_reservations()
 
 
 @app.post("/api/partner/reservations/{res_id}/confirm")

@@ -3,6 +3,7 @@ import uuid
 from datetime import datetime, timedelta
 from typing import List, Dict, Any, Optional
 from app.seed_data import SEED_VENUES, SEED_MENUS, SEED_REVIEWS, SEED_RESERVATIONS, SEED_NOTIFICATIONS
+from app.supabase_service import supabase_service
 
 class DataStore:
     def __init__(self):
@@ -133,6 +134,10 @@ class DataStore:
         amenity: Optional[str] = None,
         sort: Optional[str] = None
     ) -> List[Dict[str, Any]]:
+        sb_venues = supabase_service.list_venues(q=q, district=district, cuisine=cuisine)
+        if sb_venues is not None and len(sb_venues) > 0:
+            return sb_venues
+
         results = [v for v in self.venues if v.get("status") == "approved"]
         
         if q:
@@ -167,13 +172,27 @@ class DataStore:
         return results
 
     def get_venue(self, venue_id: str) -> Optional[Dict[str, Any]]:
+        sb_venue = supabase_service.get_venue(venue_id)
+        if sb_venue:
+            return sb_venue
         for v in self.venues:
             if v["id"] == venue_id:
                 return v
         return None
 
     def get_venue_menu(self, venue_id: str) -> List[Dict[str, Any]]:
+        sb_menu = supabase_service.get_venue_menu(venue_id)
+        if sb_menu:
+            return sb_menu
         return self.menus.get(venue_id, [])
+
+    def get_all_reservations(self) -> List[Dict[str, Any]]:
+        sb_reservations = supabase_service.list_reservations()
+        if sb_reservations is not None:
+            sb_ids = {r["id"] for r in sb_reservations}
+            in_memory_only = [r for r in self.reservations if r["id"] not in sb_ids]
+            return sb_reservations + in_memory_only
+        return self.reservations
 
     # --- Reservations & Cancellation Policy ---
     def create_reservation(self, data: Dict[str, Any]) -> Dict[str, Any]:
@@ -181,6 +200,24 @@ class DataStore:
         if not venue:
             raise ValueError("Nhà hàng không tồn tại")
 
+        # Attempt Supabase persistence first
+        sb_res = supabase_service.create_reservation(data, venue)
+        if sb_res:
+            self.reservations.insert(0, sb_res)
+            now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
+            self.notifications.insert(0, {
+                "id": f"notif_{uuid.uuid4().hex[:6]}",
+                "user_id": "cust_1",
+                "title": "Đã gửi yêu cầu đặt bàn",
+                "message": f"Yêu cầu đặt bàn tại {venue['name']} ({sb_res['confirmation_code']}) đang chờ nhà hàng xác nhận.",
+                "type": "reservation",
+                "read": False,
+                "created_at": now_str,
+                "link": "/my-bookings"
+            })
+            return sb_res
+
+        # Fallback to in-memory store
         res_id = f"res_{uuid.uuid4().hex[:6]}"
         code = f"DV-{uuid.uuid4().hex[:5].upper()}"
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
@@ -235,6 +272,11 @@ class DataStore:
     def cancel_reservation(self, res_id: str, reason: str = "Khách hàng hủy bàn") -> Dict[str, Any]:
         res = next((r for r in self.reservations if r["id"] == res_id), None)
         if not res:
+            all_res = self.get_all_reservations()
+            res = next((r for r in all_res if r["id"] == res_id), None)
+            if res:
+                self.reservations.append(res)
+        if not res:
             raise KeyError("Không tìm thấy đơn đặt bàn")
 
         if res["status"] in ["Cancelled", "Rejected", "Completed"]:
@@ -258,6 +300,8 @@ class DataStore:
         res["can_cancel"] = False
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
 
+        if "status_history" not in res or not isinstance(res.get("status_history"), list):
+            res["status_history"] = []
         res["status_history"].append({
             "from_status": old_status,
             "to_status": "Cancelled",
@@ -267,11 +311,14 @@ class DataStore:
             "changed_at": now_str
         })
 
+        # Sync to Supabase
+        supabase_service.update_reservation_status(res_id, "Cancelled", reason=reason)
+
         self.notifications.insert(0, {
             "id": f"notif_{uuid.uuid4().hex[:6]}",
             "user_id": "cust_1",
             "title": "Đã hủy đặt bàn",
-            "message": f"Đơn đặt bàn {res['confirmation_code']} tại {res['venue_name']} đã được hủy thành công.",
+            "message": f"Đơn đặt bàn {res.get('confirmation_code', res_id)} tại {res.get('venue_name', '')} đã được hủy thành công.",
             "type": "reservation",
             "read": False,
             "created_at": now_str,
@@ -283,6 +330,11 @@ class DataStore:
     def partner_confirm_reservation(self, res_id: str) -> Dict[str, Any]:
         res = next((r for r in self.reservations if r["id"] == res_id), None)
         if not res:
+            all_res = self.get_all_reservations()
+            res = next((r for r in all_res if r["id"] == res_id), None)
+            if res:
+                self.reservations.append(res)
+        if not res:
             raise KeyError("Không tìm thấy đơn đặt bàn")
 
         if res["status"] != "Pending":
@@ -290,6 +342,8 @@ class DataStore:
 
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
         res["status"] = "Confirmed"
+        if "status_history" not in res or not isinstance(res.get("status_history"), list):
+            res["status_history"] = []
         res["status_history"].append({
             "from_status": "Pending",
             "to_status": "Confirmed",
@@ -299,11 +353,14 @@ class DataStore:
             "changed_at": now_str
         })
 
+        # Sync to Supabase
+        supabase_service.update_reservation_status(res_id, "Confirmed")
+
         self.notifications.insert(0, {
             "id": f"notif_{uuid.uuid4().hex[:6]}",
-            "user_id": res["customer_id"],
+            "user_id": res.get("customer_id", "cust_1"),
             "title": "Nhà hàng đã xác nhận đặt bàn! 🎉",
-            "message": f"{res['venue_name']} đã xác nhận giữ bàn cho bạn ({res['confirmation_code']}).",
+            "message": f"{res.get('venue_name', '')} đã xác nhận giữ bàn cho bạn ({res.get('confirmation_code', res_id)}).",
             "type": "reservation",
             "read": False,
             "created_at": now_str,
@@ -315,6 +372,11 @@ class DataStore:
     def partner_reject_reservation(self, res_id: str, reason: str = "Hết bàn vào khung giờ này") -> Dict[str, Any]:
         res = next((r for r in self.reservations if r["id"] == res_id), None)
         if not res:
+            all_res = self.get_all_reservations()
+            res = next((r for r in all_res if r["id"] == res_id), None)
+            if res:
+                self.reservations.append(res)
+        if not res:
             raise KeyError("Không tìm thấy đơn đặt bàn")
 
         if res["status"] != "Pending":
@@ -324,6 +386,8 @@ class DataStore:
         res["status"] = "Rejected"
         res["reject_reason"] = reason
         res["can_cancel"] = False
+        if "status_history" not in res or not isinstance(res.get("status_history"), list):
+            res["status_history"] = []
         res["status_history"].append({
             "from_status": "Pending",
             "to_status": "Rejected",
@@ -333,11 +397,14 @@ class DataStore:
             "changed_at": now_str
         })
 
+        # Sync to Supabase
+        supabase_service.update_reservation_status(res_id, "Rejected", reason=reason)
+
         self.notifications.insert(0, {
             "id": f"notif_{uuid.uuid4().hex[:6]}",
-            "user_id": res["customer_id"],
+            "user_id": res.get("customer_id", "cust_1"),
             "title": "Yêu cầu đặt bàn bị từ chối",
-            "message": f"Rất tiếc, {res['venue_name']} không thể tiếp nhận ({res['confirmation_code']}). Lý do: {reason}",
+            "message": f"Rất tiếc, {res.get('venue_name', '')} không thể tiếp nhận ({res.get('confirmation_code', res_id)}). Lý do: {reason}",
             "type": "reservation",
             "read": False,
             "created_at": now_str,
