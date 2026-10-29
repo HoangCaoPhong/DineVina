@@ -1,0 +1,27 @@
+c1abac9 2026-10-17T17:48:40+07:00 Hoang Cao Phong <hoangcaophong.works@gmail.com> Merge pull request #8 from HoangCaoPhong/dev
+f865734 2026-10-17T17:46:20+07:00 Hoang Cao Phong <hoangcaophong.works@gmail.com> Merge pull request #7 from HoangCaoPhong/research/Project-proposal
+41f0257 2026-10-17T17:44:26+07:00 Hoang Cao Phong <hoangcaophong.works@gmail.com> Merge pull request #6 from HoangCaoPhong/dev
+0343703 2026-10-17T17:40:30+07:00 Hoang Cao Phong <hoangcaophong.works@gmail.com> Merge pull request #5 from HoangCaoPhong/Nhan_Week1_Survey
+c48d5ce 2026-10-17T17:37:49+07:00 Hoang Cao Phong <hoangcaophong.works@gmail.com> Merge pull request #2 from HoangCaoPhong/kd_w1_aifeature
+a98a153 2026-10-17T16:44:23+07:00 tkduy2414-hue <tkduy2414@clc.fitus.edu.vn>  update Duy.md
+ed0b52b 2026-10-17T16:43:24+07:00 tkduy2414-hue <tkduy2414@clc.fitus.edu.vn> Delete docs/ai_features_proposal.md
+b176ef5 2026-10-17T16:29:27+07:00 nhankun2006 <luongthiennhana2@gmail.com> feat: proven images for Pasgo
+2446e65 2026-10-17T00:03:17+07:00 nhankun2006 <luongthiennhana2@gmail.com> fix: translate survey docs to English
+25cb5d2 2026-10-16T23:38:40+07:00 moonshine-v <24127294@student.hcmus.edu.vn> docs: clarify task workflow and record team approval
+ee3e4b9 2026-10-16T23:13:56+07:00 moonshine-v <24127294@student.hcmus.edu.vn> docs: clarify B2B2C model and user roles
+35a781e 2026-10-16T22:46:23+07:00 nhankun2006 <luongthiennhana2@gmail.com> docs: first compare Pasgo vs KiotViet
+99ed82f 2026-10-16T21:02:46+07:00 HoangCaoPhong <hoangcaophong.works@gmail.com> write Pj Overview for PA1
+604d27c 2026-10-16T21:14:02+07:00 Nguyễn Trung Kiên <ntkien2418@clc.fitus.edu.vn> Merge pull request #3 from HoangCaoPhong/Kien_Week1_Functional
+4773cc8 2026-10-16T21:10:06+07:00 Nguyễn Trung Kiên <ntkien2418@clc.fitus.edu.vn> fix while trying to create pull request
+b8c009b 2026-10-16T21:09:00+07:00 Nguyễn Trung Kiên <ntkien2418@clc.fitus.edu.vn> chore: ignore aider temporary files in gitignore
+0e0852d 2026-10-16T20:56:21+07:00 Nguyễn Trung Kiên <ntkien2418@clc.fitus.edu.vn> docs: update pull request template with new functional groups and scope
+334c639 2026-10-16T20:37:54+07:00 tkduy2414-hue <tkduy2414@clc.fitus.edu.vn> Add files via upload
+f83fd53 2026-10-16T20:28:27+07:00 Nguyễn Trung Kiên <ntkien2418@clc.fitus.edu.vn> docs: add Kien's functional groups report for Week 1
+5d5eb59 2026-10-16T19:53:52+07:00 Nguyễn Trung Kiên <ntkien2418@clc.fitus.edu.vn> docs(report): add Kien's functional groups documentation for weekly report week 1
+547e2d7 2026-10-16T13:08:58+07:00 moonshine-v <24127294@student.hcmus.edu.vn> docs: add TeamContract.docx
+aa1e8ca 2026-10-15T22:54:21+07:00 Nguyễn Trung Kiên <ntkien2418@clc.fitus.edu.vn> docs: add weekly report and functional groups documentation for Kien
+3f6769f 2026-10-15T16:37:08+07:00 moonshine-v <24127294@student.hcmus.edu.vn> docs: add team contract
+c97f380 2026-10-15T14:59:46+07:00 moonshine-v <24127294@student.hcmus.edu.vn> docs: add project proposal
+c7ce6c8 2026-10-14T22:15:45+07:00 HoangCaoPhong <hoangcaophong.works@gmail.com> setup repo
+3932e1b 2026-10-14T21:23:30+07:00 HoangCaoPhong <hoangcaophong.works@gmail.com> setup repo
+52f75bb 2026-10-14T17:13:51+07:00 Hoang Cao Phong <hoangcaophong.works@gmail.com> Initial commit
