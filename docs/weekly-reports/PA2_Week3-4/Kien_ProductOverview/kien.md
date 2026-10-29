@@ -1,101 +1,114 @@
-# PA2 Deliverables & Product Overview - Nguyễn Trung Kiên
+# Product Overview — PA2 Deliverable
 
-* **Sprint / Milestone:** PA2 (Week 3 - Week 4)
-* **Author / Owner:** Nguyễn Trung Kiên (Backend Engineer) - `ntkien2418@clc.fitus.edu.vn`
-* **Assigned Scope:** 
-  1. RUP Vision Document - Section 4: Product Overview (`Product Perspective`, `Assumptions & Dependencies`)
-  2. Core MVP API Specifications (`[PA2] Discovery and Reservation API Contract`)
-  3. AI-Assisted Engineering Training (`[PA2] Spec Kit Training - Kien`)
-  4. Integration & Test Verification (`[PA2] Integration Build and Tests`)
+**Project:** DineVina — Smart Restaurant Reservation and Event Booking Marketplace (Group 08)  
+**Author:** Nguyễn Trung Kiên (Backend Engineer; Student ID: 24127068)  
+**Deliverable Scope:** Rational Unified Process (RUP) Vision Document — Section 4: Product Overview  
+**Sprint / Milestone:** PA2 (Week 3 – Week 4)  
+**Reviewer:** Hoàng Cao Phong (Scrum Master / Project Manager)  
 
 ---
 
-## 1. Directory & Deliverables Navigation
+## 1. Executive Summary
 
-Tất cả tài liệu và sản phẩm bàn giao của Kiên trong giai đoạn PA2 (bao gồm toàn bộ công việc thực hiện trong Tuần 2 và giai đoạn chuẩn bị PA2) được tổ chức và lưu trữ tập trung tại thư mục `docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/`:
+This document establishes the official **Product Overview** specification for DineVina under the Rational Unified Process (RUP) Vision framework for Project Assignment 2 (PA2). It defines the system perspective, architectural context, external interfaces, operational assumptions, and critical technical dependencies governing the platform.
 
-| STT | Tài liệu / Hạng mục | Đường dẫn | Trạng thái |
-|:---:|:---|:---|:---:|
-| 1 | **Tài liệu tổng hợp & Product Overview** | [kien.md](./kien.md) | In Progress |
-| 2 | **Discovery and Reservation API Contract** | [Kien_APIContract/Discovery-and-Reservation-API-Contract.md](./Kien_APIContract/Discovery-and-Reservation-API-Contract.md) | Completed (Draft) / Pending Peer Review |
-| 3 | **Spec Kit Training Record & Evidence** | [Kien_SpecKit/Spec-Kit-Training.md](./Kien_SpecKit/Spec-Kit-Training.md) | Completed & Verified (100%) |
-| 4 | **Integration Build & Test Report** | *(Scheduled for Nov 04)* | Planned |
+In parallel with this architectural overview, backend engineering deliverables authored by Nguyễn Trung Kiên for PA2 include:
+1. **Core API Contract Specification:** Complete RESTful definitions, state machine transitions, and automated test matrices for Restaurant Discovery and Table Reservation lifecycles.
+2. **AI-Assisted Engineering (Spec Kit Training):** Formal adoption of GitHub Spec Kit for Spec-Driven Development (SDD), establishing project constitution guardrails, feature specifications, and automated verification suites.
 
 ---
 
-## 2. RUP Vision Document - Section 4: Product Overview
+## 2. Product Perspective
 
-*(Đóng góp trực tiếp vào tài liệu Vision chung của nhóm theo chuẩn Rational Unified Process)*
+### 2.1. System Context & Marketplace Model
 
-### 4.1. Product Perspective
+DineVina is architected as an independent, cloud-native **B2B2C restaurant discovery, table reservation, and culinary event booking marketplace**. The platform bridges three distinct actor groups through unified, responsive web interfaces:
+* **Customers (Diners):** Search and filter verified restaurants, check real-time table availability, submit booking requests, pre-order selected menus, and manage reservation lifecycles.
+* **Restaurant Partners (Venues):** Manage venue operational profiles, configure dining capacity and service time slots, review and confirm/decline reservation requests, and administer table check-ins.
+* **Platform Administrators:** Supervise partner onboarding, monitor platform health, review catalog compliance, and maintain overall marketplace integrity.
 
-DineVina là nền tảng marketplace dạng **B2B2C** kết nối ba nhóm đối tượng người dùng chính: **Thực khách (Customer/Diner)**, **Đối tác nhà hàng (Restaurant Partner)**, và **Quản trị viên nền tảng (Administrator)**.
+The system operates autonomously without relying on legacy on-premise restaurant management hardware, lowering adoption friction for Vietnamese culinary establishments.
 
-Hệ thống DineVina hoạt động như một hệ thống độc lập (independent web application) với kiến trúc Client-Server hiện đại:
-* **Frontend Client:** Ứng dụng web React SPA (Single Page Application) viết bằng TypeScript, tối ưu hóa cho trải nghiệm tìm kiếm, duyệt menu và đặt bàn mượt mà trên cả trình duyệt máy tính và thiết bị di động.
-* **Backend Core:** Dịch vụ web RESTful API xây dựng bằng Python (FastAPI), chịu trách nhiệm điều phối toàn bộ nghiệp vụ đặt bàn, xử lý truy vấn tìm kiếm, quản lý phân quyền và kiểm soát giao dịch (ACID transactions).
-* **Database & Cache:** Hệ quản trị cơ sở dữ liệu quan hệ PostgreSQL lưu trữ toàn bộ dữ liệu thực thể (nhà hàng, bàn, khung giờ, đơn đặt bàn, tài khoản) cùng Redis làm bộ nhớ đệm phục vụ khóa phân tán (distributed slot lock) chống double-booking.
+### 2.2. Architectural Context & System Boundaries
+
+The platform adopts a modern, decoupled Client-Server architecture containerized via Docker Compose:
 
 ```mermaid
 graph TD
-    subgraph Users ["Actors / Clients"]
-        Diner["Thực khách (Customer)"]
-        Partner["Chủ nhà hàng / Nhân viên (Partner)"]
-        Admin["Ban quản trị (Admin)"]
+    subgraph Actors ["Platform Actors"]
+        Customer["Customer / Diner\n(Desktop & Mobile Web)"]
+        Partner["Restaurant Partner\n(Merchant Dashboard)"]
+        Admin["Platform Admin\n(Management Panel)"]
     end
 
-    subgraph DineVina_Platform ["DineVina System Boundary"]
-        WebUI["Web Frontend (React + TS)"]
-        APIGateway["FastAPI Backend Services"]
-        DB[(PostgreSQL Database)]
-        Cache[(Redis Cache / Lock)]
-        
-        WebUI -->|REST API / JSON| APIGateway
-        APIGateway -->|ORM / SQL| DB
-        APIGateway -->|Slot Quota & Lock| Cache
+    subgraph DineVina_Boundary ["DineVina System Boundary"]
+        ClientTier["Frontend Presentation Tier\n(React 18 + TypeScript + Vite + Tailwind CSS)"]
+        APITier["Backend Application Services Tier\n(Python 3.13 + FastAPI + Pydantic v2)"]
+        DataTier["Persistence & Caching Tier\n(PostgreSQL 16 Relational Storage + Redis 7 Cache)"]
+
+        ClientTier -->|"RESTful JSON APIs (HTTPS / CORS)"| APITier
+        APITier -->|"SQLAlchemy ORM / ACID Transactions"| DataTier
+        APITier -->|"Distributed Slot Quota Locks"| DataTier
     end
 
-    subgraph External_Systems ["External Boundaries & Future Systems"]
-        SMS_Email["Email / SMS Notification Service"]
-        Map_Service["Google Maps / Geo Provider"]
-        Payment_Gateway["Payment Gateway (Out of Scope for PA2)"]
+    subgraph External_Boundaries ["External Systems & Third-Party Boundaries"]
+        NotifyService["Transactional Messaging Service\n(Email / SMS Notification Gateway)"]
+        MapService["Geospatial & Mapping Provider\n(Location Coordinates & District Filtering)"]
+        PaymentSystem["Online Payment Gateway\n(Out of Scope for PA2 / Future Scope)"]
     end
 
-    Diner -->|Browse, Search, Book Table| WebUI
-    Partner -->|Manage Tables, Confirm/Decline| WebUI
-    Admin -->|Review Venues, System Health| WebUI
+    Customer --> ClientTier
+    Partner --> ClientTier
+    Admin --> ClientTier
 
-    APIGateway -.->|Send Confirmation Alerts| SMS_Email
-    APIGateway -.->|Geocoding / Distance| Map_Service
+    APITier -.->|"Dispatch Confirmation / Cancellation Alerts"| NotifyService
+    APITier -.->|"Geocoding & Proximity Queries"| MapService
 ```
 
-#### Các giao tiếp ngoại vi (External System Interfaces):
-1. **Dịch vụ thông báo (Notification Services):** Gửi email/tin nhắn xác nhận đơn đặt bàn hoặc thông báo hủy đến thực khách và đối tác.
-2. **Dịch vụ bản đồ (Geocoding / Maps):** Cung cấp tọa độ và hiển thị vị trí nhà hàng theo quận/thành phố phục vụ tính năng tìm kiếm theo vị trí.
-3. **Phạm vi loại trừ (Out of Scope):** Cổng thanh toán trực tuyến (Payment Gateway), hệ thống POS (Point of Sale), và quản lý kho vận / kế toán nội bộ nhà hàng nằm ngoài phạm vi cốt lõi của PA2.
+### 2.3. System Interfaces
+
+1. **User Interface (Presentation Layer):**
+   * Responsive Single-Page Application (SPA) developed with React, TypeScript, and Vite.
+   * Tailored views for consumer discovery, booking forms, partner table management dashboards, and administrator moderation panels.
+2. **Software Interfaces (Application Layer):**
+   * **FastAPI Web Framework:** High-performance asynchronous REST endpoints complying with OpenAPI 3.1 standards.
+   * **Pydantic Schemas:** Strict runtime payload validation, enforcing ISO 8601 timestamps, standardized pagination envelopes, and Vietnamese mobile phone number constraints.
+   * **Object-Relational Mapping (ORM):** SQLAlchemy 2.0 managing domain entities and relational mappings with schema migration versioning.
+3. **Database & Persistence Interfaces:**
+   * **PostgreSQL Database:** Primary relational store maintaining ACID transactions for reservation bookings, user credentials, restaurant catalogs, and slot capacity.
+   * **Redis Cache:** Low-latency key-value storage managing temporary hold locks during the booking request window to prevent concurrent overbooking.
+4. **External Service Interfaces:**
+   * **Notification Gateway:** Webhook and SMTP/SMS integration triggering transactional notifications upon reservation status transitions.
+   * **Geospatial Mapping Provider:** Geocoding service resolving administrative districts (e.g., District 1, Binh Thanh) and distance coordinates.
+   * **Explicit Scope Exclusions (Out of Scope for PA2):** Full Point-of-Sale (POS) hardware integration, internal kitchen display systems (KDS), inventory warehousing, complex accounting ledger systems, and native mobile applications (iOS/Android) are explicitly excluded from the MVP scope.
 
 ---
 
-### 4.2. Assumptions and Dependencies (Giả định và Phụ thuộc)
+## 3. Assumptions and Dependencies
 
-#### Giả định kỹ thuật & vận hành (Assumptions):
-1. **Môi trường kết nối mạng:** Người dùng (cả thực khách và đối tác) luôn có kết nối Internet ổn định trong quá trình gửi yêu cầu và xác nhận đặt bàn.
-2. **Khung giờ xác nhận của đối tác:** Đối tác nhà hàng cam kết phản hồi xác nhận hoặc từ chối yêu cầu đặt bàn trong khoảng thời gian quy định (mặc định 30 phút); nếu quá thời hạn, hệ thống tự động chuyển trạng thái đơn sang hết hạn (`EXPIRED`).
-3. **Chính sách hủy bàn:** Thực khách chỉ được phép hủy bàn trực tuyến tối thiểu trước 2 giờ so với giờ hẹn (`cancellation cutoff >= 2h`). Sau thời hạn này, hệ thống khóa hủy online và yêu cầu liên hệ trực tiếp hotline nhà hàng.
+### 3.1. Operational & Business Assumptions
 
-#### Ràng buộc & Sự phụ thuộc (Dependencies):
-1. **Container hóa:** Toàn bộ dịch vụ backend, frontend, và database phải khởi chạy nhất quán thông qua Docker Compose nhằm đảm bảo tính tái lập (reproducibility) trong các đợt kiểm thử tích hợp.
-2. **Mô hình dữ liệu và Hợp đồng API:** Giao diện frontend React phụ thuộc chặt chẽ vào cấu trúc dữ liệu trả về từ các endpoint được đặc tả trong [Discovery-and-Reservation-API-Contract.md](./Kien_APIContract/Discovery-and-Reservation-API-Contract.md).
+1. **Continuous Network Connectivity:** Both diners and restaurant staff operate devices with stable broadband or cellular internet access during reservation submission and confirmation interactions.
+2. **Partner Response Time SLA:** Restaurant partners are assumed to review and confirm or decline incoming booking requests within an agreed operational window (default: 30 minutes). Unacknowledged requests automatically transition to an expired state (`EXPIRED`) to safeguard diner experience.
+3. **Cancellation Policy Enforcement:** Diners are permitted to cancel confirmed reservations online strictly prior to a minimum cutoff threshold (default: at least 2 hours before the reserved time). Cancellations requested within the 2-hour window are locked online, directing the diner to contact the venue directly.
+4. **Slot Granularity:** Dining availability is segmented into standardized 30-minute operational time slots (e.g., 18:00, 18:30, 19:00) with predefined maximum guest quotas per interval.
+
+### 3.2. Technical Constraints and Dependencies
+
+1. **Containerized Deployment Consistency:** All core services (FastAPI backend, React frontend, and PostgreSQL database) must run consistently under Docker Compose, guaranteeing environment parity between developer local workstations and continuous integration (CI) test runners.
+2. **OpenAPI Schema Contract Compliance:** Frontend client modules and automated integration test harnesses depend strictly on the contract shapes, path conventions, and error response envelopes formalized in the backend API specifications.
+3. **Python Runtime & Package Ecosystem:** The backend is dependent on Python 3.13+, FastAPI, Pydantic v2, and standard ASGI servers (`uvicorn`), ensuring compatibility across modern Linux container distributions and Windows development environments.
 
 ---
 
-## 3. Trello Task Tracking & Status Audit
+## 4. Deliverables Index & Traceability Matrix
 
-Chi tiết kết quả rà soát trạng thái 3 thẻ công việc được giao trên Trello board:
+The engineering artifacts authored by Nguyễn Trung Kiên supporting the PA2 milestone are organized as follows:
 
-| Thẻ công việc (Trello Card) | Người thực hiện / Phản biện | Hạn chót (Due Date) | Trạng thái hiện tại | Đánh giá chi tiết |
-|:---|:---|:---:|:---:|:---|
-| **[PA2] Discovery and Reservation API Contract** | Owner: **Kiên**<br>Reviewer: **Ngọc** | 02 Nov 2026 | **Đã hoàn thành soạn thảo**<br>*(Chờ Peer Review)* | Toàn bộ 7 phần đặc tả, sơ đồ máy trạng thái (7 states), 5 REST endpoints và 10 kịch bản test tự động đã hoàn thiện 100% tại `Kien_APIContract`. Chờ bạn Ngọc review và ký duyệt. |
-| **[PA2] Spec Kit Training - Kien** | Owner: **Kiên**<br>Reviewer: **Phong** | 30 Oct 2026 | **Đã hoàn thành 100%**<br>*(Sẵn sàng nghiệm thu)* | Đã hoàn thành toàn bộ 6 bước tutorial với `specify-cli`, tạo workspace thực hành `speckit-tutorial/` với Constitution, Feature Spec, Plan, Tasks, và chạy kiểm thử tự động `pytest` (8/8 passed). |
-| **[PA2] Integration Build and Tests** | Owner: **Kiên**<br>Reviewer: **Phong** | 04 Nov 2026 | **Chưa thực hiện**<br>*(Theo kế hoạch)* | Chạy build tích hợp frontend + backend tests sau khi API contract được duyệt. Ghi nhận commit hash, log test `pytest`, smoke test browser và known gaps. |
+| Deliverable Name | Target Path / Reference | Primary Focus | Status |
+|:---|:---|:---|:---:|
+| **Product Overview (This Document)** | `docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/kien.md` | RUP Vision Section 4 (System Perspective, Boundaries, Assumptions & Dependencies) | **Completed** |
+| **Discovery & Reservation API Contract** | `docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/Kien_APIContract/Discovery-and-Reservation-API-Contract.md` | 7-state reservation lifecycle, 5 REST endpoints, OpenAPI schemas, and 10 Given-When-Then automated test scenarios | **Completed (Draft for Peer Review)** |
+| **Spec Kit Training & SDD Verification** | `docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md` | GitHub Spec Kit workflow execution, DineVina constitution, feature specs, and 8/8 passing automated tests | **Completed & Verified** |
 
+---
