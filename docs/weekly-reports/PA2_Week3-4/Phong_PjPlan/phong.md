@@ -1,19 +1,19 @@
 # DineVina · PA2 Project Plan and Phong's work record
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending actual review) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
 **Group 08 · working version 1.0 · 29 October 2026**  
 **Source of assignment:** PA2 allocation image supplied by the team: Phong owns the complete Project Plan, Sprint Schedule, Risk Management, Weekly Report and submission integration. This file is an English Markdown working draft; it does not claim that a meeting, review, build, training session or submission has happened without evidence.
 
 ## 1. Introduction
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 DineVina is a responsive restaurant discovery and reservation-request platform. Customers find venues and send table requests or event inquiries; restaurant partners manage listings and respond; administrators review venue information. This initial PA2 plan defines scope, people, risks, five Scrum sprints, the next sprint's assignments and dates, build checkpoints, reporting and submission controls. It will be revised in PA3 after teaching-assistant feedback. The course's RUP template phases are not used because PA2 explicitly requires Scrum.
 
 ## 2. Project overview
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 ### 2.1 Goals and success criteria
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 1. Help a customer discover a suitable restaurant from searchable, approved venue information and inspect its menu and conditions.
 2. Let a customer submit a table reservation request and distinguish **requested**, **confirmed**, **declined** and **cancelled** states. A request is never represented as a confirmed booking before partner confirmation.
@@ -22,7 +22,7 @@ DineVina is a responsive restaurant discovery and reservation-request platform. 
 5. Produce a tested, traceable increment at each planned build checkpoint, with limitations documented rather than hidden.
 
 ### 2.2 Scope, deliverables and assumptions
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 The planned functional groups are accounts and profiles; venue onboarding; discovery and details; menus; table requests; event inquiries and proposals; availability and partner dashboard; promotions and editorial content; and intelligent assistance. Native mobile apps, payment processing, POS, inventory and accounting are outside the current scope. Event inquiries are a negotiation flow, not table reservations.
 
@@ -31,7 +31,7 @@ PA2 deliverables are the initial Project Plan and Vision in English Markdown and
 Planning assumptions: five members remain available; the team can use GitHub and Trello; restaurant data may initially be clearly marked samples; publication and personal-data policy need team agreement. The 24 October–6 November PA2 window and card dates below are **proposed targets**, because the course deadline and actual Sprint Planning decisions have not been verified. Confirm them with the team and update the board and this document together.
 
 ## 3. Project organization
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 | Member | Scrum role and primary work in the current plan |
 | --- | --- |
@@ -44,7 +44,7 @@ Planning assumptions: five members remain available; the team can use GitHub and
 Each task has one accountable performer and a different reviewer. A Trello membership assignment identifies the performer; the reviewer is recorded in the card description until the team establishes a review convention. The Product Owner prioritizes backlog items with the team. Work moves through `Sprint To Do → In Progress → In Review → Done` only as evidence supports it. Changes should be reviewed into `dev` and promoted to `main` through the team's normal GitHub review process.
 
 ## 4. Risk management
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 Probability and impact are planning judgments (Low/Medium/High), not measured frequencies. At each weekly Scrum, Phong checks triggers, records an owner and action in Trello, and revises this register. The Product Owner accepts scope changes; technical owners verify the relevant mitigation.
 
@@ -61,7 +61,7 @@ Probability and impact are planning judgments (Low/Medium/High), not measured fr
 Escalation rule: a High-impact risk with an active trigger is raised at the next Scrum check-in or immediately if it blocks the build. Record the decision, assignee and next check date on the relevant Trello card. An unresolved release or submission blocker stays open in the final checklist.
 
 ## 5. Scrum plan and sprint schedule
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 The instructor recommends five sprints of roughly 2–3 weeks, one per PA. Exact PA3–PA5 calendar dates depend on course announcements and will be set at each Sprint Planning. The PA2 target window is proposed, not a confirmed deadline.
 
@@ -74,7 +74,7 @@ The instructor recommends five sprints of roughly 2–3 weeks, one per PA. Exact
 | Sprint 5 / PA5 | Final course window, to be announced | Recommendation pilot, system/regression checks, documented deferred scope and complete feature demo on B4. |
 
 ### 5.1 Detailed Sprint 2 backlog
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 These are target dates from the existing working plan and Trello descriptions, not evidence of completed work. Past targets need explicit rescheduling at the next team check-in. The allocation image makes Phong accountable for the **integrated weekly report**; Nhân remains the proposed minute-taker for the two Scrum meetings.
 
@@ -97,61 +97,61 @@ These are target dates from the existing working plan and Trello descriptions, n
 | P2-15 | Review PDFs and evidence, package and verify `PA2-Group08.zip`. | Phong | Ngọc | 6 Nov | [Card](https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package) |
 
 ### 5.2 Build and test checkpoints
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 Four tested builds are planned after the PA1 scaffold. **B1 (end of PA2):** data/API contract prototype and integration baseline. **B2 (end of PA3):** accounts/onboarding/discovery slice. **B3 (end of PA4):** request and event workflow integration. **B4 (before PA5 final demo):** prioritized features and full customer-to-partner demonstration. For each build, record commit SHA, included behavior, test commands/results, frontend build, manual browser smoke path and known limitations. A successful compile alone does not certify a working product flow.
 
 ## 6. Weekly Report · working record
-**Performed by:** Hoàng Cao Phong (integration) | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong (integration) | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 The course requires one Sprint Planning, two weekly Scrum meetings and one Sprint Review/retrospective per sprint. The two Scrum meetings share this document. The status below is based on the files and board available on 29 October; absence of evidence is recorded as **unverified**, not as an assertion that a meeting did not occur. Add actual minutes only after checking participants or recordings.
 
 ### 6.1 Sprint Planning
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 Planned for 24 October at 21:30 ICT; [agenda](../../../PAs/PA2/fin_PA2/Meeting-Plan-2026-10-24.md) exists. **Actual date/time, attendance and decisions: unverified.** The [planning card](https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes) remains in Sprint To Do. When the actual minutes are provided, record sprint goal, priority, each task's owner/reviewer/due date, build scope, risks, decisions and action owners here.
 
 ### 6.2 Weekly Scrum 1
-**Performed by:** Hoàng Cao Phong (integration of Nhân's minutes) | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong (integration of Nhân's minutes) | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
-Target: 30 October. [Minute-taking card](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes). **Actual date, attendance and status reports: pending evidence.** The minute-taker should record for each of Phong, Ngọc, Nhân, Kiên and Duy: (1) work completed since the prior week, (2) work planned until the next week and (3) issues/obstacles. Record action items with owner and date, then a short meeting summary. Phong integrates the verified record here.
+Target: 30 October. [Minute-taking card](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes). The minute-taker should record for each of Phong, Ngọc, Nhân, Kiên and Duy: (1) work completed since the prior week, (2) work planned until the next week and (3) issues/obstacles. Record action items with owner and date, then a short meeting summary. Phong integrates the verified record here.
 
 ### 6.3 Weekly Scrum 2
-**Performed by:** Hoàng Cao Phong (integration of Nhân's minutes) | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong (integration of Nhân's minutes) | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
-Target: 5 November. [Minute-taking card](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes). **Actual date, attendance and status reports: pending evidence.** Use the same five-member, three-question format. Include changed due dates, current risks, actions and summary only when verified.
+Target: 5 November. [Minute-taking card](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes). Use the same five-member, three-question format. Include changed due dates, current risks, actions and summary only when verified.
 
 ### 6.4 Sprint Review and retrospective
-**Performed by:** Hoàng Cao Phong (report integration; meeting owner Ngọc) | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong (report integration; meeting owner Ngọc) | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
-Target: 6 November. [Review card](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective). **Actual meeting and demonstrated build: pending evidence.** Record attendance, demonstrated revision, accepted/unfinished work, stakeholder feedback, what went well, what went wrong, problems and causes, what to change next sprint and lessons learned. Link the build evidence and actions.
+Target: 6 November. [Review card](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective). Record attendance, demonstrated revision, accepted/unfinished work, stakeholder feedback, what went well, what went wrong, problems and causes, what to change next sprint and lessons learned. Link the build evidence and actions.
 
 ### 6.5 Evidence and board snapshot
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 Before the 29 October alignment, the PA2 board showed 16 cards in Sprint To Do and three in In Progress. After assigning the integrated Weekly Report to Phong and moving his two active documents, it showed **14 in Sprint To Do, five in In Progress, zero in In Review and zero in Done**. The five In Progress cards were Kiên's API contract, integration build and individual training, plus Phong's Project Plan and Weekly Report. This is a point-in-time planning snapshot, not a productivity claim. The [dated board screenshot](evidence/trello-board-2026-10-29.png) shows assignments and board status at capture time; the [live board](https://trello.com/b/cE6KYEGR/dinevina-group-08-scrum-board) contains the task links above. Later progress screenshots, actual meeting minutes and the final Git log are still needed for the submitted Weekly Report.
 
 ## 7. Submission integration and release gate
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 Phong coordinates the final package; the owners of Vision, build, tutorials and meetings must provide and verify their own work. The current `docs/PAs/PA2/fin_PA2/` folder contains working Markdown and draft PDFs, but a reviewed final archive has not been verified. Do not submit a ZIP assembled from unreviewed or missing evidence.
 
 | Gate | Required artifact / check | Status on 29 Oct |
 | --- | --- | --- |
-| G1 | Final Project Plan and Vision in English Markdown; section attribution immediately after each header; Mermaid source in Vision. | Drafts exist; review pending. |
-| G2 | PDFs rendered from the final reviewed Markdown; inspect each page and diagrams. | Earlier draft PDFs exist; final-version verification pending. |
-| G3 | `src/.specify/` constitution and other generated Spec Kit Markdown. | Draft structure exists; team ratification and final inclusion pending. |
-| G4 | Individual training evidence from all five members. | Pending individual verification. |
-| G5 | AI-use declaration and detailed, truthful usage log where applicable. | Member entries/review pending. |
-| G6 | Actual Planning, two Scrums and Review minutes; dated Trello assignment/progress screenshots. | Pending real meeting and screenshot evidence. |
+| G1 | Final Project Plan and Vision in English Markdown; section attribution immediately after each header; Mermaid source in Vision. ding |
+| G2 | PDFs rendered from the final reviewed Markdown; inspect each page and diagrams. 
+| G3 | `src/.specify/` constitution and other generated Spec Kit Markdown. 
+| G4 | Individual training evidence from all five members. 
+| G5 | AI-use declaration and detailed, truthful usage log where applicable. 
+| G6 | Actual Planning, two Scrums and Review minutes; dated Trello assignment/progress screenshots. 
 | G7 | Final Git log including the packaged revision; record any outstanding reviews. | Refresh near packaging. |
 | G8 | `PA2-Group08.zip` with a top-level `PA2-Group08/` directory; inspect file list and run archive integrity test. | Not created/verified. |
-| G9 | Mỹ Ngọc reviews Phong's sections; group confirms deadline and submission destination; upload receipt retained. | Pending. |
+| G9 | Mỹ Ngọc reviews Phong's sections; group confirms deadline and submission destination; upload receipt retained. 
 
 Packaging sequence: gather verified peer artifacts → reconcile Trello dates/status → obtain section reviews → regenerate PDFs → inspect pages → export Git log → create the named top-level directory and ZIP → test extraction and compare against the matrix → submit at the confirmed destination → retain receipt. The proposed 6 November target is a planning assumption until confirmed by the course team.
 
 ## References
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (pending) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc  | **Edited by:** Hoàng Cao Phong
 
 - [PA2 assignment](../../../PAs/PA2/PA2-2026.pdf) and [Weekly Reports instructions](<../../../PAs/Weekly Reports.pdf>).
 - [PA2 working Project Plan](../../../PAs/PA2/fin_PA2/Project-Plan.md), [Weekly Report](../../../PAs/PA2/fin_PA2/Weekly-Report.md) and [submission checklist](../../../PAs/PA2/fin_PA2/Submission-Checklist.md).
