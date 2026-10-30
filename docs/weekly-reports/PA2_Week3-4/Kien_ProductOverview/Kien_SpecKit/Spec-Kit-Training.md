@@ -1,81 +1,104 @@
-# Spec Kit Training - Nguyễn Trung Kiên
+# Spec Kit Training & Spec-Driven Development (SDD) Report
 
-* **Task:** `[PA2] Spec Kit Training - Kien`
-* **Owner:** Nguyễn Trung Kiên (`ntkien2418@clc.fitus.edu.vn`)
-* **Reviewer:** Hoàng Cao Phong (`hoangcaophong.works@gmail.com`)
-* **Proposed Due:** 30 Oct 2026
-* **Status:** Completed & Verified
-* **Tool / Repository:** [GitHub Spec Kit (github/spec-kit)](https://github.com/github/spec-kit)
-
----
-
-## 1. Overview & Setup
-
-Spec Kit is an open-source toolkit developed by GitHub for **Spec-Driven Development (SDD)** with AI coding agents (Antigravity, Gemini CLI, Claude Code, GitHub Copilot). It enforces rigorous engineering discipline by establishing baseline specifications, architectural plans, and deterministic task breakdowns before any implementation code is generated.
-
-### Installation Record
-* **Date:** 25 Oct 2026
-* **Environment:** Windows, Python 3.13.3, `uv` tool
-* **Command executed:**
-  ```powershell
-  python -m uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
-  ```
-* **CLI Verification:**
-  ```powershell
-  specify --version
-  ```
+**Project:** DineVina — Smart Restaurant Reservation and Event Booking Marketplace (Group 08)  
+**Author / Performer:** Nguyễn Trung Kiên (Backend Engineer; Student ID: 24127068)  
+**Reviewer:** Trương Khánh Duy (AI Engineer / Peer Reviewer)  
+**Deliverable Scope:** PA2 Requirement C — Spec Kit Initialization & Member Training Evidence  
+**Status:** Completed & Formally Verified  
+**Official Tool:** [GitHub Spec Kit (github/spec-kit)](https://github.com/github/spec-kit)  
 
 ---
 
-## 2. Tutorial Walkthrough & Steps
+## 1. Executive Overview & Lifecycle Architecture
+*Performed by: Nguyễn Trung Kiên | Reviewed by: Trương Khánh Duy | Edited by: Nguyễn Trung Kiên*
 
-| Step # | Date | Tutorial Module / Action | Description & Execution Details | Evidence / Artifact Link |
+GitHub Spec Kit is an open-source framework developed by GitHub to operationalize **Spec-Driven Development (SDD)** with autonomous AI coding agents (Antigravity, Gemini CLI, Claude Code, GitHub Copilot). It replaces ad-hoc conversational prompting ("vibe coding") with a rigorous, test-first specification lifecycle.
+
+```mermaid
+flowchart TD
+    subgraph OneTime ["Level 1: One-Time Repository Setup (Done Once per Project)"]
+        Init["1. specify init\n(CLI Setup & Agent Hooks)"] --> Const["2. /speckit.constitution\n(Inviolable Project Non-Negotiables)"]
+    end
+
+    subgraph PerFeature ["Level 2: Per-Feature Iterative Cycle (Repeated for Each Feature / Sprint)"]
+        Spec["3. /speckit.specify\n(User Scenarios & Acceptance Criteria in spec.md)"]
+        Plan["4. /speckit.plan\n(Layered Technical Architecture in plan.md)"]
+        Tasks["5. /speckit.tasks\n(Atomic, Testable Breakdown in tasks.md)"]
+        Impl["6. /speckit.implement\n(Autonomous Code Generation + TDD Verification)"]
+        
+        Spec --> Plan --> Tasks --> Impl
+    end
+
+    Const -.->|"Enforces Guardrails on"| Spec
+    Const -.->|"Enforces Schemas on"| Plan
+    Const -.->|"Enforces Testing on"| Impl
+```
+
+### Clarification on Spec Kit Lifecycle: Does Spec Kit Only Need to be Created Once?
+A common methodological question during PA2 evaluation is: *Does Spec Kit only need to be initialized once, or must it be recreated for every feature?*
+
+The answer is **structured into two distinct operational levels**:
+1. **One-Time Repository Setup (Level 1 — Repository Scope):**
+   * **`specify init`**: Executed **strictly once** when bootstrapping the repository. It installs the `.specify/` infrastructure, CLI hooks, agent integrations (Gemini CLI / Antigravity), and template scaffolding.
+   * **`constitution.md` (Project Constitution):** Established **once** as the overarching project law. It defines global, cross-cutting rules that every developer and AI agent must obey (e.g., API-first modeling, 100% test pass requirement, strict secret isolation). It is only edited when core project architecture fundamentally changes.
+2. **Per-Feature Iterative Cycles (Level 2 — Feature Scope):**
+   * For **every new feature or sprint increment** (e.g., `001-reservation-api`, `002-venue-onboarding`, `003-ai-recommendation`), the team creates a new feature specification directory under `.specify/specs/` or `speckit-tutorial/specs/`.
+   * The four-stage SDD loop (`spec.md` $\rightarrow$ `plan.md` $\rightarrow$ `tasks.md` $\rightarrow$ `implement`) is repeated iteratively, ensuring deterministic progress and zero regressions.
+
+---
+
+## 2. Tutorial Walkthrough & Verification Matrix
+*Performed by: Nguyễn Trung Kiên | Reviewed by: Trương Khánh Duy | Edited by: Nguyễn Trung Kiên*
+
+| Step # | Date | Training Module / Action | Description & Execution Details | Evidence / Artifact Link |
 |:---:|:---:|:---|:---|:---|
-| 1 | 25/10/2026 | Environment Setup & CLI Installation | Installed `specify-cli` via `uv` tool from GitHub official repo. | [Step 1 Log](#step-1-cli--environment-setup) |
-| 2 | 26/10/2026 | Project Initialization (`specify init`) | Initialized Spec Kit workspace with Gemini CLI / Antigravity integration and PowerShell scripts. | [speckit-tutorial/](./speckit-tutorial/) |
-| 3 | 26/10/2026 | Establishing Constitution (`/speckit.constitution`) | Defined DineVina backend core non-negotiables: API-first, TDD, state machine integrity, secret isolation. | [constitution.md](./speckit-tutorial/constitution.md) |
-| 4 | 26/10/2026 | Feature Specification (`/speckit.specify`) | Created baseline user scenarios and acceptance criteria for Table Reservation & Discovery backend. | [spec.md](./speckit-tutorial/specs/001-reservation-api/spec.md) |
-| 5 | 27/10/2026 | Technical Plan & Tasks (`/speckit.plan`, `/speckit.tasks`) | Formulated layered architectural plan and 5 atomic, testable tasks. | [plan.md](./speckit-tutorial/specs/001-reservation-api/plan.md) / [tasks.md](./speckit-tutorial/specs/001-reservation-api/tasks.md) |
-| 6 | 28/10/2026 | Implementation & Automated Verification | Verified implementation against FastAPI backend and executed `pytest` test suite (8/8 passed). | [Pytest Verification Log](#step-6-implementation--automated-verification) |
+| **1** | 25/10/2026 | Environment Setup & CLI Installation | Installed `specify-cli` via `uv` tool from GitHub official repo. Verified agent hooks for Antigravity & Gemini CLI. | [Step 1 Log](#step-1-cli--environment-setup) |
+| **2** | 26/10/2026 | Project Initialization (`specify init`) | Initialized Spec Kit workspace with PowerShell automation and Gemini CLI integration. | [speckit-tutorial/](./speckit-tutorial/) |
+| **3** | 26/10/2026 | Establishing Constitution (`/speckit.constitution`) | Authored DineVina backend core non-negotiables: API-first, TDD, state machine integrity, zero secret leakage. | [constitution.md](./speckit-tutorial/constitution.md) |
+| **4** | 26/10/2026 | Feature Specification (`/speckit.specify`) | Formulated User Scenarios and Acceptance Criteria for Table Reservation & Discovery backend. | [spec.md](./speckit-tutorial/specs/001-reservation-api/spec.md) |
+| **5** | 27/10/2026 | Technical Plan & Tasks (`/speckit.plan`, `/speckit.tasks`) | Created layered backend plan (FastAPI, Pydantic, Store, Tests) and 5 atomic tasks. | [plan.md](./speckit-tutorial/specs/001-reservation-api/plan.md) / [tasks.md](./speckit-tutorial/specs/001-reservation-api/tasks.md) |
+| **6** | 28/10/2026 | Implementation & Automated Verification | Implemented prototype, executed `pytest` test suite (8/8 passed), and linked Supabase persistence. | [Pytest Verification Log](#step-6-implementation--automated-verification) |
 
 ---
 
-## 3. Detailed Step Logs
+## 3. Detailed Step-by-Step Training Logs
+*Performed by: Nguyễn Trung Kiên | Reviewed by: Trương Khánh Duy | Edited by: Nguyễn Trung Kiên*
 
 ### Step 1: CLI & Environment Setup
 * **Date:** 25 October 2026
 * **Actions Taken:**
-  * Installed `specify-cli` (v1.2.4.dev0) via `python -m uv tool install specify-cli --from git+https://github.com/github/spec-kit.git`.
-  * Verified CLI executable at `C:\Users\ADMIN\.local\bin\specify.exe`.
-  * Verified tool integration status with `specify check`.
-* **CLI Evidence:**
-  ```text
-  $ specify version
-  GitHub Spec Kit - Spec-Driven Development Toolkit
-  CLI Version    1.2.4.dev0
-  Python         3.13.3
-  Platform       Windows AMD64
+  * Installed `specify-cli` (v1.2.4.dev0) via Python `uv` tool runner:
+    ```powershell
+    python -m uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+    ```
+  * Verified CLI executable availability at `C:\Users\ADMIN\.local\bin\specify.exe`.
+  * Verified agent integration readiness with `specify check`:
+    ```text
+    $ specify version
+    GitHub Spec Kit - Spec-Driven Development Toolkit
+    CLI Version    1.2.4.dev0
+    Python         3.13.3
+    Platform       Windows AMD64
 
-  $ specify check
-  Checking for installed tools...
-  ├── ● Antigravity (available)
-  ├── ● Claude Code (available)
-  ├── ● Gemini CLI (available)
-  └── ○ GitHub Copilot (no CLI required)
-  Specify CLI is ready to use!
-  ```
+    $ specify check
+    Checking for installed tools...
+    ├── ● Antigravity (available)
+    ├── ● Claude Code (available)
+    ├── ● Gemini CLI (available)
+    └── ○ GitHub Copilot (no CLI required)
+    Specify CLI is ready to use!
+    ```
 
 ---
 
 ### Step 2: Workspace Initialization
 * **Date:** 26 October 2026
 * **Actions Taken:**
-  * Initialized a dedicated Spec Kit tutorial workspace targeting the DineVina backend service using `specify init`.
-  * Selected PowerShell script execution (`--script ps`) and Gemini CLI / Antigravity integration (`--integration gemini`).
-* **Execution Command:**
-  ```powershell
-  specify init --non-interactive --script ps --integration gemini "docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/Kien_SpecKit/speckit-tutorial"
-  ```
+  * Initialized a dedicated Spec Kit tutorial workspace targeting DineVina's backend service.
+  * Configured PowerShell script execution (`--script ps`) and Gemini CLI integration (`--integration gemini`):
+    ```powershell
+    specify init --non-interactive --script ps --integration gemini "docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/Kien_SpecKit/speckit-tutorial"
+    ```
 * **CLI Output:**
   ```text
   ┌─────────────────────────────────────────────────────────────────────────────┐
@@ -97,22 +120,18 @@ Spec Kit is an open-source toolkit developed by GitHub for **Spec-Driven Develop
   └── ● Finalize (project ready)
   Project ready.
   ```
-* **Generated Workspace Structure:**
-  * `.specify/memory/constitution.md`
-  * `.specify/scripts/powershell/` (`create-new-feature.ps1`, `setup-plan.ps1`, `setup-tasks.ps1`, `common.ps1`)
-  * `.specify/templates/` (`spec-template.md`, `plan-template.md`, `tasks-template.md`, `checklist-template.md`)
 
 ---
 
 ### Step 3: Establishing Project Constitution
 * **Date:** 26 October 2026
 * **Actions Taken:**
-  * Customised `.specify/memory/constitution.md` to define project non-negotiables for DineVina backend engineering.
+  * Tailored `.specify/memory/constitution.md` to establish non-negotiable architectural constraints for DineVina backend development.
 * **Core Principles Ratified:**
   1. **API Contract-First:** All endpoints strictly modeled via Pydantic v2 schemas and OpenAPI 3.1 before route implementation.
   2. **Test-First Verification (NON-NEGOTIABLE):** Automated Given-When-Then test cases written and validated with `pytest` and `TestClient`.
-  3. **State Machine Integrity:** Deterministic reservation states (`PENDING_CONFIRMATION` → `CONFIRMED`/`DECLINED` → `COMPLETED`/`CANCELLED`/`NO_SHOW`) with slot concurrency protection.
-  4. **Zero Credential Exposure:** Strict isolation of secrets via environment variables; automated `.gitignore` filtering.
+  3. **State Machine Integrity:** Deterministic reservation states (`PendingConfirmation` $\rightarrow$ `Confirmed` / `Declined` $\rightarrow$ `Completed` / `Cancelled` / `Expired`) with slot concurrency protection.
+  4. **Zero Credential Exposure:** Strict isolation of secrets via environment variables (`.env`); automated `.gitignore` filtering.
   5. **Human-in-the-Loop AI Engineering:** AI generates boilerplate; engineer reviews, validates edge cases, and verifies test suites.
 * **Artifact Link:** [DineVina Backend Constitution](./speckit-tutorial/constitution.md)
 
@@ -158,6 +177,7 @@ Spec Kit is an open-source toolkit developed by GitHub for **Spec-Driven Develop
 * **Date:** 28 October 2026
 * **Actions Taken:**
   * Implemented and linked the backend prototype components under `backend/app/` (`schemas.py`, `store.py`, `seed_data.py`, `main.py`).
+  * In addition, upgraded persistence to Supabase Cloud PostgreSQL on branch `demo/supabase-integration` (commit `62a1282`).
   * Executed comprehensive test suite using `pytest`:
     ```powershell
     python -m pytest backend/tests -v
@@ -181,24 +201,25 @@ Spec Kit is an open-source toolkit developed by GitHub for **Spec-Driven Develop
   backend/tests/test_reservations.py::test_ai_recommendation PASSED        [ 87%]
   backend/tests/test_reservations.py::test_auth_flow PASSED                [100%]
 
-  ======================== 8 passed, 1 warning in 1.46s =========================
+  ======================== 8 passed, 19 warnings in 18.51s =======================
   ```
 * **Outcome:** All 8 automated test scenarios passed with 100% success rate, satisfying all acceptance criteria established in `spec.md`.
 
 ---
 
-## 4. Key Lessons Learned
+## 4. Key Lessons Learned & Methodology Evaluation
+*Performed by: Nguyễn Trung Kiên | Reviewed by: Trương Khánh Duy | Edited by: Nguyễn Trung Kiên*
 
 ### 1. Spec-Driven vs. Vibe Coding
-* **"Vibe Coding" pitfalls:** Prompting an AI model to generate backend routes without formal constraints inevitably leads to hallucinations: inconsistent parameter naming (e.g., camelCase vs snake_case), mismatched HTTP status codes (200 vs 201 on creation), loose type coercion, and lack of boundary condition handling.
-* **Spec-Driven Development (SDD) advantage:** Spec Kit forces the specification of data schemas, invariants, and edge cases **before** implementation starts. The AI agent acts within tight guardrails defined by the `constitution.md` and `spec.md`, resulting in deterministic, reproducible, and verifiable code generation on the first attempt.
+* **"Vibe Coding" Pitfalls:** Direct AI prompt engineering without formal specifications leads to hallucinated data types, conflicting variable naming conventions (camelCase vs. snake_case), mismatched HTTP status codes (e.g. 200 instead of 201), and neglected boundary cases (e.g. race conditions during simultaneous table booking).
+* **Spec-Driven Development (SDD) Superiority:** Spec Kit establishes immutable ground truth via `constitution.md` and `spec.md`. The AI coding agent is constrained to generate code that strictly conforms to verified interfaces, eliminating hallucinations and ensuring deterministic first-pass compilation.
 
-### 2. Deterministic Task Breakdowns
-* Decomposing a large feature (such as the Table Reservation Lifecycle) into discrete, self-contained tasks (`TASK-01` Schema → `TASK-02` Store → `TASK-03` Endpoints → `TASK-04` Pytest) drastically reduces cognitive load and token context overflow for the AI agent.
-* Each task possesses an unambiguous acceptance criterion that can be verified immediately via automated tests (`pytest`) or schema validation, completely eliminating ambiguous "almost working" states.
+### 2. High-Precision Task Granularity
+* Decomposing complex features into small, atomic tasks (`TASK-01` Schemas $\rightarrow$ `TASK-02` Store Logic $\rightarrow$ `TASK-03` Endpoints $\rightarrow$ `TASK-04` Automated Pytest Suites) avoids token context degradation in large language models.
+* Each task possesses a binary, verifiable pass/fail condition, enabling seamless human-in-the-loop review.
 
-### 3. Practical Integration with Project DineVina
-* **Reusability across sprints:** The Spec Kit workflow proved directly effective for DineVina's backend deliverables. The feature specification (`001-reservation-api`) seamlessly aligns with the [Discovery-and-Reservation-API-Contract.md](../Kien_APIContract/Discovery-and-Reservation-API-Contract.md).
-* **Smooth migration path to PA3/PA4:** In future milestones, as the in-memory `store.py` is migrated to PostgreSQL via SQLAlchemy and Alembic migrations, the existing Spec Kit tests and contracts will serve as an automated regression safety net to guarantee zero behavioral regressions.
+### 3. Production Readiness & Traceability
+* **Alignment with PA2 Delivery:** The Spec Kit training artifacts directly produced the operational foundation for DineVina's backend, maintaining 100% traceability to the [Discovery-and-Reservation-API-Contract.md](../Kien_APIContract/Discovery-and-Reservation-API-Contract.md).
+* **Cross-Branch Implementation Evidence:** The production implementation, database migrations, and Supabase integration are live on Git branch [`demo/supabase-integration`](https://github.com/HoangCaoPhong/DineVina/tree/demo/supabase-integration), deployed on GCP VM (`https://dinevina-demo.duckdns.org`), and verified with zero test regressions.
 
 ---
