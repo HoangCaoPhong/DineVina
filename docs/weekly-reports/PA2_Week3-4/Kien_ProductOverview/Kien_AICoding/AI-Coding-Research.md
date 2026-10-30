@@ -111,3 +111,4 @@ By anchoring AI generation to the formal [DineVina Backend Constitution](../Kien
    * The model tiers, toolchain, and SDD methodology documented here form the direct foundation for the PA2 Vision Document ([`kien.md`](../kien.md)) and API Specification ([`Discovery-and-Reservation-API-Contract.md`](../Kien_APIContract/Discovery-and-Reservation-API-Contract.md)).
 
 ---
+
