@@ -164,5 +164,6 @@ The engineering and documentation artifacts authored by Nguyễn Trung Kiên sup
 | **Discovery & Reservation API Contract** | [`Discovery-and-Reservation-API-Contract.md`](./Kien_APIContract/Discovery-and-Reservation-API-Contract.md) | 7-state reservation lifecycle, 5 REST endpoints, OpenAPI schemas, and 10 Given-When-Then automated test scenarios | **Completed** |
 | **Backend & Database Prototype Implementation** | Git Branch: [`demo/supabase-integration`](https://github.com/HoangCaoPhong/DineVina/tree/demo/supabase-integration) (Commit `62a1282`) | FastAPI services, Supabase PostgreSQL persistence, Docker Compose, 8/8 automated passing tests, and GCP cloud deployment | **Completed & Verified** |
 | **Spec Kit Initialization & Training** | [`Spec-Kit-Training.md`](./Kien_SpecKit/Spec-Kit-Training.md) & [`speckit-tutorial/`](./Kien_SpecKit/speckit-tutorial/) | Part C Deliverable: GitHub Spec Kit integration, project constitution, feature specs, and automated verification logs | **Completed & Verified** |
+| **AI Coding Research & Toolchain Strategy** | [`AI-Coding-Research.md`](./Kien_AICoding/AI-Coding-Research.md) | PA1/PA2 AI Strategy: Evaluation of 141 models, tiered quota strategy, Antigravity toolchain, and SDD evolution | **Completed** |
 
 ---
