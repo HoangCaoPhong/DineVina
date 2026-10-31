@@ -7,14 +7,13 @@ DineVina is a planned restaurant marketplace for customers to discover restauran
 
 ## Team
 
-| Student ID | Member | Email |
-| --- | --- | --- |
-| 24127486 | Hoàng Cao Phong (group leader) | hcphong2425@clc.fitus.edu.vn |
-| 24127294 | Võ Mỹ Ngọc | vmngoc2433@clc.fitus.edu.vn |
-| 24127475 | Lương Thiện Nhân | ltnhan2433@clc.fitus.edu.vn |
-| 24127068 | Nguyễn Trung Kiên | ntkien2418@clc.fitus.edu.vn |
-| 24127160 | Trương Khánh Duy | tkduy2414@clc.fitus.edu.vn |
-
+| Student ID | Member | Scrum / Engineering role | Email |
+| --- | --- | --- | --- |
+| 24127486 | Hoàng Cao Phong (group leader) | Scrum Master; MLOps engineer | hcphong2425@clc.fitus.edu.vn |
+| 24127294 | Võ Mỹ Ngọc | Product Owner; Frontend engineer | vmngoc2433@clc.fitus.edu.vn |
+| 24127475 | Lương Thiện Nhân | Data Engineer | ltnhan2433@clc.fitus.edu.vn |
+| 24127068 | Nguyễn Trung Kiên | Backend Engineer | ntkien2418@clc.fitus.edu.vn |
+| 24127160 | Trương Khánh Duy | AI Engineer | tkduy2414@clc.fitus.edu.vn |
 ## Start with Docker
 
 Requirements: Docker and Docker Compose.
