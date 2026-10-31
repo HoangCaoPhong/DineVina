@@ -1,0 +1,15 @@
+bbaf7a5 2026-10-29 HoangCaoPhong research PA2_PjPlan
+d32d1b9 2026-10-29 HoangCaoPhong Complete Phong PA2 project plan and weekly record
+62cfec2 2026-10-29 HoangCaoPhong setup for PA2
+17c2fb8 2026-10-17 HoangCaoPhong check PA1
+c1abac9 2026-10-17 Hoang Cao Phong Merge pull request #8 from HoangCaoPhong/dev
+f865734 2026-10-17 Hoang Cao Phong Merge pull request #7 from HoangCaoPhong/research/Project-proposal
+41f0257 2026-10-17 Hoang Cao Phong Merge pull request #6 from HoangCaoPhong/dev
+0343703 2026-10-17 Hoang Cao Phong Merge pull request #5 from HoangCaoPhong/Nhan_Week1_Survey
+c48d5ce 2026-10-17 Hoang Cao Phong Merge pull request #2 from HoangCaoPhong/kd_w1_aifeature
+a98a153 2026-10-17 tkduy2414-hue  update Duy.md
+ed0b52b 2026-10-17 tkduy2414-hue Delete docs/ai_features_proposal.md
+b176ef5 2026-10-17 nhankun2006 feat: proven images for Pasgo
+2446e65 2026-10-17 nhankun2006 fix: translate survey docs to English
+25cb5d2 2026-10-16 moonshine-v docs: clarify task workflow and record team approval
+ee3e4b9 2026-10-16 moonshine-v docs: clarify B2B2C model and user roles
