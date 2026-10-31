@@ -15,7 +15,7 @@ This specification establishes the official API contract for DineVina's core MVP
 1. **Restaurant Discovery:** Enabling diners to search, filter, and paginate through verified restaurant listings and examine live slot availability.
 2. **Table Reservation Lifecycle:** Handling the complete state machine from reservation request, partner review (confirmation / decline), customer cancellation, to table check-in and no-show states.
 
-The contract adheres strictly to FastAPI standard conventions, OpenAPI 3.1 JSON schemas, and HTTP REST semantics defined in `backend/app/` and [Coderules.md](../../../Coderules.md).
+The contract adheres strictly to FastAPI standard conventions, OpenAPI 3.1 JSON schemas, and HTTP REST semantics defined in `backend/app/` and [Coderules.md](../../../../../Coderules.md).
 
 ---
 
