@@ -21,9 +21,4 @@ On 31 October 2026, the team representative confirmed that all five members comp
 | Nguyễn Trung Kiên | Completed; dated 25–28 October personal log included | Initialized the toolchain; wrote the constitution, reservation feature specification, technical plan and tasks; recorded commands and lessons in the original log. |
 | Trương Khánh Duy | Completed, per team representative | Specify the recommender's inputs, fallback behavior and evaluation criteria before coding the optional AI workflows. |
 
-Kiên's original log is `evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md`. No screenshots are represented as existing for the other four members. The course accepts a training log or a brief learning summary as examples of evidence; the declaration and summaries above are included for that purpose.
-
-## 3. Technical takeaway and source
-**Performed by:** Nguyễn Trung Kiên; Hoàng Cao Phong | **Reviewed by:** Trương Khánh Duy | **Edited by:** Hoàng Cao Phong
-
-Specify scenarios, derive the plan and verifiable tasks, then test ownership, state transitions and capacity. Original log: `evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md`. Its reported Windows prototype tests are separate from `evidence/local-validation.txt` on this branch.
+Kiên's [original log](evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md) and a [Microsoft Learn Spec Kit achievement screenshot](evidence/speckit_evidence.png) accompany these summaries. The tutorial method is to specify scenarios, derive a plan and verifiable tasks, then check ownership, state transitions and capacity. Kiên's reported Windows prototype tests are separate from `evidence/local-validation.txt` on this branch.

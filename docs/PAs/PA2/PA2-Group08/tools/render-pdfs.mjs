@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import fsSync from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import {createRequire} from 'node:module';
@@ -49,7 +50,22 @@ const chapterMarker='<div class="chapter-break"></div>';
 const front=originalReport.split(chapterMarker)[0].trimEnd().replace(/^- README\n/m,'');
 const chapters=['Project-Plan.md','Vision.md','Spec-Kit-Training.md','AI-Usage-Report.md','Weekly-Report.md','meeting-minutes/PA1-History.md','meeting-minutes/Sprint-Planning-Record.md','meeting-minutes/Scrum-Meetings.md','meeting-minutes/Sprint-Review-Minutes.md','evidence/Trello-Task-Index.md','Source-Register.md','Submission-Checklist.md'];
 const chapterTexts=[];
-for(const chapter of chapters){let value=await fs.readFile(path.join(root,chapter),'utf8');if(chapter.startsWith('meeting-minutes/'))value=value.replaceAll('`Sprint-Review-Minutes.md`','`meeting-minutes/Sprint-Review-Minutes.md`');chapterTexts.push(value);}
+function rootRelativeLinks(source,chapter){
+ return source.replace(/(\]\()([^)]+)(\))/g,(match,open,href,close)=>{
+  if(href.startsWith('#')||/^[a-z][a-z\d+.-]*:/i.test(href)||href.startsWith('//'))return match;
+  const boundary=href.search(/[?#]/);
+  const pathname=boundary<0?href:href.slice(0,boundary);
+  const suffix=boundary<0?'':href.slice(boundary);
+  const resolved=path.posix.normalize(path.posix.join(path.posix.dirname(chapter),decodeURIComponent(pathname)));
+  if(resolved.startsWith('../')||path.posix.isAbsolute(resolved)||!fsSync.existsSync(path.join(root,resolved)))throw Error(`Unresolved local link in ${chapter}: ${href}`);
+  return `${open}${encodeURI(resolved)}${suffix}${close}`;
+ });
+}
+for(const chapter of chapters){
+ let value=await fs.readFile(path.join(root,chapter),'utf8');
+ if(chapter.startsWith('meeting-minutes/'))value=value.replaceAll('`Sprint-Review-Minutes.md`','`meeting-minutes/Sprint-Review-Minutes.md`');
+ chapterTexts.push(rootRelativeLinks(value,chapter));
+}
 await fs.writeFile(reportPath,front+'\n\n'+chapterMarker+'\n\n'+chapterTexts.join('\n'+chapterMarker+'\n\n'));
 const manifest=[];
 try{

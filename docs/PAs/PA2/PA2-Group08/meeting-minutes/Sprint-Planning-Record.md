@@ -24,7 +24,7 @@ The [23 October team allocation](../evidence/2026-10-23-Work-Allocation.md) assi
 | 2 | Week 2 Scrum check-in and shared minutes | Hoàng Cao Phong | Võ Mỹ Ngọc | Held 29 Oct |
 | 2 | Sprint Review and retrospective | Võ Mỹ Ngọc | Hoàng Cao Phong | Sprint close 31 Oct |
 
-The first five rows follow the 23 October allocation. Priority 1 groups core deliverables and enabling work; Priority 2 groups ceremony and reporting checkpoints. These are sprint-window dates. Several Trello cards retain later due dates from an older board schedule; those are listed separately in the [Project Plan](../Project-Plan.md#51-detailed-sprint-2-backlog) and are not dates of PA2 meetings.
+The first five rows follow the 23 October allocation. Priority 1 groups core deliverables and enabling work; Priority 2 groups ceremony and reporting checkpoints. These are sprint-window dates. Eight later Trello due fields were aligned to the 31 October sprint close; their original values remain in the card comments and the historical connector export.
 
 ## Risks and follow-up
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong

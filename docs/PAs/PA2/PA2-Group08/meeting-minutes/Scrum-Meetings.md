@@ -1,7 +1,7 @@
 # PA2 / Sprint 2 — Weekly Scrum Meetings
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Sprint window:** 19–31 October 2026 (Asia/Ho_Chi_Minh). The team held one check-in in each sprint week: 23 October in Week 1 and 29 October in Week 2. The group leader confirmed the two-week window and the Week 1 meeting details on 31 October. This single file contains both PA2 weekly records, as required by the course [Weekly Reports](../../../Weekly%20Reports.pdf) instructions. Earlier PA1 meetings are summarized separately in [PA1-History.md](PA1-History.md).
+**Sprint window:** 19–31 October 2026 (Asia/Ho_Chi_Minh). The team held one check-in in each sprint week: 23 October in Week 1 and 29 October in Week 2. The group leader confirmed the two-week window and the Week 1 meeting details on 31 October. This single file contains both PA2 weekly records, as required by the course *Weekly Reports* instructions. Earlier PA1 meetings are summarized separately in [PA1-History.md](PA1-History.md).
 
 The status tables summarize the dated team allocation, PA1 handover work, member deliverables and subsequent integration review. They organize the course's three Scrum questions; they are not quotations attributed to individual speakers.
 
@@ -65,4 +65,4 @@ Nhân's 31 October commit is included as a later reporting update, not as work c
 | Weekly Scrum 2 | Week 2 section above, meeting of 29 October |
 | Sprint Review / retrospective | [31 October review record](Sprint-Review-Minutes.md) |
 
-The Trello Scrum 2 card still shows a 5 November target. That board target falls after the team-confirmed 31 October end of PA2 and is not used as the date of the second PA2 meeting.
+The Trello Scrum 2 card due field was aligned to 31 October; its comment retains the earlier 5 November target. The meeting itself took place on 29 October.

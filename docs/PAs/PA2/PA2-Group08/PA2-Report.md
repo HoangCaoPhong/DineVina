@@ -56,7 +56,7 @@ The planned functional groups are accounts and profiles; venue onboarding; disco
 
 PA2 deliverables are the initial Project Plan and Vision in English Markdown and PDF, Spec Kit files under `src/`, individual tutorial evidence, AI usage declaration and log, weekly meeting report, board screenshots, Git log and the `PA2-Group08.zip` package. Coding and self-training may be scheduled as Scrum tasks, but a feature descriptions define the intended product. The submission package contains the initial project plan, Vision, Spec Kit artifacts, usage and weekly reports, evidence, and PDF exports.
 
-Planning assumptions: five members remain available; the team can use GitHub and Trello; restaurant data may initially be clearly marked samples; publication and personal-data policy need team agreement. The team representative confirms that the instructor permits this group to use Trello instead of Jira. The team-confirmed Sprint 2 / PA2 window is 19–31 October 2026. The Notion allocation and first weekly meeting are dated 23 October; the second weekly meeting is dated 29 October; the Sprint Review was held 31 October. Some Trello due dates still reflect an older 24 October–6 November board schedule. Card due dates are recorded as board metadata, not as the sprint boundary or meeting dates.
+Planning assumptions: five members remain available; the team can use GitHub and Trello; restaurant data may initially be clearly marked samples; publication and personal-data policy need team agreement. The team representative confirms that the instructor permits this group to use Trello instead of Jira. The team-confirmed Sprint 2 / PA2 window is 19–31 October 2026. The Notion allocation and first weekly meeting are dated 23 October; the second weekly meeting is dated 29 October; the Sprint Review was held 31 October. On 31 October, eight Trello due fields were aligned with the sprint close; the card comments retain their earlier board targets and Trello retains its activity history.
 
 ## 3. Project organization
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -106,7 +106,7 @@ The PA2 rhythm was one progress check-in per sprint week: Week 1 (19–25 Octobe
 ### 5.1 Detailed Sprint 2 backlog
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The dates in the last column are the Trello board's recorded due dates, including dates after the team-confirmed 31 October sprint close. They are preserved here for traceability and do not redefine the PA2 calendar. The actual weekly meetings were held on 23 and 29 October. The team uses the source allocation for document responsibilities and the live board for current task ownership.
+The dates in the last column match the Trello board after the 31 October calendar correction. Earlier due values remain in card comments and the historical connector export. The actual weekly meetings were held on 23 and 29 October. The team uses the source allocation for document responsibilities and the live board for current task ownership.
 
 | ID | Task and acceptance result | Performer | Reviewer | Board due (local) | Trello |
 | --- | --- | --- | --- | --- | --- |
@@ -116,15 +116,15 @@ The dates in the last column are the Trello board's recorded due dates, includin
 | P2-04 | Initialize Spec Kit under `src/`, prepare constitution and verify generated Markdown; collect training register. | Kiên | Duy | 30 Oct | [Card](https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training) |
 | P2-05 | Each member completes the official Spec Kit tutorial and supplies a genuine dated learning record. | Five individual cards | Different member | 30 Oct | [Phong](https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong) and four peer cards |
 | P2-06 | Venue/menu data fields, validation rules and labeled sample records reviewed. | Nhân | Kiên | 31 Oct | [Card](https://trello.com/c/5P6lzQLJ/27-pa2-venue-and-menu-data-contract) |
-| P2-07 | Discovery and reservation API shapes, states and scenarios reviewed. | Kiên | Ngọc | 2 Nov | [Card](https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract) |
-| P2-08 | Recommendation eligibility, ranking baseline, fallback and offline evaluation cases reviewed. | Duy | Phong | 2 Nov | [Card](https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation) |
-| P2-09 | First weekly Scrum: held 23 October; shared minutes cover progress, issues and actions. | Phong | Ngọc | 30 Oct | [Card](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes) |
-| P2-10 | Second weekly Scrum: held 29 October; same shared document records the second week's review. | Phong | Ngọc | 5 Nov | [Card](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes) |
-| P2-11 | Integration build: revision, test/build results, browser check and known gaps. | Kiên | Phong | 4 Nov | [Card](https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests) |
-| P2-12 | Sprint Review/retrospective: held 31 October; outcomes and improvement actions are recorded in the meeting archive. | Ngọc | Phong | 6 Nov | [Card](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective) |
-| P2-13 | Integrated Weekly Report with linked minutes and genuine dated board screenshots. | Phong | Ngọc | 6 Nov | [Card](https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence) |
-| P2-14 | Collect verified AI-use entries and export final Git history. | Phong | Ngọc | 6 Nov | [Card](https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log) |
-| P2-15 | Review PDFs and evidence, package and verify `PA2-Group08.zip`. | Phong | Ngọc | 6 Nov | [Card](https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package) |
+| P2-07 | Discovery and reservation API shapes, states and scenarios reviewed. | Kiên | Ngọc | 31 Oct | [Card](https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract) |
+| P2-08 | Recommendation eligibility, ranking baseline, fallback and offline evaluation cases reviewed. | Duy | Phong | 31 Oct | [Card](https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation) |
+| P2-09 | First weekly Scrum: held 23 October; shared minutes cover progress, issues and actions. | Nhân | Phong | 30 Oct | [Card](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes) |
+| P2-10 | Second weekly Scrum: held 29 October; same shared document records the second week's review. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes) |
+| P2-11 | Integration build: revision, test/build results, browser check and known gaps. | Kiên | Phong | 31 Oct | [Card](https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests) |
+| P2-12 | Sprint Review/retrospective: held 31 October; outcomes and improvement actions are recorded in the meeting archive. | Ngọc | Phong | 31 Oct | [Card](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective) |
+| P2-13 | Integrated Weekly Report with linked minutes and genuine dated board screenshots. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence) |
+| P2-14 | Collect verified AI-use entries and export final Git history. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log) |
+| P2-15 | Review PDFs and evidence, package and verify `PA2-Group08.zip`. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package) |
 
 ### 5.2 Build and test checkpoints
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -186,7 +186,25 @@ These are proposed next-sprint tasks, not claims that the PA3 artifacts or video
 # DineVina - Vision Document (PA2)
 **Performed by:** Group 08 source contributors; Hoàng Cao Phong | **Reviewed by:** Peer reviewers by section | **Edited by:** Hoàng Cao Phong
 
-**Group 08 · initial Vision · 31 October 2026**
+**Group 08 · Vision version 1.0 · 31 October 2026**
+
+## Revision History
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
+
+| Version | Date | Description | Contributors |
+| --- | --- | --- | --- |
+| 1.0 | 31 October 2026 | Integrated PA2 Vision from the five member contributions; aligned product scope, terminology, workflows and quality targets. | Ngọc, Nhân, Kiên, Duy and Phong |
+
+## Table of Contents
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
+
+1. Introduction — purpose and references
+2. Positioning — problem and product position statements
+3. Stakeholder and User Descriptions — stakeholders, users, environment, needs and alternatives
+4. Product Overview — perspective, interfaces, assumptions and dependencies
+5. Product Features — nine functional groups, intelligent assistance and key workflows
+6. Non-Functional Requirements — measurable quality targets
+7. Traceability and References — relationship to PA1 and source contributions
 
 ## 1. Introduction
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
@@ -331,7 +349,7 @@ Customers can choose a date, time, and party size and submit a table reservation
 ### 5.6 Event Inquiries and Proposals
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
 
-Customers planning an event can submit a structured brief containing the occasion, expected headcount, preferred date, budget, and special needs. Restaurant partners can request clarification, propose terms, and track the customer's response in one conversation rather than treating a complex event like an ordinary table request. Customers benefit from a clearer planning process, and partners benefit from receiving the information required to prepare realistic proposals.
+Customers planning an event can submit a structured brief containing the occasion, party size, preferred date, budget, and special needs. Restaurant partners can request clarification, propose terms, and track the customer's response in one conversation rather than treating a complex event like an ordinary table request. Customers benefit from a clearer planning process, and partners benefit from receiving the information required to prepare realistic proposals.
 
 ### 5.7 Availability and Partner Dashboard
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
@@ -351,7 +369,7 @@ F9 is one functional group with one primary capability and two optional candidat
 #### 5.9.1: Explainable Restaurant Recommendation Engine (Primary Slice)
 **Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Hoàng Cao Phong
 
-The Explainable Restaurant Recommendation Engine matches diners with suitable venues by evaluating their stated preferences (cuisine, budget, location, party size, and dining occasion) against partner-verified restaurant attributes and published capacity, revalidated at confirmation. Unlike black-box algorithms or static directory filters, this feature generates a transparent justification badge for every suggested venue (e.g., *"Recommended because it matches your Vietnamese cuisine preference, fits your 200k-400k VND budget, and has a private room available for 10 guests"*). This capability is needed to reduce decision fatigue for customers navigating large restaurant catalogs while preventing false expectations caused by unverified recommendations. Customers benefit from faster, higher-confidence booking decisions, while restaurant partners benefit from receiving high-intent reservation requests that accurately fit their operational capacity.
+The Explainable Restaurant Recommendation Engine matches diners with suitable venues by evaluating their stated preferences (cuisine, budget, location, party size, and dining occasion) against partner-verified restaurant attributes and published capacity, revalidated at confirmation. Unlike black-box algorithms or static directory filters, this feature generates a transparent justification badge for every suggested venue (e.g., *"Recommended because it matches your Vietnamese cuisine preference, fits your 200k-400k VND budget, and has a private room available for 10 guests"*). This capability is needed to reduce decision fatigue for customers navigating large restaurant catalogs while preventing misleading availability claims from unverified recommendations. Customers benefit from faster, higher-confidence booking decisions, while restaurant partners benefit from receiving high-intent reservation requests that accurately fit their operational capacity.
 
 #### 5.9.2: Source-Grounded Menu & Policy Assistant (Candidate Slice - RAG)
 **Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Hoàng Cao Phong
@@ -467,12 +485,7 @@ On 31 October 2026, the team representative confirmed that all five members comp
 | Nguyễn Trung Kiên | Completed; dated 25–28 October personal log included | Initialized the toolchain; wrote the constitution, reservation feature specification, technical plan and tasks; recorded commands and lessons in the original log. |
 | Trương Khánh Duy | Completed, per team representative | Specify the recommender's inputs, fallback behavior and evaluation criteria before coding the optional AI workflows. |
 
-Kiên's original log is `evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md`. No screenshots are represented as existing for the other four members. The course accepts a training log or a brief learning summary as examples of evidence; the declaration and summaries above are included for that purpose.
-
-## 3. Technical takeaway and source
-**Performed by:** Nguyễn Trung Kiên; Hoàng Cao Phong | **Reviewed by:** Trương Khánh Duy | **Edited by:** Hoàng Cao Phong
-
-Specify scenarios, derive the plan and verifiable tasks, then test ownership, state transitions and capacity. Original log: `evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md`. Its reported Windows prototype tests are separate from `evidence/local-validation.txt` on this branch.
+Kiên's [original log](evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md) and a [Microsoft Learn Spec Kit achievement screenshot](evidence/speckit_evidence.png) accompany these summaries. The tutorial method is to specify scenarios, derive a plan and verifiable tasks, then check ownership, state transitions and capacity. Kiên's reported Windows prototype tests are separate from `evidence/local-validation.txt` on this branch.
 
 <div class="chapter-break"></div>
 
@@ -516,7 +529,7 @@ Deliver the initial Project Plan and Vision, integrate project Spec Kit artifact
 ## 2. Meeting record
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The team confirms Sprint 2 / PA2 ran from 19 to 31 October. All five members attended the Week 1 check-in on 23 October (21:30–22:00) and the Week 2 check-in on 29 October. `meeting-minutes/Scrum-Meetings.md` holds the two weekly PA2 records together. The five-member Sprint Review/retrospective was held on 31 October (21:30–22:00) and is documented in `meeting-minutes/Sprint-Review-Minutes.md`. `meeting-minutes/Sprint-Planning-Record.md` contains the goal, priorities, owners, reviewers and dates; the dated Notion allocation is preserved as `evidence/2026-10-23-Work-Allocation.md`. `meeting-minutes/PA1-History.md` records the separate Sprint 1 ceremonies and the decisions carried into PA2. The [Notion coordination log](https://app.notion.com/p/40a20d9d1f6981488d8eea57e463972b) was written before the team clarified the sprint window; this report and the dated meeting files reflect the corrected calendar.
+The team confirms Sprint 2 / PA2 ran from 19 to 31 October. All five members attended the Week 1 check-in on 23 October (21:30–22:00) and the Week 2 check-in on 29 October. `meeting-minutes/Scrum-Meetings.md` holds the two weekly PA2 records together. The five-member Sprint Review/retrospective was held on 31 October (21:30–22:00) and is documented in `meeting-minutes/Sprint-Review-Minutes.md`. `meeting-minutes/Sprint-Planning-Record.md` contains the goal, priorities, owners, reviewers and dates; the dated Notion allocation is preserved as `evidence/2026-10-23-Work-Allocation.md`. `meeting-minutes/PA1-History.md` records the separate Sprint 1 ceremonies and the decisions carried into PA2. The [Notion coordination log](https://app.notion.com/p/40a20d9d1f6981488d8eea57e463972b) now records the same 19–31 October calendar and ceremony dates.
 
 ## 3. Completed documentary outputs at the cut-off
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -534,7 +547,7 @@ Original source contributions remain unchanged under `evidence/sources/`. Detail
 ## 4. Task assignment and progress
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The Trello task index covers PA2 cards, assigned members, status, internal due dates and source URLs. The screenshots below were recaptured directly from the live board in Chrome on 31 October 2026, with the pointer outside the captured area. They show the board at capture time; earlier board exports and the task index are separate point-in-time records. See `evidence/Trello-Task-Index.md` and `evidence/trello-after-2026-10-31.json`.
+The Trello task index covers PA2 cards, assigned members, status, internal due dates and source URLs. The screenshots below were recaptured directly from the live board in Chrome on 31 October 2026, with the pointer outside the captured area. They show the board at capture time; earlier board exports and the task index are separate point-in-time records. See `evidence/Trello-Task-Index.md` and the current `evidence/trello-current-2026-10-31.json` snapshot; earlier exports remain as historical records.
 
 ![Trello board overview captured 31 October 2026](evidence/trello-board-2026-10-31-overview.jpg)
 
@@ -563,17 +576,17 @@ Course *Weekly Reports* and *PA2-2026*; the five member sources; the dated Notio
 # PA1 / Sprint 1 — Meeting History and Handover to PA2
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-This historical record accompanies the PA2 meeting archive for context. Under the course [Weekly Reports](../../../Weekly%20Reports.pdf) instructions, each PA corresponds to one sprint lasting roughly two to three weeks. The two weekly Scrum meetings below belong to **PA1 / Sprint 1**; the 23 and 29 October meetings in [Scrum-Meetings.md](Scrum-Meetings.md) belong to **PA2 / Sprint 2**.
+This historical record accompanies the PA2 meeting archive for context. Under the course *Weekly Reports* instructions, each PA corresponds to one sprint lasting roughly two to three weeks. The two weekly Scrum meetings below belong to **PA1 / Sprint 1**; the 23 and 29 October meetings in [Scrum-Meetings.md](meeting-minutes/Scrum-Meetings.md) belong to **PA2 / Sprint 2**.
 
 ## PA1 ceremony timeline
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
 | Ceremony | Date and attendance | Record and outcome |
 | --- | --- | --- |
-| Sprint Planning and Weekly Scrum 1 | 9 October 2026, 21:30 ICT; all five members | The team allocated the project overview, proposal/contract, similar-app survey, functional groups and AI direction with a peer-review rotation. See [9 October minutes](../evidence/pa1-meeting-history/2026-10-09-work-allocation.md). |
-| Weekly Scrum 2 and Sprint Review | 16 October 2026, 21:30 ICT; all five members | The team reviewed the draft work, clarified the B2B2C restaurant marketplace scope and selected nine functional groups. See [16 October minutes](../evidence/pa1-meeting-history/2026-10-16-product-clarification.md). |
+| Sprint Planning and Weekly Scrum 1 | 9 October 2026, 21:30 ICT; all five members | The team allocated the project overview, proposal/contract, similar-app survey, functional groups and AI direction with a peer-review rotation. See [9 October minutes](evidence/pa1-meeting-history/2026-10-09-work-allocation.md). |
+| Weekly Scrum 2 and Sprint Review | 16 October 2026, 21:30 ICT; all five members | The team reviewed the draft work, clarified the B2B2C restaurant marketplace scope and selected nine functional groups. See [16 October minutes](evidence/pa1-meeting-history/2026-10-16-product-clarification.md). |
 
-The [PA1 ceremony log](../evidence/pa1-meeting-history/PA1-ceremony-log.md) records the four required ceremony segments across those two dated group sessions. The PA1 report was compiled and exported on 17 October, after the 16 October review. The group supplied the PA1 meeting start times and attendance for the original records on 17 October; the linked files distinguish those details from the short Notion working notes.
+The [PA1 ceremony log](evidence/pa1-meeting-history/PA1-ceremony-log.md) records the four required ceremony segments across those two dated group sessions. The PA1 report was compiled and exported on 17 October, after the 16 October review. The group supplied the PA1 meeting start times and attendance for the original records on 17 October; the linked files distinguish those details from the short Notion working notes.
 
 ## Decisions carried into PA2
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -586,7 +599,7 @@ The [PA1 ceremony log](../evidence/pa1-meeting-history/PA1-ceremony-log.md) reco
 ## Sprint boundary
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The PA1 review took place on 16 October and the PA1 report export followed on 17 October. The team-confirmed **PA2 / Sprint 2 window is 19–31 October 2026**. Its Week 1 meeting was held on 23 October, its Week 2 meeting on 29 October, and its Review/retrospective on 31 October. See [Planning work record](Sprint-Planning-Record.md), [two weekly Scrum records](Scrum-Meetings.md) and [Sprint 2 Review](Sprint-Review-Minutes.md).
+The PA1 review took place on 16 October and the PA1 report export followed on 17 October. The team-confirmed **PA2 / Sprint 2 window is 19–31 October 2026**. Its Week 1 meeting was held on 23 October, its Week 2 meeting on 29 October, and its Review/retrospective on 31 October. See [Planning work record](meeting-minutes/Sprint-Planning-Record.md), [two weekly Scrum records](meeting-minutes/Scrum-Meetings.md) and [Sprint 2 Review](meeting-minutes/Sprint-Review-Minutes.md).
 
 <div class="chapter-break"></div>
 
@@ -598,12 +611,12 @@ The PA1 review took place on 16 October and the PA1 report export followed on 17
 ## Planning inputs
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The [23 October team allocation](../evidence/2026-10-23-Work-Allocation.md) assigns five PA2 work areas and peer reviewers. It was recorded during the first sprint week's team check-in. The [Planning card](https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes) has a 24 October board target. This work plan combines the allocation with the [Sprint 2 backlog](../Project-Plan.md#51-detailed-sprint-2-backlog); the weekly meeting itself is documented in [Scrum-Meetings.md](Scrum-Meetings.md#week-1--1925-october-meeting-on-23-october).
+The [23 October team allocation](evidence/2026-10-23-Work-Allocation.md) assigns five PA2 work areas and peer reviewers. It was recorded during the first sprint week's team check-in. The [Planning card](https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes) has a 24 October board target. This work plan combines the allocation with the [Sprint 2 backlog](Project-Plan.md#51-detailed-sprint-2-backlog); the weekly meeting itself is documented in [Scrum-Meetings.md](meeting-minutes/Scrum-Meetings.md#week-1--1925-october-meeting-on-23-october).
 
 ## Planning baseline derived from the assignments
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Sprint 2 goal:** deliver the initial Project Plan and Vision, initialize Spec Kit, document training and AI use, and produce an evidence-backed PA2 package during 19–31 October. See [Project Plan](../Project-Plan.md#5-scrum-plan-and-sprint-schedule) for acceptance criteria and the task register.
+**Sprint 2 goal:** deliver the initial Project Plan and Vision, initialize Spec Kit, document training and AI use, and produce an evidence-backed PA2 package during 19–31 October. See [Project Plan](Project-Plan.md#5-scrum-plan-and-sprint-schedule) for acceptance criteria and the task register.
 
 | Priority | Work item and acceptance output | Performer | Reviewer | Target |
 | --- | --- | --- | --- | --- |
@@ -616,7 +629,7 @@ The [23 October team allocation](../evidence/2026-10-23-Work-Allocation.md) assi
 | 2 | Week 2 Scrum check-in and shared minutes | Hoàng Cao Phong | Võ Mỹ Ngọc | Held 29 Oct |
 | 2 | Sprint Review and retrospective | Võ Mỹ Ngọc | Hoàng Cao Phong | Sprint close 31 Oct |
 
-The first five rows follow the 23 October allocation. Priority 1 groups core deliverables and enabling work; Priority 2 groups ceremony and reporting checkpoints. These are sprint-window dates. Several Trello cards retain later due dates from an older board schedule; those are listed separately in the [Project Plan](../Project-Plan.md#51-detailed-sprint-2-backlog) and are not dates of PA2 meetings.
+The first five rows follow the 23 October allocation. Priority 1 groups core deliverables and enabling work; Priority 2 groups ceremony and reporting checkpoints. These are sprint-window dates. Eight later Trello due fields were aligned to the 31 October sprint close; their original values remain in the card comments and the historical connector export.
 
 ## Risks and follow-up
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -633,14 +646,14 @@ The risk responses and owners follow the documented Project Plan. Meeting-specif
 # PA2 / Sprint 2 — Weekly Scrum Meetings
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Sprint window:** 19–31 October 2026 (Asia/Ho_Chi_Minh). The team held one check-in in each sprint week: 23 October in Week 1 and 29 October in Week 2. The group leader confirmed the two-week window and the Week 1 meeting details on 31 October. This single file contains both PA2 weekly records, as required by the course [Weekly Reports](../../../Weekly%20Reports.pdf) instructions. Earlier PA1 meetings are summarized separately in [PA1-History.md](PA1-History.md).
+**Sprint window:** 19–31 October 2026 (Asia/Ho_Chi_Minh). The team held one check-in in each sprint week: 23 October in Week 1 and 29 October in Week 2. The group leader confirmed the two-week window and the Week 1 meeting details on 31 October. This single file contains both PA2 weekly records, as required by the course *Weekly Reports* instructions. Earlier PA1 meetings are summarized separately in [PA1-History.md](meeting-minutes/PA1-History.md).
 
 The status tables summarize the dated team allocation, PA1 handover work, member deliverables and subsequent integration review. They organize the course's three Scrum questions; they are not quotations attributed to individual speakers.
 
 ## Week 1 — 19–25 October; meeting on 23 October
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Time:** 21:30–22:00 ICT. **Present:** Hoàng Cao Phong, Võ Mỹ Ngọc, Lương Thiện Nhân, Nguyễn Trung Kiên and Trương Khánh Duy. **Absent:** None. The group leader confirmed these meeting details on 31 October. The dated [team allocation](../evidence/2026-10-23-Work-Allocation.md) is the written output from this week.
+**Time:** 21:30–22:00 ICT. **Present:** Hoàng Cao Phong, Võ Mỹ Ngọc, Lương Thiện Nhân, Nguyễn Trung Kiên and Trương Khánh Duy. **Absent:** None. The group leader confirmed these meeting details on 31 October. The dated [team allocation](evidence/2026-10-23-Work-Allocation.md) is the written output from this week.
 
 ### Three-question progress summary
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -692,24 +705,24 @@ Nhân's 31 October commit is included as a later reporting update, not as work c
 
 | Ceremony | PA2 / Sprint 2 record |
 | --- | --- |
-| Planning and task assignment | [Sprint Planning work record](Sprint-Planning-Record.md), with the 23 October allocation preserved under `evidence/` |
+| Planning and task assignment | [Sprint Planning work record](meeting-minutes/Sprint-Planning-Record.md), with the 23 October allocation preserved under `evidence/` |
 | Weekly Scrum 1 | Week 1 section above, meeting of 23 October |
 | Weekly Scrum 2 | Week 2 section above, meeting of 29 October |
-| Sprint Review / retrospective | [31 October review record](Sprint-Review-Minutes.md) |
+| Sprint Review / retrospective | [31 October review record](meeting-minutes/Sprint-Review-Minutes.md) |
 
-The Trello Scrum 2 card still shows a 5 November target. That board target falls after the team-confirmed 31 October end of PA2 and is not used as the date of the second PA2 meeting.
+The Trello Scrum 2 card due field was aligned to 31 October; its comment retains the earlier 5 November target. The meeting itself took place on 29 October.
 
 <div class="chapter-break"></div>
 
 # PA2 / Sprint 2 — Sprint Review and Retrospective
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Sprint:** 19–31 October 2026. **Meeting:** 31 October 2026, 21:30–22:00 ICT. **Present:** Hoàng Cao Phong, Võ Mỹ Ngọc, Lương Thiện Nhân, Nguyễn Trung Kiên and Trương Khánh Duy. **Absent:** None. The group leader supplied the date, time and attendance on 31 October.
+**Sprint:** 19–31 October 2026. **Meeting:** 31 October 2026, 21:30–22:00 ICT. **Present:** Hoàng Cao Phong, Võ Mỹ Ngọc, Lương Thiện Nhân, Nguyễn Trung Kiên and Trương Khánh Duy. **Absent:** None.
 
 ## Sprint Review — artifact summary
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The PA2 package at the reporting cut-off contains the initial Project Plan and Vision, Spec Kit files and training report, AI Usage Report, Weekly Report, Trello evidence and Git history. The [submission matrix](../Submission-Checklist.md) identifies each artifact. The source register links the five members' contributions to the integrated result. This section summarizes the inspected artifacts; it does not assert a product demonstration or an acceptance decision that the meeting record does not describe.
+The PA2 package at the reporting cut-off contains the initial Project Plan and Vision, Spec Kit files and training report, AI Usage Report, Weekly Report, Trello evidence and Git history. The [submission matrix](Submission-Checklist.md) identifies each artifact. The source register links the five members' contributions to the integrated result. This section summarizes the inspected artifacts; it does not assert a product demonstration or an acceptance decision that the meeting record does not describe.
 
 | Area | Work visible at sprint close | Follow-up captured in the work plan |
 | --- | --- | --- |
@@ -724,53 +737,56 @@ The PA2 package at the reporting cut-off contains the initial Project Plan and V
 | Course prompt | Summary from the sprint artifacts |
 | --- | --- |
 | What went well? | The five work areas and peer-review assignments produced an integrated Plan and Vision. The common PDF renderer and source register made the package easier to check. |
-| What went wrong? | The board retained 5–6 November ceremony and package targets even though the team confirmed a 31 October sprint close. Some stakeholder and API state names also needed alignment. |
+| What went wrong? | The board initially retained 5–6 November ceremony and package targets even though the team confirmed a 31 October sprint close; those due fields were aligned on 31 October. Some stakeholder and API state names also needed alignment. |
 | Problems and causes | The working schedule in the original Plan draft was carried into Trello without a single documented sprint boundary; independent contributions used different terminology before integration. |
 | What to change next sprint | Phong records one sprint calendar and checks it against board due dates; Ngọc and Kiên review the shared request-state vocabulary before documents are merged; each ceremony gets a dated record in the shared archive. |
 | Lessons for the team | Treat board due dates as task metadata, keep one canonical schedule in the Project Plan, and retain the original member files beside the integrated package. |
 
-These retrospective points are an editorial synthesis from the documented work and board comparison, not attributed quotations or a claim of a formal vote. The [Trello Review card](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective) still carries a 6 November due date from the earlier board schedule; the team-confirmed meeting date is 31 October.
+
 
 <div class="chapter-break"></div>
 
-# PA2 Trello Task Index - 31 October 2026
+# PA2 Trello Task Index — 31 October 2026
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-This is a connector-derived task register, not a Trello screenshot. Due times are Asia/Ho_Chi_Minh internal targets. Existing list states and dates are retained. Card descriptions link local artifacts; the local branch is not pushed.
+This register reflects the live board after the 31 October calendar correction. PA2/Sprint 2 ran from 19 to 31 October. All 19 PA2 cards are in Done with their due checklist marked complete; each has one assigned member. Due times below use Asia/Ho_Chi_Minh. Eight later board due fields were changed to 31 October; the original values remain in the card comments and the earlier connector export. Board completion fields describe Trello state and do not replace the attached coursework evidence.
 
-| Card | Assigned member | List | Internal due date |
-| --- | --- | --- | --- |
-| [[PA2] Spec Kit Setup & Training](https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training) | ntkien2418 | Sprint To Do | 30 Oct 2026 23:59 |
-| [[PA2] Venue and Menu Data Contract](https://trello.com/c/5P6lzQLJ/27-pa2-venue-and-menu-data-contract) | ltnhan2433 | Sprint To Do | 31 Oct 2026 23:59 |
-| [[PA2] Spec Kit Training - Ngoc](https://trello.com/c/i9J57U8q/38-pa2-spec-kit-training-ngoc) | vmngoc2433 | Sprint To Do | 30 Oct 2026 23:59 |
-| [[PA2] Spec Kit Training - Nhan](https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan) | ltnhan2433 | Sprint To Do | 30 Oct 2026 23:59 |
-| [[PA2] Spec Kit Training - Duy](https://trello.com/c/nXFmkkro/41-pa2-spec-kit-training-duy) | tkduy2414 | Sprint To Do | 30 Oct 2026 23:59 |
-| [[PA2] Integration Build and Tests](https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests) | ntkien2418 | In Progress | 04 Nov 2026 23:59 |
-| [[PA2] Weekly Report and Trello Evidence](https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence) | Phong Hoàng Cao | In Progress | 06 Nov 2026 23:59 |
-| [[PA2] Discovery and Reservation API Contract](https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract) | ntkien2418 | In Review | 02 Nov 2026 23:59 |
-| [[PA2] Spec Kit Training - Kien](https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien) | ntkien2418 | In Review | 30 Oct 2026 23:59 |
-| [[PA2] Project Plan](https://trello.com/c/XEw1Ez1p/21-pa2-project-plan) | Phong Hoàng Cao | Done | 30 Oct 2026 23:59 |
-| [[PA2] Spec Kit Training - Phong](https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong) | Phong Hoàng Cao | Done | 30 Oct 2026 23:59 |
-| [[PA2] Recommendation Baseline and Evaluation](https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation) | tkduy2414 | Done | 02 Nov 2026 23:59 |
-| [[PA2] Final PDF and Submission Package](https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package) | Phong Hoàng Cao | Done | 06 Nov 2026 23:59 |
-| [[PA2] Usage Report and Git Log](https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log) | Phong Hoàng Cao | Done | 06 Nov 2026 23:59 |
-| [[PA2] Sprint Review and Retrospective](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective) | vmngoc2433 | Done | 06 Nov 2026 23:59 |
-| [[PA2] Scrum Meeting 1 Minutes](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes) | ltnhan2433 | Done | 30 Oct 2026 23:59 |
-| [[PA2] Sprint Planning & Tonight Minutes](https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes) | Phong Hoàng Cao | Done | 24 Oct 2026 23:59 |
-| [[PA2] Scrum Meeting 2 Minutes](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes) | Phong Hoàng Cao | Done | 05 Nov 2026 23:59 |
-| [[PA2] Vision Document](https://trello.com/c/yKrHhDLc/22-pa2-vision-document) | vmngoc2433 | Done | 30 Oct 2026 23:59 |
+| Card | Assigned member | List | Board due (ICT) | Due complete |
+| --- | --- | --- | --- | --- |
+| [[PA2] Weekly Report and Trello Evidence](https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence) | Phong Hoàng Cao | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Integration Build and Tests](https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests) | ntkien2418 | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Spec Kit Training - Kien](https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien) | ntkien2418 | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Discovery and Reservation API Contract](https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract) | ntkien2418 | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Spec Kit Training - Duy](https://trello.com/c/nXFmkkro/41-pa2-spec-kit-training-duy) | tkduy2414 | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Spec Kit Training - Nhan](https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan) | ltnhan2433 | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Spec Kit Training - Ngoc](https://trello.com/c/i9J57U8q/38-pa2-spec-kit-training-ngoc) | vmngoc2433 | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Venue and Menu Data Contract](https://trello.com/c/5P6lzQLJ/27-pa2-venue-and-menu-data-contract) | ltnhan2433 | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Spec Kit Setup & Training](https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training) | ntkien2418 | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Project Plan](https://trello.com/c/XEw1Ez1p/21-pa2-project-plan) | Phong Hoàng Cao | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Spec Kit Training - Phong](https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong) | Phong Hoàng Cao | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Recommendation Baseline and Evaluation](https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation) | tkduy2414 | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Final PDF and Submission Package](https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package) | Phong Hoàng Cao | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Usage Report and Git Log](https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log) | Phong Hoàng Cao | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Sprint Review and Retrospective](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective) | vmngoc2433 | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Scrum Meeting 1 Minutes](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes) | ltnhan2433 | Done | 30 Oct 2026, 23:59 | Yes |
+| [[PA2] Sprint Planning & Tonight Minutes](https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes) | Phong Hoàng Cao | Done | 24 Oct 2026, 23:59 | Yes |
+| [[PA2] Scrum Meeting 2 Minutes](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes) | Phong Hoàng Cao | Done | 31 Oct 2026, 23:59 | Yes |
+| [[PA2] Vision Document](https://trello.com/c/yKrHhDLc/22-pa2-vision-document) | vmngoc2433 | Done | 30 Oct 2026, 23:59 | Yes |
 
-## Update record
+## Evidence and history
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-Ten descriptions were updated with canonical paths, ownership and evidence. All 19 PA2 cards have one assignee. No cards were created, moved, completed or backdated in this session. Exact mutations are in `trello-changes-2026-10-31.json`; original fields are in the before snapshot. The final package includes Chrome screenshots of the live board captured 31 October; the 29 October counts remain only in the historical member notes.
+- Current connector snapshot: `trello-current-2026-10-31.json`.
+- The PA2 card descriptions link to the canonical package and summarize the recorded evidence.
+- Earlier connector snapshots and change log remain in this folder as historical records.
+- The Chrome screenshots in this package show the board at capture time; the connector snapshot records the latest card fields.
 
 <div class="chapter-break"></div>
 
 # DineVina - PA2 Source and Integration Register
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Input HEAD:** `22d4d1e` (full hash in evidence). No commit or push is performed by this packaging session.
+**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Repository HEAD at this packaging pass:** `6e418c19725977ad2aca9a3829d9192757ce581c`. The package was committed at this revision; edits made in this pass remain local until separately published.
 
 ## 1. Source map
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -802,7 +818,7 @@ The source reports an eight-test Windows prototype and a Supabase/GCP branch. Th
 ## 3. External and historical records
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The live Trello board was recaptured in Chrome on 31 October with the pointer outside the captured area. The 31 October JSON export is a separate connector snapshot and is labeled as data. The team-confirmed sprint window differs from 5–6 November due dates retained on several Trello cards; those card dates do not extend PA2. Ceremony records identify confirmed attendance and time details separately from work summaries derived from artifacts.
+The live Trello board was recaptured in Chrome on 31 October with the pointer outside the captured area. The 31 October connector snapshots are labeled as data; `trello-current-2026-10-31.json` records the board after the calendar correction. Eight Trello card due fields that had extended into 2–6 November were aligned to the 31 October sprint close. Their original values remain in Trello comments and the earlier connector export. Ceremony records identify confirmed attendance and time details separately from work summaries derived from artifacts.
 
 The course specifies two weekly Scrum meetings and one Planning/Review. The archive contains the 23 October allocation and first weekly check-in, 29 October second check-in, and 31 October Review. The Planning work record organizes the allocation and priority decisions; a separate pre-sprint meeting transcript is not included. Course upload receipt is separate from local packaging. Packaging validity and academic evidence completeness are distinct checks.
 
@@ -819,17 +835,12 @@ The course specifies two weekly Scrum meetings and one Planning/Review. The arch
 | Requirement | Artifact | Evidence assessment |
 | --- | --- | --- |
 | Project Plan, 15 points | Project-Plan.md / PDF | Introduction, scope, deliverables, assumptions, organization, seven risks, five sprints, task owners/reviewers/dates, four builds and upcoming sprint detail |
-| Vision, 20 points | Vision.md / PDF | Both positioning tables, stakeholders/users/environment/needs/competition, product perspective/dependencies, nine features, AI slices, two workflows and quantified NFRs |
+| Vision, 20 points | Vision.md / PDF | Revision history and contents, both positioning tables, stakeholders/users/environment/needs/competition, product perspective/dependencies, nine features, AI slices, two workflows and quantified NFRs |
 | Spec Kit initialization | src/constitution.md, src/specs/, src/.specify/ | Committed project Markdown and generated infrastructure included with source metadata |
-| Individual tutorial evidence | Spec-Kit-Training.md and original Kiên report | Team representative confirms tutorial completion for all five; Kiên has the detailed dated personal log and the other four have brief learning summaries |
+| Individual tutorial evidence | Spec-Kit-Training.md, Kiên log and module screenshot | Team representative confirms tutorial completion for all five; Kiên has the detailed dated personal log, the other four have brief learning summaries, and the Microsoft Learn achievement is pictured |
 | AI usage | AI-Usage-Report.md / PDF | Observed/source-reported usage, inputs, outputs and verification recorded |
 | Meetings | Weekly-Report.md and meeting-minutes/ | PA1 ceremony history is included as context, separately from PA2. The team confirmed the 19–31 October Sprint 2 window; 23 and 29 October weekly check-ins and 31 October Sprint Review had all five members. Work summaries and retrospective points are tied to the integrated artifacts. |
-| Task screenshots/progress | 31 October Chrome screenshots, Trello index/export | Instructor-approved Trello substitution; screenshots and connector data retain their own source labels |
+| Board evidence | 31 October screenshots; Trello index/export | Instructor-approved Trello substitution; screenshots and connector data retain their own source labels |
 | Git log | evidence/git-log.txt and source-revision.txt | Actual history and packaged input revision |
-| English Markdown and PDF | Primary reports plus combined report | One renderer, common typography, real rendered Mermaid diagrams |
+| Markdown/PDF | Primary and combined reports | One renderer, common typography, real rendered Mermaid diagrams |
 | Group ZIP | PA2-Group08.zip | Single PA2-Group08/ root; hashes and archive checks generated at packaging |
-
-## 2. Submission interpretation
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
-
-The archive is a complete export of the prepared documents and available evidence. The team representative confirmed the sprint calendar, meeting attendance, tutorial completion and reviewer approval. The course deadline is not stated in the supplied PA2 brief; 5–6 November dates on the board belong to the older card schedule and do not extend Sprint 2. A course upload receipt is separate from local archive generation.

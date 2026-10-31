@@ -1,7 +1,7 @@
 # PA1 / Sprint 1 — Meeting History and Handover to PA2
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-This historical record accompanies the PA2 meeting archive for context. Under the course [Weekly Reports](../../../Weekly%20Reports.pdf) instructions, each PA corresponds to one sprint lasting roughly two to three weeks. The two weekly Scrum meetings below belong to **PA1 / Sprint 1**; the 23 and 29 October meetings in [Scrum-Meetings.md](Scrum-Meetings.md) belong to **PA2 / Sprint 2**.
+This historical record accompanies the PA2 meeting archive for context. Under the course *Weekly Reports* instructions, each PA corresponds to one sprint lasting roughly two to three weeks. The two weekly Scrum meetings below belong to **PA1 / Sprint 1**; the 23 and 29 October meetings in [Scrum-Meetings.md](Scrum-Meetings.md) belong to **PA2 / Sprint 2**.
 
 ## PA1 ceremony timeline
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong

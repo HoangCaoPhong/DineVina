@@ -29,7 +29,7 @@ The planned functional groups are accounts and profiles; venue onboarding; disco
 
 PA2 deliverables are the initial Project Plan and Vision in English Markdown and PDF, Spec Kit files under `src/`, individual tutorial evidence, AI usage declaration and log, weekly meeting report, board screenshots, Git log and the `PA2-Group08.zip` package. Coding and self-training may be scheduled as Scrum tasks, but a feature descriptions define the intended product. The submission package contains the initial project plan, Vision, Spec Kit artifacts, usage and weekly reports, evidence, and PDF exports.
 
-Planning assumptions: five members remain available; the team can use GitHub and Trello; restaurant data may initially be clearly marked samples; publication and personal-data policy need team agreement. The team representative confirms that the instructor permits this group to use Trello instead of Jira. The team-confirmed Sprint 2 / PA2 window is 19–31 October 2026. The Notion allocation and first weekly meeting are dated 23 October; the second weekly meeting is dated 29 October; the Sprint Review was held 31 October. Some Trello due dates still reflect an older 24 October–6 November board schedule. Card due dates are recorded as board metadata, not as the sprint boundary or meeting dates.
+Planning assumptions: five members remain available; the team can use GitHub and Trello; restaurant data may initially be clearly marked samples; publication and personal-data policy need team agreement. The team representative confirms that the instructor permits this group to use Trello instead of Jira. The team-confirmed Sprint 2 / PA2 window is 19–31 October 2026. The Notion allocation and first weekly meeting are dated 23 October; the second weekly meeting is dated 29 October; the Sprint Review was held 31 October. On 31 October, eight Trello due fields were aligned with the sprint close; the card comments retain their earlier board targets and Trello retains its activity history.
 
 ## 3. Project organization
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -79,7 +79,7 @@ The PA2 rhythm was one progress check-in per sprint week: Week 1 (19–25 Octobe
 ### 5.1 Detailed Sprint 2 backlog
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The dates in the last column are the Trello board's recorded due dates, including dates after the team-confirmed 31 October sprint close. They are preserved here for traceability and do not redefine the PA2 calendar. The actual weekly meetings were held on 23 and 29 October. The team uses the source allocation for document responsibilities and the live board for current task ownership.
+The dates in the last column match the Trello board after the 31 October calendar correction. Earlier due values remain in card comments and the historical connector export. The actual weekly meetings were held on 23 and 29 October. The team uses the source allocation for document responsibilities and the live board for current task ownership.
 
 | ID | Task and acceptance result | Performer | Reviewer | Board due (local) | Trello |
 | --- | --- | --- | --- | --- | --- |
@@ -89,15 +89,15 @@ The dates in the last column are the Trello board's recorded due dates, includin
 | P2-04 | Initialize Spec Kit under `src/`, prepare constitution and verify generated Markdown; collect training register. | Kiên | Duy | 30 Oct | [Card](https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training) |
 | P2-05 | Each member completes the official Spec Kit tutorial and supplies a genuine dated learning record. | Five individual cards | Different member | 30 Oct | [Phong](https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong) and four peer cards |
 | P2-06 | Venue/menu data fields, validation rules and labeled sample records reviewed. | Nhân | Kiên | 31 Oct | [Card](https://trello.com/c/5P6lzQLJ/27-pa2-venue-and-menu-data-contract) |
-| P2-07 | Discovery and reservation API shapes, states and scenarios reviewed. | Kiên | Ngọc | 2 Nov | [Card](https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract) |
-| P2-08 | Recommendation eligibility, ranking baseline, fallback and offline evaluation cases reviewed. | Duy | Phong | 2 Nov | [Card](https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation) |
-| P2-09 | First weekly Scrum: held 23 October; shared minutes cover progress, issues and actions. | Phong | Ngọc | 30 Oct | [Card](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes) |
-| P2-10 | Second weekly Scrum: held 29 October; same shared document records the second week's review. | Phong | Ngọc | 5 Nov | [Card](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes) |
-| P2-11 | Integration build: revision, test/build results, browser check and known gaps. | Kiên | Phong | 4 Nov | [Card](https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests) |
-| P2-12 | Sprint Review/retrospective: held 31 October; outcomes and improvement actions are recorded in the meeting archive. | Ngọc | Phong | 6 Nov | [Card](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective) |
-| P2-13 | Integrated Weekly Report with linked minutes and genuine dated board screenshots. | Phong | Ngọc | 6 Nov | [Card](https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence) |
-| P2-14 | Collect verified AI-use entries and export final Git history. | Phong | Ngọc | 6 Nov | [Card](https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log) |
-| P2-15 | Review PDFs and evidence, package and verify `PA2-Group08.zip`. | Phong | Ngọc | 6 Nov | [Card](https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package) |
+| P2-07 | Discovery and reservation API shapes, states and scenarios reviewed. | Kiên | Ngọc | 31 Oct | [Card](https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract) |
+| P2-08 | Recommendation eligibility, ranking baseline, fallback and offline evaluation cases reviewed. | Duy | Phong | 31 Oct | [Card](https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation) |
+| P2-09 | First weekly Scrum: held 23 October; shared minutes cover progress, issues and actions. | Nhân | Phong | 30 Oct | [Card](https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes) |
+| P2-10 | Second weekly Scrum: held 29 October; same shared document records the second week's review. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes) |
+| P2-11 | Integration build: revision, test/build results, browser check and known gaps. | Kiên | Phong | 31 Oct | [Card](https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests) |
+| P2-12 | Sprint Review/retrospective: held 31 October; outcomes and improvement actions are recorded in the meeting archive. | Ngọc | Phong | 31 Oct | [Card](https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective) |
+| P2-13 | Integrated Weekly Report with linked minutes and genuine dated board screenshots. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence) |
+| P2-14 | Collect verified AI-use entries and export final Git history. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log) |
+| P2-15 | Review PDFs and evidence, package and verify `PA2-Group08.zip`. | Phong | Ngọc | 31 Oct | [Card](https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package) |
 
 ### 5.2 Build and test checkpoints
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong

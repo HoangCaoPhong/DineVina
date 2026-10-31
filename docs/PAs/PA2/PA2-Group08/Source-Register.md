@@ -1,7 +1,7 @@
 # DineVina - PA2 Source and Integration Register
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Input HEAD:** `22d4d1e` (full hash in evidence). No commit or push is performed by this packaging session.
+**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Repository HEAD at this packaging pass:** `6e418c19725977ad2aca9a3829d9192757ce581c`. The package was committed at this revision; edits made in this pass remain local until separately published.
 
 ## 1. Source map
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -33,6 +33,6 @@ The source reports an eight-test Windows prototype and a Supabase/GCP branch. Th
 ## 3. External and historical records
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The live Trello board was recaptured in Chrome on 31 October with the pointer outside the captured area. The 31 October JSON export is a separate connector snapshot and is labeled as data. The team-confirmed sprint window differs from 5–6 November due dates retained on several Trello cards; those card dates do not extend PA2. Ceremony records identify confirmed attendance and time details separately from work summaries derived from artifacts.
+The live Trello board was recaptured in Chrome on 31 October with the pointer outside the captured area. The 31 October connector snapshots are labeled as data; `trello-current-2026-10-31.json` records the board after the calendar correction. Eight Trello card due fields that had extended into 2–6 November were aligned to the 31 October sprint close. Their original values remain in Trello comments and the earlier connector export. Ceremony records identify confirmed attendance and time details separately from work summaries derived from artifacts.
 
 The course specifies two weekly Scrum meetings and one Planning/Review. The archive contains the 23 October allocation and first weekly check-in, 29 October second check-in, and 31 October Review. The Planning work record organizes the allocation and priority decisions; a separate pre-sprint meeting transcript is not included. Course upload receipt is separate from local packaging. Packaging validity and academic evidence completeness are distinct checks.

@@ -11,7 +11,7 @@ Deliver the initial Project Plan and Vision, integrate project Spec Kit artifact
 ## 2. Meeting record
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The team confirms Sprint 2 / PA2 ran from 19 to 31 October. All five members attended the Week 1 check-in on 23 October (21:30–22:00) and the Week 2 check-in on 29 October. `meeting-minutes/Scrum-Meetings.md` holds the two weekly PA2 records together. The five-member Sprint Review/retrospective was held on 31 October (21:30–22:00) and is documented in `meeting-minutes/Sprint-Review-Minutes.md`. `meeting-minutes/Sprint-Planning-Record.md` contains the goal, priorities, owners, reviewers and dates; the dated Notion allocation is preserved as `evidence/2026-10-23-Work-Allocation.md`. `meeting-minutes/PA1-History.md` records the separate Sprint 1 ceremonies and the decisions carried into PA2. The [Notion coordination log](https://app.notion.com/p/40a20d9d1f6981488d8eea57e463972b) was written before the team clarified the sprint window; this report and the dated meeting files reflect the corrected calendar.
+The team confirms Sprint 2 / PA2 ran from 19 to 31 October. All five members attended the Week 1 check-in on 23 October (21:30–22:00) and the Week 2 check-in on 29 October. `meeting-minutes/Scrum-Meetings.md` holds the two weekly PA2 records together. The five-member Sprint Review/retrospective was held on 31 October (21:30–22:00) and is documented in `meeting-minutes/Sprint-Review-Minutes.md`. `meeting-minutes/Sprint-Planning-Record.md` contains the goal, priorities, owners, reviewers and dates; the dated Notion allocation is preserved as `evidence/2026-10-23-Work-Allocation.md`. `meeting-minutes/PA1-History.md` records the separate Sprint 1 ceremonies and the decisions carried into PA2. The [Notion coordination log](https://app.notion.com/p/40a20d9d1f6981488d8eea57e463972b) now records the same 19–31 October calendar and ceremony dates.
 
 ## 3. Completed documentary outputs at the cut-off
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -29,7 +29,7 @@ Original source contributions remain unchanged under `evidence/sources/`. Detail
 ## 4. Task assignment and progress
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-The Trello task index covers PA2 cards, assigned members, status, internal due dates and source URLs. The screenshots below were recaptured directly from the live board in Chrome on 31 October 2026, with the pointer outside the captured area. They show the board at capture time; earlier board exports and the task index are separate point-in-time records. See `evidence/Trello-Task-Index.md` and `evidence/trello-after-2026-10-31.json`.
+The Trello task index covers PA2 cards, assigned members, status, internal due dates and source URLs. The screenshots below were recaptured directly from the live board in Chrome on 31 October 2026, with the pointer outside the captured area. They show the board at capture time; earlier board exports and the task index are separate point-in-time records. See `evidence/Trello-Task-Index.md` and the current `evidence/trello-current-2026-10-31.json` snapshot; earlier exports remain as historical records.
 
 ![Trello board overview captured 31 October 2026](evidence/trello-board-2026-10-31-overview.jpg)
 

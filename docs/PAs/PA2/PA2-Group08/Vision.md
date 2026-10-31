@@ -1,7 +1,25 @@
 # DineVina - Vision Document (PA2)
 **Performed by:** Group 08 source contributors; Hoàng Cao Phong | **Reviewed by:** Peer reviewers by section | **Edited by:** Hoàng Cao Phong
 
-**Group 08 · initial Vision · 31 October 2026**
+**Group 08 · Vision version 1.0 · 31 October 2026**
+
+## Revision History
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
+
+| Version | Date | Description | Contributors |
+| --- | --- | --- | --- |
+| 1.0 | 31 October 2026 | Integrated PA2 Vision from the five member contributions; aligned product scope, terminology, workflows and quality targets. | Ngọc, Nhân, Kiên, Duy and Phong |
+
+## Table of Contents
+**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
+
+1. Introduction — purpose and references
+2. Positioning — problem and product position statements
+3. Stakeholder and User Descriptions — stakeholders, users, environment, needs and alternatives
+4. Product Overview — perspective, interfaces, assumptions and dependencies
+5. Product Features — nine functional groups, intelligent assistance and key workflows
+6. Non-Functional Requirements — measurable quality targets
+7. Traceability and References — relationship to PA1 and source contributions
 
 ## 1. Introduction
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
@@ -146,7 +164,7 @@ Customers can choose a date, time, and party size and submit a table reservation
 ### 5.6 Event Inquiries and Proposals
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
 
-Customers planning an event can submit a structured brief containing the occasion, expected headcount, preferred date, budget, and special needs. Restaurant partners can request clarification, propose terms, and track the customer's response in one conversation rather than treating a complex event like an ordinary table request. Customers benefit from a clearer planning process, and partners benefit from receiving the information required to prepare realistic proposals.
+Customers planning an event can submit a structured brief containing the occasion, party size, preferred date, budget, and special needs. Restaurant partners can request clarification, propose terms, and track the customer's response in one conversation rather than treating a complex event like an ordinary table request. Customers benefit from a clearer planning process, and partners benefit from receiving the information required to prepare realistic proposals.
 
 ### 5.7 Availability and Partner Dashboard
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
@@ -166,7 +184,7 @@ F9 is one functional group with one primary capability and two optional candidat
 #### 5.9.1: Explainable Restaurant Recommendation Engine (Primary Slice)
 **Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Hoàng Cao Phong
 
-The Explainable Restaurant Recommendation Engine matches diners with suitable venues by evaluating their stated preferences (cuisine, budget, location, party size, and dining occasion) against partner-verified restaurant attributes and published capacity, revalidated at confirmation. Unlike black-box algorithms or static directory filters, this feature generates a transparent justification badge for every suggested venue (e.g., *"Recommended because it matches your Vietnamese cuisine preference, fits your 200k-400k VND budget, and has a private room available for 10 guests"*). This capability is needed to reduce decision fatigue for customers navigating large restaurant catalogs while preventing false expectations caused by unverified recommendations. Customers benefit from faster, higher-confidence booking decisions, while restaurant partners benefit from receiving high-intent reservation requests that accurately fit their operational capacity.
+The Explainable Restaurant Recommendation Engine matches diners with suitable venues by evaluating their stated preferences (cuisine, budget, location, party size, and dining occasion) against partner-verified restaurant attributes and published capacity, revalidated at confirmation. Unlike black-box algorithms or static directory filters, this feature generates a transparent justification badge for every suggested venue (e.g., *"Recommended because it matches your Vietnamese cuisine preference, fits your 200k-400k VND budget, and has a private room available for 10 guests"*). This capability is needed to reduce decision fatigue for customers navigating large restaurant catalogs while preventing misleading availability claims from unverified recommendations. Customers benefit from faster, higher-confidence booking decisions, while restaurant partners benefit from receiving high-intent reservation requests that accurately fit their operational capacity.
 
 #### 5.9.2: Source-Grounded Menu & Policy Assistant (Candidate Slice - RAG)
 **Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Hoàng Cao Phong
