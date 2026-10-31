@@ -19,7 +19,7 @@ Start with `PA2-Report.pdf` for a single reading copy of the primary reports and
 | Submission-Checklist.md / PDF | Rubric-to-evidence matrix |
 | meeting-minutes/ | PA1 history for context; Sprint 2 Planning work record, two weekly Scrum records in one file and 31 October Review/retrospective record |
 | src/ | Project constitution, feature specs and generated Spec Kit infrastructure |
-| evidence/ | Original member work, survey, task exports, screenshots, Git and validation |
+| evidence/ | Original member work, including Nhân's Spec Kit training and AI-use records, survey, task exports, screenshots, Git and validation |
 | tools/ | Common Markdown/Mermaid-to-PDF renderer and export settings |
 
 ## Team

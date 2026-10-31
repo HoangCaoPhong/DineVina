@@ -1,7 +1,7 @@
 # DineVina - PA2 Source and Integration Register
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Repository HEAD at this packaging pass:** `6e418c19725977ad2aca9a3829d9192757ce581c`. The package was committed at this revision; edits made in this pass remain local until separately published.
+**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Repository HEAD at this packaging pass:** `3565d14db35036cc143143d2b52013a1e52ecbba`. The package was committed at this revision; edits made in this pass remain local until separately published.
 
 ## 1. Source map
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -13,7 +13,8 @@
 | Week1 member sources, PA1 survey and PA1 meeting archive | Stable project scope, three actor types, nine groups, dated comparison evidence and the 9/16 October ceremony history copied under `evidence/pa1-meeting-history/` |
 | Phong Project Plan (`bbaf7a5`, merged through `6ac347b`) | Plan, risks, schedule and original board image |
 | Ngọc Vision (`9010a8e`, merged through `86c37a0`) | Introduction, positioning and core feature descriptions |
-| Nhân pipeline (`7066f9a`, merged through `f3e5ff7`) | Stakeholders, responsibilities and target end-to-end flow |
+| Nhân pipeline (`7066f9a`, later updated at `4f05f95` on `chores/sumary-PA2`) | Stakeholder needs, Ho Chi Minh City environment, self-booking, manual partner confirmation, PasGo/Eatigo comparison and target flow |
+| Nhân personal PA2 records (`4f05f95`) | [Spec Kit training report](evidence/Nhan-Spec-Kit-Training.md), [AI-use declaration](evidence/Nhan-AI-Usage.md) and Microsoft Learn achievement screenshot; package copies use local evidence paths |
 | Duy AI contribution (`07cbae3`, merged through `510aeb9`) | AI capabilities, two workflows, feasibility and measurable quality proposals |
 | Kiên technical sources (`55457c3`, `7948778`, `93fbd23`; merged on `dev` through `22d4d1e`) | Committed src artifacts, Product Overview/NFRs, training log and AI coding research |
 | Notion draft, inspected 31 October | PA2 work allocation dated 23 October and reviewer rotation; copied into the evidence archive |
@@ -21,10 +22,12 @@
 | Trello connector | Current card fields, assigned members, status, internal due dates and descriptions |
 | GitHub connector | Repository identity, default branch and point-in-time visibility; repository is public at inspection, while PA1 asks for private mode |
 
+Nhân's personal training and AI-use records were read from [commit `4f05f95`](https://github.com/HoangCaoPhong/DineVina/commit/4f05f95f2edb1835d1fd6db39e189fb887fc7758) on `chores/sumary-PA2`. The packaged AI-use record matches Nhân's `Nhan_StakeHolders/ai_usage.md` content, with package-local output paths adjusted.
+
 ## 2. Integration decisions
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-All five contributions are used, replacing the older package's outdated claim that Nhân/Duy files were empty. Review names follow the team allocation and do not constitute retrospective signatures. This integration selects React/TypeScript from the actual checkout, retains a reservation marketplace rather than food-order checkout, keeps RAG/OCR optional and makes NFR thresholds acceptance targets. Capacity confirmation depends on authoritative persistent transactions; an outage never silently creates independent memory-only bookings.
+All five contributions are used. Nhân's 31 October update on `chores/sumary-PA2` adds his individual training and AI-use records; the module screenshot is byte-identical to `evidence/speckit_evidence.png` already in this package. The member report and AI-use record have only their package-local evidence paths adjusted. Review names follow the team allocation and do not constitute retrospective signatures. This integration selects React/TypeScript from the actual checkout, retains a reservation marketplace rather than food-order checkout, keeps RAG/OCR optional and makes NFR thresholds acceptance targets. Capacity confirmation depends on authoritative persistent transactions; an outage never silently creates independent memory-only bookings.
 
 The project constitution uses `PENDING_CONFIRMATION`, `DECLINED` and actor-specific cancellation states, while some design sources use `AWAITING_CONFIRMATION`, `REJECTED` and `CANCELLED`. Product-facing labels in this package are Requested, Confirmed, Declined and Cancelled. The API schema must supply the exact technical enum mapping before implementation; supporting source artifacts are copied unchanged so their provenance is preserved.
 

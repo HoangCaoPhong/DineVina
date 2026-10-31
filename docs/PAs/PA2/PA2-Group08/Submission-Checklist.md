@@ -11,8 +11,8 @@
 | Project Plan, 15 points | Project-Plan.md / PDF | Introduction, scope, deliverables, assumptions, organization, seven risks, five sprints, task owners/reviewers/dates, four builds and upcoming sprint detail |
 | Vision, 20 points | Vision.md / PDF | Revision history and contents, both positioning tables, stakeholders/users/environment/needs/competition, product perspective/dependencies, nine features, AI slices, two workflows and quantified NFRs |
 | Spec Kit initialization | src/constitution.md, src/specs/, src/.specify/ | Committed project Markdown and generated infrastructure included with source metadata |
-| Individual tutorial evidence | Spec-Kit-Training.md, Kiên log and module screenshot | Team representative confirms tutorial completion for all five; Kiên has the detailed dated personal log, the other four have brief learning summaries, and the Microsoft Learn achievement is pictured |
-| AI usage | AI-Usage-Report.md / PDF | Observed/source-reported usage, inputs, outputs and verification recorded |
+| Individual tutorial evidence | Spec-Kit-Training.md; Kiên and Nhân personal reports; Nhân screenshot | Team representative confirms completion for all five; Kiên has a dated personal log, Nhân has his own training report and module achievement, and the other three have brief learning summaries |
+| AI usage | AI-Usage-Report.md / PDF; evidence/Nhan-AI-Usage.md | Observed and member-declared usage, supplied material, outputs and human verification recorded |
 | Meetings | Weekly-Report.md and meeting-minutes/ | PA1 ceremony history is included as context, separately from PA2. The team confirmed the 19–31 October Sprint 2 window; 23 and 29 October weekly check-ins and 31 October Sprint Review had all five members. Work summaries and retrospective points are tied to the integrated artifacts. |
 | Board evidence | 31 October screenshots; Trello index/export | Instructor-approved Trello substitution; screenshots and connector data retain their own source labels |
 | Git log | evidence/git-log.txt and source-revision.txt | Actual history and packaged input revision |

@@ -266,22 +266,23 @@ DineVina follows a B2B2C model in which restaurant partners publish and manage d
 
 | User | Responsibilities | Represented interest |
 | --- | --- | --- |
-| Customer | Search venues, inspect menus, submit complete table/event requests, track responses and cancel within policy | Diners and event organizers |
+| Customer | Browse without signing in, search restaurants and foods, inspect menus and prices, submit table/event requests for themselves, track responses and cancel within policy | Diners and event organizers in Ho Chi Minh City |
 | Restaurant partner staff | Maintain their venue/menu/availability, decide requests, prepare event proposals and update state history | Restaurant owner |
 | Platform administrator | Review onboarding, return corrections, moderate published information and investigate support cases | Platform operator |
 
 ### 3.3 User environment
 **Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
-Customers use a responsive browser on a phone or desktop and may have intermittent mobile data. Discovery supports manual district/location filters without mandatory geolocation permission. A request cycle involves one customer and authorized staff of the selected restaurant; the administrator participates in onboarding and exceptions. Partner staff use a desktop dashboard during service and may check incoming requests by phone. Clear state labels and retry-safe submission reduce confusion when the connection is interrupted. The initial interface targets Vietnamese restaurant data; language and localization expansion are later backlog decisions.
+Customers use a responsive browser on a phone or desktop and may have intermittent mobile data. Initial discovery targets Ho Chi Minh City and supports manual district/location filters without mandatory geolocation permission. Browsing does not require sign-in. A customer submits a request for themselves using their own name, phone number and booking details; booking on behalf of another person is outside this flow. Authorized staff of the selected restaurant manually decide each request; the administrator participates in onboarding and exceptions. Partner staff use a desktop dashboard during service and may check incoming requests by phone. Clear state labels and retry-safe submission reduce confusion when the connection is interrupted. The initial interface targets Vietnamese restaurant data; language and localization expansion are later backlog decisions.
 
 ### 3.4 Summary of key stakeholder or user needs
 **Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
 | Need / cause | Priority | Current workaround | Product response |
 | --- | --- | --- | --- |
-| Fragmented venue, menu and condition information | High | Compare websites/social pages and call venues | Approved profiles, structured menus, update context and filters (F3, F4) |
+| Fragmented venue, food, menu, price and condition information | High | Compare websites/social pages and call venues | Approved profiles, searchable menus, price context, update context and filters (F3, F4) |
 | Unclear distinction between a request and a commitment | High | Follow-up calls or messages | Explicit requested/confirmed/declined states and history (F5) |
+| Need to submit a complete booking for oneself | High | Call or fill separate venue forms | Name, phone number, date, time and party-size fields with self-booking validation (F5) |
 | Complex group-event requirements | High | Phone consultations and separate message threads | Structured brief, clarification and proposal history (F6) |
 | Changing capacity and incoming demand | High | Manual reservation books/spreadsheets | Venue-owned availability and partner queue (F7) |
 | Difficulty choosing among many venues | Medium | Manually compare a shortlist | Eligible recommendations with attributable reasons and filter fallback (F9) |
@@ -290,14 +291,12 @@ Customers use a responsive browser on a phone or desktop and may have intermitte
 ### 3.5 Alternatives and competition
 **Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
-The following comparison is anchored to the PA1 survey and its dated interface captures, rather than new market measurements.
+The product comparison is limited to PasGo and Eatigo, using the PA1 survey and its dated interface captures. Phone calls, messaging and internal spreadsheets are current workarounds rather than surveyed competing platforms.
 
 | Alternative | Observed strength / existing approach | Design implication for DineVina |
 | --- | --- | --- |
 | PasGo | Venue discovery, detail pages, booking form and consultation entry | Adopt clear venue detail and request forms; connect event briefs to an explicit proposal history. |
 | Eatigo | Time-based search, discount presentation and visible offer conditions | Keep date/time and eligibility conditions visible; separate offers from reservation confirmation. |
-| Phone and messaging | Flexible human clarification | Preserve clarification while keeping requests and decisions attributable in one history. |
-| Internal spreadsheet or restaurant management software | Staff track operations internally | DineVina connects multiple restaurants to customers; POS, inventory and accounting remain outside scope. |
 
 See `evidence/pa1-survey/` for the survey Markdown and original screenshots. No new competitor booking was performed during PA2 consolidation.
 
@@ -334,7 +333,7 @@ Restaurant partners can submit a venue profile containing its identity, location
 ### 5.3 Restaurant Discovery and Venue Details
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
 
-Customers can search and filter restaurants by criteria such as location, cuisine, budget, party size, capacity, and amenities, then open a venue page for more detail. The feature shortens the path from a dining or event need to a manageable set of suitable options instead of forcing users to compare fragmented information manually. Customers benefit from more relevant choices, while approved restaurant partners gain visibility among users whose needs match their offerings.
+Customers can search restaurants and foods in Ho Chi Minh City, filter venues by district, cuisine, budget, party size, capacity and amenities, then open a venue page for more detail. Public browsing remains available without sign-in or device-location permission. The feature shortens the path from a dining or event need to a manageable set of suitable options instead of forcing users to compare fragmented information manually. Customers benefit from more relevant choices, while approved restaurant partners gain visibility among users whose needs match their offerings.
 
 ### 5.4 Menu Management and Viewing
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
@@ -344,7 +343,7 @@ Restaurant partners can maintain menu items with approved names, descriptions, a
 ### 5.5 Table Reservation Requests
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
 
-Customers can choose a date, time, and party size and submit a table reservation request to a restaurant partner. The partner can confirm or reject the request, while both sides can see its status history and applicable cancellation conditions; submitting a request does not itself create a confirmed reservation. This feature gives customers a clear path from venue selection to a visible outcome and helps restaurant staff respond to demand without making ambiguous promises.
+Customers can choose a date, time and party size, enter their own name and phone number, and submit a table reservation request for themselves. Restaurant staff manually confirm or decline every request; both sides can see its status history and applicable cancellation conditions. Submitting a request does not itself create a confirmed reservation. This feature gives customers a clear path from venue selection to a visible outcome and helps restaurant staff respond to demand without making ambiguous promises.
 
 ### 5.6 Event Inquiries and Proposals
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
@@ -475,17 +474,17 @@ The committed backend constitution is version 1.0. The earlier project-wide cons
 ## 2. Individual tutorial completion and learning summary
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-On 31 October 2026, the team representative confirmed that all five members completed the official Spec Kit tutorial. This is a team-level completion declaration. Kiên also supplied a dated individual command and artifact log; the other learning summaries below are editorial summaries of how the tutorial method applies to each member's assigned PA2 work, not quotations or fabricated screenshots.
+On 31 October 2026, the team representative confirmed that all five members completed the official Spec Kit tutorial. Kiên supplied a dated individual command and artifact log. Nhân supplied a personal learning report and Microsoft Learn achievement screenshot on branch `chores/sumary-PA2`; his AI-use record says he reviewed the report and confirmed the screenshot belongs to him. The remaining brief learning summaries below organize how the tutorial method applies to assigned PA2 work.
 
 | Member | Completion declaration | Learning summary and related PA2 work |
 | --- | --- | --- |
 | Hoàng Cao Phong | Completed, per team representative | Use the constitution and feature specification to keep the plan, acceptance criteria, tasks and build checkpoints consistent; integrated the package and source artifacts. |
 | Võ Mỹ Ngọc | Completed, per team representative | Turn user problems and feature descriptions from the Vision into testable scenarios and acceptance criteria. |
-| Lương Thiện Nhân | Completed, per team representative | Describe stakeholder needs, venue data rules and role interactions before implementation tasks are assigned. |
+| Lương Thiện Nhân | Completed; personal report and module achievement included | Mapped stakeholder needs, venue data, self-booking, manual partner confirmation and role interactions into reviewable requirements; [personal report](evidence/Nhan-Spec-Kit-Training.md). |
 | Nguyễn Trung Kiên | Completed; dated 25–28 October personal log included | Initialized the toolchain; wrote the constitution, reservation feature specification, technical plan and tasks; recorded commands and lessons in the original log. |
 | Trương Khánh Duy | Completed, per team representative | Specify the recommender's inputs, fallback behavior and evaluation criteria before coding the optional AI workflows. |
 
-Kiên's [original log](evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md) and a [Microsoft Learn Spec Kit achievement screenshot](evidence/speckit_evidence.png) accompany these summaries. The tutorial method is to specify scenarios, derive a plan and verifiable tasks, then check ownership, state transitions and capacity. Kiên's reported Windows prototype tests are separate from `evidence/local-validation.txt` on this branch.
+Kiên's [original log](evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md), Nhân's [personal report](evidence/Nhan-Spec-Kit-Training.md) and his [Microsoft Learn achievement screenshot](evidence/speckit_evidence.png) accompany these summaries. The tutorial method is to specify scenarios, derive a plan and verifiable tasks, then check ownership, state transitions and capacity. Kiên's reported Windows prototype tests are separate from `evidence/local-validation.txt` on this branch.
 
 <div class="chapter-break"></div>
 
@@ -502,17 +501,13 @@ Kiên's [original log](evidence/sources/Kien_ProductOverview/Kien_SpecKit/Spec-K
 | 23-24 October / prior working record | OpenAI language model; PA1 and PA2 requirements | Draft Plan/Vision, agenda, checklist, Trello wording and PDF preparation | Existing drafts compared with course brief |
 | 25-28 October / Kiên's personal report | Spec Kit with AI coding agents; reservation requirements and schemas | Tutorial constitution, spec, plan, tasks and reported prototype/test workflow | Original personal log retained; reported Windows tests distinguished from local verification |
 | 30 October / Kiên's AI coding research | Source report describes agent/toolchain research and engineering strategy | AI-Coding-Research.md and technical methodology | Preserved as member-authored research; model/pricing claims not independently certified by this package |
+| 31 October / Nhân's personal declaration | GitHub Copilot in VS Code; PA2 requirements, PA1 PasGo/Eatigo survey, stakeholder report, Vision and Spec Kit evidence | Refined user needs, Ho Chi Minh City scope, self-booking and manual partner confirmation; drafted the [personal Spec Kit report](evidence/Nhan-Spec-Kit-Training.md) and stakeholder flow | Nhân's [usage record](evidence/Nhan-AI-Usage.md) states that he checked the product decisions, learning summary, screenshot ownership and planned-versus-implemented distinction |
 | 31 October / Phong's consolidation request | OpenAI language model; local PA briefs, member Markdown, Notion allocation, Trello data and user-confirmed 29 October attendance | Integrated Plan/Vision, standardized minutes, reports, board descriptions, consistent PDF renderer and ZIP | Source comparison, attribution/link checks, rendered-page inspection, local test/build log and archive integrity checks |
 
 ## 2. Material use and editorial controls
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
 This session reads only the task-relevant course, repository and linked project material. It uses the member sources for product requirements and the group leader's confirmation for attendance. It does not generate historical meeting speech or individual learning claims. Original member files remain in the evidence folder; the source register explains editorial decisions. Trello descriptions are updated with actual package paths and artifact evidence without backdating task creation, assignment or completion.
-
-## 3. Responsibility and scope
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
-
-Each member verifies their own AI-use declaration before course submission. This report declares observed and source-reported usage; it cannot certify unreported uses or personal non-use. Exact model identifiers and original prompts for historical uses are not recorded in the supplied sources. The current consolidation request is to inspect the PA requirements, integrate team work, normalize minutes, improve Trello and create consistent Markdown/PDF outputs locally without pushing.
 
 <div class="chapter-break"></div>
 
@@ -786,7 +781,7 @@ This register reflects the live board after the 31 October calendar correction. 
 # DineVina - PA2 Source and Integration Register
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Repository HEAD at this packaging pass:** `6e418c19725977ad2aca9a3829d9192757ce581c`. The package was committed at this revision; edits made in this pass remain local until separately published.
+**Cut-off:** 31 October 2026. **Branch:** `research/PA2_final`. **Repository HEAD at this packaging pass:** `3565d14db35036cc143143d2b52013a1e52ecbba`. The package was committed at this revision; edits made in this pass remain local until separately published.
 
 ## 1. Source map
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
@@ -798,7 +793,8 @@ This register reflects the live board after the 31 October calendar correction. 
 | Week1 member sources, PA1 survey and PA1 meeting archive | Stable project scope, three actor types, nine groups, dated comparison evidence and the 9/16 October ceremony history copied under `evidence/pa1-meeting-history/` |
 | Phong Project Plan (`bbaf7a5`, merged through `6ac347b`) | Plan, risks, schedule and original board image |
 | Ngọc Vision (`9010a8e`, merged through `86c37a0`) | Introduction, positioning and core feature descriptions |
-| Nhân pipeline (`7066f9a`, merged through `f3e5ff7`) | Stakeholders, responsibilities and target end-to-end flow |
+| Nhân pipeline (`7066f9a`, later updated at `4f05f95` on `chores/sumary-PA2`) | Stakeholder needs, Ho Chi Minh City environment, self-booking, manual partner confirmation, PasGo/Eatigo comparison and target flow |
+| Nhân personal PA2 records (`4f05f95`) | [Spec Kit training report](evidence/Nhan-Spec-Kit-Training.md), [AI-use declaration](evidence/Nhan-AI-Usage.md) and Microsoft Learn achievement screenshot; package copies use local evidence paths |
 | Duy AI contribution (`07cbae3`, merged through `510aeb9`) | AI capabilities, two workflows, feasibility and measurable quality proposals |
 | Kiên technical sources (`55457c3`, `7948778`, `93fbd23`; merged on `dev` through `22d4d1e`) | Committed src artifacts, Product Overview/NFRs, training log and AI coding research |
 | Notion draft, inspected 31 October | PA2 work allocation dated 23 October and reviewer rotation; copied into the evidence archive |
@@ -806,10 +802,12 @@ This register reflects the live board after the 31 October calendar correction. 
 | Trello connector | Current card fields, assigned members, status, internal due dates and descriptions |
 | GitHub connector | Repository identity, default branch and point-in-time visibility; repository is public at inspection, while PA1 asks for private mode |
 
+Nhân's personal training and AI-use records were read from [commit `4f05f95`](https://github.com/HoangCaoPhong/DineVina/commit/4f05f95f2edb1835d1fd6db39e189fb887fc7758) on `chores/sumary-PA2`. The packaged AI-use record matches Nhân's `Nhan_StakeHolders/ai_usage.md` content, with package-local output paths adjusted.
+
 ## 2. Integration decisions
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc | **Edited by:** Hoàng Cao Phong
 
-All five contributions are used, replacing the older package's outdated claim that Nhân/Duy files were empty. Review names follow the team allocation and do not constitute retrospective signatures. This integration selects React/TypeScript from the actual checkout, retains a reservation marketplace rather than food-order checkout, keeps RAG/OCR optional and makes NFR thresholds acceptance targets. Capacity confirmation depends on authoritative persistent transactions; an outage never silently creates independent memory-only bookings.
+All five contributions are used. Nhân's 31 October update on `chores/sumary-PA2` adds his individual training and AI-use records; the module screenshot is byte-identical to `evidence/speckit_evidence.png` already in this package. The member report and AI-use record have only their package-local evidence paths adjusted. Review names follow the team allocation and do not constitute retrospective signatures. This integration selects React/TypeScript from the actual checkout, retains a reservation marketplace rather than food-order checkout, keeps RAG/OCR optional and makes NFR thresholds acceptance targets. Capacity confirmation depends on authoritative persistent transactions; an outage never silently creates independent memory-only bookings.
 
 The project constitution uses `PENDING_CONFIRMATION`, `DECLINED` and actor-specific cancellation states, while some design sources use `AWAITING_CONFIRMATION`, `REJECTED` and `CANCELLED`. Product-facing labels in this package are Requested, Confirmed, Declined and Cancelled. The API schema must supply the exact technical enum mapping before implementation; supporting source artifacts are copied unchanged so their provenance is preserved.
 
@@ -837,8 +835,8 @@ The course specifies two weekly Scrum meetings and one Planning/Review. The arch
 | Project Plan, 15 points | Project-Plan.md / PDF | Introduction, scope, deliverables, assumptions, organization, seven risks, five sprints, task owners/reviewers/dates, four builds and upcoming sprint detail |
 | Vision, 20 points | Vision.md / PDF | Revision history and contents, both positioning tables, stakeholders/users/environment/needs/competition, product perspective/dependencies, nine features, AI slices, two workflows and quantified NFRs |
 | Spec Kit initialization | src/constitution.md, src/specs/, src/.specify/ | Committed project Markdown and generated infrastructure included with source metadata |
-| Individual tutorial evidence | Spec-Kit-Training.md, Kiên log and module screenshot | Team representative confirms tutorial completion for all five; Kiên has the detailed dated personal log, the other four have brief learning summaries, and the Microsoft Learn achievement is pictured |
-| AI usage | AI-Usage-Report.md / PDF | Observed/source-reported usage, inputs, outputs and verification recorded |
+| Individual tutorial evidence | Spec-Kit-Training.md; Kiên and Nhân personal reports; Nhân screenshot | Team representative confirms completion for all five; Kiên has a dated personal log, Nhân has his own training report and module achievement, and the other three have brief learning summaries |
+| AI usage | AI-Usage-Report.md / PDF; evidence/Nhan-AI-Usage.md | Observed and member-declared usage, supplied material, outputs and human verification recorded |
 | Meetings | Weekly-Report.md and meeting-minutes/ | PA1 ceremony history is included as context, separately from PA2. The team confirmed the 19–31 October Sprint 2 window; 23 and 29 October weekly check-ins and 31 October Sprint Review had all five members. Work summaries and retrospective points are tied to the integrated artifacts. |
 | Board evidence | 31 October screenshots; Trello index/export | Instructor-approved Trello substitution; screenshots and connector data retain their own source labels |
 | Git log | evidence/git-log.txt and source-revision.txt | Actual history and packaged input revision |

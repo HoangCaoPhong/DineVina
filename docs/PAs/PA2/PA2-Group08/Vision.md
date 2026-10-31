@@ -81,22 +81,23 @@ DineVina follows a B2B2C model in which restaurant partners publish and manage d
 
 | User | Responsibilities | Represented interest |
 | --- | --- | --- |
-| Customer | Search venues, inspect menus, submit complete table/event requests, track responses and cancel within policy | Diners and event organizers |
+| Customer | Browse without signing in, search restaurants and foods, inspect menus and prices, submit table/event requests for themselves, track responses and cancel within policy | Diners and event organizers in Ho Chi Minh City |
 | Restaurant partner staff | Maintain their venue/menu/availability, decide requests, prepare event proposals and update state history | Restaurant owner |
 | Platform administrator | Review onboarding, return corrections, moderate published information and investigate support cases | Platform operator |
 
 ### 3.3 User environment
 **Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
-Customers use a responsive browser on a phone or desktop and may have intermittent mobile data. Discovery supports manual district/location filters without mandatory geolocation permission. A request cycle involves one customer and authorized staff of the selected restaurant; the administrator participates in onboarding and exceptions. Partner staff use a desktop dashboard during service and may check incoming requests by phone. Clear state labels and retry-safe submission reduce confusion when the connection is interrupted. The initial interface targets Vietnamese restaurant data; language and localization expansion are later backlog decisions.
+Customers use a responsive browser on a phone or desktop and may have intermittent mobile data. Initial discovery targets Ho Chi Minh City and supports manual district/location filters without mandatory geolocation permission. Browsing does not require sign-in. A customer submits a request for themselves using their own name, phone number and booking details; booking on behalf of another person is outside this flow. Authorized staff of the selected restaurant manually decide each request; the administrator participates in onboarding and exceptions. Partner staff use a desktop dashboard during service and may check incoming requests by phone. Clear state labels and retry-safe submission reduce confusion when the connection is interrupted. The initial interface targets Vietnamese restaurant data; language and localization expansion are later backlog decisions.
 
 ### 3.4 Summary of key stakeholder or user needs
 **Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
 | Need / cause | Priority | Current workaround | Product response |
 | --- | --- | --- | --- |
-| Fragmented venue, menu and condition information | High | Compare websites/social pages and call venues | Approved profiles, structured menus, update context and filters (F3, F4) |
+| Fragmented venue, food, menu, price and condition information | High | Compare websites/social pages and call venues | Approved profiles, searchable menus, price context, update context and filters (F3, F4) |
 | Unclear distinction between a request and a commitment | High | Follow-up calls or messages | Explicit requested/confirmed/declined states and history (F5) |
+| Need to submit a complete booking for oneself | High | Call or fill separate venue forms | Name, phone number, date, time and party-size fields with self-booking validation (F5) |
 | Complex group-event requirements | High | Phone consultations and separate message threads | Structured brief, clarification and proposal history (F6) |
 | Changing capacity and incoming demand | High | Manual reservation books/spreadsheets | Venue-owned availability and partner queue (F7) |
 | Difficulty choosing among many venues | Medium | Manually compare a shortlist | Eligible recommendations with attributable reasons and filter fallback (F9) |
@@ -105,14 +106,12 @@ Customers use a responsive browser on a phone or desktop and may have intermitte
 ### 3.5 Alternatives and competition
 **Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
-The following comparison is anchored to the PA1 survey and its dated interface captures, rather than new market measurements.
+The product comparison is limited to PasGo and Eatigo, using the PA1 survey and its dated interface captures. Phone calls, messaging and internal spreadsheets are current workarounds rather than surveyed competing platforms.
 
 | Alternative | Observed strength / existing approach | Design implication for DineVina |
 | --- | --- | --- |
 | PasGo | Venue discovery, detail pages, booking form and consultation entry | Adopt clear venue detail and request forms; connect event briefs to an explicit proposal history. |
 | Eatigo | Time-based search, discount presentation and visible offer conditions | Keep date/time and eligibility conditions visible; separate offers from reservation confirmation. |
-| Phone and messaging | Flexible human clarification | Preserve clarification while keeping requests and decisions attributable in one history. |
-| Internal spreadsheet or restaurant management software | Staff track operations internally | DineVina connects multiple restaurants to customers; POS, inventory and accounting remain outside scope. |
 
 See `evidence/pa1-survey/` for the survey Markdown and original screenshots. No new competitor booking was performed during PA2 consolidation.
 
@@ -149,7 +148,7 @@ Restaurant partners can submit a venue profile containing its identity, location
 ### 5.3 Restaurant Discovery and Venue Details
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
 
-Customers can search and filter restaurants by criteria such as location, cuisine, budget, party size, capacity, and amenities, then open a venue page for more detail. The feature shortens the path from a dining or event need to a manageable set of suitable options instead of forcing users to compare fragmented information manually. Customers benefit from more relevant choices, while approved restaurant partners gain visibility among users whose needs match their offerings.
+Customers can search restaurants and foods in Ho Chi Minh City, filter venues by district, cuisine, budget, party size, capacity and amenities, then open a venue page for more detail. Public browsing remains available without sign-in or device-location permission. The feature shortens the path from a dining or event need to a manageable set of suitable options instead of forcing users to compare fragmented information manually. Customers benefit from more relevant choices, while approved restaurant partners gain visibility among users whose needs match their offerings.
 
 ### 5.4 Menu Management and Viewing
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
@@ -159,7 +158,7 @@ Restaurant partners can maintain menu items with approved names, descriptions, a
 ### 5.5 Table Reservation Requests
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong
 
-Customers can choose a date, time, and party size and submit a table reservation request to a restaurant partner. The partner can confirm or reject the request, while both sides can see its status history and applicable cancellation conditions; submitting a request does not itself create a confirmed reservation. This feature gives customers a clear path from venue selection to a visible outcome and helps restaurant staff respond to demand without making ambiguous promises.
+Customers can choose a date, time and party size, enter their own name and phone number, and submit a table reservation request for themselves. Restaurant staff manually confirm or decline every request; both sides can see its status history and applicable cancellation conditions. Submitting a request does not itself create a confirmed reservation. This feature gives customers a clear path from venue selection to a visible outcome and helps restaurant staff respond to demand without making ambiguous promises.
 
 ### 5.6 Event Inquiries and Proposals
 **Performed by:** Võ Mỹ Ngọc | **Reviewed by:** Hoàng Cao Phong | **Edited by:** Hoàng Cao Phong

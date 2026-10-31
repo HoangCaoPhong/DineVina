@@ -1,13 +1,13 @@
 {
   "date": "2026-10-31",
   "branch": "research/PA2_final",
-  "source_revision": "6e418c19725977ad2aca9a3829d9192757ce581c",
+  "source_revision": "3565d14db35036cc143143d2b52013a1e52ecbba",
   "documents": [
     {
       "document": "README",
       "pages": 1,
-      "characters": 2602,
-      "minimum_page_characters": 2602,
+      "characters": 2688,
+      "minimum_page_characters": 2688,
       "bounds": "A4 page size checked"
     },
     {
@@ -20,7 +20,7 @@
     {
       "document": "Vision",
       "pages": 11,
-      "characters": 34952,
+      "characters": 34957,
       "minimum_page_characters": 1074,
       "bounds": "A4 page size checked"
     },
@@ -34,35 +34,35 @@
     {
       "document": "Spec-Kit-Training",
       "pages": 1,
-      "characters": 3275,
-      "minimum_page_characters": 3275,
+      "characters": 3516,
+      "minimum_page_characters": 3516,
       "bounds": "A4 page size checked"
     },
     {
       "document": "AI-Usage-Report",
       "pages": 1,
-      "characters": 3827,
-      "minimum_page_characters": 3827,
+      "characters": 3808,
+      "minimum_page_characters": 3808,
       "bounds": "A4 page size checked"
     },
     {
       "document": "Source-Register",
       "pages": 2,
-      "characters": 5736,
-      "minimum_page_characters": 2791,
+      "characters": 6481,
+      "minimum_page_characters": 2986,
       "bounds": "A4 page size checked"
     },
     {
       "document": "Submission-Checklist",
       "pages": 1,
-      "characters": 3203,
-      "minimum_page_characters": 3203,
+      "characters": 3266,
+      "minimum_page_characters": 3266,
       "bounds": "A4 page size checked"
     },
     {
       "document": "PA2-Report",
       "pages": 34,
-      "characters": 103167,
+      "characters": 104175,
       "minimum_page_characters": 808,
       "bounds": "A4 page size checked"
     }
@@ -72,7 +72,8 @@
     "1 backend health test passed",
     "frontend production build passed",
     "Primary-document local links resolved",
-    "Combined-report local links resolved"
+    "Combined-report local links resolved",
+    "Nhan Spec Kit screenshot hash matched source branch"
   ],
-  "visual_review": "Vision first page and combined-report final page rendered and inspected; the evidence matrix fits on the last page."
+  "visual_review": "AI Usage Report page, Vision stakeholder page and combined-report final page rendered and inspected; evidence matrix fits on the last page."
 }

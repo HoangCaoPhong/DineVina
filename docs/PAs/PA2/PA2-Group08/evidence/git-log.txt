@@ -1,3 +1,4 @@
+3565d14db35036cc143143d2b52013a1e52ecbba | 2026-10-31T23:41:46+07:00 | HoangCaoPhong | update PA2 final
 6e418c19725977ad2aca9a3829d9192757ce581c | 2026-10-31T23:16:26+07:00 | HoangCaoPhong | prepare for submit PA2
 22d4d1e6400df5aa9775af1fad821d7ea54abb92 | 2026-10-31T20:29:28+07:00 | Hoang Cao Phong | Merge pull request #17 from HoangCaoPhong/research/PA2_Kien_ProductOverview
 7204d93b49e182376df10ca8815f4ac8c7ffdc04 | 2026-10-31T20:26:06+07:00 | Hoang Cao Phong | Merge branch 'dev' into research/PA2_Kien_ProductOverview
