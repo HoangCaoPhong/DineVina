@@ -1,0 +1,77 @@
+d7a274a9f80f2667d18a7aabd4175ad3a400edc6 | 2026-10-31T20:30:34+07:00 | Hoang Cao Phong | Merge pull request #18 from HoangCaoPhong/dev
+22d4d1e6400df5aa9775af1fad821d7ea54abb92 | 2026-10-31T20:29:28+07:00 | Hoang Cao Phong | Merge pull request #17 from HoangCaoPhong/research/PA2_Kien_ProductOverview
+7204d93b49e182376df10ca8815f4ac8c7ffdc04 | 2026-10-31T20:26:06+07:00 | Hoang Cao Phong | Merge branch 'dev' into research/PA2_Kien_ProductOverview
+6ac347b8636bf9f5960e0086d161a11181a61dbc | 2026-10-31T20:05:42+07:00 | Hoang Cao Phong | Merge pull request #16 from HoangCaoPhong/research/PA2_Phong_PjPlan
+510aeb953858b46839227b27eab8162d24f6e074 | 2026-10-31T20:04:10+07:00 | Hoang Cao Phong | Merge pull request #15 from HoangCaoPhong/duy-pa2
+86c37a05a45f017af666d341a573985575975bba | 2026-10-31T20:01:36+07:00 | Hoang Cao Phong | Merge pull request #14 from HoangCaoPhong/research/PA2_Ngoc_Vision_Overview
+f3e5ff79835fdc0103c4c603c9277c9fca58fa7e | 2026-10-31T20:00:03+07:00 | Hoang Cao Phong | Merge pull request #13 from HoangCaoPhong/chores/Nhan-system-flowchart
+3dfc52e531b955aff3bc8b36998c6510b9530298 | 2026-10-31T19:55:34+07:00 | Hoang Cao Phong | Merge pull request #12 from HoangCaoPhong/duy-pa2
+7066f9a756193d1d34184fb7d564fad8f7260b14 | 2026-10-31T14:52:57+07:00 | nhankun2006 | docs: stakeholder baseline system
+93fbd2320d29e5451941d0d109da01a61b2afe73 | 2026-10-30T17:05:01+07:00 | Nguyễn Trung Kiên | docs: add AI coding research and model specification report for PA2
+82b72c41bcd5032b57a747a44c014350b8aa3d1c | 2026-10-30T16:01:00+07:00 | Nguyễn Trung Kiên | docs(pa2): integrate AI coding research and foundation models into PA2 deliverables
+6d4ff64c66e53160b9f2252a9d8dbbedd47f9f5f | 2026-10-30T15:52:41+07:00 | Nguyễn Trung Kiên | docs(speckit): reference root /src artifacts in training report
+55457c3c00b80185161db9fb0c8c97acb0993822 | 2026-10-30T15:52:21+07:00 | Nguyễn Trung Kiên | feat(speckit): place Spec Kit initialization artifacts in /src per PA2 rubric
+79487785962369340b448f72372c49f0fa9ca96b | 2026-10-30T15:46:44+07:00 | Nguyễn Trung Kiên | docs(pa2): enrich Spec Kit training report and add Non-Functional Requirements to Vision doc
+07cbae337fb972144c57da871568788d390caaec | 2026-10-30T13:39:35+07:00 | tkduy2414-hue | Update duy.md
+addad3a4b8331579aaf7e808c4e37eadcd6a70e3 | 2026-10-29T21:47:25+07:00 | HoangCaoPhong | Assemble PA2 Group 08 submission package
+62a128251519f3bc98895774484e680e86aa0ff2 | 2026-10-29T21:24:17+07:00 | Nguyễn Trung Kiên | feat(backend): integrate Supabase for venues and reservations persistence
+bbaf7a55743ac9faa50e7f88d4e2efcdcd984be0 | 2026-10-29T21:19:35+07:00 | HoangCaoPhong | research PA2_PjPlan
+b5283fee310c536f8d00ce8a12b99c7dc76589d5 | 2026-10-29T20:54:59+07:00 | Nguyễn Trung Kiên | Merge branch 'demo/supabase-integration' of https://github.com/HoangCaoPhong/DineVina into demo/supabase-integration
+4199140d4e18530a1a7654c096095ee7431e7ec1 | 2026-10-29T20:54:52+07:00 | Nguyễn Trung Kiên | feat: add Supabase client, configure Vite proxy, and update Docker ports
+01b8ed39c3111da36fdba52c9c7629e27b1d7a23 | 2026-10-29T19:40:00+07:00 | Nguyễn Trung Kiên | feat(demo): prepare supabase schema and update ports to 8001/8082 to prevent demo conflict
+d32d1b92f1c309d48a60b60c3cbfc489edcd049b | 2026-10-29T19:19:54+07:00 | HoangCaoPhong | Complete Phong PA2 project plan and weekly record
+8f63cb8164fe49866a5dbee6a9efae9c5db1c948 | 2026-10-29T18:59:51+07:00 | Nguyễn Trung Kiên | docs(pa2): add Product Overview section in formal English for Vision document
+4f4c90e0f725b132f05ecc0ca93a1ede4f7fcd0f | 2026-10-29T18:58:28+07:00 | Nguyễn Trung Kiên | docs(pa2): translate kien.md to formal English per RUP Vision standard
+ed5da5d96dd4c01d9f6c33ef247c88d172a30753 | 2026-10-29T18:27:45+07:00 | Nguyễn Trung Kiên | docs(pa2): migrate week 2 deliverables to Kien_ProductOverview and finalize Spec Kit training
+9010a8ef69e7f2e1d61be525ee0711bb9922bb9d | 2026-10-29T17:14:00+07:00 | moonshine-v | docs: add vision document sections
+cb5bf77132f2c1be782a7e1a163ad89c91309f8a | 2026-10-29T14:47:26+07:00 | Hoang Cao Phong | Merge pull request #11 from HoangCaoPhong/dev
+5428fe2b70f04d39842de01da0c771b968c2ae19 | 2026-10-29T14:46:46+07:00 | Hoang Cao Phong | Merge pull request #10 from HoangCaoPhong/research/PA2_base
+69cd00c22be14851badee8ecf324a7d9f7003b69 | 2026-10-29T14:45:57+07:00 | Hoang Cao Phong | Merge branch 'dev' into research/PA2_base
+62cfec2aefd667f054e59ee5da70d26bfc2b24ec | 2026-10-29T14:41:40+07:00 | HoangCaoPhong | setup for PA2
+8dc9711ce77d8e1eca805753f41b83f1f21034e2 | 2026-10-25T19:44:29+07:00 | Nguyễn Trung Kiên | feat: add discovery and reservation API contract and spec-kit training docs for Week 2
+bdd565f04b1777b8229f36111909cd8482993d21 | 2026-10-23T21:57:17+07:00 | HoangCaoPhong | Agent host session 542d3f08-09c4-405f-8274-637432258486 - turn 1
+93ed8849b08157f9dce66e9772f419d11b7e9ea7 | 2026-10-23T21:57:17+07:00 | HoangCaoPhong | Agent host session 542d3f08-09c4-405f-8274-637432258486 - turn 1 start
+57a4e46f874da59ed5393e86f21e5e29c678b614 | 2026-10-23T21:56:30+07:00 | HoangCaoPhong | Agent host session 542d3f08-09c4-405f-8274-637432258486 - baseline checkpoint
+52b5619e72ec9a7cc07a2b74d22c27a3526b9738 | 2026-10-17T22:52:45+07:00 | nhankun2006 | fix: format docs
+17c2fb8697479bfc218d8d6440672952ed05fb89 | 2026-10-17T22:49:23+07:00 | HoangCaoPhong | check PA1
+c8069506554a04a31e44326f723e69fab0e95737 | 2026-10-17T21:19:08+07:00 | Nguyễn Trung Kiên | docs(week1): translate AI coding confirmation document to formal English
+1a0ccbdfebde1f1e78801ea4efcd73d3aadfb1cd | 2026-10-17T21:13:54+07:00 | Nguyễn Trung Kiên | docs(week1): adopt quota-conscious tiered AI model strategy with lightweight flash/coder workhorses
+46a5a442d8005549c15e2892ccb30070f5bb834a | 2026-10-17T19:24:24+07:00 | Nguyễn Trung Kiên | docs(week1): remove Aider from AI coding tools report and focus on Model Studio & Antigravity
+8c2484fb8ddc5d78bf11662c65d83bd6c09e8376 | 2026-10-17T19:14:54+07:00 | Nguyễn Trung Kiên | docs(week1): refine AI model selection with verified Alibaba Cloud Model Studio roster
+1f22f1c5df14f698692a8888f57e8ddd12d2d48b | 2026-10-17T19:09:00+07:00 | Nguyễn Trung Kiên | docs(week1): add AI coding tools confirmation for Kien and ignore aider files
+621806f5fe73ea32180b45a3b7d31d3e1c008afe | 2026-10-17T20:08:56+07:00 | Hoang Cao Phong | Merge pull request #9 from HoangCaoPhong/Nhan_Week1_Survey
+cd283ca8faf53d1e16f8f1dad64da1467bf35fd5 | 2026-10-17T19:40:23+07:00 | nhankun2006 | feat: add Eatigo user flow proven images
+c1abac9451cfbece8790ea2495d422b766b64006 | 2026-10-17T17:48:40+07:00 | Hoang Cao Phong | Merge pull request #8 from HoangCaoPhong/dev
+f865734f49160d5fff3ed8ec478ab469b3dd835b | 2026-10-17T17:46:20+07:00 | Hoang Cao Phong | Merge pull request #7 from HoangCaoPhong/research/Project-proposal
+41f02577af1416e43f1a829563a751c78d9054dc | 2026-10-17T17:44:26+07:00 | Hoang Cao Phong | Merge pull request #6 from HoangCaoPhong/dev
+034370383903d50efa2cd73446dff12b420d1f95 | 2026-10-17T17:40:30+07:00 | Hoang Cao Phong | Merge pull request #5 from HoangCaoPhong/Nhan_Week1_Survey
+c48d5ce8a34113df38d333bde2ca768f891cdf2d | 2026-10-17T17:37:49+07:00 | Hoang Cao Phong | Merge pull request #2 from HoangCaoPhong/kd_w1_aifeature
+a98a1533ce5740f30ffe9d1397228191df61faa3 | 2026-10-17T16:44:23+07:00 | tkduy2414-hue |  update Duy.md
+ed0b52bd916e0cfef23c3962df7d0ca72e84094e | 2026-10-17T16:43:24+07:00 | tkduy2414-hue | Delete docs/ai_features_proposal.md
+1bea911b063ef85b35073f876a6c73ba7159d430 | 2026-10-17T16:40:30+07:00 | moonshine-v | feat: add advance restaurant filters
+b176ef5b34889299206d1f875f988a8fc586e4c3 | 2026-10-17T16:29:27+07:00 | nhankun2006 | feat: proven images for Pasgo
+ee901cb44f2508c2bf180d6474ff02a978e66fb4 | 2026-10-17T16:06:02+07:00 | moonshine-v | feat: implement landing page
+20adf9150b6e51355341122a7164f7311594ef9d | 2026-10-17T10:26:54+07:00 | Nguyễn Trung Kiên | refactor: replace real restaurant names with fictional demo names and clean functional groups in Kien.md
+49bdaac64fb3300940117276b0b17ad65b3ab5a2 | 2026-10-17T08:58:09+07:00 | Nguyễn Trung Kiên | feat: initialize DineVina restaurant booking application with frontend and backend components
+8ec6c18ac45e2de063ecd388e41c16a9150e6267 | 2026-10-17T08:18:13+07:00 | Nguyễn Trung Kiên | feat: add authentication and booking modal components with backend store and seed data
+2a71e864a21d71d8287a7d72c9fe2f3d1c0601eb | 2026-10-17T03:25:40+07:00 | Nguyễn Trung Kiên | feat: initialize FastAPI backend and React frontend with comprehensive dining reservation and management features
+2446e6557240823752d53ea6a245801e62a18ace | 2026-10-17T00:03:17+07:00 | nhankun2006 | fix: translate survey docs to English
+25cb5d2e2d78b0fede6ea2a739e7aa34d0271099 | 2026-10-16T23:38:40+07:00 | moonshine-v | docs: clarify task workflow and record team approval
+ee3e4b9a25287e978e4aff82e0663d8e7fabf495 | 2026-10-16T23:13:56+07:00 | moonshine-v | docs: clarify B2B2C model and user roles
+35a781ee21dfa2ec0302032e89b7880ae574d185 | 2026-10-16T22:46:23+07:00 | nhankun2006 | docs: first compare Pasgo vs KiotViet
+3050376ae7d5d99f9a708500204a72141e5496fc | 2026-10-16T22:44:10+07:00 | Nguyễn Trung Kiên | docs: add Kien's functional groups documentation for DineVina project
+99ed82f03dde3cd10e27525442102b585f38d138 | 2026-10-16T21:02:46+07:00 | HoangCaoPhong | write Pj Overview for PA1
+604d27c629d2629861b62d467cccf1aa637886ee | 2026-10-16T21:14:02+07:00 | Nguyễn Trung Kiên | Merge pull request #3 from HoangCaoPhong/Kien_Week1_Functional
+4773cc81c1c249c0c3c1378cf72053aa6a5a8057 | 2026-10-16T21:10:06+07:00 | Nguyễn Trung Kiên | fix while trying to create pull request
+b8c009b328021ca1bb7525fe663f6b7d2128d0ab | 2026-10-16T21:09:00+07:00 | Nguyễn Trung Kiên | chore: ignore aider temporary files in gitignore
+0e0852d3bdc59e261e40fcc7cfdc496f63e1f6ba | 2026-10-16T20:56:21+07:00 | Nguyễn Trung Kiên | docs: update pull request template with new functional groups and scope
+334c63969904f186e3356583f435e5d29c490668 | 2026-10-16T20:37:54+07:00 | tkduy2414-hue | Add files via upload
+f83fd535e7810fc94bdcf9a164a2970058de8fd7 | 2026-10-16T20:28:27+07:00 | Nguyễn Trung Kiên | docs: add Kien's functional groups report for Week 1
+5d5eb59595a506260b825e105f2f4829c72dd802 | 2026-10-16T19:53:52+07:00 | Nguyễn Trung Kiên | docs(report): add Kien's functional groups documentation for weekly report week 1
+547e2d7ab0d112fa7fb3e28a0f13b65f8270c330 | 2026-10-16T13:08:58+07:00 | moonshine-v | docs: add TeamContract.docx
+aa1e8ca61a8803da43f2dcb1c1ea56f93b3a2a78 | 2026-10-15T22:54:21+07:00 | Nguyễn Trung Kiên | docs: add weekly report and functional groups documentation for Kien
+3f6769f65ff11f5deab5ed6d816e8769a89fc795 | 2026-10-15T16:37:08+07:00 | moonshine-v | docs: add team contract
+c97f380a4ef5f8a03771472f0b5d968ebe6b5bf0 | 2026-10-15T14:59:46+07:00 | moonshine-v | docs: add project proposal
+c7ce6c82792cf8c71fd347421060b63f4fe38e5d | 2026-10-14T22:15:45+07:00 | HoangCaoPhong | setup repo
+3932e1b442efb39e1d72cbc4beb5d03f7a9c2cc3 | 2026-10-14T21:23:30+07:00 | HoangCaoPhong | setup repo
+52f75bb3f1dab66163292a31b86033750cf1183f | 2026-10-14T17:13:51+07:00 | Hoang Cao Phong | Initial commit
