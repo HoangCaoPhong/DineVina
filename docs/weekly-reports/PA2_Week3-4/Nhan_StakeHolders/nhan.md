@@ -1,8 +1,12 @@
 # DineVina Stakeholder View: End-to-End System Pipeline
 
+**Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
+
+**Scope:** Planned DineVina system for Ho Chi Minh City, prepared for PA2 teaching staff and future implementation agents. This document describes the target product design; the current repository scaffold is not evidence that these workflows are implemented.
+
 ## 1. Stakeholder perspective and scope
 
-From a stakeholder perspective, DineVina is a two-sided restaurant marketplace. The customer needs to discover a suitable venue, understand its menu and availability, and receive a clear reservation result. The restaurant partner needs to control venue information, menus, capacity, and incoming requests. The platform administrator protects the quality of the marketplace by reviewing partner submissions and handling moderation or support cases.
+From a stakeholder perspective, DineVina is a two-sided restaurant marketplace for all restaurant types in Ho Chi Minh City. Customers, including individual diners and group or event organizers, can browse without signing in, search nearby restaurants and foods, compare prices and menus, and submit a table or event request for themselves. Restaurant partners manually confirm every reservation request. The platform administrator protects marketplace quality by reviewing partner submissions, moderating content, and handling exceptions.
 
 The diagrams below describe the **target MVP pipeline** for restaurant discovery and table reservation. Event booking, promotions, and AI assistance are shown as extension points because they are in the product scope and roadmap, but are not part of the current implemented scaffold. The current repository contains the web/API foundation and `/api/health`; venue and reservation endpoints are the next delivery surface described by the reservation specification.
 
@@ -17,9 +21,8 @@ flowchart TD
 
 	subgraph CustomerJourney[Customer journey]
 		Web --> Account{Signed in?}
-		Account -->|No| Register[Register or sign in]
-		Account -->|Yes| Discover[Search and filter restaurants]
-		Register --> Discover
+		Account -->|No: browsing allowed| Discover[Search restaurants and foods]
+		Account -->|Yes| Discover
 		Discover --> VenueList[Request venue list]
 		VenueList --> VenueAPI[GET /api/venues]
 		VenueAPI --> VenueStore[(Venue and catalog data)]
@@ -30,7 +33,7 @@ flowchart TD
 		DetailStore --> Detail[Show details, menu and operating hours]
 		Detail --> Intent{Customer intent}
 		Intent -->|Browse only| EndBrowse([Customer leaves or saves venue])
-		Intent -->|Reserve a table| Input[Enter date, time, party size and contact details]
+		Intent -->|Reserve for self| Input[Enter date, time, party size, name, phone and basic information]
 		Intent -->|Request event service| EventBrief[Enter event date, guest count and requirements]
 		EventBrief --> EventRequest[Create event request]
 		EventRequest -. Next release .-> PartnerQueue[Partner reviews event request]
@@ -44,7 +47,7 @@ flowchart TD
 	end
 
 	subgraph Platform[Platform services]
-		ReservationAPI --> Validate[Validate request schema and business rules]
+		ReservationAPI --> Validate[Validate request schema, self-booking rule and business rules]
 		Validate --> Valid{Payload valid?}
 		Valid -->|No| ValidationError[Return 400/422 with field errors]
 		ValidationError --> Input
@@ -74,7 +77,7 @@ flowchart TD
 		UpdateOps --> CatalogUpdate[Validate and publish operational changes]
 		Manage -->|Bookings| PartnerQueue
 		NotifyPartner --> PartnerQueue[Show pending reservation in dashboard]
-		PartnerQueue --> PartnerDecision{Can partner accept request?}
+		PartnerQueue --> PartnerDecision{Manual partner decision}
 		PartnerDecision -->|Yes| Confirm[Confirm reservation and allocate table]
 		PartnerDecision -->|No| Reject[Reject with reason and suggest alternatives]
 		Confirm --> ConfirmState[Set status: CONFIRMED]
@@ -120,6 +123,47 @@ flowchart TD
 4. **Partner decision:** a valid request initially becomes `PENDING_CONFIRMATION`. The partner accepts it and allocates a table, or rejects it with a reason. The customer sees the resulting status rather than assuming that a submitted request is already confirmed.
 5. **Lifecycle completion:** the customer may cancel an eligible reservation before arrival. The system records the cancellation timestamp, releases capacity, and informs both parties. The partner later closes the booking as completed or no-show.
 6. **Error handling:** invalid fields return `400` or `422`; a missing venue returns `404`; a capacity conflict returns an actionable unavailable result; and an invalid cancellation is rejected without changing state.
+
+## 3. Stakeholder needs and user environment
+
+### 3.1 Stakeholder and user needs
+
+| Stakeholder or user | Need and cause | Priority | Planned product response |
+| --- | --- | --- | --- |
+| Customer | Find nearby restaurants and the food, price range, cuisine, and amenities that fit the occasion | High | Ho Chi Minh City search, district filters, cuisine/price/party-size filters, venue details and menu search |
+| Customer | Know whether a request is actually accepted | High | Explicit `PENDING_CONFIRMATION`, `CONFIRMED`, `REJECTED`, and `CANCELLED` states with history |
+| Customer | Submit complete information quickly for a booking for themselves | High | Name, phone number, basic information, date, time and party-size form; browsing remains available without sign-in |
+| Customer or event organizer | Coordinate a group or event request that needs more than a standard table | High | Structured event brief, clarification, partner proposal and acceptance flow |
+| Restaurant partner | Keep venue, food, menu, price, opening-hour and capacity information accurate | High | Partner-owned profile, menu, availability and promotion management with admin approval |
+| Restaurant partner | Decide manually whether each request can be fulfilled | High | Authenticated request queue with capacity context, confirm/reject action and reason history |
+| Platform administrator | Keep listings trustworthy and resolve exceptions | High | Onboarding review, correction workflow, moderation, ownership checks and audit history |
+
+These needs explain the system flow, but they are not themselves API steps. Each need is translated into a product response and later into acceptance criteria. For example, “a request is not a confirmed booking” becomes a state-transition rule: the customer sees `PENDING_CONFIRMATION` until an authorized partner manually confirms it.
+
+### 3.2 User environment
+
+| Environment factor | Planned DineVina implication |
+| --- | --- |
+| Location | Initial examples and filters target Ho Chi Minh City, including manual district selection. |
+| Customer devices | Responsive mobile and desktop browsers; customers may use the service while travelling or planning a meal. |
+| Partner devices | Primarily a desktop dashboard during service, with mobile status checking when necessary. |
+| Connectivity | Intermittent mobile data is expected; forms need clear retry-safe behavior and must avoid duplicate submissions. |
+| Discovery access | Customers can browse venue and menu information without signing in; booking requires identity/contact information. |
+| Identity boundary | A customer submits a request for themselves using their own name and phone number; booking on behalf of another person is outside the planned flow. |
+| Location permission | Geolocation is optional. Manual city/district filters remain available when permission is denied. |
+| Privacy | Only information needed for booking and support is exposed to the restaurant partner; sample data must be clearly labeled. |
+| Operational timing | Partners manually review incoming requests, while customers need visible status history if confirmation is delayed. |
+
+### 3.3 Alternative competition
+
+The comparison is limited to the two platforms documented in the PA1 survey. The evidence describes visible interface and published service patterns; it does not claim access to competitors' internal systems.
+
+| Alternative | Observed strength | Limitation or design opportunity for DineVina |
+| --- | --- | --- |
+| PasGo | Strong venue discovery, detailed amenity filters, group-dining consultation, booking forms and partner operations | DineVina can connect group/event requirements to a structured proposal history and make request-versus-confirmed state explicit in one workflow. |
+| Eatigo | Time-slot discovery, visible discount conditions, instant-style booking and merchant availability tooling | DineVina can keep conditions and availability visible while focusing on partner-confirmed requests, verified venue data and explainable recommendations rather than discount-led discovery alone. |
+
+The relevant DineVina differentiation is therefore traceable request status, a dedicated event workflow, partner-verified information, and explainable recommendations with ordinary search as a fallback. These are planned capabilities, not claims that the current scaffold has already delivered them.
 
 ## 3. Reservation request sequence
 
@@ -284,3 +328,18 @@ stateDiagram-v2
 ```
 
 The state transition is the key business control: the API must reject illegal transitions, preserve timestamps and reasons, and release capacity whenever a held or confirmed booking is cancelled. Persistence is currently represented by the planned thread-safe store abstraction and is intended to migrate to PostgreSQL in a later foundation slice.
+
+## 6. Evidence and traceability
+
+The stakeholder analysis is grounded in the following project evidence:
+
+| Claim or design input | Evidence source | Status |
+| --- | --- | --- |
+| Customer, partner and administrator roles | `docs/product-scope.md` and the PA2 Vision source archive | Planned product scope |
+| PasGo and Eatigo comparison | `docs/weekly-reports/Week1/Nhan-ExistingAppSurvey/Nhan.md` and `docs/ans/PA2-Group08/evidence/pa1-survey/` | Survey-backed observation |
+| HCMC discovery and manual district filtering | PA2 Vision stakeholder/environment section | Planned requirement |
+| Reservation states and partner confirmation | `src/specs/001-reservation-api/spec.md` and `docs/ans/PA2-Group08/evidence/sources/` | Contract/design evidence; implementation not claimed |
+| PA2 work allocation and stakeholder ownership | `docs/ans/PA2-Group08/meeting-minutes/2026-10-23-Work-Allocation.md` | Team process evidence |
+| PA2 meeting and training completion declaration | `docs/ans/PA2-Group08/meeting-minutes/Scrum-Meetings.md` and `Spec-Kit-Training.md` | Team-confirmed with source limitations |
+
+The separate evidence archive records the current source revision, Trello exports, local validation, training summary and AI-use report. Individual screenshots or logs may be added under `docs/ans/PA2-Group08/evidence/training/<member>/` without changing the product design described here. No missing screenshot or unrecorded meeting detail is inferred by this report.

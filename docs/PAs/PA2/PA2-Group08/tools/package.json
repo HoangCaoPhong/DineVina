@@ -1,0 +1,14 @@
+{
+  "name": "dinevina-pa2-export",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "node render-pdfs.mjs"
+  },
+  "dependencies": {
+    "markdown-it": "15.0.3",
+    "mermaid": "12.2.0",
+    "playwright": "1.62.1"
+  }
+}

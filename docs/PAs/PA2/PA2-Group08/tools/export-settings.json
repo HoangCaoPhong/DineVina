@@ -1,0 +1,28 @@
+{
+  "paper": "A4",
+  "margins_mm": {
+    "top": 19,
+    "right": 17,
+    "bottom": 19,
+    "left": 17
+  },
+  "font": "DejaVu Sans",
+  "body_pt": 10,
+  "date": "2026-10-31",
+  "node_modules_versions": {
+    "markdown-it": "15.0.3",
+    "mermaid": "12.2.0"
+  },
+  "browser": "Google Chrome headless via Playwright",
+  "outputs": [
+    "README",
+    "Project-Plan",
+    "Vision",
+    "Weekly-Report",
+    "Spec-Kit-Training",
+    "AI-Usage-Report",
+    "Source-Register",
+    "Submission-Checklist",
+    "PA2-Report"
+  ]
+}

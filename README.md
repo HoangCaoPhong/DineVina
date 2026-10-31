@@ -28,7 +28,9 @@ Open <http://localhost:8080> for the web scaffold, <http://localhost:8000/docs> 
 
 ## Start without Docker
 
-Use Python 3.12+ and Node.js 22+ in two terminals:
+Use Python 3.12+ and Node.js 22+ in two terminals. Choose either `pip` or `uv` for the Python environment.
+
+### Using pip
 
 ```bash
 python3 -m venv .venv
@@ -36,6 +38,17 @@ source .venv/bin/activate
 pip install -r requirements-dev.txt
 uvicorn app.main:app --app-dir backend --reload
 ```
+
+### Using uv
+
+Install `uv` with the [official instructions](https://docs.astral.sh/uv/getting-started/installation/), then run:
+
+```bash
+uv sync --extra dev
+uv run uvicorn app.main:app --app-dir backend --reload
+```
+
+`uv sync` creates or updates `.venv` from `pyproject.toml` and the committed `uv.lock` file. The `requirements*.txt` files remain available for the pip and Docker workflows.
 
 ```bash
 cd frontend
@@ -46,8 +59,11 @@ npm run dev
 The Vite development server is at <http://localhost:5173> and proxies `/api` to the local backend. Run checks from the repository root:
 
 ```bash
-ruff check backend
+ruff check backend       # pip environment
 pytest
+# or, without activating .venv:
+uv run ruff check backend
+uv run pytest
 cd frontend && npm run build
 ```
 

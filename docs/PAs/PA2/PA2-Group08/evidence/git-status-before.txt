@@ -1,0 +1,7 @@
+## research/PA2_final
+ M docs/meeting-minutes/README.md
+?? docs/PAs/PA2/fin_PA2/
+?? docs/meeting-minutes/PA2/
+?? docs/weekly-reports/PA1_Week1-2/
+?? docs/weekly-reports/PA2_Week3-4/fin_PA2/
+?? src/.specify/

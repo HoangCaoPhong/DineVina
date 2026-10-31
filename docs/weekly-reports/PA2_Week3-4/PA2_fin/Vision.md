@@ -46,36 +46,56 @@ DineVina follows a B2B2C model in which restaurant partners publish and manage d
 | **Our product**      | combines a traceable booking state, a dedicated event negotiation workflow, and explainable recommendations grounded in partner-verified venue data, while keeping ordinary filters available as a fallback     |
 
 ## 3. Stakeholder and user descriptions
-**Performed by:** Hoàng Cao Phong (integration from PA1 and PA2 working draft) | **Reviewed by:** Võ Mỹ Ngọc (assigned; review record not supplied) | **Edited by:** Hoàng Cao Phong
+**Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
-### 3.1 Stakeholder and user summary
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (assigned; review record not supplied) | **Edited by:** Hoàng Cao Phong
+### 3.1 Stakeholder summary
+**Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
-| Group | Interest and main use |
-| --- | --- |
-| Customers | Find a suitable approved venue, compare menus and conditions, request a table or event, and track a response. |
-| Restaurant partners | Maintain venue and menu information, manage availability, answer requests, and prepare event proposals. |
-| Platform administrators | Approve listings, moderate published content, and investigate platform issues. |
-| Project team and course reviewers | Trace requirements to tasks, builds, tests, and a demonstrable increment. |
-
-Customers use mobile or desktop browsers, often with intermittent mobile data. Partner staff primarily use a desktop dashboard and may check request status on a phone. Administrators use an authenticated browser. Browsing should work without device-location permission; a manual location filter remains available. Contact and identity rules for submitting a request are implementation decisions that must be specified before release.
-
-### 3.2 Key needs and priority
-**Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (assigned; review record not supplied) | **Edited by:** Hoàng Cao Phong
-
-| Need | Priority | Product response |
+| Stakeholder | Interest | Responsibility / representation |
 | --- | --- | --- |
-| Narrow venues by location, cuisine, budget, party size and amenities | High | Search, filters and approved venue details. |
-| Understand what a venue offers | High | Menu, capacity context, conditions and update dates. |
-| Distinguish a request from a booking | High | Requested, confirmed, declined and cancelled states with history. |
-| Coordinate a group event | Medium | Structured brief, clarification and proposal workflow. |
-| Avoid conflicting partner commitments | High | Availability controls and a response queue. |
-| Receive explainable suggestions | Medium | Attribute-based ranking and manual-filter fallback. |
+| Restaurant business owners | Accurate listing and qualified customer demand | Authorize venue publication, set policies and nominate partner staff. |
+| Dining groups and event organizers | A suitable venue and clear commitment | Represent party size, budget, accessibility and event requirements. |
+| Platform operator | Trustworthy marketplace and reliable service | Moderate listings, support disputes and operate access/audit controls. |
+| Group 08 and course reviewers | A feasible, traceable academic product | Maintain the backlog, assess increments and review documented assumptions. |
 
-### 3.3 Alternatives and competition
-**Performed by:** Lương Thiện Nhân (PA1 survey) and Hoàng Cao Phong (PA2 integration) | **Reviewed by:** Võ Mỹ Ngọc (assigned; review record not supplied) | **Edited by:** Hoàng Cao Phong
+### 3.2 User summary
+**Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
 
-The PA1 survey documented PasGo's venue discovery, detail, booking form and consultation entry, and Eatigo's time-based search, discount presentation and offer conditions. Those captures establish visible interface patterns; they do not verify a completed reservation or internal processing rules. DineVina's proposed difference is an explicit request-to-confirmation state and a dedicated event inquiry path supported by approved venue data. The PA1 survey remains the evidence source for this comparison.
+| User | Responsibilities | Represented interest |
+| --- | --- | --- |
+| Customer | Browse without signing in, search restaurants and foods, inspect menus and prices, submit complete table/event requests for themselves, track responses and cancel within policy | Adult diners and event organizers in Ho Chi Minh City |
+| Restaurant partner staff | Maintain venue/menu/availability, manually decide every request, prepare event proposals and update state history | Restaurant owner or authorized operator |
+| Platform administrator | Review onboarding, return corrections, moderate published information and investigate support cases | Platform operator |
+
+### 3.3 User environment
+**Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
+
+Customers use a responsive browser on a phone or desktop and may have intermittent mobile data. Discovery targets restaurants in Ho Chi Minh City and supports manual district/location filters without mandatory geolocation permission. Customers can browse publicly, but submitting a request requires their own name, phone number and basic information; booking on behalf of another person is outside the planned flow. Partner staff primarily use a desktop dashboard during service and may check incoming requests by phone. Clear state labels and retry-safe submission reduce confusion when the connection is interrupted. Administrators use an authenticated browser for onboarding, moderation and exception handling. The initial interface targets Vietnamese restaurant data; language and localization expansion are later backlog decisions.
+
+### 3.4 Summary of key stakeholder or user needs
+**Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
+
+| Need / cause | Priority | Current workaround | Product response |
+| --- | --- | --- | --- |
+| Fragmented venue, food, menu, price and condition information | High | Compare websites/social pages and call venues | Approved profiles, searchable menus, price context, update context and filters (F3, F4) |
+| Unclear distinction between a request and a commitment | High | Follow-up calls or messages | Explicit requested/confirmed/declined/cancelled states and history (F5) |
+| Customers need to book a suitable table for themselves | High | Phone calls or separate booking forms | Name, phone, basic information, date/time/party-size form and self-booking validation |
+| Complex group-event requirements | High | Phone consultations and separate message threads | Structured brief, clarification and proposal history (F6) |
+| Changing capacity and incoming demand | High | Manual reservation books/spreadsheets | Venue-owned availability and partner queue; every request receives manual partner confirmation (F7) |
+| Difficulty choosing among many venues | Medium | Manually compare a shortlist | Eligible recommendations with attributable reasons and filter fallback (F9) |
+| Consistent listing quality | High | Staff inspect each submission | Administrator approval and partner corrections (F2) |
+
+### 3.5 Alternatives and competition
+**Performed by:** Lương Thiện Nhân | **Reviewed by:** Nguyễn Trung Kiên | **Edited by:** Hoàng Cao Phong
+
+The comparison is limited to PasGo and Eatigo, using the PA1 survey and dated interface captures. These sources establish visible product patterns and published claims; they do not prove either competitor's internal implementation.
+
+| Alternative | Observed strength / existing approach | Design implication for DineVina |
+| --- | --- | --- |
+| PasGo | Venue discovery, detailed amenity filters, group-dining consultation, booking forms and partner operations | Adopt clear venue details and request forms; connect event briefs to explicit proposal history and state tracking. |
+| Eatigo | Time-based search, discount presentation, visible offer conditions and merchant availability tooling | Keep date/time and eligibility conditions visible; separate offers from reservation confirmation and use verified venue data. |
+
+DineVina's proposed differentiation is traceable request status, a dedicated event workflow, partner-verified information, and explainable recommendations with ordinary search as a fallback. These are planned capabilities, not claims that the current scaffold has already delivered them.
 
 ## 4. Product overview
 **Performed by:** Nguyễn Trung Kiên (source Product Overview) and Hoàng Cao Phong (integration) | **Reviewed by:** Võ Mỹ Ngọc (assigned; review record not supplied) | **Edited by:** Hoàng Cao Phong

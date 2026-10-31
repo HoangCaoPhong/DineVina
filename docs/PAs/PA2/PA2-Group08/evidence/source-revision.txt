@@ -1,0 +1,4 @@
+3565d14db35036cc143143d2b52013a1e52ecbba
+Branch: research/PA2_final
+The PA2 package is tracked at this revision. Subsequent document and evidence corrections in this worktree are local.
+Additional member source imported from origin/chores/sumary-PA2 at 4f05f95f2edb1835d1fd6db39e189fb887fc7758 (31 October 2026, 23:20 ICT).
