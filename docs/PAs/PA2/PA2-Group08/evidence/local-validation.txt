@@ -1,0 +1,15 @@
+DineVina PA2 local validation - 31 October 2026 (Asia/Ho_Chi_Minh)
+Branch: research/PA2_final
+Input revision: 22d4d1e (full hash in source-revision.txt)
+The dev fast-forward added merge history; dev and the prior PA2 branch had identical tracked trees before the update.
+Command: .venv/bin/python -m pytest -q
+Result: 1 passed, 1 warning in 0.36s.
+Warning: StarletteDeprecationWarning from fastapi/testclient.py: httpx TestClient integration is deprecated.
+Scope: checked branch contains /api/health and one backend test. No production reservation test or load benchmark was executed.
+
+Command: npm --prefix frontend run build
+Result: exit 0; tsc -b && vite build; Vite 7.3.7; 28 modules transformed; built in 688ms.
+Output: frontend/dist/index.html, CSS and JS assets.
+Scope: compile/bundle validation only. No complete customer/partner browser workflow is implied.
+
+No commit, push, remote repository mutation or Moodle upload performed.

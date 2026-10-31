@@ -1,0 +1,2002 @@
+{
+  "activities": [
+    {
+      "id": "ari:cloud:trello::action/6ae5ead9b30a476436df32d8",
+      "type": "updateCard",
+      "date": "2026-10-31T13:19:21.185Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb50a2f0743eeeceab8",
+        "name": "[PA2] Sprint Review and Retrospective",
+        "url": "https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae5ead0548e1e3f07ec107a",
+      "type": "updateCard",
+      "date": "2026-10-31T13:19:12.713Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb605ac420fb33d0347",
+        "name": "[PA2] Usage Report and Git Log",
+        "url": "https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae5eacb32d11d3e2b4c5343",
+      "type": "updateCard",
+      "date": "2026-10-31T13:19:07.335Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb386baf538e6166b7b",
+        "name": "[PA2] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae5eac736ceb61aa654bc0d",
+      "type": "updateCard",
+      "date": "2026-10-31T13:19:03.856Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb386baf538e6166b7b",
+        "name": "[PA2] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae5eaaff5ec0cd03deee8be",
+      "type": "updateCard",
+      "date": "2026-10-31T13:18:39.854Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22957a021a8ab900d2b38",
+        "name": "[PA2] Project Plan",
+        "url": "https://trello.com/c/XEw1Ez1p/21-pa2-project-plan"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae5eaaa4f62562d40c5a2c4",
+      "type": "updateCard",
+      "date": "2026-10-31T13:18:34.785Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22957a021a8ab900d2b38",
+        "name": "[PA2] Project Plan",
+        "url": "https://trello.com/c/XEw1Ez1p/21-pa2-project-plan"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae4b2adaac984a0056e919e",
+      "type": "updateCard",
+      "date": "2026-10-30T15:07:25.780Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+        "fullName": "ltnhan2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc74d8ba36c005214cf",
+        "name": "[PA2] Spec Kit Training - Nhan",
+        "url": "https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46db1100023ec6d0c9d2d",
+      "type": "updateCard",
+      "date": "2026-10-30T10:13:05.613Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273737dfda1d7586d1af",
+        "name": "In Review"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46db052c3a7f84e806ce8",
+      "type": "updateCard",
+      "date": "2026-10-30T10:13:04.915Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb15e3ae26a128d5c54",
+        "name": "[PA2] Discovery and Reservation API Contract",
+        "url": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46db0701bd1f553476b5a",
+      "type": "updateCard",
+      "date": "2026-10-30T10:13:04.342Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46dad53b1b0f02e167cd9",
+      "type": "updateCard",
+      "date": "2026-10-30T10:13:01.597Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46dac88049081304eb508",
+      "type": "updateCard",
+      "date": "2026-10-30T10:13:00.708Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+        "name": "[PA2] Spec Kit Training - Kien",
+        "url": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46dab062f87e024892eb2",
+      "type": "updateCard",
+      "date": "2026-10-30T10:12:59.488Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+        "name": "[PA2] Spec Kit Training - Kien",
+        "url": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273737dfda1d7586d1af",
+        "name": "In Review"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46daa2bfbf409b549881f",
+      "type": "updateCard",
+      "date": "2026-10-30T10:12:58.650Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273737dfda1d7586d1af",
+        "name": "In Review"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae46da932a34c74bbbff7f0",
+      "type": "updateCard",
+      "date": "2026-10-30T10:12:57.565Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb15e3ae26a128d5c54",
+        "name": "[PA2] Discovery and Reservation API Contract",
+        "url": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273737dfda1d7586d1af",
+        "name": "In Review"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae36114dc41bcaf0649e9bd",
+      "type": "updateCard",
+      "date": "2026-10-29T15:07:00.572Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+        "fullName": "vmngoc2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22958843bb9b089951b81",
+        "name": "[PA2] Vision Document",
+        "url": "https://trello.com/c/yKrHhDLc/22-pa2-vision-document"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae360e064ec56d04a31ea04",
+      "type": "updateCard",
+      "date": "2026-10-29T15:06:08.340Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+        "fullName": "vmngoc2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22958843bb9b089951b81",
+        "name": "[PA2] Vision Document",
+        "url": "https://trello.com/c/yKrHhDLc/22-pa2-vision-document"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3609bf3d9e3891d9ab91c",
+      "type": "updateCard",
+      "date": "2026-10-29T15:04:59.970Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb3d4519ec146cccdc6",
+        "name": "[PA2] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae360973f2f33180afbe3f8",
+      "type": "updateCard",
+      "date": "2026-10-29T15:04:55.458Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb3d4519ec146cccdc6",
+        "name": "[PA2] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae360942fd279013d29123a",
+      "type": "removeMemberFromCard",
+      "date": "2026-10-29T15:04:52.819Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb3d4519ec146cccdc6",
+        "name": "[PA2] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+        "fullName": "ltnhan2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3609340db8e8b9fdf5e2f",
+      "type": "addMemberToCard",
+      "date": "2026-10-29T15:04:51.348Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb3d4519ec146cccdc6",
+        "name": "[PA2] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3607e7b7a209b615a89fd",
+      "type": "removeMemberFromCard",
+      "date": "2026-10-29T15:04:30.702Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22959b679dede66ad1e4c",
+        "name": "[PA2] Spec Kit Setup & Training",
+        "url": "https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3607d9ad03c87abf15718",
+      "type": "addMemberToCard",
+      "date": "2026-10-29T15:04:29.139Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22959b679dede66ad1e4c",
+        "name": "[PA2] Spec Kit Setup & Training",
+        "url": "https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3604aec468072841317bd",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-29T15:03:38.508Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275cecea4edc3b9f7528",
+        "name": "[PA1] AI Coding Account – Duy",
+        "url": "https://trello.com/c/GFOsJREk/16-pa1-ai-coding-account-duy"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad228fdfaac07c08b8c966e",
+        "name": "Reviewer xác nhận",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad228fbec8278d72e79d5e6",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae360491f729c0f81ab2d7d",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-29T15:03:37.793Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275cecea4edc3b9f7528",
+        "name": "[PA1] AI Coding Account – Duy",
+        "url": "https://trello.com/c/GFOsJREk/16-pa1-ai-coding-account-duy"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad228fd55eadd00ee691c22",
+        "name": "Lưu minh chứng phù hợp, không lộ thông tin bí mật",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad228fbec8278d72e79d5e6",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae36049b01f372be0c415f5",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-29T15:03:37.033Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275cecea4edc3b9f7528",
+        "name": "[PA1] AI Coding Account – Duy",
+        "url": "https://trello.com/c/GFOsJREk/16-pa1-ai-coding-account-duy"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad228fcf712bc6e35f6d83d",
+        "name": "Tạo hoặc xác nhận tài khoản cá nhân",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad228fbec8278d72e79d5e6",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae36030cf228155932509d5",
+      "type": "updateCard",
+      "date": "2026-10-29T15:03:12.702Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb15e3ae26a128d5c54",
+        "name": "[PA2] Discovery and Reservation API Contract",
+        "url": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae360261f78cbfd9048b6fd",
+      "type": "updateCard",
+      "date": "2026-10-29T15:03:02.399Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb15e3ae26a128d5c54",
+        "name": "[PA2] Discovery and Reservation API Contract",
+        "url": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae35514d60544f024c7a919",
+      "type": "updateCard",
+      "date": "2026-10-29T14:15:48.437Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bab8b2c12e1b9b952a8",
+        "name": "[PA2] Sprint Planning & Tonight Minutes",
+        "url": "https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3550f72b9cfe1179b7a7a",
+      "type": "updateCard",
+      "date": "2026-10-29T14:15:43.828Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bab8b2c12e1b9b952a8",
+        "name": "[PA2] Sprint Planning & Tonight Minutes",
+        "url": "https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33992120a7c4d1903b037",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:26.123Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+        "name": "[PA2] Spec Kit Training - Kien",
+        "url": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33990eebb9262af75ef77",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:24.264Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      },
+      "dueDate": "2026-11-04T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3398e0fa6f83f6f8c5713",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:22.504Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb15e3ae26a128d5c54",
+        "name": "[PA2] Discovery and Reservation API Contract",
+        "url": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract"
+      },
+      "dueDate": "2026-11-02T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3398cb45f2debd93c2653",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:20.564Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc808ebdc3696f55dc7",
+        "name": "[PA2] Spec Kit Training - Duy",
+        "url": "https://trello.com/c/nXFmkkro/41-pa2-spec-kit-training-duy"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3398a45dc90bb91892526",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:18.884Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc74d8ba36c005214cf",
+        "name": "[PA2] Spec Kit Training - Nhan",
+        "url": "https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3398851506250ee245fe2",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:16.503Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc6f8a4afbc52a05d53",
+        "name": "[PA2] Spec Kit Training - Ngoc",
+        "url": "https://trello.com/c/i9J57U8q/38-pa2-spec-kit-training-ngoc"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33986d742b7fa8f628f85",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:14.884Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc500635ad3a4a55c13",
+        "name": "[PA2] Spec Kit Training - Phong",
+        "url": "https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae339852264be7db51809e8",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:13.199Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb605ac420fb33d0347",
+        "name": "[PA2] Usage Report and Git Log",
+        "url": "https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log"
+      },
+      "dueDate": "2026-11-06T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33982ba902395780726d3",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:10.516Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb50a2f0743eeeceab8",
+        "name": "[PA2] Sprint Review and Retrospective",
+        "url": "https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective"
+      },
+      "dueDate": "2026-11-06T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33980548d699f65b64ef7",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:08.261Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb3d4519ec146cccdc6",
+        "name": "[PA2] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes"
+      },
+      "dueDate": "2026-11-05T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3397e6a316339df3d1f3a",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:06.224Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb386baf538e6166b7b",
+        "name": "[PA2] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3397badbdc1875c65ca0d",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:03.766Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb2f972810c9b2a4027",
+        "name": "[PA2] Recommendation Baseline and Evaluation",
+        "url": "https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation"
+      },
+      "dueDate": "2026-11-02T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3397945aca9fd5d6efdfd",
+      "type": "updateCard",
+      "date": "2026-10-29T12:18:01.212Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb0d761bea21db88850",
+        "name": "[PA2] Venue and Menu Data Contract",
+        "url": "https://trello.com/c/5P6lzQLJ/27-pa2-venue-and-menu-data-contract"
+      },
+      "dueDate": "2026-10-31T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33976b5903f1e14846b5f",
+      "type": "updateCard",
+      "date": "2026-10-29T12:17:58.715Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bab8b2c12e1b9b952a8",
+        "name": "[PA2] Sprint Planning & Tonight Minutes",
+        "url": "https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes"
+      },
+      "dueDate": "2026-10-24T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33974bb89a1796a09c6d5",
+      "type": "updateCard",
+      "date": "2026-10-29T12:17:56.546Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22959b679dede66ad1e4c",
+        "name": "[PA2] Spec Kit Setup & Training",
+        "url": "https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae339722006229fb9f1a0a8",
+      "type": "updateCard",
+      "date": "2026-10-29T12:17:54.398Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22958843bb9b089951b81",
+        "name": "[PA2] Vision Document",
+        "url": "https://trello.com/c/yKrHhDLc/22-pa2-vision-document"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3394e9a302ef4533f8a55",
+      "type": "updateCard",
+      "date": "2026-10-29T12:17:18.492Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+        "name": "[PA2] Weekly Report and Trello Evidence",
+        "url": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3394c07cbc9107816e037",
+      "type": "updateCard",
+      "date": "2026-10-29T12:17:16.533Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22957a021a8ab900d2b38",
+        "name": "[PA2] Project Plan",
+        "url": "https://trello.com/c/XEw1Ez1p/21-pa2-project-plan"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33940e43e233d2390eec5",
+      "type": "removeMemberFromCard",
+      "date": "2026-10-29T12:17:04.218Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+        "name": "[PA2] Weekly Report and Trello Evidence",
+        "url": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+        "fullName": "ltnhan2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3393ceb6ca4bd515042a7",
+      "type": "addMemberToCard",
+      "date": "2026-10-29T12:17:00.090Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+        "name": "[PA2] Weekly Report and Trello Evidence",
+        "url": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae3392a2198bcb3ca050984",
+      "type": "updateCard",
+      "date": "2026-10-29T12:16:42.083Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc0bcbfcaa9801c980c",
+        "name": "[PA2] Final PDF and Submission Package",
+        "url": "https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package"
+      },
+      "dueDate": "2026-11-06T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33927531a14b1a18d0da5",
+      "type": "updateCard",
+      "date": "2026-10-29T12:16:39.335Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+        "name": "[PA2] Weekly Report and Trello Evidence",
+        "url": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence"
+      },
+      "dueDate": "2026-11-06T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6ae33924c78dfc73c3ecc576",
+      "type": "updateCard",
+      "date": "2026-10-29T12:16:36.308Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22957a021a8ab900d2b38",
+        "name": "[PA2] Project Plan",
+        "url": "https://trello.com/c/XEw1Ez1p/21-pa2-project-plan"
+      },
+      "dueDate": "2026-10-30T16:59:00.000Z"
+    },
+    {
+      "id": "ari:cloud:trello::action/6adc7973c327613409c12499",
+      "type": "updateCard",
+      "date": "2026-10-24T09:25:07.207Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+        "name": "[PA2] Spec Kit Training - Kien",
+        "url": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adc7971a15b50e362f30836",
+      "type": "updateCard",
+      "date": "2026-10-24T09:25:05.592Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adc796fe6aee27e48e2667b",
+      "type": "updateCard",
+      "date": "2026-10-24T09:25:03.232Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb15e3ae26a128d5c54",
+        "name": "[PA2] Discovery and Reservation API Contract",
+        "url": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+        "name": "In Progress"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb736f60a850c65d146ddf",
+      "type": "updateCard",
+      "date": "2026-10-23T14:47:11.504Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275fc92629e7e79e323c",
+        "name": "[PA1] Sprint Review Minutes",
+        "url": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb736c5bd63724c7f5cd0e",
+      "type": "updateCard",
+      "date": "2026-10-23T14:47:08.924Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275fc92629e7e79e323c",
+        "name": "[PA1] Sprint Review Minutes",
+        "url": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb736bf50ea28d6fcded8d",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:47:07.970Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275fc92629e7e79e323c",
+        "name": "[PA1] Sprint Review Minutes",
+        "url": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293e7ae32a191bad3ee1",
+        "name": "Lưu biên bản hoặc liên kết evidence",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293b60266e8e55fd136c",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb736b4373f59c4cb9ea18",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:47:07.356Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275fc92629e7e79e323c",
+        "name": "[PA1] Sprint Review Minutes",
+        "url": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293d1306355e620293e9",
+        "name": "Ghi phản hồi và việc chuyển sang Sprint sau",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293b60266e8e55fd136c",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb736ab8c0881006b64d81",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:47:06.690Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275fc92629e7e79e323c",
+        "name": "[PA1] Sprint Review Minutes",
+        "url": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293d9d56cdc73877bbfd",
+        "name": "Rà soát từng thẻ theo Definition of Done",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293b60266e8e55fd136c",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb736a25fde2356fa21092",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:47:06.037Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275fc92629e7e79e323c",
+        "name": "[PA1] Sprint Review Minutes",
+        "url": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293cbd8f89ccc4d5c3f5",
+        "name": "Ghi thời gian và người tham dự thật",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2293b60266e8e55fd136c",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb73669b7a073fdd8d912d",
+      "type": "updateCard",
+      "date": "2026-10-23T14:47:02.206Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275eb4975470db23b08a",
+        "name": "[PA1] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/xpJdTdOd/19-pa1-scrum-meeting-2-minutes"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb7362dbc0419998a42110",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:58.875Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275eb4975470db23b08a",
+        "name": "[PA1] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/xpJdTdOd/19-pa1-scrum-meeting-2-minutes"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb736007fe2b9c26400162",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:46:56.483Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275eb4975470db23b08a",
+        "name": "[PA1] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/xpJdTdOd/19-pa1-scrum-meeting-2-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad2292f086f5f6fea3f2b64",
+        "name": "Lưu biên bản hoặc liên kết evidence",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2292d6381a3c9cd9ffc2f",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb735f54fe2ff8c934a8e9",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:46:55.849Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275eb4975470db23b08a",
+        "name": "[PA1] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/xpJdTdOd/19-pa1-scrum-meeting-2-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad2292ea9e9a6dcd4c234c0",
+        "name": "Ghi tiến độ, vướng mắc, quyết định",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2292d6381a3c9cd9ffc2f",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb735f6ca3871ee8894b5d",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:46:55.114Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275eb4975470db23b08a",
+        "name": "[PA1] Scrum Meeting 2 Minutes",
+        "url": "https://trello.com/c/xpJdTdOd/19-pa1-scrum-meeting-2-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad2292ece1da7a1c4e97803",
+        "name": "Ghi thời gian và người tham dự thật",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2292d6381a3c9cd9ffc2f",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb735863e502ec2f173a91",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:48.428Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275e57b06c70a5bb5a73",
+        "name": "[PA1] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/PLSynBYT/18-pa1-scrum-meeting-1-minutes"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb73571e4c275a166fdb59",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:47.011Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275e57b06c70a5bb5a73",
+        "name": "[PA1] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/PLSynBYT/18-pa1-scrum-meeting-1-minutes"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb735447520be86aa9d211",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:46:44.080Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275e57b06c70a5bb5a73",
+        "name": "[PA1] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/PLSynBYT/18-pa1-scrum-meeting-1-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad22921da8cd669f23a04df",
+        "name": "Lưu biên bản hoặc liên kết evidence",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2291ff8d41037f28a68d6",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb73537b5a05883959978f",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:46:43.483Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275e57b06c70a5bb5a73",
+        "name": "[PA1] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/PLSynBYT/18-pa1-scrum-meeting-1-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad22920938ce89af639642a",
+        "name": "Ghi tiến độ, vướng mắc, quyết định",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2291ff8d41037f28a68d6",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb73512450b61cc03adc3d",
+      "type": "updateCheckItemStateOnCard",
+      "date": "2026-10-23T14:46:41.419Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275e57b06c70a5bb5a73",
+        "name": "[PA1] Scrum Meeting 1 Minutes",
+        "url": "https://trello.com/c/PLSynBYT/18-pa1-scrum-meeting-1-minutes"
+      },
+      "checkItem": {
+        "id": "ari:cloud:trello::check-item/workspace/6ad22050a8f6c4fdcae7be0b/6ad22920f1c45f8992391257",
+        "name": "Ghi thời gian và người tham dự thật",
+        "state": "COMPLETE"
+      },
+      "checklist": {
+        "id": "ari:cloud:trello::checklist/workspace/6ad22050a8f6c4fdcae7be0b/6ad2291ff8d41037f28a68d6",
+        "name": "Acceptance Criteria"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb734a70f791c60e2fb5f3",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:34.004Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275d85949ee003932dee",
+        "name": "[PA1] Sprint Planning Minutes",
+        "url": "https://trello.com/c/EYpuAYJi/17-pa1-sprint-planning-minutes"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb7347c0bb1a3d378fb327",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:31.416Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275cecea4edc3b9f7528",
+        "name": "[PA1] AI Coding Account – Duy",
+        "url": "https://trello.com/c/GFOsJREk/16-pa1-ai-coding-account-duy"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb7345f4bd0adcec8b4a8b",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:29.136Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275b1bf206ede1906528",
+        "name": "[PA1] AI Coding Account – Nhan",
+        "url": "https://trello.com/c/QdP8MEqB/14-pa1-ai-coding-account-nhan"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb733cf5dcff22d4ec9ddf",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:20.700Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275b5166173923ffd143",
+        "name": "[PA1] AI Coding Account – Kien",
+        "url": "https://trello.com/c/srf7b1tM/15-pa1-ai-coding-account-kien"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273737dfda1d7586d1af",
+        "name": "In Review"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb733a722614f364cb8485",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:18.767Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275a35428d8ca9da48e5",
+        "name": "[PA1] AI Coding Account – Ngoc",
+        "url": "https://trello.com/c/azlXKsxg/13-pa1-ai-coding-account-ngoc"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb7336346ae972a8da0425",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:14.890Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad227594d7686cc8e6b506e",
+        "name": "[PA1] AI Coding Account – Phong",
+        "url": "https://trello.com/c/WTIZO7Gq/12-pa1-ai-coding-account-phong"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb7333c556cc57e7213dce",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:11.304Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275843e110613c465230",
+        "name": "[PA1] Git Log, Evidence & Final Submission",
+        "url": "https://trello.com/c/PhfqemRh/11-pa1-git-log-evidence-final-submission"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb7330486ec056aaffdad1",
+      "type": "updateCard",
+      "date": "2026-10-23T14:46:08.500Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275166af99dd6cdaad36",
+        "name": "[PA1] Group Registration",
+        "url": "https://trello.com/c/souz3uQU/2-pa1-group-registration"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+        "name": "Done"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cc8575f5f22e38d7986",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:18:48.817Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc808ebdc3696f55dc7",
+        "name": "[PA2] Spec Kit Training - Duy",
+        "url": "https://trello.com/c/nXFmkkro/41-pa2-spec-kit-training-duy"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad33dffd96d787f133726cd",
+        "fullName": "tkduy2414",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad33dffd96d787f133726cd/294a7ce4995b2b489af63196b956821f"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cc6b1eb3f60c7a711c1",
+      "type": "updateCard",
+      "date": "2026-10-23T14:18:46.882Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc808ebdc3696f55dc7",
+        "name": "[PA2] Spec Kit Training - Duy",
+        "url": "https://trello.com/c/nXFmkkro/41-pa2-spec-kit-training-duy"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cbf26eec1a9b8e34e30",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:18:39.931Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+        "name": "[PA2] Spec Kit Training - Kien",
+        "url": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cbd38699c8a937b5b2a",
+      "type": "updateCard",
+      "date": "2026-10-23T14:18:37.950Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+        "name": "[PA2] Spec Kit Training - Kien",
+        "url": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cb68ab7dac2bda9d7f6",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:18:30.789Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc74d8ba36c005214cf",
+        "name": "[PA2] Spec Kit Training - Nhan",
+        "url": "https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+        "fullName": "ltnhan2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cb4d63fbe6a2faf698d",
+      "type": "updateCard",
+      "date": "2026-10-23T14:18:28.857Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc74d8ba36c005214cf",
+        "name": "[PA2] Spec Kit Training - Nhan",
+        "url": "https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cadce549963f9cd8fdb",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:18:21.291Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc6f8a4afbc52a05d53",
+        "name": "[PA2] Spec Kit Training - Ngoc",
+        "url": "https://trello.com/c/i9J57U8q/38-pa2-spec-kit-training-ngoc"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+        "fullName": "vmngoc2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6cab6de929d0b219946b",
+      "type": "updateCard",
+      "date": "2026-10-23T14:18:19.346Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc6f8a4afbc52a05d53",
+        "name": "[PA2] Spec Kit Training - Ngoc",
+        "url": "https://trello.com/c/i9J57U8q/38-pa2-spec-kit-training-ngoc"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c9b5d2e72afe1998cf9",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:18:03.890Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc500635ad3a4a55c13",
+        "name": "[PA2] Spec Kit Training - Phong",
+        "url": "https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c9956e67732320f5a1a",
+      "type": "updateCard",
+      "date": "2026-10-23T14:18:01.985Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc500635ad3a4a55c13",
+        "name": "[PA2] Spec Kit Training - Phong",
+        "url": "https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c9090046919fe0ca908",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:17:52.972Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc0bcbfcaa9801c980c",
+        "name": "[PA2] Final PDF and Submission Package",
+        "url": "https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c8f7aae39fe1c8e3350",
+      "type": "updateCard",
+      "date": "2026-10-23T14:17:51.050Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc0bcbfcaa9801c980c",
+        "name": "[PA2] Final PDF and Submission Package",
+        "url": "https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c88eec6728bc8e9a314",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:17:44.144Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+        "fullName": "ntkien2418",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c862738b5b52fe7d743",
+      "type": "updateCard",
+      "date": "2026-10-23T14:17:42.172Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c79188c6acb5fdc7fa7",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:17:29.205Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb605ac420fb33d0347",
+        "name": "[PA2] Usage Report and Git Log",
+        "url": "https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c77d1395d7b0a9ad2fa",
+      "type": "updateCard",
+      "date": "2026-10-23T14:17:27.259Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb605ac420fb33d0347",
+        "name": "[PA2] Usage Report and Git Log",
+        "url": "https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c70eca4b63474034fbb",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:17:20.189Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+        "name": "[PA2] Weekly Report and Trello Evidence",
+        "url": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+        "fullName": "ltnhan2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c6ee3bc2cd53913e8f3",
+      "type": "updateCard",
+      "date": "2026-10-23T14:17:18.248Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+        "name": "[PA2] Weekly Report and Trello Evidence",
+        "url": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c67c720581986faa4ed",
+      "type": "addMemberToCard",
+      "date": "2026-10-23T14:17:11.146Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb50a2f0743eeeceab8",
+        "name": "[PA2] Sprint Review and Retrospective",
+        "url": "https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective"
+      },
+      "member": {
+        "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+        "fullName": "vmngoc2433",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+      }
+    },
+    {
+      "id": "ari:cloud:trello::action/6adb6c6553d26eb009ba70a8",
+      "type": "updateCard",
+      "date": "2026-10-23T14:17:09.202Z",
+      "creator": {
+        "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+        "fullName": "Phong Hoàng Cao",
+        "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+      },
+      "card": {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb50a2f0743eeeceab8",
+        "name": "[PA2] Sprint Review and Retrospective",
+        "url": "https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective"
+      },
+      "listBefore": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+        "name": "Product Backlog"
+      },
+      "listAfter": {
+        "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+        "name": "Sprint To Do"
+      }
+    }
+  ],
+  "nextCursor": "eyJvYmplY3RJZCI6IjZhZGI2YzY1NTNkMjZlYjAwOWJhNzBhOCJ9",
+  "hasMore": true
+}

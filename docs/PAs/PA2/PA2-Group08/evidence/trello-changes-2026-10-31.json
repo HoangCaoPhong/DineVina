@@ -1,0 +1,62 @@
+[
+  {
+    "name": "[PA2] Project Plan",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22957a021a8ab900d2b38",
+    "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nDeliverable: initial Scrum Project Plan in English Markdown and PDF.\nCoverage: scope, deliverables, assumptions, five-member organization, seven risks, five sprints, PA2 task owners/reviewers and internal dates, four planned builds, detailed upcoming Sprint 3 tasks.\nEvidence prepared locally on research/PA2_final: docs/weekly-reports/PA2_Week3-4/fin_PA2/Project-Plan.md and .pdf.\nAcceptance: peer review of scope, risk actions and board dates; readable PDF from the common renderer.\nDates are board targets; no course deadline inferred. Local package work is not pushed or submitted.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Vision Document",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22958843bb9b089951b81",
+    "desc": "Owner: Võ Mỹ Ngọc. Designated product reviewer: Hoàng Cao Phong. Supporting reviewers: Kiên for stakeholder/data content; Duy for platform content; Nhân for AI content.\nDeliverable: docs/weekly-reports/PA2_Week3-4/fin_PA2/Vision.md and .pdf, prepared locally on research/PA2_final.\nIntegrated sources: Ngọc's positioning/core features, Nhân's stakeholder pipeline, Kiên's product overview/NFRs, Duy's AI/feasibility/workflows.\nCoverage: problem and position tables, stakeholders/users/needs/competition, dependencies, nine functional groups, two rendered Mermaid workflows and measurable quality targets.\nAcceptance: product consistency and peer review; requirements remain distinct from measured prototype behavior. Existing Done state records the source contribution; this update does not fabricate a new review approval.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Spec Kit Setup & Training",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22959b679dede66ad1e4c",
+    "desc": "Owner: Nguyễn Trung Kiên. Designated reviewer: Trương Khánh Duy.\nProject artifacts are committed under src/: constitution.md and specs/001-reservation-api/{spec,plan,tasks}.md. Generated src/.specify/ infrastructure is also retained with its original metadata.\nSubmission evidence: docs/weekly-reports/PA2_Week3-4/fin_PA2/src/ and Spec-Kit-Training.md.\nInitialization and five personal tutorial completions are separate acceptance items. Kiên's dated tutorial log and artifacts are available. Each of the other four members supplies their own genuine tutorial/date/steps/lesson evidence on their individual card.\nDo not infer personal completion from the shared project setup. No creation, assignment or completion date is backdated.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Weekly Report and Trello Evidence",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+    "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nCanonical local output: docs/weekly-reports/PA2_Week3-4/fin_PA2/Weekly-Report.md and .pdf.\nMeeting archive: docs/meeting-minutes/PA2/; portable copy: docs/weekly-reports/PA2_Week3-4/fin_PA2/meeting-minutes/.\nThe group leader confirms all five members attended a meeting on 29 October. The record labels confirmed attendance, source-derived reconstruction and later artifact updates. The Notion allocation dated 23 October is transcribed separately.\nEvidence: original 29 October board screenshot, current connector export/task index, source contributions and Git log.\nAcceptance: actual ceremony classification and all required meeting records; each Scrum has all three member answers, actions and summary. Agendas and card states are not substituted for minutes.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Scrum Meeting 2 Minutes",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb3d4519ec146cccdc6",
+    "desc": "Owner: Hoàng Cao Phong (current member assignment). Designated reviewer: Võ Mỹ Ngọc.\nShared Scrum document: docs/meeting-minutes/PA2/Scrum-Meetings.md, copied into docs/weekly-reports/PA2_Week3-4/fin_PA2/meeting-minutes/.\nConfirmed fact from the group leader: a 29 October meeting with Phong, Ngọc, Nhân, Kiên and Duy present. Reconstructed work context is explicitly labeled; exact speech/time and ceremony classification were not supplied.\nThe pre-existing Done state is retained. The existing 5 November target conflicts with that state; no date is changed without actual meeting information.\nAcceptance: record actual Scrum classification/date, attendance, each member's completed/next/blocker answers, actions and meeting summary.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Sprint Planning & Tonight Minutes",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bab8b2c12e1b9b952a8",
+    "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nWork allocation source: Notion section dated 23 October 2026, standardized at docs/meeting-minutes/PA2/2026-10-23-Work-Allocation.md.\nThe existing Planning target is 24 October. It is kept distinct from the source allocation date and the user-confirmed five-member meeting on 29 October.\nAcceptance: actual Planning minutes identify goal, prioritized tasks, one performer and a different reviewer per task, dates, risks and decisions. The allocation transcription supplies assignments and does not invent attendance or a meeting transcript.\nPortable archive: docs/weekly-reports/PA2_Week3-4/fin_PA2/meeting-minutes/.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Spec Kit Training - Kien",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+    "desc": "Owner: Nguyễn Trung Kiên. Designated reviewer: Hoàng Cao Phong for training evidence; source technical report names Trương Khánh Duy as its reviewer.\nAvailable evidence: docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md and speckit-tutorial/; committed src/constitution.md and src/specs/001-reservation-api/.\nRecord covers 25-28 October CLI setup, initialization, constitution, specification, plan/tasks, lessons and a self-reported Windows eight-test run.\nAcceptance: verify tutorial links and member-owned log, then record peer evidence review. The separate eight-test prototype is not the one-test scaffold on research/PA2_final.\nPortable copies: docs/weekly-reports/PA2_Week3-4/fin_PA2/evidence/sources/Kien_ProductOverview/.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Usage Report and Git Log",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb605ac420fb33d0347",
+    "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nPrepared local outputs: docs/weekly-reports/PA2_Week3-4/fin_PA2/AI-Usage-Report.md and .pdf; evidence/git-log.txt; evidence/source-revision.txt.\nUsage entries distinguish historical source reports and observed 31 October Codex consolidation, including input materials, outputs and verification. Each member verifies their own further usage/non-use declaration.\nAcceptance: detailed truthful usage log and actual Git history with packaged input revision. Generated document text is not a member approval. No commit or push is performed during this packaging session.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Integration Build and Tests",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+    "desc": "Owner: Nguyễn Trung Kiên. Designated reviewer: Hoàng Cao Phong.\n31 October validation on research/PA2_final input HEAD 6ac347b: backend pytest reports 1 passed (health scaffold); frontend production build passes. Evidence: docs/weekly-reports/PA2_Week3-4/fin_PA2/evidence/local-validation.txt.\nKiên's source separately reports an eight-test Windows Supabase prototype on demo/supabase-integration. That result is preserved as source-reported evidence, not attributed to this branch.\nAcceptance for B1 product integration: record actual source revision, implemented routes, backend tests, production build, browser smoke path and limitations. The current scaffold validation does not certify the full reservation workflow.",
+    "success": true
+  },
+  {
+    "name": "[PA2] Final PDF and Submission Package",
+    "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc0bcbfcaa9801c980c",
+    "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nCanonical local package: docs/weekly-reports/PA2_Week3-4/fin_PA2/, branch research/PA2_final. Target archive: PA2-Group08.zip with one PA2-Group08/ root.\nContents: initial Plan/Vision, source/PDF report pairs, combined report, src Spec Kit artifacts, five member contributions, standardized meeting archive, task evidence, Git log and validation.\nCommon export pipeline: tools/render-pdfs.mjs and tools/print.css; render Mermaid, inspect pages, verify ZIP CRC and SHA-256 manifest.\nCourse evidence acceptance is listed in Submission-Checklist.md: actual ceremony records, personal tutorial records and member reviews require genuine supporting records.\nInternal due target remains 6 November. Local preparation does not imply Moodle upload or a receipt. No push.",
+    "success": true
+  }
+]

@@ -1,0 +1,1545 @@
+{
+  "capturedOn": "2026-10-31",
+  "source": "Trello connector",
+  "cards": {
+    "totalCount": 41,
+    "nodes": [
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2295aee09dd11e3c43d43",
+        "name": "[PA3] Revise Project Plan and Vision after TA feedback",
+        "desc": "",
+        "webUrl": "https://trello.com/c/AjIkCTWE/24-pa3-revise-project-plan-and-vision-after-ta-feedback",
+        "url": "https://trello.com/c/AjIkCTWE/24-pa3-revise-project-plan-and-vision-after-ta-feedback",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+          "name": "Product Backlog"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278e9575656d7c8c87eb",
+            "name": "Sprint 3 – PA3",
+            "color": "orange"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-16T13:41:10.723Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2295a58947ac6d556d650",
+        "name": "[PA5] Final Feature Demo",
+        "desc": "",
+        "webUrl": "https://trello.com/c/63EnA7Cn/25-pa5-final-feature-demo",
+        "url": "https://trello.com/c/63EnA7Cn/25-pa5-final-feature-demo",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273160cc66afad5b479d",
+          "name": "Product Backlog"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad22793030f4381a7fe9f08",
+            "name": "Sprint 5 – PA5",
+            "color": "blue"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-16T13:41:15.952Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22959b679dede66ad1e4c",
+        "name": "[PA2] Spec Kit Setup & Training",
+        "desc": "Owner: Nguyễn Trung Kiên. Designated reviewer: Trương Khánh Duy.\nProject artifacts are committed under src/: constitution.md and specs/001-reservation-api/{spec,plan,tasks}.md. Generated src/.specify/ infrastructure is also retained with its original metadata.\nSubmission evidence: docs/weekly-reports/PA2_Week3-4/fin_PA2/src/ and Spec-Kit-Training.md.\nInitialization and five personal tutorial completions are separate acceptance items. Kiên's dated tutorial log and artifacts are available. Each of the other four members supplies their own genuine tutorial/date/steps/lesson evidence on their individual card.\nDo not infer personal completion from the shared project setup. No creation, assignment or completion date is backdated.",
+        "webUrl": "https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training",
+        "url": "https://trello.com/c/sr54a5Ig/23-pa2-spec-kit-setup-training",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+          "name": "Sprint To Do"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278a504c13f4a741b389",
+            "name": "Sprint 2 – PA2",
+            "color": "yellow"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-31T13:19:04.507Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+            "fullName": "ntkien2418",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb0d761bea21db88850",
+        "name": "[PA2] Venue and Menu Data Contract",
+        "desc": "Define required venue and menu fields, approval status, validation rules and clearly labeled sample records. Acceptance: reviewed data contract and sample checks. Proposed owner: Nhan; reviewer: Kien; target: 31 Oct 2026.",
+        "webUrl": "https://trello.com/c/5P6lzQLJ/27-pa2-venue-and-menu-data-contract",
+        "url": "https://trello.com/c/5P6lzQLJ/27-pa2-venue-and-menu-data-contract",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+          "name": "Sprint To Do"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-31T16:59:00.000Z",
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-29T12:18:01.177Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+            "fullName": "ltnhan2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc6f8a4afbc52a05d53",
+        "name": "[PA2] Spec Kit Training - Ngoc",
+        "desc": "Complete the official Spec Kit tutorials individually. Record the date, tutorial steps, a brief lesson learned and genuine evidence link in Spec-Kit-Training.md. Acceptance: Ngoc’s own verified record; planned until completed. Owner: Ngoc; reviewer: Nhan; proposed due: 30 Oct 2026.",
+        "webUrl": "https://trello.com/c/i9J57U8q/38-pa2-spec-kit-training-ngoc",
+        "url": "https://trello.com/c/i9J57U8q/38-pa2-spec-kit-training-ngoc",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+          "name": "Sprint To Do"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:20:10.041Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+            "fullName": "vmngoc2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc74d8ba36c005214cf",
+        "name": "[PA2] Spec Kit Training - Nhan",
+        "desc": "Complete the official Spec Kit tutorials individually. Record the date, tutorial steps, a brief lesson learned and genuine evidence link in Spec-Kit-Training.md. Acceptance: Nhan’s own verified record; planned until completed. Owner: Nhan; reviewer: Ngoc; proposed due: 30 Oct 2026.",
+        "webUrl": "https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan",
+        "url": "https://trello.com/c/F0eMGHMp/39-pa2-spec-kit-training-nhan",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+          "name": "Sprint To Do"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-30T15:07:25.758Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+            "fullName": "ltnhan2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc808ebdc3696f55dc7",
+        "name": "[PA2] Spec Kit Training - Duy",
+        "desc": "Complete the official Spec Kit tutorials individually. Record the date, tutorial steps, a brief lesson learned and genuine evidence link in Spec-Kit-Training.md. Acceptance: Duy’s own verified record; planned until completed. Owner: Duy; reviewer: Kien; proposed due: 30 Oct 2026.",
+        "webUrl": "https://trello.com/c/nXFmkkro/41-pa2-spec-kit-training-duy",
+        "url": "https://trello.com/c/nXFmkkro/41-pa2-spec-kit-training-duy",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad227355d7d751bc38e7095",
+          "name": "Sprint To Do"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-29T12:18:20.528Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad33dffd96d787f133726cd",
+            "fullName": "tkduy2414",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad33dffd96d787f133726cd/294a7ce4995b2b489af63196b956821f"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bbf097a39cd59bee2ec",
+        "name": "[PA2] Integration Build and Tests",
+        "desc": "Owner: Nguyễn Trung Kiên. Designated reviewer: Hoàng Cao Phong.\n31 October validation on research/PA2_final input HEAD 6ac347b: backend pytest reports 1 passed (health scaffold); frontend production build passes. Evidence: docs/weekly-reports/PA2_Week3-4/fin_PA2/evidence/local-validation.txt.\nKiên's source separately reports an eight-test Windows Supabase prototype on demo/supabase-integration. That result is preserved as source-reported evidence, not attributed to this branch.\nAcceptance for B1 product integration: record actual source revision, implemented routes, backend tests, production build, browser smoke path and limitations. The current scaffold validation does not certify the full reservation workflow.",
+        "webUrl": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests",
+        "url": "https://trello.com/c/mOAsL53w/35-pa2-integration-build-and-tests",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+          "name": "In Progress"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-04T16:59:00.000Z",
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-31T13:19:17.825Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+            "fullName": "ntkien2418",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb690df66be454ddf93",
+        "name": "[PA2] Weekly Report and Trello Evidence",
+        "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nCanonical local output: docs/weekly-reports/PA2_Week3-4/fin_PA2/Weekly-Report.md and .pdf.\nMeeting archive: docs/meeting-minutes/PA2/; portable copy: docs/weekly-reports/PA2_Week3-4/fin_PA2/meeting-minutes/.\nThe group leader confirms all five members attended a meeting on 29 October. The record labels confirmed attendance, source-derived reconstruction and later artifact updates. The Notion allocation dated 23 October is transcribed separately.\nEvidence: original 29 October board screenshot, current connector export/task index, source contributions and Git log.\nAcceptance: actual ceremony classification and all required meeting records; each Scrum has all three member answers, actions and summary. Agendas and card states are not substituted for minutes.",
+        "webUrl": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence",
+        "url": "https://trello.com/c/MOAReCbM/33-pa2-weekly-report-and-trello-evidence",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad22736d9af3a6081eeb6de",
+          "name": "In Progress"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-06T16:59:00.000Z",
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-31T13:19:06.725Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb15e3ae26a128d5c54",
+        "name": "[PA2] Discovery and Reservation API Contract",
+        "desc": "Define discovery inputs and reservation request, confirmation, decline and cancellation states; specify API shapes and tests. Acceptance: peer-reviewed contract and scenarios. Proposed owner: Kien; reviewer: Ngoc; target: 2 Nov 2026.",
+        "webUrl": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract",
+        "url": "https://trello.com/c/NTsppxiL/28-pa2-discovery-and-reservation-api-contract",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273737dfda1d7586d1af",
+          "name": "In Review"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-02T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-30T10:13:04.902Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+            "fullName": "ntkien2418",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc716bedc1f756ef110",
+        "name": "[PA2] Spec Kit Training - Kien",
+        "desc": "Owner: Nguyễn Trung Kiên. Designated reviewer: Hoàng Cao Phong for training evidence; source technical report names Trương Khánh Duy as its reviewer.\nAvailable evidence: docs/weekly-reports/PA2_Week3-4/Kien_ProductOverview/Kien_SpecKit/Spec-Kit-Training.md and speckit-tutorial/; committed src/constitution.md and src/specs/001-reservation-api/.\nRecord covers 25-28 October CLI setup, initialization, constitution, specification, plan/tasks, lessons and a self-reported Windows eight-test run.\nAcceptance: verify tutorial links and member-owned log, then record peer evidence review. The separate eight-test prototype is not the one-test scaffold on research/PA2_final.\nPortable copies: docs/weekly-reports/PA2_Week3-4/fin_PA2/evidence/sources/Kien_ProductOverview/.",
+        "webUrl": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien",
+        "url": "https://trello.com/c/SoOdWLIQ/40-pa2-spec-kit-training-kien",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273737dfda1d7586d1af",
+          "name": "In Review"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:12.825Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+            "fullName": "ntkien2418",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22957a021a8ab900d2b38",
+        "name": "[PA2] Project Plan",
+        "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nDeliverable: initial Scrum Project Plan in English Markdown and PDF.\nCoverage: scope, deliverables, assumptions, five-member organization, seven risks, five sprints, PA2 task owners/reviewers and internal dates, four planned builds, detailed upcoming Sprint 3 tasks.\nEvidence prepared locally on research/PA2_final: docs/weekly-reports/PA2_Week3-4/fin_PA2/Project-Plan.md and .pdf.\nAcceptance: peer review of scope, risk actions and board dates; readable PDF from the common renderer.\nDates are board targets; no course deadline inferred. Local package work is not pushed or submitted.",
+        "webUrl": "https://trello.com/c/XEw1Ez1p/21-pa2-project-plan",
+        "url": "https://trello.com/c/XEw1Ez1p/21-pa2-project-plan",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278a504c13f4a741b389",
+            "name": "Sprint 2 – PA2",
+            "color": "yellow"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:00.171Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc500635ad3a4a55c13",
+        "name": "[PA2] Spec Kit Training - Phong",
+        "desc": "Complete the official Spec Kit tutorials individually. Record the date, tutorial steps, a brief lesson learned and genuine evidence link in Spec-Kit-Training.md. Acceptance: Phong’s own verified record; planned until completed. Owner: Phong; reviewer: Kien; proposed due: 30 Oct 2026.",
+        "webUrl": "https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong",
+        "url": "https://trello.com/c/ed6FonQx/37-pa2-spec-kit-training-phong",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:55.418Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb2f972810c9b2a4027",
+        "name": "[PA2] Recommendation Baseline and Evaluation",
+        "desc": "Define approved-venue eligibility, preference ranking, reason text and manual-filter fallback. Prepare at least 30 representative queries; measure precision at 3, unsuitable results and coverage. Acceptance: reviewed baseline and documented failure cases. Owner: Duy; reviewer: Phong; proposed due: 2 Nov 2026.",
+        "webUrl": "https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation",
+        "url": "https://trello.com/c/Zn4Yltxp/29-pa2-recommendation-baseline-and-evaluation",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-02T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:20:06.251Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad33dffd96d787f133726cd",
+            "fullName": "tkduy2414",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad33dffd96d787f133726cd/294a7ce4995b2b489af63196b956821f"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bc0bcbfcaa9801c980c",
+        "name": "[PA2] Final PDF and Submission Package",
+        "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nCanonical local package: docs/weekly-reports/PA2_Week3-4/fin_PA2/, branch research/PA2_final. Target archive: PA2-Group08.zip with one PA2-Group08/ root.\nContents: initial Plan/Vision, source/PDF report pairs, combined report, src Spec Kit artifacts, five member contributions, standardized meeting archive, task evidence, Git log and validation.\nCommon export pipeline: tools/render-pdfs.mjs and tools/print.css; render Mermaid, inspect pages, verify ZIP CRC and SHA-256 manifest.\nCourse evidence acceptance is listed in Submission-Checklist.md: actual ceremony records, personal tutorial records and member reviews require genuine supporting records.\nInternal due target remains 6 November. Local preparation does not imply Moodle upload or a receipt. No push.",
+        "webUrl": "https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package",
+        "url": "https://trello.com/c/azebtYam/36-pa2-final-pdf-and-submission-package",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-06T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:53.779Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb605ac420fb33d0347",
+        "name": "[PA2] Usage Report and Git Log",
+        "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nPrepared local outputs: docs/weekly-reports/PA2_Week3-4/fin_PA2/AI-Usage-Report.md and .pdf; evidence/git-log.txt; evidence/source-revision.txt.\nUsage entries distinguish historical source reports and observed 31 October Codex consolidation, including input materials, outputs and verification. Each member verifies their own further usage/non-use declaration.\nAcceptance: detailed truthful usage log and actual Git history with packaged input revision. Generated document text is not a member approval. No commit or push is performed during this packaging session.",
+        "webUrl": "https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log",
+        "url": "https://trello.com/c/1GENoiql/34-pa2-usage-report-and-git-log",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-06T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:31.268Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb50a2f0743eeeceab8",
+        "name": "[PA2] Sprint Review and Retrospective",
+        "desc": "Demonstrate the actual PA2 increment and review completed versus unfinished cards. Record feedback, blockers, decisions and improvement actions after the meeting. Acceptance: real review/retrospective minutes and evidence links. Owner: Ngoc; reviewer: Phong; proposed due: 6 Nov 2026.",
+        "webUrl": "https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective",
+        "url": "https://trello.com/c/xZPpe4D7/32-pa2-sprint-review-and-retrospective",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-06T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:29.633Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+            "fullName": "vmngoc2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb386baf538e6166b7b",
+        "name": "[PA2] Scrum Meeting 1 Minutes",
+        "desc": "Hold the first Sprint 2 Scrum check-in. Record actual attendees, completed work, next actions and blockers; link the minutes in the weekly report. Acceptance: dated minutes with actions and owners after the meeting occurs. Owner: Nhan; reviewer: Phong; proposed due: 30 Oct 2026.",
+        "webUrl": "https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes",
+        "url": "https://trello.com/c/ghXX7Icx/30-pa2-scrum-meeting-1-minutes",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:07.555Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+            "fullName": "ltnhan2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bab8b2c12e1b9b952a8",
+        "name": "[PA2] Sprint Planning & Tonight Minutes",
+        "desc": "Owner: Hoàng Cao Phong. Designated reviewer: Võ Mỹ Ngọc.\nWork allocation source: Notion section dated 23 October 2026, standardized at docs/meeting-minutes/PA2/2026-10-23-Work-Allocation.md.\nThe existing Planning target is 24 October. It is kept distinct from the source allocation date and the user-confirmed five-member meeting on 29 October.\nAcceptance: actual Planning minutes identify goal, prioritized tasks, one performer and a different reviewer per task, dates, risks and decisions. The allocation transcription supplies assignments and does not invent attendance or a meeting transcript.\nPortable archive: docs/weekly-reports/PA2_Week3-4/fin_PA2/meeting-minutes/.",
+        "webUrl": "https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes",
+        "url": "https://trello.com/c/qIeNe7Ff/26-pa2-sprint-planning-tonight-minutes",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-10-24T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:10.343Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275fc92629e7e79e323c",
+        "name": "[PA1] Sprint Review Minutes",
+        "desc": "Owner: Hoàng Cao Phong. Reviewer: Võ Mỹ Ngọc. Record the actual Sprint Review date, attendees, demonstrated work, acceptance decisions, feedback, and next actions. The available draft does not verify this ceremony. Keep this card in Sprint To Do until real minutes or a recording link is attached.",
+        "webUrl": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes",
+        "url": "https://trello.com/c/olaIFVIF/20-pa1-sprint-review-minutes",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-23T14:47:11.600Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275eb4975470db23b08a",
+        "name": "[PA1] Scrum Meeting 2 Minutes",
+        "desc": "Owner: Nguyễn Trung Kiên. Reviewer: Trương Khánh Duy. Record the real second Scrum meeting with date, attendees, each member’s progress and blockers, decisions, and a link to the minutes. The available Notion draft does not verify this ceremony; keep the checklist open and this card in Sprint To Do until the record is attached.",
+        "webUrl": "https://trello.com/c/xpJdTdOd/19-pa1-scrum-meeting-2-minutes",
+        "url": "https://trello.com/c/xpJdTdOd/19-pa1-scrum-meeting-2-minutes",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-23T14:47:02.452Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+            "fullName": "ntkien2418",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275e57b06c70a5bb5a73",
+        "name": "[PA1] Scrum Meeting 1 Minutes",
+        "desc": "Owner: Lương Thiện Nhân. Reviewer: Nguyễn Trung Kiên. Record the real first Scrum meeting date, attendees, each member’s progress and blockers, decisions, and a link to the minutes. The available Notion draft does not verify this ceremony; keep this card in Sprint To Do until the record is attached.",
+        "webUrl": "https://trello.com/c/PLSynBYT/18-pa1-scrum-meeting-1-minutes",
+        "url": "https://trello.com/c/PLSynBYT/18-pa1-scrum-meeting-1-minutes",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-23T14:46:48.417Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+            "fullName": "ltnhan2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275d85949ee003932dee",
+        "name": "[PA1] Sprint Planning Minutes",
+        "desc": "Owner: Hoàng Cao Phong. Reviewer: Võ Mỹ Ngọc. Record the real Sprint Planning date, attendees, sprint goal, selected tasks, and decisions. The available work-allocation notes do not verify a Planning ceremony. Keep this card in Sprint To Do until dated minutes or an evidence link is attached.",
+        "webUrl": "https://trello.com/c/EYpuAYJi/17-pa1-sprint-planning-minutes",
+        "url": "https://trello.com/c/EYpuAYJi/17-pa1-sprint-planning-minutes",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-23T14:46:34.092Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6adb6bb3d4519ec146cccdc6",
+        "name": "[PA2] Scrum Meeting 2 Minutes",
+        "desc": "Owner: Hoàng Cao Phong (current member assignment). Designated reviewer: Võ Mỹ Ngọc.\nShared Scrum document: docs/meeting-minutes/PA2/Scrum-Meetings.md, copied into docs/weekly-reports/PA2_Week3-4/fin_PA2/meeting-minutes/.\nConfirmed fact from the group leader: a 29 October meeting with Phong, Ngọc, Nhân, Kiên and Duy present. Reconstructed work context is explicitly labeled; exact speech/time and ceremony classification were not supplied.\nThe pre-existing Done state is retained. The existing 5 November target conflicts with that state; no date is changed without actual meeting information.\nAcceptance: record actual Scrum classification/date, attendance, each member's completed/next/blocker answers, actions and meeting summary.",
+        "webUrl": "https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes",
+        "url": "https://trello.com/c/4PT0Ydmy/31-pa2-scrum-meeting-2-minutes",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [],
+        "labelsHasMore": false,
+        "due": "2026-11-05T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:08.601Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275cecea4edc3b9f7528",
+        "name": "[PA1] AI Coding Account – Duy",
+        "desc": "Owner: Trương Khánh Duy. Reviewer: Hoàng Cao Phong. Confirm the personal AI coding account, attach sanitized evidence without credentials, and record acceptance. No account proof was present in the inspected PA1 materials; this card remains in Sprint To Do.",
+        "webUrl": "https://trello.com/c/GFOsJREk/16-pa1-ai-coding-account-duy",
+        "url": "https://trello.com/c/GFOsJREk/16-pa1-ai-coding-account-duy",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-29T15:03:38.552Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad33dffd96d787f133726cd",
+            "fullName": "tkduy2414",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad33dffd96d787f133726cd/294a7ce4995b2b489af63196b956821f"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275b1bf206ede1906528",
+        "name": "[PA1] AI Coding Account – Nhan",
+        "desc": "Owner: Lương Thiện Nhân. Reviewer: Nguyễn Trung Kiên. Confirm the personal AI coding account, attach sanitized evidence without credentials, and record acceptance. No account proof was present in the inspected PA1 materials; this card remains in Sprint To Do.",
+        "webUrl": "https://trello.com/c/QdP8MEqB/14-pa1-ai-coding-account-nhan",
+        "url": "https://trello.com/c/QdP8MEqB/14-pa1-ai-coding-account-nhan",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-23T14:46:29.227Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+            "fullName": "ltnhan2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275b5166173923ffd143",
+        "name": "[PA1] AI Coding Account – Kien",
+        "desc": "Owner: Nguyễn Trung Kiên. Reviewer: Trương Khánh Duy. The account checklist shows 2/3 and the card is In Review. The team reports that reviews are confirmed, but no independent account screenshot is attached to the card or local PA1 package. Attach sanitized proof and reconcile the remaining checklist item before Done.",
+        "webUrl": "https://trello.com/c/srf7b1tM/15-pa1-ai-coding-account-kien",
+        "url": "https://trello.com/c/srf7b1tM/15-pa1-ai-coding-account-kien",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-23T14:46:20.842Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+            "fullName": "ntkien2418",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275a35428d8ca9da48e5",
+        "name": "[PA1] AI Coding Account – Ngoc",
+        "desc": "Owner: Võ Mỹ Ngọc. Reviewer: Hoàng Cao Phong. Confirm the personal AI coding account, attach sanitized evidence without credentials, and record acceptance. No account proof was present in the inspected PA1 materials; this card remains in Sprint To Do.",
+        "webUrl": "https://trello.com/c/azlXKsxg/13-pa1-ai-coding-account-ngoc",
+        "url": "https://trello.com/c/azlXKsxg/13-pa1-ai-coding-account-ngoc",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-23T14:46:18.888Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+            "fullName": "vmngoc2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad227594d7686cc8e6b506e",
+        "name": "[PA1] AI Coding Account – Phong",
+        "desc": "Owner: Hoàng Cao Phong. Reviewer: Võ Mỹ Ngọc. Personal AI coding account checklist is 3/3 and team review is confirmed. No independent account screenshot is attached to this card or the local PA1 package. Add sanitized account proof before using this card as course evidence; keep it in Sprint To Do until then.",
+        "webUrl": "https://trello.com/c/WTIZO7Gq/12-pa1-ai-coding-account-phong",
+        "url": "https://trello.com/c/WTIZO7Gq/12-pa1-ai-coding-account-phong",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-23T14:46:14.982Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275843e110613c465230",
+        "name": "[PA1] Git Log, Evidence & Final Submission",
+        "desc": "Owner: Hoàng Cao Phong. Reviewer: Võ Mỹ Ngọc. The local Git log, Trello screenshots, board audit, reviewed PA1 report, PDF, and submission ZIP are prepared in the Week 1 fin_PA1 folder. The package has not been pushed or submitted to Moodle. Keep this card in Sprint To Do until the real course submission and receipt are added.",
+        "webUrl": "https://trello.com/c/PhfqemRh/11-pa1-git-log-evidence-final-submission",
+        "url": "https://trello.com/c/PhfqemRh/11-pa1-git-log-evidence-final-submission",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": false,
+        "lastActivityAt": "2026-10-23T14:46:11.392Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": false,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275166af99dd6cdaad36",
+        "name": "[PA1] Group Registration",
+        "desc": "Owner: Hoàng Cao Phong. Reviewer: Võ Mỹ Ngọc. The Group 08 roster and university emails have been checked and documented in PA1 report Section 1. The official course registration form is listed as to be announced in the PA1 brief, and no submission receipt is available in the inspected evidence. Keep this card in Sprint To Do until the form is submitted and proof is attached; review is confirmed for the roster, not for a missing receipt.",
+        "webUrl": "https://trello.com/c/souz3uQU/2-pa1-group-registration",
+        "url": "https://trello.com/c/souz3uQU/2-pa1-group-registration",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-23T14:46:08.603Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22757b664cd6498cd20d7",
+        "name": "[PA1] Report Integration & PDF Export",
+        "desc": "Owner: Võ Mỹ Ngọc. Reviewer: Hoàng Cao Phong. PA1 report integrated in English with the HCMUS cover, current roles and review rotation, complete proposal, survey, team contract, Scrum evidence register, and captioned figures. Reviewed Markdown and rendered PDF are in the local Week 1 fin_PA1 package, together with the submission ZIP. Review confirmed by the team on 17 October 2026.",
+        "webUrl": "https://trello.com/c/Pf0tMU1z/10-pa1-report-integration-pdf-export",
+        "url": "https://trello.com/c/Pf0tMU1z/10-pa1-report-integration-pdf-export",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:21:25.186Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+            "fullName": "vmngoc2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad227566401ec884dc7bc9a",
+        "name": "[PA1] Git Repository & Documentation Setup",
+        "desc": "Thiết lập kho Git, tài liệu hướng dẫn và cấu trúc mã nguồn cho nhóm; lưu minh chứng thay đổi thật.\nReviewer: Võ Mỹ Ngọc (nhóm xác nhận đã review). Evidence: README, contribution guide, documentation folder và Git history. Trạng thái Done ghi nhận tại thời điểm cập nhật bảng; không gán ngày hoàn thành ngược về quá khứ.",
+        "webUrl": "https://trello.com/c/keylhCtc/9-pa1-git-repository-documentation-setup",
+        "url": "https://trello.com/c/keylhCtc/9-pa1-git-repository-documentation-setup",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:16:33.940Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22756b404ab5bae60b1ec",
+        "name": "[PA1] Nine Functional Groups",
+        "desc": "Chốt chín nhóm chức năng PA1 từ bản phân tích chi tiết, đúng giới hạn tám đến mười nhóm trong đề.\nReviewer: Trương Khánh Duy (nhóm xác nhận đã review). Evidence: Week 1 functional-group analysis and consolidated PA1 report Section 2.3. Notifications support several groups; ratings and reviews are deferred.",
+        "webUrl": "https://trello.com/c/eZIERkcl/8-pa1-nine-functional-groups",
+        "url": "https://trello.com/c/eZIERkcl/8-pa1-nine-functional-groups",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:16:24.232Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad22437654d5de6862209ee",
+            "fullName": "ntkien2418",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad22437654d5de6862209ee/5d5893d579b2bc1f769563a3eb71f6d3"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad227552bcae28f2c3dee18",
+        "name": "[PA1] AI Feature & Staged Delivery",
+        "desc": "Đề xuất AI recommendation có giải thích và lộ trình cho các AI feature mở rộng.\nReviewer: Hoàng Cao Phong (nhóm xác nhận đã review). Evidence: Week 1 AI-feature analysis and consolidated PA1 report Section 2.4. This card covers the proposal; it does not claim AI implementation.",
+        "webUrl": "https://trello.com/c/izZAFZ1t/7-pa1-ai-feature-staged-delivery",
+        "url": "https://trello.com/c/izZAFZ1t/7-pa1-ai-feature-staged-delivery",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:16:17.958Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad33dffd96d787f133726cd",
+            "fullName": "tkduy2414",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad33dffd96d787f133726cd/294a7ce4995b2b489af63196b956821f"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad227540387cc866351bf8c",
+        "name": "[PA1] Existing App Survey",
+        "desc": "Khảo sát PasGo và Eatigo: ảnh màn hình có chú thích, luồng người dùng, so sánh và bài học UI/UX cho DineVina.\nReviewer: Nguyễn Trung Kiên (nhóm xác nhận đã review). Evidence: Week 1 survey, captured PasGo and Eatigo screens, consolidated PA1 report Section 3. The screenshots document observed interfaces, not a completed real booking.",
+        "webUrl": "https://trello.com/c/qcJqpCIH/6-pa1-existing-app-survey",
+        "url": "https://trello.com/c/qcJqpCIH/6-pa1-existing-app-survey",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": "2026-10-17T05:00:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:16:10.919Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad24c1dca1a9ee17e14c967",
+            "fullName": "ltnhan2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad24c1dca1a9ee17e14c967/b6e119727fcd2a9b2468a7e09c4069c2"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22753896ab2d537a25779",
+        "name": "[PA1] Team Contract",
+        "desc": "Hoàn thiện team contract gồm vai trò, giao tiếp, lịch làm việc, chất lượng, trách nhiệm, quyết định, giải quyết xung đột và cập nhật hợp đồng.\nReviewer: Hoàng Cao Phong (nhóm xác nhận đã review). Evidence: Week 1 team contract and consolidated PA1 report Section 4. Source contract records approval by all five members.",
+        "webUrl": "https://trello.com/c/TAJxtnJ2/5-pa1-team-contract",
+        "url": "https://trello.com/c/TAJxtnJ2/5-pa1-team-contract",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:15:54.895Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+            "fullName": "vmngoc2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad2275190bb50d2eb2d5edb",
+        "name": "[PA1] Trello & Scrum Process Setup",
+        "desc": "Thiết lập bảng Trello và quy trình Scrum cho PA1, với một người chịu trách nhiệm cho mỗi thẻ.\nReviewer: Võ Mỹ Ngọc (nhóm xác nhận đã review). Evidence: live Scrum board and consolidated PA1 report Section 5. This completes setup only; individual ceremony minutes remain separate tasks.",
+        "webUrl": "https://trello.com/c/BYueTYpp/3-pa1-trello-scrum-process-setup",
+        "url": "https://trello.com/c/BYueTYpp/3-pa1-trello-scrum-process-setup",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:15:39.821Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22750d9d9013a4917c98f",
+        "name": "[PA1] Project Overview & Readiness",
+        "desc": "Tổng hợp phạm vi PA1, các yêu cầu của đề bài và trạng thái sẵn sàng của nhóm.\nReviewer: Võ Mỹ Ngọc (nhóm xác nhận đã review). Evidence: Week 1 project overview and the consolidated PA1 report. Done records this update time; no historical completion date is invented.",
+        "webUrl": "https://trello.com/c/IH5zwdYm/1-pa1-project-overview-readiness",
+        "url": "https://trello.com/c/IH5zwdYm/1-pa1-project-overview-readiness",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:15:22.025Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad2203ddebc6ebf205efeed",
+            "fullName": "Phong Hoàng Cao",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad2203ddebc6ebf205efeed/9e189570f66ac4946987af73131374e7"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22752708db6d5e419d311",
+        "name": "[PA1] Project Proposal",
+        "desc": "Soạn đề xuất DineVina theo PA1: bài toán, ba vai trò, chín nhóm chức năng và AI có giá trị thực tế.\nReviewer: Hoàng Cao Phong (nhóm xác nhận đã review). Evidence: Week 1 proposal and consolidated PA1 report Section 2. The approved report scope is a B2B2C reservation and event-booking marketplace.",
+        "webUrl": "https://trello.com/c/MaYKb6dy/4-pa1-project-proposal",
+        "url": "https://trello.com/c/MaYKb6dy/4-pa1-project-proposal",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278353b8f6e28ec11bc0",
+            "name": "Sprint 1 – PA1",
+            "color": "green"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": null,
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-17T13:15:46.945Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+            "fullName": "vmngoc2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      },
+      {
+        "id": "ari:cloud:trello::card/workspace/6ad22050a8f6c4fdcae7be0b/6ad22958843bb9b089951b81",
+        "name": "[PA2] Vision Document",
+        "desc": "Owner: Võ Mỹ Ngọc. Designated product reviewer: Hoàng Cao Phong. Supporting reviewers: Kiên for stakeholder/data content; Duy for platform content; Nhân for AI content.\nDeliverable: docs/weekly-reports/PA2_Week3-4/fin_PA2/Vision.md and .pdf, prepared locally on research/PA2_final.\nIntegrated sources: Ngọc's positioning/core features, Nhân's stakeholder pipeline, Kiên's product overview/NFRs, Duy's AI/feasibility/workflows.\nCoverage: problem and position tables, stakeholders/users/needs/competition, dependencies, nine functional groups, two rendered Mermaid workflows and measurable quality targets.\nAcceptance: product consistency and peer review; requirements remain distinct from measured prototype behavior. Existing Done state records the source contribution; this update does not fabricate a new review approval.",
+        "webUrl": "https://trello.com/c/yKrHhDLc/22-pa2-vision-document",
+        "url": "https://trello.com/c/yKrHhDLc/22-pa2-vision-document",
+        "list": {
+          "id": "ari:cloud:trello::list/workspace/6ad22050a8f6c4fdcae7be0b/6ad2273754501f9dd1d050ae",
+          "name": "Done"
+        },
+        "board": {
+          "id": "ari:cloud:trello::board/workspace/6ad22050a8f6c4fdcae7be0b/6ad22262bd36ae6f7e7e7d56",
+          "name": "DineVina | Group 08 | Scrum Board"
+        },
+        "labels": [
+          {
+            "id": "ari:cloud:trello::label/workspace/6ad22050a8f6c4fdcae7be0b/6ad2278a504c13f4a741b389",
+            "name": "Sprint 2 – PA2",
+            "color": "yellow"
+          }
+        ],
+        "labelsHasMore": false,
+        "due": "2026-10-30T16:59:00.000Z",
+        "dueComplete": true,
+        "lastActivityAt": "2026-10-31T13:19:02.472Z",
+        "startedAt": null,
+        "closed": false,
+        "complete": true,
+        "members": [
+          {
+            "id": "ari:cloud:trello::user/6ad240b100acf7f189e0c99f",
+            "fullName": "vmngoc2433",
+            "avatarUrl": "https://trello-members.s3.amazonaws.com/6ad240b100acf7f189e0c99f/94032d6a3956df6e680acc7f159edf83"
+          }
+        ],
+        "comments": [],
+        "commentsHasMore": false,
+        "checklists": [],
+        "checklistsHasMore": false
+      }
+    ],
+    "pageInfo": {
+      "hasNextPage": false,
+      "endCursor": null
+    }
+  }
+}
