@@ -11,6 +11,7 @@
 | 23–24 Oct 2026 | Hoàng Cao Phong, PA2 working usage record | OpenAI language model | Assisted initial Project Plan/Vision wording, planning agenda, checklist, Trello descriptions and PDF preparation. | Drafts were compared with the PA2 brief and PA1 report; earlier PDF pages and board descriptions were inspected. Team sign-off is not recorded in that source. |
 | 25–28 Oct 2026 | Nguyễn Trung Kiên, individual Spec Kit training log on `dev` | GitHub Spec Kit with AI coding-agent integration | Used specification, plan and task workflows for a reservation API tutorial and reported an eight-scenario test run. | This is Kiên's self-reported training record. The integration editor did not rerun the Windows tutorial or independently reproduce its test result. |
 | 29 Oct 2026 | Hoàng Cao Phong, PA2 integration | OpenAI language model | Compared pushed branches with the PA2 brief, assembled the Plan and Vision, prepared reporting documents, checked required sections and generated the package. | Source branch names, document content, internal links, PDF renders and ZIP contents are checked in this package. No meeting attendance or individual tutorial completion was inferred from generated text. |
+| 31 Oct 2026 | Lương Thiện Nhân, stakeholder and training work | GitHub Copilot in VS Code | Clarified user needs, user environment and PasGo/Eatigo comparison; refined planned Mermaid flows; drafted `evidence/Nhan-Spec-Kit-Training.md`; organized the supplied Spec Kit screenshot. | Nhan reviewed the scope decisions, confirmed the screenshot ownership, checked source links, and kept planned behavior separate from implemented behavior. |
 
 ## Member declarations and review rule
 **Performed by:** Hoàng Cao Phong | **Reviewed by:** Võ Mỹ Ngọc (assigned; review record not supplied) | **Edited by:** Hoàng Cao Phong
@@ -20,7 +21,7 @@
 | Hoàng Cao Phong | Yes, as above. | Verify dates, tools, prompts or material used, and final edits. |
 | Nguyễn Trung Kiên | Individual training record describes agent-assisted development. | Verify the exact tools and any further uses in the sprint. |
 | Võ Mỹ Ngọc | No individual usage statement found on the fetched Vision branch. | Supply a yes/no declaration and a detailed log if tools were used. |
-| Lương Thiện Nhân | No PA2 branch or individual usage statement found. | Supply a yes/no declaration and a detailed log if tools were used. |
+| Lương Thiện Nhân | Yes. GitHub Copilot supported stakeholder analysis, Mermaid flow refinement, the individual Spec Kit training report and evidence organization. | Verify dates, final wording, screenshot ownership and any additional AI use before submission. |
 | Trương Khánh Duy | No PA2 branch or individual usage statement found. | Supply a yes/no declaration and a detailed log if tools were used. |
 
 The team should not replace missing member declarations with a blanket “no AI” claim. Any additional entry must identify date, member, tool, purpose, material supplied, output and human verification.
