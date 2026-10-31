@@ -15,7 +15,7 @@ This specification establishes the official API contract for DineVina's core MVP
 1. **Restaurant Discovery:** Enabling diners to search, filter, and paginate through verified restaurant listings and examine live slot availability.
 2. **Table Reservation Lifecycle:** Handling the complete state machine from reservation request, partner review (confirmation / decline), customer cancellation, to table check-in and no-show states.
 
-The contract adheres strictly to FastAPI standard conventions, OpenAPI 3.1 JSON schemas, and HTTP REST semantics defined in `backend/app/` and [Coderules.md](../../../Coderules.md).
+The contract adheres strictly to FastAPI standard conventions, OpenAPI 3.1 JSON schemas, and HTTP REST semantics defined in `backend/app/` and [Coderules.md](../../../../../Coderules.md).
 
 ---
 
@@ -129,11 +129,11 @@ Reservations transition across well-defined lifecycle states enforced by Postgre
 
 ```mermaid
 stateDiagram-v2
-    [*] --> PENDING_CONFIRMATION: Diner submits booking request
+    [*] --> AWAITING_CONFIRMATION: Diner submits booking request
     
-    PENDING_CONFIRMATION --> CONFIRMED: Partner confirms within timeout
-    PENDING_CONFIRMATION --> DECLINED: Partner declines (capacity/closure)
-    PENDING_CONFIRMATION --> EXPIRED: System auto-expires after timeout (e.g. 30m)
+    AWAITING_CONFIRMATION --> CONFIRMED: Partner confirms within timeout
+    AWAITING_CONFIRMATION --> DECLINED: Partner declines (capacity/closure)
+    AWAITING_CONFIRMATION --> EXPIRED: System auto-expires after timeout (e.g. 30m)
     
     CONFIRMED --> CANCELLED_BY_CUSTOMER: Diner cancels (> 2 hours prior)
     CONFIRMED --> CANCELLED_BY_RESTAURANT: Emergency cancellation by restaurant
@@ -149,7 +149,7 @@ stateDiagram-v2
 ```
 
 ### State Definitions:
-1. `PENDING_CONFIRMATION`: Initial state upon customer submission. Holds a temporary lock on slot quota.
+1. `AWAITING_CONFIRMATION`: Initial state upon customer submission. Holds a temporary lock on slot quota.
 2. `CONFIRMED`: Restaurant partner accepts the reservation request via merchant portal.
 3. `DECLINED`: Restaurant partner rejects due to full capacity, private event buyout, or operational constraints.
 4. `CANCELLED_BY_CUSTOMER`: Diner withdraws reservation before the allowable cutoff time (minimum 2 hours before booking time).
@@ -185,7 +185,7 @@ stateDiagram-v2
 {
   "id": "resv_01jk98m3p1",
   "restaurant_id": "rest_01h7x9k2m4",
-  "status": "PENDING_CONFIRMATION",
+  "status": "AWAITING_CONFIRMATION",
   "reservation_date": "2026-11-05",
   "reservation_time": "19:00",
   "party_size": 4,
@@ -298,7 +298,7 @@ stateDiagram-v2
 | Concurrent double-booking of last table | `409` | `SLOT_CAPACITY_EXCEEDED` | Prompt user with alternative adjacent time slots (e.g. 30m earlier/later). |
 | Cancellation within cutoff window (< 2h) | `403` | `CANCELLATION_CUTOFF_PASSED` | Inform diner that online cancellation is locked; display direct restaurant hotline. |
 | Invalid phone number format | `422` | `INVALID_PHONE_NUMBER` | Inline validation highlight on frontend booking form. |
-| Expired pending request | `410` | `RESERVATION_REQUEST_EXPIRED` | Notify diner that venue did not confirm in time; offer quick rebooking. |
+| Expired unconfirmed request | `410` | `RESERVATION_REQUEST_EXPIRED` | Notify diner that venue did not confirm in time; offer quick rebooking. |
 
 ---
 
@@ -312,11 +312,11 @@ All endpoints specified in this contract must satisfy the following automated te
 |---|---|---|---|---|---|
 | **SC-01** | `test_search_restaurants_with_filters` | 15 restaurants in DB (5 Vietnamese, 3 in District 1). | `GET /api/v1/restaurants/search?cuisine=Vietnamese&district=District%201` | Returns matching restaurant cards, pagination metadata (`total_items=3`). | `200 OK` |
 | **SC-02** | `test_get_venue_availability_slots` | Venue has 10 tables at 18:00, 0 tables at 19:00. | `GET /api/v1/restaurants/{id}/availability?date=2026-11-05&party_size=4` | Slot 18:00 is `AVAILABLE`, 19:00 is `SOLD_OUT`. | `200 OK` |
-| **SC-03** | `test_create_reservation_success` | Available slot for party size 4. | `POST /api/v1/reservations` with valid payload | Status is `PENDING_CONFIRMATION`, slot quota temporarily held. | `201 Created` |
+| **SC-03** | `test_create_reservation_success` | Available slot for party size 4. | `POST /api/v1/reservations` with valid payload | Status is `AWAITING_CONFIRMATION`, slot quota temporarily held. | `201 Created` |
 | **SC-04** | `test_create_reservation_capacity_conflict` | Slot at 19:00 has 0 remaining capacity. | `POST /api/v1/reservations` requesting 19:00 | Error code `SLOT_CAPACITY_EXCEEDED`, database transaction rolled back. | `409 Conflict` |
-| **SC-05** | `test_partner_confirm_reservation` | Reservation exists in `PENDING_CONFIRMATION`. | `PATCH /api/v1/partner/reservations/{id}/status` with `action="CONFIRM"` | State transitions to `CONFIRMED`, `updated_at` recorded. | `200 OK` |
-| **SC-06** | `test_partner_decline_reservation` | Reservation exists in `PENDING_CONFIRMATION`. | `PATCH /api/v1/partner/reservations/{id}/status` with `action="DECLINE"`, `reason="Overbooked"` | State transitions to `DECLINED`, reason captured, slot quota released. | `200 OK` |
-| **SC-07** | `test_partner_decline_without_reason_rejected` | Reservation in `PENDING_CONFIRMATION`. | `PATCH /api/v1/partner/reservations/{id}/status` with `action="DECLINE"`, `reason=null` | Validation failure; reason is required when declining. | `422 Unprocessable` |
+| **SC-05** | `test_partner_confirm_reservation` | Reservation exists in `AWAITING_CONFIRMATION`. | `PATCH /api/v1/partner/reservations/{id}/status` with `action="CONFIRM"` | State transitions to `CONFIRMED`, `updated_at` recorded. | `200 OK` |
+| **SC-06** | `test_partner_decline_reservation` | Reservation exists in `AWAITING_CONFIRMATION`. | `PATCH /api/v1/partner/reservations/{id}/status` with `action="DECLINE"`, `reason="Overbooked"` | State transitions to `DECLINED`, reason captured, slot quota released. | `200 OK` |
+| **SC-07** | `test_partner_decline_without_reason_rejected` | Reservation in `AWAITING_CONFIRMATION`. | `PATCH /api/v1/partner/reservations/{id}/status` with `action="DECLINE"`, `reason=null` | Validation failure; reason is required when declining. | `422 Unprocessable` |
 | **SC-08** | `test_customer_cancel_before_cutoff` | Reservation is `CONFIRMED`, current time is 5 hours before booking. | `POST /api/v1/reservations/{id}/cancel` | State transitions to `CANCELLED_BY_CUSTOMER`, table slot released. | `200 OK` |
 | **SC-09** | `test_customer_cancel_after_cutoff_rejected` | Reservation is `CONFIRMED`, current time is 45 mins before booking (< 2h cutoff). | `POST /api/v1/reservations/{id}/cancel` | Error `CANCELLATION_CUTOFF_PASSED`, state remains `CONFIRMED`. | `403 Forbidden` |
 | **SC-10** | `test_terminal_state_immutable` | Reservation is already `CANCELLED_BY_CUSTOMER`. | `PATCH /api/v1/partner/reservations/{id}/status` with `action="CONFIRM"` | State transition rejected; terminal states cannot be altered. | `400 Bad Request` |
@@ -329,7 +329,7 @@ All endpoints specified in this contract must satisfy the following automated te
 - [x] **Discovery Inputs Defined:** Full query parameters (`q`, `date`, `time`, `party_size`, `cuisine`, `district`, `price_range`, `pagination`) documented.
 - [x] **Slot Availability Contract:** Dedicated venue slot inquiry endpoint specified.
 - [x] **Reservation States Defined:** Complete lifecycle state machine covering:
-  - Request (`PENDING_CONFIRMATION`)
+  - Request (`AWAITING_CONFIRMATION`)
   - Confirmation (`CONFIRMED`)
   - Decline (`DECLINED`)
   - Cancellation (`CANCELLED_BY_CUSTOMER`, `CANCELLED_BY_RESTAURANT`)
@@ -341,11 +341,11 @@ All endpoints specified in this contract must satisfy the following automated te
 
 | Review Item | Status | Comments / Notes |
 |---|---|---|
-| **Discovery Schema Review** | Pending Review | Verified by Product Owner against UI wireframe filters. |
-| **Reservation State Machine** | Pending Review | Checked against partner operations and business rules. |
-| **Error Codes & Edge Cases** | Pending Review | Concurrency slot lock & 2-hour cancellation cutoff validated. |
-| **Test Scenarios Completeness** | Pending Review | Automated test matrix verified for CI integration. |
+| **Discovery Schema Review** | Review not recorded | Verified by Product Owner against UI wireframe filters. |
+| **Reservation State Machine** | Review not recorded | Checked against partner operations and business rules. |
+| **Error Codes & Edge Cases** | Review not recorded | Concurrency slot lock & 2-hour cancellation cutoff validated. |
+| **Test Scenarios Completeness** | Review not recorded | Automated test matrix verified for CI integration. |
 
 * **Reviewer:** Võ Mỹ Ngọc (`vmngoc24@clc.fitus.edu.vn`)
-* **Review Date:** *(Pending peer sign-off)*
+* **Review Date:** *(Peer sign-off not recorded)*
 * **Review Decision:** [ ] Approved / [ ] Changes Requested
