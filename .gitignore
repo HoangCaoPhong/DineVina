@@ -5,13 +5,16 @@ __pycache__/
 .venv/
 .pytest_cache/
 .ruff_cache/
+.mypy_cache/
 .coverage
+.coverage.*
 htmlcov/
 
 # Node / frontend
 node_modules/
 frontend/dist/
 frontend/coverage/
+frontend/.vite/
 *.tsbuildinfo
 
 # Local configuration and secrets (keep examples tracked)
@@ -39,54 +42,9 @@ models/
 Thumbs.db
 *~
 
-# Course reports: source and final PDF are intentionally versioned.
-
-docs/ans
-.aider*
-# Python
-__pycache__/
-*.py[cod]
-*.egg-info/
-.venv/
-.pytest_cache/
-.ruff_cache/
-.coverage
-htmlcov/
-
-# Node / frontend
-node_modules/
-frontend/dist/
-frontend/coverage/
-*.tsbuildinfo
-
-# Local configuration and secrets (keep examples tracked)
-.env
-.env.*
-!.env.example
-!.env.*.example
-*.pem
-*.key
-credentials.json
-service-account*.json
-
-# Generated data / uploads / AI models
-data/
-uploads/
-models/
-*.sqlite3
-*.db
-*.log
-
-# Editors and OS
-.idea/
-.vscode/
-.DS_Store
-Thumbs.db
-*~
-
-# Course reports: source and final PDF are intentionally versioned.
-
-docs/ans
+# Course submissions under docs/PAs and docs/weekly-reports are versioned.
+# Local working drafts under docs/ans are excluded.
+docs/ans/
 
 # Aider chat history and input
 .aider*
