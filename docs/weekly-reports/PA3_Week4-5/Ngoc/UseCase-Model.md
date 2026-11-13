@@ -279,12 +279,12 @@ flowchart LR
     Customer --- C10
     Customer --- C12
 
-    AI01 -.->|"«extend»"| C04
-    C06 -.->|"«extend»"| C05
-    AI02 -.->|"«extend»"| C05
-    C09 -.->|"«include»"| C08
-    C11 -.->|"«extend»"| C10
-    C13 -.->|"«extend»"| C10
+    AI01 -. «extend» .-> C04
+    C06 -. «extend» .-> C05
+    AI02 -. «extend» .-> C05
+    C09 -. «include» .-> C08
+    C11 -. «extend» .-> C10
+    C13 -. «extend» .-> C10
 ```
 
 ### 6.2 Partner Staff
@@ -323,12 +323,12 @@ flowchart LR
     Partner --- P11
     Partner --- P12
 
-    AI03 -.->|"«extend»"| P03
-    P06 -.->|"«extend»"| P05
-    P07 -.->|"«extend»"| P05
-    P08 -.->|"«extend»"| P07
-    P06 -.->|"«include»"| C08
-    P09 -.->|"«include»"| C08
+    AI03 -. «extend» .-> P03
+    P06 -. «extend» .-> P05
+    P07 -. «extend» .-> P05
+    P08 -. «extend» .-> P07
+    P06 -. «include» .-> C08
+    P09 -. «include» .-> C08
 ```
 
 ### 6.3 Administrator
