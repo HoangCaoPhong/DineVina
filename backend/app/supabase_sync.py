@@ -238,3 +238,4 @@ def get_supabase_status() -> dict[str, Any]:
             "last_sync": _LAST_SYNC_SUMMARY,
             "error": str(exc),
         }
+
