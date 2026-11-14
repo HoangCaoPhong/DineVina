@@ -3,9 +3,9 @@
 **Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
 
 **Trello Task**: [Video demo có thuyết minh](https://trello.com/c/QQkI3QEy)  
-**Target Duration**: 3:30 – 5:00 minutes  
-**Hosting Requirement**: YouTube (`Public` or `Unlisted`, verified in an Incognito browser window before submission)  
-**Scope Demonstrated**: Functional Group F3 (**5.3 Restaurant Discovery and Venue Details**) running end-to-end across React UI $\rightarrow$ FastAPI Backend $\rightarrow$ PostgreSQL Database, traceable to Spec Kit artifacts (`src/specs/002-f3-venue-discovery/`).
+**Recommended Duration**: 3:00 – 4:30 minutes (PA3 imposes no hard duration limit; focus clearly on working full-stack features)  
+**Hosting Requirement**: YouTube (`Unlisted` or `Public`, verified in an Incognito browser window before submission)  
+**Scope Demonstrated**: Functional Group F3 (**5.3 Restaurant Discovery and Venue Details** — `UC-C04`, `UC-C05`, `UC-C06`) running end-to-end across React UI $\rightarrow$ FastAPI Backend $\rightarrow$ PostgreSQL / Supabase Cloud Database, traceable to Spec Kit artifacts (`src/specs/002-f3-venue-discovery/`).
 
 ---
 
@@ -13,26 +13,21 @@
 
 **Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
 
-Before pressing Record in OBS Studio / Windows Snipping Tool:
-1. **Start the Full Stack (Docker Compose or Local Dev)**:
-   * **Option A (Docker Compose with PostgreSQL 17)**:
+Before pressing Record in Windows Snipping Tool (`Win + Shift + R`) or OBS Studio:
+1. **Verify Both Local Servers Are Running** (on demo branch `demo/PA3_Kien_Video_Supabase`):
+   * **Backend (port `8000`)**:
      ```powershell
-     docker compose up --build -d
+     python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000
      ```
-   * **Option B (Local FastAPI + Vite Dev Servers)**:
+   * **Frontend (port `5173`)**:
      ```powershell
-     # Terminal 1 (Backend on port 8000)
-     cd backend
-     python -m uvicorn app.main:app --reload --port 8000
-
-     # Terminal 2 (Frontend on port 5173)
-     cd frontend
-     npm run dev
+     npm --prefix frontend run dev
      ```
-2. **Open Browser Tabs Ready for Demo**:
-   * **Tab 1**: DineVina React Frontend (`http://localhost:5173`) with Chrome DevTools (`F12` $\rightarrow$ **Network** tab open to show real `/api/venues` requests).
-   * **Tab 2**: FastAPI Swagger UI (`http://localhost:8000/docs`) showing `/api/health`, `/api/venues`, `/api/venues/filters`, and `/api/venues/{venue_id}`.
-   * **VS Code Window**: Showing `src/specs/002-f3-venue-discovery/spec.md`, `backend/app/main.py`, `backend/app/models.py`, and a terminal ready to run `python -m pytest -v`.
+2. **Prepare 3 Windows / Tabs Before Recording**:
+   * **VS Code Window**: Open [spec.md](src/specs/002-f3-venue-discovery/spec.md), [plan.md](src/specs/002-f3-venue-discovery/plan.md), [tasks.md](src/specs/002-f3-venue-discovery/tasks.md), and [models.py](backend/app/models.py); pre-type `python -m pytest -v` in the bottom terminal.
+   * **Browser Tab 1**: FastAPI Swagger UI (`http://127.0.0.1:8000/docs`), pressed `F5`.
+   * **Browser Tab 2**: DineVina React Frontend (`http://localhost:5173`), pressed `F5`, optionally with Chrome DevTools (`F12` $\rightarrow$ **Network**) ready to show live `/api/venues` calls.
+   * **Browser Tab 3 (Optional)**: Supabase Dashboard $\rightarrow$ Table Editor (`venues`, `menu_categories`, `dishes`).
 
 ---
 
@@ -40,58 +35,56 @@ Before pressing Record in OBS Studio / Windows Snipping Tool:
 
 **Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
 
-### Scene 1: Introduction & Spec Kit Traceability (0:00 – 0:45)
+### Scene 1: Introduction & Spec Kit Overview (0:00 – 0:25)
 * **On-Screen Action**:
-  * Show VS Code with `src/constitution.md` and `src/specs/002-f3-venue-discovery/spec.md`, `plan.md`, and `tasks.md`.
-  * Briefly scroll through the 3 User Stories (`US-F3-01` Browse & Search, `US-F3-02` Multi-Attribute Filtering, `US-F3-03` Venue Details & Categorized Menu).
+  * Start in VS Code and click briefly through `src/specs/002-f3-venue-discovery/spec.md`, `plan.md`, and `tasks.md` (15–20 seconds total — no need to read line by line).
 * **Narration (Vietnamese)**:
-  > *"Xin chào thầy và các bạn. Em là Nguyễn Trung Kiên, đại diện Nhóm 08 trình bày bản demo cho đồ án PA3 của hệ thống đặt bàn nhà hàng thông minh DineVina. Trong Sprint 3 này, nhóm em triển khai hoàn chỉnh End-to-End cho Nhóm chức năng F3: Khám phá nhà hàng và Xem chi tiết địa điểm (Restaurant Discovery and Venue Details).*
-  > *Đầu tiên, tuân thủ quy trình Spec-Driven Development với Spec Kit, nhóm đã xây dựng đầy đủ bộ tài liệu tại thư mục `src/specs/002-f3-venue-discovery/` gồm `spec.md`, `plan.md` và `tasks.md`, định nghĩa rõ 3 User Stories cùng ràng buộc cốt lõi: API công khai chỉ trả về các nhà hàng đã được Admin phê duyệt (`status = 'approved'`) và gắn nhãn minh bạch dữ liệu mẫu `Sample Data`."*
+  > *"Xin chào thầy và các bạn. Em là Nguyễn Trung Kiên, đại diện Nhóm 08 trình bày video demo đồ án PA3 cho hệ thống đặt bàn nhà hàng DineVina. Trong Sprint 3, nhóm em triển khai End-to-End cho Nhóm chức năng F3: Khám phá nhà hàng và Xem chi tiết địa điểm (`UC-C04`, `UC-C05`, `UC-C06`). Tuân thủ quy trình Spec Kit, nhóm đã tạo đầy đủ 3 file `spec.md`, `plan.md` và `tasks.md` tại `src/specs/002-f3-venue-discovery/` với ràng buộc API công khai chỉ trả về nhà hàng đã được Admin duyệt (`status = 'approved'`)."*
 * **Narration (English Option)**:
-  > *"Hello Professor and everyone. I am Nguyễn Trung Kiên, presenting Group 08's PA3 narrated demo for DineVina. In Sprint 3, our team implemented Functional Group F3 — Restaurant Discovery and Venue Details — end-to-end across our React frontend, FastAPI backend, and PostgreSQL database. Starting in VS Code under `src/specs/002-f3-venue-discovery/`, we authored our Spec Kit specification (`spec.md`), architecture plan (`plan.md`), and task breakdown (`tasks.md`), enforcing that public discovery endpoints expose only administrator-approved venues."*
+  > *"Hello Professor and everyone. I am Nguyễn Trung Kiên from Group 08, presenting our PA3 end-to-end demo for DineVina's Functional Group F3 — Restaurant Discovery and Venue Details (`UC-C04`, `UC-C05`, `UC-C06`). Following Spec Kit, we authored `spec.md`, `plan.md`, and `tasks.md` under `src/specs/002-f3-venue-discovery/`, enforcing that public endpoints return only administrator-approved venues."*
 
 ---
 
-### Scene 2: PostgreSQL Database Schema, Fixture Seeding & Automated Pytest Suite (0:45 – 1:40)
+### Scene 2: Database Schema, Supabase Rollout & Automated Pytest Suite (0:25 – 1:15)
 * **On-Screen Action**:
-  * Open `backend/app/models.py` and `backend/app/fixtures/f3_venues_fixture.json`. Point out the 8 approved Ho Chi Minh City venues (`v-hcmc-001` to `v-hcmc-008`) and the 3 unapproved moderation test records (`v-unapproved-001` pending, `v-unapproved-002` returned, `v-unapproved-003` rejected).
-  * Run `python -m pytest -v` in the VS Code terminal so all 10 tests pass on screen.
+  * Show `backend/app/models.py` (`VenueModel`, `DishModel`) and `backend/app/fixtures/f3_venues_fixture.json`.
+  * Press `Enter` in the VS Code terminal to run `python -m pytest -v` and wait for **`27 passed`** (green).
 * **Narration (Vietnamese)**:
-  > *"Tại tầng Backend và Cơ sở dữ liệu, em đã thiết kế hai bảng quan hệ `venues` và `dishes` bằng SQLAlchemy 2.0 kết nối với PostgreSQL. Bộ dữ liệu mẫu trong `f3_venues_fixture.json` gồm tổng cộng 11 nhà hàng tại TP. Hồ Chí Minh: trong đó có 8 nhà hàng đã được duyệt (`status = 'approved'`) kèm thực đơn chi tiết, và 3 nhà hàng chưa được duyệt ở các trạng thái `pending`, `returned`, `rejected` để kiểm chứng cơ chế bảo mật lọc dữ liệu.*
-  > *Khi chạy bộ kiểm thử tự động `pytest -v`, cả 10 kịch bản kiểm thử tích hợp đều vượt qua 100%, xác nhận rằng cơ sở dữ liệu chứa đủ 11 bản ghi nhưng API công khai chỉ trả về đúng 8 nhà hàng hợp lệ."*
+  > *"Ở tầng Backend và Cơ sở dữ liệu, em thiết kế bảng quan hệ nhà hàng và món ăn bằng SQLAlchemy 2.0 và đồng bộ trực tiếp lên Supabase PostgreSQL. Bộ fixture gồm 11 nhà hàng tại TP.HCM: 8 nhà hàng đã duyệt kèm 21 món ăn phân danh mục, và 3 nhà hàng chưa duyệt (`pending`, `returned`, `rejected`) để kiểm thử bảo mật. Khi chạy bộ kiểm thử tự động `python -m pytest -v`, toàn bộ **27 test cases** đều pass 100%, bao gồm cả 2 bài test xác minh dữ liệu rollout của nhóm trên Supabase Cloud và hợp đồng API `/api/v1/restaurants/*`."*
 * **Narration (English Option)**:
-  > *"In our backend layer, `backend/app/models.py` defines the `venues` and `dishes` relational tables using SQLAlchemy 2.0 backed by PostgreSQL. Our validated fixture seeds 11 total records: 8 approved Ho Chi Minh City venues with full categorized menus, plus 3 unapproved venues in `pending`, `returned`, and `rejected` states. Running `python -m pytest -v` executes 10 integration tests confirming database seeding, multi-attribute filtering, and strict isolation of unapproved venues."*
+  > *"In the backend layer, `backend/app/models.py` defines relational venue and dish tables using SQLAlchemy 2.0 synced to Supabase PostgreSQL. Running `python -m pytest -v` passes all 27 automated tests, covering search, multi-attribute filtering, unapproved-venue isolation, `/api/v1/restaurants/*` contract aliases, and live Supabase rollout integrity."*
 
 ---
 
-### Scene 3: FastAPI Swagger UI & Moderation Guardrail Verification (1:40 – 2:30)
+### Scene 3: FastAPI Swagger UI & Guardrail Verification (1:15 – 2:05)
 * **On-Screen Action**:
-  * Switch to Browser Tab 2 (`http://localhost:8000/docs`).
-  * Execute `GET /api/venues/filters` $\rightarrow$ show `total_approved_venues: 8`, `districts`, `cuisines`, and `amenities`.
-  * Execute `GET /api/venues/{venue_id}` with `v-hcmc-001` $\rightarrow$ show `200 OK` and grouped `menu_categories`.
-  * Execute `GET /api/venues/{venue_id}` with `v-unapproved-001` $\rightarrow$ show `404 Not Found`.
+  * Switch to **Browser Tab 1 (`http://127.0.0.1:8000/docs`)**:
+    1. Execute `GET /api/supabase-status` $\rightarrow$ point out `enabled: true`, `f3_venues_total: 11`, `f3_venues_approved: 8`, `f3_dishes: 21`, and `total_venues_in_supabase: 29`.
+    2. Execute `GET /api/venues/filters` $\rightarrow$ show `total_approved_venues: 8`, `districts`, `cuisines`, and `amenities`.
+    3. Execute `GET /api/venues/{venue_id}` with `v-hcmc-001` $\rightarrow$ show `200 OK` and grouped `menu_categories`.
+    4. Execute `GET /api/venues/{venue_id}` with `v-unapproved-001` $\rightarrow$ show `404 Not Found`.
 * **Narration (Vietnamese)**:
-  > *"Tiếp theo trên giao diện Swagger OpenAPI tại cổng 8000, khi gọi endpoint `GET /api/venues/filters`, hệ thống truy vấn trực tiếp từ cơ sở dữ liệu và tổng hợp danh sách các Quận, loại hình ẩm thực, tiện ích và khoảng ngân sách từ 8 nhà hàng đã duyệt.*
-  > *Khi truy vấn chi tiết nhà hàng `v-hcmc-001` (Nhà Hàng Việt Xưa Sài Gòn), API trả về mã `200 OK` cùng thực đơn đã được nhóm theo từng danh mục Khai vị, Món chính, Tráng miệng. Ngược lại, nếu cố tình truy cập mã nhà hàng đang chờ duyệt `v-unapproved-001`, API lập tức chặn lại và trả về mã `404 Not Found`."*
+  > *"Trên giao diện Swagger OpenAPI tại cổng 8000, endpoint `GET /api/supabase-status` xác nhận 11 nhà hàng và 21 món ăn F3 đã được đồng bộ lên Supabase cùng 29 bản ghi của cả nhóm. Khi gọi `GET /api/venues/filters`, hệ thống tổng hợp danh sách quận, ẩm thực, tiện ích và khoảng giá từ đúng 8 nhà hàng đã duyệt.*
+  > *Khi truy vấn `GET /api/venues/v-hcmc-001`, API trả về `200 OK` cùng thực đơn chia danh mục. Ngược lại, khi thử truy cập nhà hàng chưa duyệt `v-unapproved-001`, API chặn lại với mã `404 Not Found`."*
 * **Narration (English Option)**:
-  > *"In FastAPI's OpenAPI documentation at port 8000, calling `GET /api/venues/filters` dynamically aggregates distinct districts, cuisines, amenities, and budget bounds from the 8 approved venues. Fetching `GET /api/venues/v-hcmc-001` returns HTTP 200 with full venue metadata and categorized menu dishes, whereas requesting the unapproved venue `v-unapproved-001` is blocked with HTTP 404 Not Found."*
+  > *"In Swagger UI at port 8000, `GET /api/supabase-status` confirms live Supabase Cloud synchronization with 29 total team venues. `GET /api/venues/filters` aggregates metadata from the 8 approved venues, `GET /api/venues/v-hcmc-001` returns HTTP 200 with categorized menu dishes, and requesting `v-unapproved-001` is blocked with HTTP 404 Not Found."*
 
 ---
 
-### Scene 4: End-to-End Customer Flow on the React UI (2:30 – 4:15)
+### Scene 4: End-to-End Customer Flow on the React UI (2:05 – 3:45)
 * **On-Screen Action**:
-  * Switch to Browser Tab 1 (`http://localhost:5173`) with the Network tab visible on the side.
-  * Show the initial list of 8 approved restaurants and their visible `Sample Data` badges.
-  * **Action 1 (Keyword Search)**: Type `"Phở bò Wagyu"` or `"Dimsum"` into the search bar $\rightarrow$ point out the live `GET /api/venues?q=...` network call and the updated restaurant cards.
-  * **Action 2 (Multi-Attribute Filter)**: Select District = `Quận 1`, Party Size = `40` guests, and Budget $\le 500,000\text{ VNĐ}$ $\rightarrow$ show how the list narrows down to matching venues in District 1 (`Nhà Hàng Việt Xưa Sài Gòn` and `Cung Đình Dimsum`).
-  * **Action 3 (Empty State & Reset)**: Enter a keyword with no match (e.g., `"Sushi Quận 1"`) to show the clean empty state, then reset filters.
-  * **Action 4 (Venue Detail & Menu Inspection)**: Click on **Nhà Hàng Việt Xưa Sài Gòn** (`v-hcmc-001`) $\rightarrow$ show the detail view populated from `GET /api/venues/v-hcmc-001`: address, opening hours, seating capacity (`120` guests), amenities (`Phòng riêng`, `Chỗ đậu ô tô`, `Có máy chiếu`), available booking time slots, and the categorized menu with VND prices.
+  * Switch to **Browser Tab 2 (`http://localhost:5173`)**:
+    1. **Browse (`UC-C04`)**: Scroll through the initial 8 approved restaurants and point out the clean UI connected live to FastAPI (`"Dữ liệu trực tiếp từ FastAPI + PostgreSQL"`).
+    2. **Keyword Search (`UC-C04`)**: Type `"Phở bò Wagyu"` (or `"Dimsum"`) in the search bar $\rightarrow$ show live filtered results, then clear the text.
+    3. **Multi-Attribute Filters (`UC-C04`)**: Select `Khu vực = Quận 1`, `Giá trung bình = 200K – 400K`, and `Phòng riêng = Có phòng riêng` (and optionally open `☷ Bộ lọc khác` to show `Tiện ích` / `Sắp xếp`).
+    4. **Empty State Alternative Flow (`UC-C04-A3`)**: Type an unmatched query such as `"Sushi Quận 1"` to show the clean empty state, then click **`Xóa tất cả`** to reset.
+    5. **Venue Details & Categorized Menu (`UC-C05`, `UC-C06`)**: Click **Nhà Hàng Việt Xưa Sài Gòn** (`v-hcmc-001`) $\rightarrow$ show address, opening hours (`10:00 - 22:00`), capacity (`120 khách`), amenities, available booking slots, and categorized menu items with VND prices.
 * **Narration (Vietnamese)**:
-  > *"Bây giờ chúng ta kiểm chứng luồng trải nghiệm thực tế của khách hàng trên giao diện React kết nối trực tiếp với FastAPI và PostgreSQL. Ngay khi tải trang, giao diện hiển thị 8 nhà hàng đã được duyệt cùng nhãn `Sample Data` rõ ràng.*
-  > *Khi khách hàng tìm kiếm từ khóa món ăn như 'Phở bò Wagyu' hoặc kết hợp bộ lọc Khu vực 'Quận 1', sức chứa đoàn 40 khách và ngân sách dưới 500.000đ/người, giao diện gửi request `GET /api/venues` xuống Backend và trả về đúng 2 nhà hàng thỏa mãn mọi tiêu chí.*
-  > *Khi nhấn vào xem chi tiết 'Nhà Hàng Việt Xưa Sài Gòn', ứng dụng gọi `GET /api/venues/v-hcmc-001` để hiển thị đầy đủ địa chỉ, giờ mở cửa, sức chứa 120 khách, danh sách tiện ích phòng riêng, các khung giờ đặt bàn khả dụng và toàn bộ thực đơn chia theo từng nhóm món ăn với giá niêm yết VNĐ. Điều này chứng minh luồng F3 đã hoạt động thông suốt từ Giao diện người dùng xuống API và Cơ sở dữ liệu quan hệ. Em xin cảm ơn thầy và các bạn đã theo dõi!"*
+  > *"Cuối cùng trên giao diện React kết nối trực tiếp với FastAPI, chúng ta thực hiện Use Case `UC-C04`: ngay khi tải trang, hệ thống hiển thị đúng 8 nhà hàng đã được duyệt. Khi tìm kiếm theo tên món như 'Phở bò Wagyu' hoặc kết hợp bộ lọc Khu vực 'Quận 1', mức giá '200K – 400K' và 'Có phòng riêng', giao diện gửi request `GET /api/venues` xuống Backend và lọc ra đúng các nhà hàng phù hợp.*
+  > *Ở luồng ngoại lệ `UC-C04-A3`, khi nhập từ khóa không có kết quả như 'Sushi Quận 1', hệ thống hiển thị thông báo trống rõ ràng và cho phép nhấn 'Xóa tất cả' để khôi phục.*
+  > *Tiếp theo, thực hiện Use Case `UC-C05` và `UC-C06`, khi bấm vào 'Nhà Hàng Việt Xưa Sài Gòn', ứng dụng gọi `GET /api/venues/v-hcmc-001` để hiển thị đầy đủ địa chỉ, giờ mở cửa, sức chứa 120 khách, tiện ích phòng riêng, khung giờ đặt bàn và toàn bộ thực đơn chia theo danh mục món ăn. Điều này chứng minh luồng F3 đã hoạt động hoàn chỉnh từ UI đến API và Database. Em xin cảm ơn thầy và các bạn đã theo dõi!"*
 * **Narration (English Option)**:
-  > *"Finally, on the React frontend connected live to our FastAPI backend, we see all 8 approved venues with clear Sample Data labels. When a customer searches by dish keyword or filters by District 1, party size of 40 guests, and budget under 500,000 VND, the UI triggers `GET /api/venues` and renders the exact matching venues. Clicking 'Nhà Hàng Việt Xưa Sài Gòn' invokes `GET /api/venues/v-hcmc-001`, displaying its operating hours, 120-seat capacity, private room amenities, reservation slots, and categorized menu items fetched directly from PostgreSQL. Thank you for watching Group 08's PA3 demo!"*
+  > *"Finally on the live React frontend, `UC-C04` renders all 8 approved venues directly from FastAPI. Searching by dish name such as 'Phở bò Wagyu' or combining District 1, 200K–400K budget, and Private Room filters updates the list dynamically. Entering an unmatched query demonstrates the `UC-C04-A3` empty state before clicking 'Xóa tất cả' to reset. Opening 'Nhà Hàng Việt Xưa Sài Gòn' invokes `UC-C05` and `UC-C06` via `GET /api/venues/v-hcmc-001`, displaying capacity, amenities, available slots, and categorized VND menu dishes. Thank you for watching!"*
 
 ---
 
@@ -100,8 +93,8 @@ Before pressing Record in OBS Studio / Windows Snipping Tool:
 **Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
 
 After uploading the recorded `.mp4` file to YouTube:
-1. Set visibility to **Unlisted** (Không công khai) or **Public** (Công khai) — **NEVER Private** (Riêng tư).
-2. Copy the YouTube URL and open it in an **Incognito / Private Browser Window** without signing into Google to confirm it plays immediately.
+1. Set visibility to **Unlisted** or **Public** — **NEVER Private**.
+2. Open the YouTube URL in an **Incognito / Private Browser Window** without signing in to confirm playback works immediately.
 3. Paste the verified link into the submission `Readme.md` using the block below:
 
 ```markdown
@@ -110,5 +103,5 @@ After uploading the recorded `.mp4` file to YouTube:
 **Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
 
 * **YouTube Link (Unlisted/Public)**: [DineVina PA3 — Functional Group F3 End-to-End Demo](https://youtu.be/REPLACE_WITH_ACTUAL_VIDEO_ID)
-* **Demonstrated Scope**: Spec Kit artifacts (`src/specs/002-f3-venue-discovery/`), PostgreSQL schema & validated HCMC restaurant fixture seeding, FastAPI discovery/filter/detail endpoints (`/api/venues`, `/api/venues/filters`, `/api/venues/{venue_id}`), approved-only moderation guardrail (`404` on unapproved venues), and live React UI integration.
+* **Demonstrated Scope**: Spec Kit artifacts (`src/specs/002-f3-venue-discovery/`), PostgreSQL & Supabase Cloud synchronization, 27 automated Pytest integration checks, FastAPI discovery/filter/detail endpoints (`/api/venues`, `/api/v1/restaurants/*`, `/api/venues/filters`, `/api/venues/{venue_id}`), approved-only moderation guardrail (`404` on unapproved venues), and live React UI integration (`UC-C04`, `UC-C05`, `UC-C06`).
 ```
