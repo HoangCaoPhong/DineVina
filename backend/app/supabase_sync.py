@@ -215,7 +215,7 @@ def sync_f3_to_supabase(force: bool = False) -> dict[str, Any]:
 
 
 def get_supabase_status() -> dict[str, Any]:
-    """Return live Supabase F3 row counts alongside the latest sync summary."""
+    """Return live Supabase Cloud status and F3/total row counts."""
     global _LAST_LIVE_COUNTS
     client, url = _create_supabase_client()
     masked_url = _mask_project_url(url)
@@ -223,8 +223,6 @@ def get_supabase_status() -> dict[str, Any]:
         return {
             "enabled": False,
             "project_url": None,
-            "last_sync": _LAST_SYNC_SUMMARY,
-            "live_counts": None,
         }
 
     try:
@@ -252,14 +250,13 @@ def get_supabase_status() -> dict[str, Any]:
         return {
             "enabled": True,
             "project_url": masked_url,
-            "last_sync": _LAST_SYNC_SUMMARY,
-            "live_counts": counts,
+            **counts,
         }
     except Exception:
+        fallback_counts = _LAST_LIVE_COUNTS or _VERIFIED_FALLBACK_COUNTS
         return {
             "enabled": True,
             "project_url": masked_url,
-            "last_sync": _LAST_SYNC_SUMMARY,
-            "live_counts": _LAST_LIVE_COUNTS or _VERIFIED_FALLBACK_COUNTS,
+            **fallback_counts,
         }
 
