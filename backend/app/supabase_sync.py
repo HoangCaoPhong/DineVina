@@ -60,6 +60,13 @@ def _create_supabase_client() -> tuple[Client | None, str | None]:
     return create_client(url, key), url
 
 
+def _mask_project_url(url: str | None) -> str | None:
+    """Return a masked Supabase URL label safe for public demos and logs."""
+    if not url:
+        return None
+    return "https://***.supabase.co (loaded from .env)"
+
+
 def _load_fixture_payloads() -> (
     tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]
 ):
@@ -190,7 +197,7 @@ def sync_f3_to_supabase(force: bool = False) -> dict[str, Any]:
         "synced_venues": len(venue_rows),
         "synced_categories": len(category_rows),
         "synced_dishes": len(dish_rows),
-        "project_url": url,
+        "project_url": _mask_project_url(url),
     }
     _LAST_SYNC_SUMMARY = summary
     return summary
@@ -199,6 +206,7 @@ def sync_f3_to_supabase(force: bool = False) -> dict[str, Any]:
 def get_supabase_status() -> dict[str, Any]:
     """Return live Supabase F3 row counts alongside the latest sync summary."""
     client, url = _create_supabase_client()
+    masked_url = _mask_project_url(url)
     if client is None:
         return {
             "enabled": False,
@@ -220,7 +228,7 @@ def get_supabase_status() -> dict[str, Any]:
 
         return {
             "enabled": True,
-            "project_url": url,
+            "project_url": masked_url,
             "last_sync": _LAST_SYNC_SUMMARY,
             "live_counts": {
                 "f3_venues_total": len(f3_venues),
@@ -234,7 +242,7 @@ def get_supabase_status() -> dict[str, Any]:
     except Exception as exc:
         return {
             "enabled": True,
-            "project_url": url,
+            "project_url": masked_url,
             "last_sync": _LAST_SYNC_SUMMARY,
             "error": str(exc),
         }
