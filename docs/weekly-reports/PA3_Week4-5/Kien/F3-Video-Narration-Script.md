@@ -59,15 +59,15 @@ Before pressing Record in Windows Snipping Tool (`Win + Shift + R`) or OBS Studi
 ### Scene 3: FastAPI Swagger UI & Guardrail Verification (1:15 – 2:05)
 * **On-Screen Action**:
   * Switch to **Browser Tab 1 (`http://127.0.0.1:8000/docs`)**:
-    1. Execute `GET /api/supabase-status` $\rightarrow$ point out `enabled: true`, `f3_venues_total: 11`, `f3_venues_approved: 8`, `f3_dishes: 21`, and `total_venues_in_supabase: 29`.
+    1. Execute `GET /api/supabase-status` $\rightarrow$ point out `enabled: true`, `f3_venues_total: 26` (`f3_venues_approved: 20`, `f3_venues_unapproved: 6`), `f3_menu_categories: 48`, `f3_dishes: 51`, and table totals (`total_venues_in_supabase: 29`, `total_categories_in_supabase: 50`, `total_dishes_in_supabase: 54`).
     2. Execute `GET /api/venues/filters` $\rightarrow$ show `total_approved_venues: 8`, `districts`, `cuisines`, and `amenities`.
     3. Execute `GET /api/venues/{venue_id}` with `v-hcmc-001` $\rightarrow$ show `200 OK` and grouped `menu_categories`.
     4. Execute `GET /api/venues/{venue_id}` with `v-unapproved-001` $\rightarrow$ show `404 Not Found`.
 * **Narration (Vietnamese)**:
-  > *"Trên giao diện Swagger OpenAPI tại cổng 8000, endpoint `GET /api/supabase-status` xác nhận 11 nhà hàng và 21 món ăn F3 đã được đồng bộ lên Supabase cùng 29 bản ghi của cả nhóm. Khi gọi `GET /api/venues/filters`, hệ thống tổng hợp danh sách quận, ẩm thực, tiện ích và khoảng giá từ đúng 8 nhà hàng đã duyệt.*
+  > *"Trên giao diện Swagger OpenAPI tại cổng 8000, endpoint `GET /api/supabase-status` kết nối trực tiếp tới Supabase Cloud và trả về trạng thái `enabled: true` cùng số lượng bản ghi thực tế của nhóm gồm 26 nhà hàng F3 (20 đã duyệt, 6 chưa duyệt), 48 danh mục và 51 món ăn — nằm trong tổng số 29 nhà hàng, 50 danh mục và 54 món ăn trên toàn Supabase. Khi gọi `GET /api/venues/filters`, hệ thống tổng hợp danh sách quận, ẩm thực, tiện ích và khoảng giá từ đúng 8 nhà hàng đã duyệt.*
   > *Khi truy vấn `GET /api/venues/v-hcmc-001`, API trả về `200 OK` cùng thực đơn chia danh mục. Ngược lại, khi thử truy cập nhà hàng chưa duyệt `v-unapproved-001`, API chặn lại với mã `404 Not Found`."*
 * **Narration (English Option)**:
-  > *"In Swagger UI at port 8000, `GET /api/supabase-status` confirms live Supabase Cloud synchronization with 29 total team venues. `GET /api/venues/filters` aggregates metadata from the 8 approved venues, `GET /api/venues/v-hcmc-001` returns HTTP 200 with categorized menu dishes, and requesting `v-unapproved-001` is blocked with HTTP 404 Not Found."*
+  > *"In Swagger UI at port 8000, `GET /api/supabase-status` connects live to Supabase Cloud and reports 26 F3 venues (20 approved, 6 unapproved), 48 menu categories, and 51 dishes out of 29 venues, 50 categories, and 54 dishes total. `GET /api/venues/filters` aggregates metadata from the 8 approved venues, `GET /api/venues/v-hcmc-001` returns HTTP 200 with categorized menu dishes, and requesting `v-unapproved-001` is blocked with HTTP 404 Not Found."*
 
 ---
 
