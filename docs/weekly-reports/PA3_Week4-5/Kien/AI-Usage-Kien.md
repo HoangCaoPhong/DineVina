@@ -49,3 +49,4 @@ I used an AI coding assistant as a supporting tool during PA3 to draft Spec Kit 
 **Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
 
 This record covers only AI assistance used for Nguyễn Trung Kiên's assigned PA3 deliverables (F3 Spec Kit artifacts, FastAPI + PostgreSQL backend, automated integration tests, technical report, and demo video narration script). It does not cover deliverables owned by other team members. Final video screen recording, YouTube upload/link verification, and peer review sign-off by Trương Khánh Duy remain human-executed steps.
+
