@@ -127,7 +127,7 @@ function mapSummaryToVenue(item: ApiVenueSummary): Venue {
     maxCapacity: item.max_capacity,
     rating: item.rating,
     reviews: item.review_count,
-    deal: item.is_sample ? 'Sample · Đã duyệt' : 'Đã duyệt',
+    deal: '',
     image: item.cover_image || 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=85',
     tags: [
       ...item.amenities.slice(0, 2),
@@ -139,7 +139,6 @@ function mapSummaryToVenue(item: ApiVenueSummary): Venue {
     phone: 'Xem chi tiết liên hệ',
     amenities: item.amenities,
     description: item.description,
-    sampleLabel: item.sample_label,
   }
 }
 
@@ -210,7 +209,7 @@ function VenueCard({ venue, onBook, onDetail }: { venue: Venue; onBook: (venue: 
     <article className="venue-card" data-reveal>
       <div className="venue-image-wrap">
         <img className="venue-image" src={venue.image} alt={`Không gian ${venue.name}`} />
-        <span className="deal-badge">{venue.deal}</span>
+        {venue.deal && <span className="deal-badge">{venue.deal}</span>}
         <button className={`save-button ${saved ? 'saved' : ''}`} onClick={() => setSaved((value) => !value)} aria-label={saved ? 'Bỏ yêu thích' : 'Thêm vào yêu thích'}>{saved ? '♥' : '♡'}</button>
       </div>
       <div className="venue-content">
@@ -252,7 +251,7 @@ function BookingModal({ venue, onClose, onSubmit }: { venue: Venue; onClose: () 
           <div className="booking-success"><span>✓</span><p className="eyebrow">Yêu cầu đã được ghi nhận</p><h2>Cảm ơn bạn!</h2><p>Đây là bản demo. Trong sản phẩm thật, <b>{venue.name}</b> sẽ xác nhận yêu cầu qua thông báo và số điện thoại của bạn.</p><button className="primary-button" onClick={onClose}>Tiếp tục khám phá</button></div>
         ) : (
           <>
-            <div className="modal-venue"><img src={venue.image} alt="" /><div><p className="eyebrow">Đặt chỗ nhanh</p><h2>{venue.name}</h2><span>{venue.area} · {venue.deal}</span></div></div>
+            <div className="modal-venue"><img src={venue.image} alt="" /><div><p className="eyebrow">Đặt chỗ nhanh</p><h2>{venue.name}</h2><span>{venue.area}{venue.deal ? ` · ${venue.deal}` : ''}</span></div></div>
             <form onSubmit={submit}>
               <div className="form-grid">
                 <label>Ngày đến<input name="date" type="date" required defaultValue="2026-11-15" /></label>
@@ -280,14 +279,12 @@ function BookingModal({ venue, onClose, onSubmit }: { venue: Venue; onClose: () 
 function VenueDetailModal({ venue, onClose, onBook }: { venue: Venue; onClose: () => void; onBook: (venue: Venue) => void }) {
   const [tab, setTab] = useState<'info' | 'menu' | 'reviews'>('info')
   const [detail, setDetail] = useState<Venue>(venue)
-  const [loadingDetail, setLoadingDetail] = useState(false)
 
   useEffect(() => {
     setDetail(venue)
     if (typeof venue.id !== 'string') return
 
     let active = true
-    setLoadingDetail(true)
     fetch(`/api/venues/${encodeURIComponent(venue.id)}`)
       .then((res) => (res.ok ? (res.json() as Promise<ApiVenueDetail>) : null))
       .then((data) => {
@@ -303,9 +300,6 @@ function VenueDetailModal({ venue, onClose, onBook }: { venue: Venue; onClose: (
       })
       .catch(() => {
         // Keep summary fields if detail lookup fails
-      })
-      .finally(() => {
-        if (active) setLoadingDetail(false)
       })
 
     return () => {
@@ -333,7 +327,7 @@ function VenueDetailModal({ venue, onClose, onBook }: { venue: Venue; onClose: (
     <div className="modal-backdrop" role="presentation" onMouseDown={onClose}>
       <section className="feature-modal venue-detail-modal" role="dialog" aria-modal="true" aria-label={`Chi tiết ${detail.name}`} onMouseDown={(event) => event.stopPropagation()}>
         <button className="modal-close" onClick={onClose} aria-label="Đóng">×</button>
-        <div className="detail-cover"><img src={detail.image} alt={`Không gian ${detail.name}`} /><div><p className="eyebrow">{detail.cuisine} · {detail.area}{detail.sampleLabel ? ` · ${detail.sampleLabel}` : ''}</p><h2>{detail.name}</h2><p>★ {detail.rating} · {detail.reviews} đánh giá · {detail.price}</p></div></div>
+        <div className="detail-cover"><img src={detail.image} alt={`Không gian ${detail.name}`} /><div><p className="eyebrow">{detail.cuisine} · {detail.area}</p><h2>{detail.name}</h2><p>★ {detail.rating} · {detail.reviews} đánh giá · {detail.price}</p></div></div>
         <div className="modal-tabs" role="tablist">
           <button className={tab === 'info' ? 'active' : ''} onClick={() => setTab('info')}>Tổng quan</button>
           <button className={tab === 'menu' ? 'active' : ''} onClick={() => setTab('menu')}>Thực đơn ({displayedMenu.length})</button>
@@ -360,8 +354,8 @@ function VenueDetailModal({ venue, onClose, onBook }: { venue: Venue; onClose: (
             <div>
               <div className="detail-section-heading">
                 <div>
-                  <h3>Thực đơn từ Cơ sở dữ liệu ({loadingDetail ? 'Đang tải...' : 'Đã xác thực'})</h3>
-                  <p>{detail.sampleLabel || 'Cập nhật gần nhất hôm nay · Giá niêm yết VNĐ'}</p>
+                  <h3>Thực đơn nổi bật</h3>
+                  <p>Cập nhật gần nhất hôm nay · Giá niêm yết VNĐ</p>
                 </div>
               </div>
               <div className="menu-grid">
@@ -561,7 +555,7 @@ function App() {
 
   const filteredVenues = useMemo(() => venuesData.filter((venue) => {
     const matchesPurpose = purpose === 'Phù hợp' || `${venue.description} ${venue.reason} ${venue.tags.join(' ')} ${venue.amenities.join(' ')}`.toLowerCase().includes(purpose.toLowerCase())
-    const matchesOffer = offer === 'Ưu đãi' || venue.deal.length > 0
+    const matchesOffer = offer === 'Ưu đãi' || (venue.deal ? venue.deal.length > 0 : true)
     const matchesPrivateRoom = privateRoom === 'Phòng riêng' || venue.amenities.some((a) => a.toLowerCase().includes('phòng riêng') || a.toLowerCase().includes('vip'))
     const matchesMeal = meal === 'Bữa ăn hàng ngày' || meal === 'Bữa tối' || (meal === 'Bữa trưa' && !venue.hours.startsWith('17')) || (meal === 'Ăn khuya' && venue.hours.includes('23'))
     const matchesBusinessType = businessType === 'Loại hình kinh doanh' || `${venue.tags.join(' ')} ${venue.amenities.join(' ')} ${venue.cuisine} ${venue.description}`.toLowerCase().includes(businessType.toLowerCase().replace('sân vườn', 'ngoài trời'))
@@ -678,7 +672,7 @@ function App() {
         </section>
 
         <section id="restaurants" className="restaurants-section content-width">
-          <div className="section-heading" data-reveal><div><p className="eyebrow">{apiConnected ? 'Dữ liệu trực tiếp từ FastAPI + PostgreSQL' : 'Tuyển chọn cho bạn'}</p><h2>Nhà hàng nổi bật tại Sài Gòn</h2><p>Không gian đẹp, thông tin rõ ràng (chỉ hiển thị địa điểm đã qua kiểm duyệt).</p></div><span className="result-count">{loadingVenues ? 'Đang tải...' : `${filteredVenues.length} kết quả`}</span></div>
+          <div className="section-heading" data-reveal><div><p className="eyebrow">Tuyển chọn cho bạn</p><h2>Nhà hàng nổi bật tại Sài Gòn</h2><p>Không gian đẹp, thông tin rõ ràng và khung giờ còn trống theo thời gian thực.</p></div><span className="result-count">{loadingVenues ? 'Đang tải...' : `${filteredVenues.length} kết quả`}</span></div>
           {filteredVenues.length > 0 ? <div className="venue-grid">{filteredVenues.map((venue) => <VenueCard key={venue.id} venue={venue} onBook={(item) => requireAccount(() => setSelectedVenue(item))} onDetail={setDetailVenue} />)}</div> : <div className="empty-state"><span>⌕</span><h3>Chưa tìm thấy lựa chọn phù hợp</h3><p>Thử nới lỏng một vài tiêu chí trong bộ lọc hoặc xóa từ khóa tìm kiếm.</p><button className="ghost-button" onClick={() => { setQuery(''); clearFilters() }}>Xóa bộ lọc</button></div>}
         </section>
 
@@ -689,7 +683,7 @@ function App() {
       <SiteFooter />
       <button className="ai-fab" onClick={() => setAssistantOpen((value) => !value)} aria-label="Mở trợ lý AI">✦</button>
       {notificationsOpen && userName && <aside className="notification-panel"><div className="panel-heading"><div><p className="eyebrow">Cập nhật mới</p><h3>Thông báo</h3></div><button onClick={() => setNotificationsOpen(false)}>×</button></div>{notifications.map((item) => <button className={item.read ? 'read' : ''} key={item.id} onClick={() => setNotifications((items) => items.map((entry) => entry.id === item.id ? { ...entry, read: true } : entry))}><b>{item.title}</b><span>{item.message}</span></button>)}<button className="mark-all-button" onClick={() => setNotifications((items) => items.map((item) => ({ ...item, read: true })))}>Đánh dấu tất cả đã đọc</button></aside>}
-      {assistantOpen && <aside className="assistant-panel"><button className="modal-close" onClick={() => setAssistantOpen(false)}>×</button><div className="assistant-icon">✦</div><p className="eyebrow">Dine AI · Demo</p><h2>Hôm nay bạn muốn một bữa ăn thế nào?</h2><p>Mình có thể gợi ý theo dịp, số người, ngân sách và không gian bạn thích.</p><div className="suggestion-list"><button onClick={() => { setCategory('Gia đình'); setAssistantOpen(false) }}>👨‍👩‍👧 Ăn tối gia đình, có trẻ nhỏ</button><button onClick={() => { setCategory('Đặt tiệc'); setAssistantOpen(false) }}>🎉 Sinh nhật khoảng 10 người</button><button onClick={() => { setQuery('Phở bò Wagyu'); setAssistantOpen(false) }}>🍲 Thử tìm món: Phở bò Wagyu</button></div><small>Gợi ý mẫu kết nối trực tiếp vào bộ lọc F3.</small></aside>}
+      {assistantOpen && <aside className="assistant-panel"><button className="modal-close" onClick={() => setAssistantOpen(false)}>×</button><div className="assistant-icon">✦</div><p className="eyebrow">Dine AI · Demo</p><h2>Hôm nay bạn muốn một bữa ăn thế nào?</h2><p>Mình có thể gợi ý theo dịp, số người, ngân sách và không gian bạn thích.</p><div className="suggestion-list"><button onClick={() => { setCategory('Gia đình'); setAssistantOpen(false) }}>👨‍👩‍👧 Ăn tối gia đình, có trẻ nhỏ</button><button onClick={() => { setCategory('Đặt tiệc'); setAssistantOpen(false) }}>🎉 Sinh nhật khoảng 10 người</button><button onClick={() => { setQuery('Phở bò Wagyu'); setAssistantOpen(false) }}>🍲 Thử tìm món: Phở bò Wagyu</button></div><small>Gợi ý nhanh dựa trên nhu cầu phổ biến của thực khách.</small></aside>}
       {selectedVenue && <BookingModal venue={selectedVenue} onClose={() => setSelectedVenue(null)} onSubmit={(data) => createReservation(selectedVenue, data)} />}
       {detailVenue && <VenueDetailModal venue={detailVenue} onClose={() => setDetailVenue(null)} onBook={(item) => requireAccount(() => setSelectedVenue(item))} />}
       {eventOpen && <EventBookingModal venuesList={venuesData} onClose={() => setEventOpen(false)} onSubmit={(request) => { setEventRequests((items) => [{ ...request, id: Date.now(), status: 'Đã gửi', messages: ['Bạn: Đã gửi yêu cầu sự kiện đến nhà hàng.'] }, ...items]); addNotification('Đã gửi yêu cầu tiệc', `${request.venueName} sẽ phản hồi bằng đề xuất.`) }} />}

@@ -74,7 +74,7 @@ Before pressing Record in Windows Snipping Tool (`Win + Shift + R`) or OBS Studi
 ### Scene 4: End-to-End Customer Flow on the React UI (2:05 – 3:45)
 * **On-Screen Action**:
   * Switch to **Browser Tab 2 (`http://localhost:5173`)**:
-    1. **Browse (`UC-C04`)**: Scroll through the initial 8 approved restaurants and point out the clean UI connected live to FastAPI (`"Dữ liệu trực tiếp từ FastAPI + PostgreSQL"`).
+    1. **Browse (`UC-C04`)**: Scroll through the initial 8 approved restaurants and point out the clean UI (`"Tuyển chọn cho bạn"`).
     2. **Keyword Search (`UC-C04`)**: Type `"Phở bò Wagyu"` (or `"Dimsum"`) in the search bar $\rightarrow$ show live filtered results, then clear the text.
     3. **Multi-Attribute Filters (`UC-C04`)**: Select `Khu vực = Quận 1`, `Giá trung bình = 200K – 400K`, and `Phòng riêng = Có phòng riêng` (and optionally open `☷ Bộ lọc khác` to show `Tiện ích` / `Sắp xếp`).
     4. **Empty State Alternative Flow (`UC-C04-A3`)**: Type an unmatched query such as `"Sushi Quận 1"` to show the clean empty state, then click **`Xóa tất cả`** to reset.
