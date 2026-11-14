@@ -191,3 +191,21 @@ flowchart LR
 * **Screen 5 (Basic Flow & AF-1 Low-Confidence Warning):** Partner Menu OCR Upload & Editable Draft Review Table with amber low-confidence verification highlights.
 
 ![UC-F9-03 Screen 5: Partner Menu OCR Draft Review Table](evidence/UC_F9_03_OCR_Draft_Review.png)
+
+---
+
+## 5. AI Usage Report – Sprint 3 (PA3)
+
+**Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
+
+### 5.1. Declaration of AI Tool Usage
+
+**Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
+
+In compliance with the course AI usage guidelines (PA3-2026 Section F), AI tools were used during Sprint 3 as an engineering and documentation assistant for structuring Group F9 Use-Case Specifications, generating UI prototype screens, and formatting the Group F3 End-to-End Validation matrix. All outputs were manually reviewed, verified against the codebase/Spec Kit artifacts, and edited by the responsible member.
+
+| Date | Member | AI Tool Used | Task / Deliverable | Prompt Summary & Purpose | Human Verification & Editing Applied |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| **14/11/2026** | Trương Khánh Duy | **Gemini** | `[PA3] AI F9 use-case specifications and prototypes` | Drafted standard 8-field RUP use-case specifications (`UC-F9-01`, `UC-F9-02`, `UC-F9-03`) and Mermaid relationship diagram aligned with PA2 Vision F9. | Verified use-case IDs against Ngọc's master Mermaid model; ensured optional RAG/OCR slices are explicitly labeled as non-implemented candidate slices; checked quantifiable NFR thresholds (`< 2.5s`, `< 500ms`). |
+| **14/11/2026** | Trương Khánh Duy | **v0.dev / Gemini** | `[PA3] AI F9 UI Prototypes` | Generated responsive web UI prototype screens covering basic flows (preference input, ranked results with reason badges) and alternative/fallback flows (zero-match banner, RAG abstention, OCR low-confidence warning). | Inspected every screen to ensure all fields from Basic and Alternative Flows are visually represented; captured and linked 5 prototype screenshots in `evidence/`. |
+| **14/11/2026** | Trương Khánh Duy | **Gemini** | `[PA3] F3 end-to-end validation and demo readiness` | Structured the smoke-check test table (`F3-VAL-01` to `F3-VAL-05`), known scope gaps, and narrated demo checklist for Group F3. | Executed actual smoke checks against the team's React UI, FastAPI endpoints, and Supabase/PostgreSQL schema; recorded real commit revision and verified actual pass/fail behavior before committing. |
