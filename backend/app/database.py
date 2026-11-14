@@ -1,7 +1,8 @@
 import os
 from collections.abc import Generator
-from sqlalchemy import create_engine, Engine
-from sqlalchemy.orm import declarative_base, sessionmaker, Session
+
+from sqlalchemy import Engine, create_engine
+from sqlalchemy.orm import Session, declarative_base, sessionmaker
 
 DEFAULT_SQLITE_URL = "sqlite:///./dinevina_f3.db"
 
