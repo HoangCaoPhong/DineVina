@@ -36,3 +36,4 @@
 - `backend/tests/test_f3_discovery.py` & `backend/tests/test_health.py`: **10/10 bài kiểm thử tích hợp (`pytest -v`) PASSED 100%**.
 - `docs/weekly-reports/PA3_Week4-5/Kien/F3-Backend-and-Database-Report.md`: Báo cáo kỹ thuật tiếng Anh (kèm sơ đồ Mermaid Sequence & ER Diagram, bảng API Contract và log chạy test) sẵn sàng ghép vào báo cáo tổng PA3.
 - `docs/weekly-reports/PA3_Week4-5/Kien/F3-Video-Narration-Script.md`: Kịch bản thuyết minh chi tiết từng phân cảnh (Việt/Anh) và hướng dẫn quay video demo YouTube cho luồng F3.
+- `docs/weekly-reports/PA3_Week4-5/Kien/AI-Usage-Kien.md`: Kê khai nhật ký sử dụng AI cá nhân cho phần việc PA3 của Nguyễn Trung Kiên.
