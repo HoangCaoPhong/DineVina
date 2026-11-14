@@ -22,7 +22,10 @@ _SUPABASE_CACHE: dict[str, list[dict[str, Any]]] = {}
 def _build_fallback_supabase_table(table: str) -> list[dict[str, Any]]:
     """Deterministic mirror of the verified Supabase rollout for timeout resilience."""
     fixture_data = json.loads(_FIXTURE_PATH.read_text(encoding="utf-8"))
-    f3_venues = fixture_data.get("venues", [])
+    f3_venues = [
+        v for v in fixture_data.get("venues", [])
+        if str(v.get("id", "")).startswith("v-")
+    ]
     status_map = {
         "approved": "approved",
         "pending": "pending_review",
@@ -155,7 +158,7 @@ def _fetch_supabase_table(table: str, select: str) -> list[dict[str, Any]]:
 
 
 def test_database_contains_both_approved_and_unapproved_fixtures() -> None:
-    """Database seeds 8 approved venues and 3 unapproved moderation test records."""
+    """Database seeds 20 approved venues and 6 unapproved moderation test records."""
     ensure_db_seeded()
     with SessionLocal() as db:
         total_in_db = db.query(VenueModel).count()
@@ -169,8 +172,8 @@ def test_database_contains_both_approved_and_unapproved_fixtures() -> None:
             .all()
         }
 
-    assert total_in_db == 11
-    assert approved_in_db == 8
+    assert total_in_db == 26
+    assert approved_in_db == 20
     assert {"pending", "returned", "rejected"}.issubset(unapproved_statuses)
 
 
@@ -180,13 +183,19 @@ def test_list_venues_returns_only_approved_venues() -> None:
     assert response.status_code == 200
     payload = response.json()
 
-    assert payload["total"] == 8
-    assert len(payload["items"]) == 8
+    assert payload["total"] == 20
+    assert len(payload["items"]) == 20
 
     returned_ids = {item["id"] for item in payload["items"]}
-    assert "v-unapproved-001" not in returned_ids
-    assert "v-unapproved-002" not in returned_ids
-    assert "v-unapproved-003" not in returned_ids
+    for blocked in (
+        "v-unapproved-001",
+        "v-unapproved-002",
+        "v-unapproved-003",
+        "rest_13_unapproved_pending_d1",
+        "rest_14_unapproved_returned_d3",
+        "rest_15_unapproved_suspended_td",
+    ):
+        assert blocked not in returned_ids
 
     for item in payload["items"]:
         assert item["status"] == "approved"
@@ -267,10 +276,9 @@ def test_filter_by_min_and_max_budget_overlap() -> None:
     """Budget range filters return venues whose spend band overlaps requested bounds."""
     res_low = client.get("/api/venues", params={"max_budget": 150000})
     assert res_low.status_code == 200
-    assert {v["id"] for v in res_low.json()["items"]} == {
-        "v-hcmc-005",
-        "v-hcmc-008",
-    }
+    low_items = res_low.json()["items"]
+    assert {"v-hcmc-005", "v-hcmc-008"}.issubset({v["id"] for v in low_items})
+    assert all(v["min_budget_vnd"] <= 150000 for v in low_items)
 
     res_high = client.get("/api/venues", params={"min_budget": 800000})
     assert res_high.status_code == 200
@@ -374,7 +382,7 @@ def test_all_and_tat_ca_filter_tokens_treated_as_unfiltered() -> None:
         },
     )
     assert res.status_code == 200
-    assert res.json()["total"] == 8
+    assert res.json()["total"] == 20
 
 
 def test_invalid_budget_range_returns_422() -> None:
@@ -429,22 +437,22 @@ def test_sorting_modes() -> None:
 
 
 def test_pagination_page_size_and_out_of_range_page() -> None:
-    """Pagination slices total 8 venues across pages without duplicating items."""
-    page1 = client.get("/api/venues", params={"page": 1, "page_size": 3}).json()
-    page2 = client.get("/api/venues", params={"page": 2, "page_size": 3}).json()
-    page3 = client.get("/api/venues", params={"page": 3, "page_size": 3}).json()
-    page4 = client.get("/api/venues", params={"page": 4, "page_size": 3}).json()
+    """Pagination slices total 20 venues across pages without duplicating items."""
+    page1 = client.get("/api/venues", params={"page": 1, "page_size": 7}).json()
+    page2 = client.get("/api/venues", params={"page": 2, "page_size": 7}).json()
+    page3 = client.get("/api/venues", params={"page": 3, "page_size": 7}).json()
+    page4 = client.get("/api/venues", params={"page": 4, "page_size": 7}).json()
 
-    assert page1["total"] == 8
-    assert len(page1["items"]) == 3
-    assert len(page2["items"]) == 3
-    assert len(page3["items"]) == 2
+    assert page1["total"] == 20
+    assert len(page1["items"]) == 7
+    assert len(page2["items"]) == 7
+    assert len(page3["items"]) == 6
     assert len(page4["items"]) == 0
 
     all_ids = {
         v["id"] for page in (page1, page2, page3) for v in page["items"]
     }
-    assert len(all_ids) == 8
+    assert len(all_ids) == 20
 
 
 def test_filter_options_endpoint() -> None:
@@ -452,12 +460,12 @@ def test_filter_options_endpoint() -> None:
     res = client.get("/api/venues/filters")
     assert res.status_code == 200
     meta = res.json()
-    assert meta["total_approved_venues"] == 8
+    assert meta["total_approved_venues"] == 20
     assert "Quận 1" in meta["districts"]
     assert "Quận 3" in meta["districts"]
     assert len(meta["cuisines"]) >= 5
     assert len(meta["amenities"]) >= 5
-    assert meta["min_budget_vnd"] == 100000
+    assert meta["min_budget_vnd"] == 70000
     assert meta["max_budget_vnd"] == 950000
     assert meta["max_capacity"] == 250
 

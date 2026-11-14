@@ -90,6 +90,9 @@ def _load_fixture_payloads() -> (
     dish_rows: list[dict[str, Any]] = []
 
     for v in payload.get("venues", []):
+        # Only upsert Kiên's local F3 seed (`v-*`, `cat-v-*`, `d-*`); team `rest_*` rows already live in Supabase.
+        if not str(v.get("id", "")).startswith("v-"):
+            continue
         open_time, close_time = _parse_opening_hours(v.get("opening_hours"))
         cuisine_raw = str(v.get("cuisine", ""))
         cuisine_types = [c.strip() for c in cuisine_raw.split(",") if c.strip()]

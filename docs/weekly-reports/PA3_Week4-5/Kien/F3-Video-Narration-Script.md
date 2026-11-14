@@ -50,9 +50,9 @@ Before pressing Record in Windows Snipping Tool (`Win + Shift + R`) or OBS Studi
   * Show `backend/app/models.py` (`VenueModel`, `DishModel`) and `backend/app/fixtures/f3_venues_fixture.json`.
   * Press `Enter` in the VS Code terminal to run `python -m pytest -v` and wait for **`27 passed`** (green).
 * **Narration (Vietnamese)**:
-  > *"Ở tầng Backend và Cơ sở dữ liệu, em thiết kế bảng quan hệ nhà hàng và món ăn bằng SQLAlchemy 2.0 và đồng bộ trực tiếp lên Supabase PostgreSQL. Bộ fixture gồm 11 nhà hàng tại TP.HCM: 8 nhà hàng đã duyệt kèm 21 món ăn phân danh mục, và 3 nhà hàng chưa duyệt (`pending`, `returned`, `rejected`) để kiểm thử bảo mật. Khi chạy bộ kiểm thử tự động `python -m pytest -v`, toàn bộ **27 test cases** đều pass 100%, bao gồm cả 2 bài test xác minh dữ liệu rollout của nhóm trên Supabase Cloud và hợp đồng API `/api/v1/restaurants/*`."*
+  > *"Ở tầng Backend và Cơ sở dữ liệu, em thiết kế bảng quan hệ nhà hàng và món ăn bằng SQLAlchemy 2.0 và nạp đầy đủ 26 nhà hàng F3 từ Supabase PostgreSQL: gồm 20 nhà hàng đã duyệt kèm 51 món ăn phân theo 48 danh mục, và 6 nhà hàng chưa duyệt (`pending`, `returned`, `rejected`) để kiểm thử bảo mật. Khi chạy bộ kiểm thử tự động `python -m pytest -v`, toàn bộ **27 test cases** đều pass 100%, bao gồm cả 2 bài test xác minh dữ liệu rollout của nhóm trên Supabase Cloud và hợp đồng API `/api/v1/restaurants/*`."*
 * **Narration (English Option)**:
-  > *"In the backend layer, `backend/app/models.py` defines relational venue and dish tables using SQLAlchemy 2.0 synced to Supabase PostgreSQL. Running `python -m pytest -v` passes all 27 automated tests, covering search, multi-attribute filtering, unapproved-venue isolation, `/api/v1/restaurants/*` contract aliases, and live Supabase rollout integrity."*
+  > *"In the backend layer, `backend/app/models.py` defines relational venue and dish tables using SQLAlchemy 2.0 synced with Supabase PostgreSQL, seeding all 26 F3 venues (20 approved and 6 unapproved moderation cases) alongside 51 dishes across 48 categories. Running `python -m pytest -v` passes all 27 automated tests, covering search, multi-attribute filtering, unapproved-venue isolation, `/api/v1/restaurants/*` contract aliases, and live Supabase rollout integrity."*
 
 ---
 
@@ -60,31 +60,31 @@ Before pressing Record in Windows Snipping Tool (`Win + Shift + R`) or OBS Studi
 * **On-Screen Action**:
   * Switch to **Browser Tab 1 (`http://127.0.0.1:8000/docs`)**:
     1. Execute `GET /api/supabase-status` $\rightarrow$ point out `enabled: true`, `f3_venues_total: 26` (`f3_venues_approved: 20`, `f3_venues_unapproved: 6`), `f3_menu_categories: 48`, `f3_dishes: 51`, and table totals (`total_venues_in_supabase: 29`, `total_categories_in_supabase: 50`, `total_dishes_in_supabase: 54`).
-    2. Execute `GET /api/venues/filters` $\rightarrow$ show `total_approved_venues: 8`, `districts`, `cuisines`, and `amenities`.
+    2. Execute `GET /api/venues/filters` $\rightarrow$ show `total_approved_venues: 20`, `districts`, `cuisines`, and `amenities`.
     3. Execute `GET /api/venues/{venue_id}` with `v-hcmc-001` $\rightarrow$ show `200 OK` and grouped `menu_categories`.
     4. Execute `GET /api/venues/{venue_id}` with `v-unapproved-001` $\rightarrow$ show `404 Not Found`.
 * **Narration (Vietnamese)**:
-  > *"Trên giao diện Swagger OpenAPI tại cổng 8000, endpoint `GET /api/supabase-status` kết nối trực tiếp tới Supabase Cloud và trả về trạng thái `enabled: true` cùng số lượng bản ghi thực tế của nhóm gồm 26 nhà hàng F3 (20 đã duyệt, 6 chưa duyệt), 48 danh mục và 51 món ăn — nằm trong tổng số 29 nhà hàng, 50 danh mục và 54 món ăn trên toàn Supabase. Khi gọi `GET /api/venues/filters`, hệ thống tổng hợp danh sách quận, ẩm thực, tiện ích và khoảng giá từ đúng 8 nhà hàng đã duyệt.*
+  > *"Trên giao diện Swagger OpenAPI tại cổng 8000, endpoint `GET /api/supabase-status` kết nối trực tiếp tới Supabase Cloud và trả về trạng thái `enabled: true` cùng số lượng bản ghi thực tế của nhóm gồm 26 nhà hàng F3 (20 đã duyệt, 6 chưa duyệt), 48 danh mục và 51 món ăn — nằm trong tổng số 29 nhà hàng, 50 danh mục và 54 món ăn trên toàn Supabase. Khi gọi `GET /api/venues/filters`, hệ thống tổng hợp danh sách quận, ẩm thực, tiện ích và khoảng giá từ đúng 20 nhà hàng đã duyệt.*
   > *Khi truy vấn `GET /api/venues/v-hcmc-001`, API trả về `200 OK` cùng thực đơn chia danh mục. Ngược lại, khi thử truy cập nhà hàng chưa duyệt `v-unapproved-001`, API chặn lại với mã `404 Not Found`."*
 * **Narration (English Option)**:
-  > *"In Swagger UI at port 8000, `GET /api/supabase-status` connects live to Supabase Cloud and reports 26 F3 venues (20 approved, 6 unapproved), 48 menu categories, and 51 dishes out of 29 venues, 50 categories, and 54 dishes total. `GET /api/venues/filters` aggregates metadata from the 8 approved venues, `GET /api/venues/v-hcmc-001` returns HTTP 200 with categorized menu dishes, and requesting `v-unapproved-001` is blocked with HTTP 404 Not Found."*
+  > *"In Swagger UI at port 8000, `GET /api/supabase-status` connects live to Supabase Cloud and reports 26 F3 venues (20 approved, 6 unapproved), 48 menu categories, and 51 dishes out of 29 venues, 50 categories, and 54 dishes total. `GET /api/venues/filters` aggregates metadata from the 20 approved venues, `GET /api/venues/v-hcmc-001` returns HTTP 200 with categorized menu dishes, and requesting `v-unapproved-001` is blocked with HTTP 404 Not Found."*
 
 ---
 
 ### Scene 4: End-to-End Customer Flow on the React UI (2:05 – 3:45)
 * **On-Screen Action**:
   * Switch to **Browser Tab 2 (`http://localhost:5173`)**:
-    1. **Browse (`UC-C04`)**: Scroll through the initial 8 approved restaurants and point out the clean UI (`"Tuyển chọn cho bạn"`).
+    1. **Browse (`UC-C04`)**: Scroll through the initial 20 approved restaurants and point out the clean UI (`"Tuyển chọn cho bạn"`).
     2. **Keyword Search (`UC-C04`)**: Type `"Phở bò Wagyu"` (or `"Dimsum"`) in the search bar $\rightarrow$ show live filtered results, then clear the text.
     3. **Multi-Attribute Filters (`UC-C04`)**: Select `Khu vực = Quận 1`, `Giá trung bình = 200K – 400K`, and `Phòng riêng = Có phòng riêng` (and optionally open `☷ Bộ lọc khác` to show `Tiện ích` / `Sắp xếp`).
     4. **Empty State Alternative Flow (`UC-C04-A3`)**: Type an unmatched query such as `"Sushi Quận 1"` to show the clean empty state, then click **`Xóa tất cả`** to reset.
     5. **Venue Details & Categorized Menu (`UC-C05`, `UC-C06`)**: Click **Nhà Hàng Việt Xưa Sài Gòn** (`v-hcmc-001`) $\rightarrow$ show address, opening hours (`10:00 - 22:00`), capacity (`120 khách`), amenities, available booking slots, and categorized menu items with VND prices.
 * **Narration (Vietnamese)**:
-  > *"Cuối cùng trên giao diện React kết nối trực tiếp với FastAPI, chúng ta thực hiện Use Case `UC-C04`: ngay khi tải trang, hệ thống hiển thị đúng 8 nhà hàng đã được duyệt. Khi tìm kiếm theo tên món như 'Phở bò Wagyu' hoặc kết hợp bộ lọc Khu vực 'Quận 1', mức giá '200K – 400K' và 'Có phòng riêng', giao diện gửi request `GET /api/venues` xuống Backend và lọc ra đúng các nhà hàng phù hợp.*
+  > *"Cuối cùng trên giao diện React kết nối trực tiếp với Backend, chúng ta thực hiện Use Case `UC-C04`: ngay khi tải trang, hệ thống hiển thị đầy đủ 20 nhà hàng đã được duyệt (và ẩn hoàn toàn 6 nhà hàng chưa duyệt). Khi tìm kiếm theo tên món như 'Phở bò Wagyu' hoặc kết hợp bộ lọc Khu vực 'Quận 1', mức giá '200K – 400K' và 'Có phòng riêng', giao diện gửi request `GET /api/venues` xuống Backend và lọc ra đúng các nhà hàng phù hợp.*
   > *Ở luồng ngoại lệ `UC-C04-A3`, khi nhập từ khóa không có kết quả như 'Sushi Quận 1', hệ thống hiển thị thông báo trống rõ ràng và cho phép nhấn 'Xóa tất cả' để khôi phục.*
   > *Tiếp theo, thực hiện Use Case `UC-C05` và `UC-C06`, khi bấm vào 'Nhà Hàng Việt Xưa Sài Gòn', ứng dụng gọi `GET /api/venues/v-hcmc-001` để hiển thị đầy đủ địa chỉ, giờ mở cửa, sức chứa 120 khách, tiện ích phòng riêng, khung giờ đặt bàn và toàn bộ thực đơn chia theo danh mục món ăn. Điều này chứng minh luồng F3 đã hoạt động hoàn chỉnh từ UI đến API và Database. Em xin cảm ơn thầy và các bạn đã theo dõi!"*
 * **Narration (English Option)**:
-  > *"Finally on the live React frontend, `UC-C04` renders all 8 approved venues directly from FastAPI. Searching by dish name such as 'Phở bò Wagyu' or combining District 1, 200K–400K budget, and Private Room filters updates the list dynamically. Entering an unmatched query demonstrates the `UC-C04-A3` empty state before clicking 'Xóa tất cả' to reset. Opening 'Nhà Hàng Việt Xưa Sài Gòn' invokes `UC-C05` and `UC-C06` via `GET /api/venues/v-hcmc-001`, displaying capacity, amenities, available slots, and categorized VND menu dishes. Thank you for watching!"*
+  > *"Finally on the live React frontend, `UC-C04` renders all 20 approved venues directly from the backend while isolating the 6 unapproved records. Searching by dish name such as 'Phở bò Wagyu' or combining District 1, 200K–400K budget, and Private Room filters updates the list dynamically. Entering an unmatched query demonstrates the `UC-C04-A3` empty state before clicking 'Xóa tất cả' to reset. Opening 'Nhà Hàng Việt Xưa Sài Gòn' invokes `UC-C05` and `UC-C06` via `GET /api/venues/v-hcmc-001`, displaying capacity, amenities, available slots, and categorized VND menu dishes. Thank you for watching!"*
 
 ---
 
