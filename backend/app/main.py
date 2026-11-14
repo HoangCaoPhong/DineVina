@@ -144,6 +144,7 @@ def get_venue_filter_options(db: Session = Depends(get_db)) -> FilterOptionsOut:
 
 
 @app.get("/api/venues", response_model=VenueListResponse)
+@app.get("/api/v1/restaurants/search", response_model=VenueListResponse)
 def list_approved_venues(
     q: str | None = Query(
         default=None,
@@ -337,6 +338,7 @@ def list_approved_venues(
 
 
 @app.get("/api/venues/{venue_id}", response_model=VenueDetailOut)
+@app.get("/api/v1/restaurants/{venue_id}", response_model=VenueDetailOut)
 def get_approved_venue_detail(
     venue_id: str,
     db: Session = Depends(get_db),
