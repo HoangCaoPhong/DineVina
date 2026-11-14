@@ -194,6 +194,69 @@ flowchart LR
 
 ---
 
+## 4. Group F3 End-to-End Validation & Demo Readiness Report (PA3 Section E)
+
+**Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
+
+### 4.1. Test Environment & Revision Traceability
+
+**Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
+
+* **Validated Functional Group:** Group 3 – Discovery and Venue Details (`F3`)
+* **Tested Git Branch & Revision:** `demo/supabase-integration` (Commit SHA: `62a1282`)
+* **Tech Stack Verified:** React + Vite + TypeScript (`http://localhost:5174`), FastAPI + Uvicorn (`http://localhost:8001`), Supabase PostgreSQL (`supabase_schema.sql` & seed fixtures with in-memory fallback simulation)
+* **Automated Test Suite Result:** `pytest` executed across `backend/tests/test_health.py` and `backend/tests/test_reservations.py` — **8 passed in 1.93s**
+* **Spec Kit Artifacts Inspected:** Verified implemented F3 API routes (`/api/venues`), Pydantic schemas (`backend/app/schemas.py`), and Supabase schema (`backend/database/supabase_schema.sql`) against the F3 specification and data contract. *(Note: Per PA3-2026 §E guidelines, refining generated tests is not required in PA3.)*
+
+### 4.2. End-to-End Smoke Check Matrix (UI ↔ FastAPI ↔ Supabase PostgreSQL)
+
+**Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
+
+| Check ID | Validation Scenario | Layer(s) Tested | Expected Behavior (Spec Kit & F3 Contract) | Observed Result on `demo/supabase-integration` (`62a1282`) | Status | Evidence Reference |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| **F3-VAL-01** | **Approved vs. Unapproved Venue Visibility** | Supabase PostgreSQL $\rightarrow$ FastAPI $\rightarrow$ React UI | Only venues with `status = APPROVED` appear in public discovery; unapproved records remain hidden from customer queries. | Public discovery view accurately renders the 6 approved venues (e.g., *Nhà Hàng Lẩu Hoàng Gia*, *Nướng Than Hoa Sakura*, *Cung Đình Dimsum*); unapproved records are excluded. | **PASS** | `evidence/F3_Test1_Approved_Visibility.png` |
+| **F3-VAL-02** | **Multi-Attribute Filter Correctness & Venue Details** | React UI $\leftrightarrow$ FastAPI Query Params $\leftrightarrow$ DB | Filtering by district, cuisine, time slot, and amenities (`q`, `district`, `cuisine`, `amenity`) returns matching venues and opens venue details/menu. | Selecting `Nướng BBQ` / `Nướng Yakiniku` accurately filters the list to 1 matching venue (*Nướng Than Hoa Sakura - Quận 1*, `299.000đ - 520.000đ`, hours `10:00 - 22:30`) with `Menu & Chi tiết` view. | **PASS** | `evidence/F3_Test2_Filter_And_Venue_Details.png` |
+| **F3-VAL-03** | **Empty Search Results & Error States** | React UI $\leftrightarrow$ FastAPI Error Handlers | Zero-match filter combinations render a clear empty-state message guiding the user to relax filters without crashing the UI. | Searching keyword `zzzz` with `Nướng Yakiniku` displays `(0)` venues and the clean notice: *"Không tìm thấy nhà hàng phù hợp với bộ lọc. Bạn có thể thử nới lỏng các điều kiện lọc quận hoặc loại ẩm thực."* | **PASS** | `evidence/F3_Test3_Empty_And_Error_States.png` |
+| **F3-VAL-04** | **Backend Automated Tests & Data Persistence** | Supabase Schema / Store $\leftrightarrow$ FastAPI `pytest` | Backend health and reservation/venue endpoints pass automated checks and persist data structures properly. | All 8 automated tests (`test_health.py`, `test_reservations.py`) pass (`8 passed in 1.93s`); Supabase client supports both live `.env` credentials and local seed persistence. | **PASS** | `evidence/F3_Test4_PostgreSQL_Persistence.png` |
+
+#### F3 Validation Screenshots (Captured from Revision `62a1282`)
+
+* **Evidence 1 (`F3-VAL-01`):** Approved Venue Discovery Catalog.
+
+![F3 Test 1: Approved Venue Visibility](evidence/F3_Test1_Approved_Visibility.png)
+
+* **Evidence 2 (`F3-VAL-02`):** Multi-Attribute Filtering (`Nướng Yakiniku` / `Nướng BBQ`).
+
+![F3 Test 2: Filter Correctness and Venue Details](evidence/F3_Test2_Filter_And_Venue_Details.png)
+
+* **Evidence 3 (`F3-VAL-03`):** Zero-Match Empty State Handling.
+
+![F3 Test 3: Empty and Error States](evidence/F3_Test3_Empty_And_Error_States.png)
+
+* **Evidence 4 (`F3-VAL-04`):** Automated Backend Test Suite Execution (`8 passed`).
+
+![F3 Test 4: Backend Pytest and Persistence](evidence/F3_Test4_PostgreSQL_Persistence.png)
+
+### 4.3. Defects Logged, Technical Findings & Follow-Up Actions for Sprint Review
+
+**Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
+
+| Item ID | Category | Description & Observed Behavior | Resolution / Follow-Up Plan |
+| :---- | :---- | :---- | :---- |
+| **FIND-F3-01** | Port Configuration Note | Vite frontend proxy (`frontend/vite.config.ts`) targets `127.0.0.1:8001` for `/api/venues`; running Uvicorn on default port `8000` causes `ECONNREFUSED 127.0.0.1:8001` and an empty `(0)` list until Uvicorn is started with `--port 8001`. | Documented exact startup command (`PYTHONPATH=backend uvicorn app.main:app --reload --port 8001`) for Kiên's narrated demo recording. |
+| **FIND-F3-02** | Branch Structure Synchronization | Spec Kit artifacts directory (`/src`) created on the main development line should be merged alongside `demo/supabase-integration` when consolidating into `dev`. | Ensure both `/src` Spec Kit files and `demo/supabase-integration` code are present in the final `dev` merge prior to release tagging. |
+| **GAP-F3-01** | Known Scope Boundary | Group F3 currently operates via deterministic SQL/API filtering; AI explainable ranking (`F9.1` / `UC-F9-01`) is specified and prototyped in PA3 for Sprint 4 integration. | Connect `UC-F9-01` preference ranking to `/api/venues` in Sprint 4 (PA4). |
+
+### 4.4. Narrated Demo Readiness Checklist (Verified for Video Recording)
+
+**Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
+
+1. **Backend Startup Command:** `PYTHONPATH=backend uvicorn app.main:app --reload --port 8001`
+2. **Frontend Startup Command:** `cd frontend && npm run dev` (opens at `http://localhost:5174/`)
+3. **Demo Flow Verified:** Show Spec Kit artifacts $\rightarrow$ Show Supabase schema & seeded venues $\rightarrow$ Show approved venues on Discovery UI $\rightarrow$ Filter by district/cuisine/amenity and inspect `Menu & Chi tiết` $\rightarrow$ Trigger zero-match empty state (`Không tìm thấy nhà hàng phù hợp với bộ lọc`).
+
+---
+
 ## 5. AI Usage Report – Sprint 3 (PA3)
 
 **Performed by:** Trương Khánh Duy | **Reviewed by:** Lương Thiện Nhân | **Edited by:** Trương Khánh Duy
