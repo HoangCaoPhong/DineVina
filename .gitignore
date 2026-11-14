@@ -48,3 +48,6 @@ docs/ans/
 
 # Aider chat history and input
 .aider*
+
+#media
+.mp4
