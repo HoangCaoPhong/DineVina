@@ -1,14 +1,15 @@
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
+from typing import Any
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import or_, select
 from sqlalchemy.orm import Session, selectinload
 
-from app.database import Base, SessionLocal, engine, get_db
-from app.models import DishModel, VenueModel
-from app.schemas import (
+from .database import Base, SessionLocal, engine, get_db
+from .models import DishModel, VenueModel
+from .schemas import (
     AppliedFiltersOut,
     DishOut,
     FilterOptionsOut,
@@ -18,7 +19,7 @@ from app.schemas import (
     VenueListResponse,
     VenueSummaryOut,
 )
-from app.seed import seed_f3_database
+from .seed import seed_f3_database
 
 _DB_INITIALIZED = False
 
@@ -59,35 +60,20 @@ app.add_middleware(
 
 
 def _build_venue_summary(venue: VenueModel) -> VenueSummaryOut:
+    venue_any: Any = venue
+    dishes_list: list[Any] = list(venue_any.dishes or [])
     signature_names = [
-        d.name for d in venue.dishes if d.is_signature and d.is_available
+        str(d.name) for d in dishes_list if d.is_signature and d.is_available
     ]
     if not signature_names:
-        signature_names = [d.name for d in venue.dishes if d.is_available][:3]
+        signature_names = [str(d.name) for d in dishes_list if d.is_available][:3]
 
-    return VenueSummaryOut(
-        id=venue.id,
-        name=venue.name,
-        slug=venue.slug,
-        tagline=venue.tagline,
-        description=venue.description,
-        address=venue.address,
-        district=venue.district,
-        city=venue.city,
-        cuisine=venue.cuisine,
-        price_range=venue.price_range,
-        min_budget_vnd=venue.min_budget_vnd,
-        max_budget_vnd=venue.max_budget_vnd,
-        max_capacity=venue.max_capacity,
-        rating=venue.rating,
-        review_count=venue.review_count,
-        cover_image=venue.cover_image,
-        amenities=list(venue.amenities or []),
-        opening_hours=venue.opening_hours,
-        status=venue.status,
-        is_sample=venue.is_sample,
-        sample_label=venue.sample_label,
-        signature_dishes_preview=signature_names[:4],
+    base_summary = VenueSummaryOut.model_validate(venue)
+    return base_summary.model_copy(
+        update={
+            "amenities": list(base_summary.amenities or []),
+            "signature_dishes_preview": signature_names[:4],
+        }
     )
 
 
@@ -106,17 +92,18 @@ def _compute_filter_options(db: Session) -> FilterOptionsOut:
             total_approved_venues=0,
         )
 
-    districts = sorted({v.district for v in approved_venues if v.district})
-    cuisines = sorted({v.cuisine for v in approved_venues if v.cuisine})
+    summaries = [VenueSummaryOut.model_validate(v) for v in approved_venues]
+    districts = sorted({s.district for s in summaries if s.district})
+    cuisines = sorted({s.cuisine for s in summaries if s.cuisine})
     amenities_set: set[str] = set()
-    for v in approved_venues:
-        for item in v.amenities or []:
+    for s in summaries:
+        for item in s.amenities or []:
             if item:
                 amenities_set.add(item)
 
-    min_budget_val = min(v.min_budget_vnd for v in approved_venues)
-    max_budget_val = max(v.max_budget_vnd for v in approved_venues)
-    max_cap_val = max(v.max_capacity for v in approved_venues)
+    min_budget_val = min(s.min_budget_vnd for s in summaries)
+    max_budget_val = max(s.max_budget_vnd for s in summaries)
+    max_cap_val = max(s.max_capacity for s in summaries)
 
     return FilterOptionsOut(
         districts=districts,
@@ -125,7 +112,7 @@ def _compute_filter_options(db: Session) -> FilterOptionsOut:
         min_budget_vnd=min_budget_val,
         max_budget_vnd=max_budget_val,
         max_capacity=max_cap_val,
-        total_approved_venues=len(approved_venues),
+        total_approved_venues=len(summaries),
     )
 
 
@@ -378,15 +365,17 @@ def get_approved_venue_detail(
         for cat_name, cat_dishes in category_map.items()
     ]
 
+    venue_any: Any = venue
     slots_out = [
-        TimeSlotInfo.model_validate(slot) for slot in (venue.available_slots or [])
+        TimeSlotInfo.model_validate(slot)
+        for slot in (venue_any.available_slots or [])
     ]
 
     return VenueDetailOut(
         **summary.model_dump(),
-        gallery_images=list(venue.gallery_images or []),
-        contact_phone=venue.contact_phone,
-        cancellation_policy=venue.cancellation_policy,
+        gallery_images=list(venue_any.gallery_images or []),
+        contact_phone=str(venue_any.contact_phone or ""),
+        cancellation_policy=str(venue_any.cancellation_policy or ""),
         available_slots=slots_out,
         dishes=dishes_out,
         menu_categories=menu_categories,

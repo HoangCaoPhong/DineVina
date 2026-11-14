@@ -1,6 +1,6 @@
 from sqlalchemy import Boolean, Float, ForeignKey, Integer, JSON, String, Text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from app.database import Base
+from .database import Base
 
 
 class VenueModel(Base):

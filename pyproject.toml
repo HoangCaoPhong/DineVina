@@ -25,3 +25,9 @@ testpaths = ["backend/tests"]
 target-version = "py312"
 line-length = 88
 lint.ignore = ["EXE002"] # The shared NTFS workspace reports all files as executable.
+
+[tool.pyrefly]
+search-path = ["backend"]
+
+[tool.pyright]
+extraPaths = ["backend"]

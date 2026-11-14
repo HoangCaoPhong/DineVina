@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from sqlalchemy.orm import Session
-from app.models import DishModel, VenueModel
+from .models import DishModel, VenueModel
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "f3_venues_fixture.json"
 
