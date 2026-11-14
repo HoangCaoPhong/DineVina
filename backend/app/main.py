@@ -20,6 +20,7 @@ from .schemas import (
     VenueSummaryOut,
 )
 from .seed import seed_f3_database
+from .supabase_sync import get_supabase_status, sync_f3_to_supabase
 
 _DB_INITIALIZED = False
 
@@ -31,6 +32,10 @@ def ensure_db_seeded() -> None:
     Base.metadata.create_all(bind=engine)
     with SessionLocal() as session:
         seed_f3_database(session, force_refresh=False)
+    try:
+        sync_f3_to_supabase()
+    except Exception as exc:
+        print(f"[SupabaseSync] Non-fatal sync fallback: {exc}")
     _DB_INITIALIZED = True
 
 
@@ -120,6 +125,12 @@ def _compute_filter_options(db: Session) -> FilterOptionsOut:
 def health() -> dict[str, str]:
     ensure_db_seeded()
     return {"status": "ok"}
+
+
+@app.get("/api/supabase-status")
+def supabase_status() -> dict[str, Any]:
+    ensure_db_seeded()
+    return get_supabase_status()
 
 
 @app.get("/api/venues/filters", response_model=FilterOptionsOut)
