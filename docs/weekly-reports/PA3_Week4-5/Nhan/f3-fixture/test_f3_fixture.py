@@ -9,7 +9,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from validate_fixture import (  # noqa: E402
     SQL_PATH,
+    SUPABASE_SEED_PATH,
     generate_postgres_sql,
+    generate_supabase_seed_sql,
     load_fixture,
     search_public_venues,
     validate_fixture,
@@ -80,3 +82,9 @@ def test_generated_sql_is_in_sync() -> None:
     data = load_fixture()
     expected = generate_postgres_sql(data)
     assert SQL_PATH.read_text(encoding="utf-8") == expected
+
+
+def test_generated_supabase_seed_is_in_sync() -> None:
+    data = load_fixture()
+    expected = generate_supabase_seed_sql(data)
+    assert SUPABASE_SEED_PATH.read_text(encoding="utf-8") == expected

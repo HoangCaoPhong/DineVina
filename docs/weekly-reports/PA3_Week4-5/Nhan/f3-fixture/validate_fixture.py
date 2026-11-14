@@ -50,6 +50,7 @@ TIME_RE = re.compile(r"^(?:[01]\d|2[0-3]):[0-5]\d$")
 FIXTURE_DIR = Path(__file__).resolve().parent
 JSON_PATH = FIXTURE_DIR / "venues_sample.json"
 SQL_PATH = FIXTURE_DIR / "schema_and_seed.sql"
+SUPABASE_SEED_PATH = FIXTURE_DIR / "supabase_seed_f3.sql"
 
 
 def load_fixture(path: Path = JSON_PATH) -> dict:
@@ -231,6 +232,91 @@ def generate_postgres_sql(data: dict) -> str:
     return "\n".join(lines)
 
 
+def _slug_cat(cat: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", cat.lower()).strip("_")
+
+
+def generate_supabase_seed_sql(data: dict) -> str:
+    """Generate idempotent, non-destructive upsert SQL for production Supabase schema."""
+    lines = [
+        "-- DineVina Production Supabase F3 Seed (Non-destructive UPSERT)",
+        "-- Generated from venues_sample.json by validate_fixture.py",
+        "",
+        "BEGIN;",
+        "",
+    ]
+
+    for v in data["venues"]:
+        cuisine_str = ", ".join(v["cuisine_types"])
+        price_range = f"{v['min_price_vnd']:,} - {v['max_price_vnd']:,} VND"
+        is_verified = "TRUE" if v["approval_status"] == "approved" else "FALSE"
+        features_json = json.dumps(v["amenities"], ensure_ascii=False)
+        slots_json = json.dumps(["11:30", "12:30", "18:00", "19:00", "20:00"])
+        lines.append(
+            "INSERT INTO public.venues ("
+            "id, name, slug, tagline, description, cuisine, cuisine_types, address, district, city, "
+            "phone, price_range, min_spend, max_spend, total_capacity, max_party_size, amenities, "
+            "features, approval_status, is_verified, opening_time, closing_time, rating, "
+            "total_reviews, cover_image, available_slots"
+            ") VALUES ("
+            f"{_sql_str(v['id'])}, {_sql_str(v['name'])}, {_sql_str(v['slug'])}, "
+            f"{_sql_str(v['description'][:80])}, {_sql_str(v['description'])}, "
+            f"{_sql_str(cuisine_str)}, {_sql_arr(v['cuisine_types'])}, "
+            f"{_sql_str(v['address'])}, {_sql_str(v['district'])}, {_sql_str(v['city'])}, "
+            f"{_sql_str(v['hotline'])}, {_sql_str(price_range)}, "
+            f"{v['min_price_vnd']}, {v['max_price_vnd']}, {v['total_capacity']}, {v['max_party_size']}, "
+            f"{_sql_arr(v['amenities'])}, {_sql_str(features_json)}::jsonb, "
+            f"{_sql_str(v['approval_status'])}, {is_verified}, "
+            f"{_sql_str(v['opening_time'])}, {_sql_str(v['closing_time'])}, "
+            f"{v['average_rating']}, {v['review_count']}, "
+            f"{_sql_str(v['cover_image_url'])}, {_sql_str(slots_json)}::jsonb"
+            ") ON CONFLICT (id) DO UPDATE SET "
+            "name = EXCLUDED.name, slug = EXCLUDED.slug, description = EXCLUDED.description, "
+            "cuisine = EXCLUDED.cuisine, cuisine_types = EXCLUDED.cuisine_types, "
+            "address = EXCLUDED.address, district = EXCLUDED.district, city = EXCLUDED.city, "
+            "phone = EXCLUDED.phone, price_range = EXCLUDED.price_range, "
+            "min_spend = EXCLUDED.min_spend, max_spend = EXCLUDED.max_spend, "
+            "total_capacity = EXCLUDED.total_capacity, max_party_size = EXCLUDED.max_party_size, "
+            "amenities = EXCLUDED.amenities, features = EXCLUDED.features, "
+            "approval_status = EXCLUDED.approval_status, is_verified = EXCLUDED.is_verified, "
+            "opening_time = EXCLUDED.opening_time, closing_time = EXCLUDED.closing_time, "
+            "rating = EXCLUDED.rating, total_reviews = EXCLUDED.total_reviews, "
+            "cover_image = EXCLUDED.cover_image, available_slots = EXCLUDED.available_slots, "
+            "updated_at = NOW();"
+        )
+
+    lines.append("")
+    seen_cats: set[tuple[str, str]] = set()
+    for m in data["menu_items"]:
+        key = (m["venue_id"], m["category"])
+        if key in seen_cats:
+            continue
+        seen_cats.add(key)
+        cat_id = f"cat_{m['venue_id']}_{_slug_cat(m['category'])}"
+        lines.append(
+            "INSERT INTO public.menu_categories (id, venue_id, name, sort_order) VALUES ("
+            f"{_sql_str(cat_id)}, {_sql_str(m['venue_id'])}, {_sql_str(m['category'])}, 1"
+            ") ON CONFLICT (id) DO UPDATE SET name = EXCLUDED.name;"
+        )
+
+    lines.append("")
+    for m in data["menu_items"]:
+        cat_id = f"cat_{m['venue_id']}_{_slug_cat(m['category'])}"
+        is_pop = "TRUE" if m["is_available"] else "FALSE"
+        lines.append(
+            "INSERT INTO public.dishes (id, category_id, venue_id, name, price, description, is_popular) VALUES ("
+            f"{_sql_str(m['id'])}, {_sql_str(cat_id)}, {_sql_str(m['venue_id'])}, "
+            f"{_sql_str(m['name'])}, {m['price_vnd']}, {_sql_str(m['description'])}, {is_pop}"
+            ") ON CONFLICT (id) DO UPDATE SET "
+            "category_id = EXCLUDED.category_id, venue_id = EXCLUDED.venue_id, "
+            "name = EXCLUDED.name, price = EXCLUDED.price, "
+            "description = EXCLUDED.description, is_popular = EXCLUDED.is_popular;"
+        )
+
+    lines.extend(["", "COMMIT;", ""])
+    return "\n".join(lines)
+
+
 def search_public_venues(
     data: dict,
     *,
@@ -278,9 +364,10 @@ if __name__ == "__main__":
     if errs:
         raise SystemExit("Validation failed:\n" + "\n".join(errs))
     SQL_PATH.write_text(generate_postgres_sql(fixture), encoding="utf-8")
+    SUPABASE_SEED_PATH.write_text(generate_supabase_seed_sql(fixture), encoding="utf-8")
     approved = [v for v in fixture["venues"] if v["approval_status"] == "approved"]
     unapproved = [v for v in fixture["venues"] if v["approval_status"] != "approved"]
     print(
         f"Valid fixture: {len(approved)} approved venues, {len(unapproved)} unapproved venues, "
-        f"{len(fixture['menu_items'])} menu items. Wrote {SQL_PATH.name}."
+        f"{len(fixture['menu_items'])} menu items. Wrote {SQL_PATH.name} and {SUPABASE_SEED_PATH.name}."
     )
