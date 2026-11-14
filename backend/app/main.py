@@ -230,11 +230,26 @@ def list_approved_venues(
         else None
     )
 
+    CUISINE_SYNONYMS = {
+        "món việt": "Việt",
+        "món nhật": "Nhật",
+        "món chay": "Chay",
+        "nướng": "Nướng",
+        "lẩu": "Lẩu",
+        "hải sản": "Hải sản",
+    }
+    AMENITY_SYNONYMS = {
+        "bãi đỗ xe": ["chỗ đậu ô tô", "bãi đỗ xe"],
+        "sân vườn": ["bàn ngoài trời", "sân vườn"],
+        "phòng vip": ["phòng riêng", "phòng vip"],
+    }
+
     if clean_district:
         query = query.filter(VenueModel.district.ilike(f"%{clean_district}%"))
 
     if clean_cuisine:
-        query = query.filter(VenueModel.cuisine.ilike(f"%{clean_cuisine}%"))
+        effective_cuisine = CUISINE_SYNONYMS.get(clean_cuisine.lower(), clean_cuisine)
+        query = query.filter(VenueModel.cuisine.ilike(f"%{effective_cuisine}%"))
 
     if min_budget is not None:
         query = query.filter(VenueModel.max_budget_vnd >= min_budget)
@@ -273,11 +288,17 @@ def list_approved_venues(
     candidates = query.all()
 
     if clean_amenity:
-        needle = clean_amenity.lower()
+        amenity_needles = AMENITY_SYNONYMS.get(
+            clean_amenity.lower(), [clean_amenity.lower()]
+        )
         candidates = [
             v
             for v in candidates
-            if any(needle in (item or "").lower() for item in (v.amenities or []))
+            if any(
+                needle in (item or "").lower()
+                for item in (v.amenities or [])
+                for needle in amenity_needles
+            )
         ]
 
     if sort == "price_asc":
