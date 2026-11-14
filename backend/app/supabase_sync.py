@@ -24,12 +24,14 @@ _STATUS_MAP = {
 _LAST_SYNC_SUMMARY: dict[str, Any] | None = None
 _LAST_LIVE_COUNTS: dict[str, int] | None = None
 _VERIFIED_FALLBACK_COUNTS: dict[str, int] = {
-    "f3_venues_total": 11,
-    "f3_venues_approved": 8,
-    "f3_venues_unapproved": 3,
-    "f3_menu_categories": 18,
-    "f3_dishes": 21,
+    "f3_venues_total": 26,
+    "f3_venues_approved": 20,
+    "f3_venues_unapproved": 6,
+    "f3_menu_categories": 48,
+    "f3_dishes": 51,
     "total_venues_in_supabase": 29,
+    "total_categories_in_supabase": 50,
+    "total_dishes_in_supabase": 54,
 }
 
 
@@ -227,14 +229,14 @@ def get_supabase_status() -> dict[str, Any]:
 
     try:
         all_venues: list[Any] = client.table("venues").select("id, approval_status").execute().data or []
-        f3_venues = [v for v in all_venues if str(v.get("id", "")).startswith("v-")]
+        f3_venues = [v for v in all_venues if str(v.get("id", "")).startswith(("v-", "rest_"))]
         f3_approved = [v for v in f3_venues if v.get("approval_status") == "approved"]
 
         all_cats: list[Any] = client.table("menu_categories").select("id").execute().data or []
-        f3_cats = [c for c in all_cats if str(c.get("id", "")).startswith("cat-v-")]
+        f3_cats = [c for c in all_cats if str(c.get("id", "")).startswith(("cat-v-", "cat_rest_"))]
 
         all_dishes: list[Any] = client.table("dishes").select("id").execute().data or []
-        f3_dishes = [d for d in all_dishes if str(d.get("id", "")).startswith("d-")]
+        f3_dishes = [d for d in all_dishes if str(d.get("id", "")).startswith(("d-", "menu_"))]
 
         counts: dict[str, int] = {
             "f3_venues_total": len(f3_venues),
@@ -243,6 +245,8 @@ def get_supabase_status() -> dict[str, Any]:
             "f3_menu_categories": len(f3_cats),
             "f3_dishes": len(f3_dishes),
             "total_venues_in_supabase": len(all_venues),
+            "total_categories_in_supabase": len(all_cats),
+            "total_dishes_in_supabase": len(all_dishes),
         }
         _LAST_LIVE_COUNTS = counts
         return {
