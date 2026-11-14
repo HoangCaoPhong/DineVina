@@ -160,31 +160,24 @@ function Logo() {
   return <a className="brand" href="/" aria-label="DineVina - Trang chủ"><span className="brand-mark">D</span><span>Dine<span>Vina</span></span></a>
 }
 
-function SiteHeader({ isAbout = false, apiConnected = true, onAssistant, onAccount, onWorkspace, onNotifications, userName, unreadCount = 0 }: { isAbout?: boolean; apiConnected?: boolean; onAssistant?: () => void; onAccount?: () => void; onWorkspace?: () => void; onNotifications?: () => void; userName?: string; unreadCount?: number }) {
+function SiteHeader({ isAbout = false, onAssistant, onAccount, onWorkspace, onNotifications, userName, unreadCount = 0 }: { isAbout?: boolean; onAssistant?: () => void; onAccount?: () => void; onWorkspace?: () => void; onNotifications?: () => void; userName?: string; unreadCount?: number }) {
   return (
-    <>
-      <div className="announcement">
-        {apiConnected
-          ? 'PA3 Live Demo · FastAPI + PostgreSQL (Chỉ hiển thị nhà hàng đã duyệt · Sample Data)'
-          : 'Bản demo học phần · Dữ liệu nhà hàng minh họa (Offline Fallback)'}
+    <header className="site-header">
+      <Logo />
+      <nav aria-label="Điều hướng chính">
+        <a className={isAbout ? '' : 'active'} href="/#restaurants">Khám phá</a>
+        <a href="/#deals">Ưu đãi</a>
+        <a href="/#events">Đặt tiệc</a>
+        <a className={isAbout ? 'active' : ''} href="/gioi-thieu">Giới thiệu</a>
+        <a href="/#for-partners">Dành cho nhà hàng</a>
+      </nav>
+      <div className="header-actions">
+        {!isAbout && <button className="ghost-button" onClick={onAssistant}>✦ Trợ lý AI</button>}
+        {userName && <button className="header-icon-button" onClick={onNotifications} aria-label={`Thông báo, ${unreadCount} chưa đọc`}>♢{unreadCount > 0 && <span>{unreadCount}</span>}</button>}
+        {userName && <button className="ghost-button workspace-button" onClick={onWorkspace}>Lịch của tôi</button>}
+        <button className="account-button" onClick={onAccount}>{userName || 'Đăng nhập'}</button>
       </div>
-      <header className="site-header">
-        <Logo />
-        <nav aria-label="Điều hướng chính">
-          <a className={isAbout ? '' : 'active'} href="/#restaurants">Khám phá</a>
-          <a href="/#deals">Ưu đãi</a>
-          <a href="/#events">Đặt tiệc</a>
-          <a className={isAbout ? 'active' : ''} href="/gioi-thieu">Giới thiệu</a>
-          <a href="/#for-partners">Dành cho nhà hàng</a>
-        </nav>
-        <div className="header-actions">
-          {!isAbout && <button className="ghost-button" onClick={onAssistant}>✦ Trợ lý AI</button>}
-          {userName && <button className="header-icon-button" onClick={onNotifications} aria-label={`Thông báo, ${unreadCount} chưa đọc`}>♢{unreadCount > 0 && <span>{unreadCount}</span>}</button>}
-          {userName && <button className="ghost-button workspace-button" onClick={onWorkspace}>Lịch của tôi</button>}
-          <button className="account-button" onClick={onAccount}>{userName || 'Đăng nhập'}</button>
-        </div>
-      </header>
-    </>
+    </header>
   )
 }
 
@@ -625,7 +618,7 @@ function App() {
   if (isAboutPage) {
     return (
       <div className="app-shell about-page">
-        <SiteHeader isAbout apiConnected={apiConnected} onAccount={() => setAccountOpen(true)} userName={userName} unreadCount={unreadCount} />
+        <SiteHeader isAbout onAccount={() => setAccountOpen(true)} userName={userName} unreadCount={unreadCount} />
         <main><AboutContent /></main>
         <SiteFooter />
         {modalAccount}
@@ -635,7 +628,7 @@ function App() {
 
   return (
     <div id="top" className="app-shell">
-      <SiteHeader apiConnected={apiConnected} onAssistant={() => setAssistantOpen(true)} onAccount={() => setAccountOpen(true)} onWorkspace={() => requireAccount(() => setWorkspaceOpen(true))} onNotifications={() => setNotificationsOpen((value) => !value)} userName={userName} unreadCount={unreadCount} />
+      <SiteHeader onAssistant={() => setAssistantOpen(true)} onAccount={() => setAccountOpen(true)} onWorkspace={() => requireAccount(() => setWorkspaceOpen(true))} onNotifications={() => setNotificationsOpen((value) => !value)} userName={userName} unreadCount={unreadCount} />
 
       <main>
         <section className="hero">
@@ -707,3 +700,4 @@ function App() {
 }
 
 export default App
+
