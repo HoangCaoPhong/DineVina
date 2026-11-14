@@ -1,15 +1,16 @@
+import http.client
 import json
 import os
+import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any
 
 import pytest
-from fastapi.testclient import TestClient
-
 from app.database import SessionLocal
 from app.main import app, ensure_db_seeded
 from app.models import VenueModel
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
 _ROOT_ENV = Path(__file__).resolve().parents[2] / ".env"
@@ -148,7 +149,7 @@ def _fetch_supabase_table(table: str, select: str) -> list[dict[str, Any]]:
     try:
         with urllib.request.urlopen(req, timeout=2.5) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-    except Exception:
+    except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError):
         data = _build_fallback_supabase_table(table)
     _SUPABASE_CACHE[table] = data
     return data

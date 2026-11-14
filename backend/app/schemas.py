@@ -1,4 +1,3 @@
-from typing import Optional
 from pydantic import BaseModel, ConfigDict, Field
 
 
@@ -65,13 +64,13 @@ class VenueDetailOut(VenueSummaryOut):
 
 
 class AppliedFiltersOut(BaseModel):
-    q: Optional[str] = None
-    district: Optional[str] = None
-    cuisine: Optional[str] = None
-    min_budget: Optional[int] = None
-    max_budget: Optional[int] = None
-    party_size: Optional[int] = None
-    amenity: Optional[str] = None
+    q: str | None = None
+    district: str | None = None
+    cuisine: str | None = None
+    min_budget: int | None = None
+    max_budget: int | None = None
+    party_size: int | None = None
+    amenity: str | None = None
     sort: str = "rating"
 
 

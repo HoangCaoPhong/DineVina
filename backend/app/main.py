@@ -1,6 +1,6 @@
 from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
-from typing import Any
+from typing import Annotated, Any
 
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
@@ -22,6 +22,7 @@ from .schemas import (
 from .seed import seed_f3_database
 
 _DB_INITIALIZED = False
+DbSession = Annotated[Session, Depends(get_db)]
 
 
 def ensure_db_seeded() -> None:
@@ -123,7 +124,7 @@ def health() -> dict[str, str]:
 
 
 @app.get("/api/venues/filters", response_model=FilterOptionsOut)
-def get_venue_filter_options(db: Session = Depends(get_db)) -> FilterOptionsOut:
+def get_venue_filter_options(db: DbSession) -> FilterOptionsOut:
     """
     Returns distinct districts, cuisines, amenities, budget bounds, and maximum capacity
     aggregated strictly from administrator-approved venues (`status == 'approved'`).
@@ -135,6 +136,7 @@ def get_venue_filter_options(db: Session = Depends(get_db)) -> FilterOptionsOut:
 @app.get("/api/venues", response_model=VenueListResponse)
 @app.get("/api/v1/restaurants/search", response_model=VenueListResponse)
 def list_approved_venues(
+    db: DbSession,
     q: str | None = Query(
         default=None,
         description="Từ khóa tìm kiếm theo tên nhà hàng, món ăn, ẩm thực, khu vực",
@@ -176,7 +178,6 @@ def list_approved_venues(
     page_size: int = Query(
         default=20, ge=1, le=50, description="Số lượng kết quả mỗi trang"
     ),
-    db: Session = Depends(get_db),
 ) -> VenueListResponse:
     """
     F3 Restaurant Discovery Endpoint.
@@ -330,7 +331,7 @@ def list_approved_venues(
 @app.get("/api/v1/restaurants/{venue_id}", response_model=VenueDetailOut)
 def get_approved_venue_detail(
     venue_id: str,
-    db: Session = Depends(get_db),
+    db: DbSession,
 ) -> VenueDetailOut:
     """
     Returns full venue metadata and categorized menu dishes for an approved venue
