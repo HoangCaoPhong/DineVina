@@ -102,15 +102,15 @@ flowchart LR
 
 * **Screen 1 (Basic Flow Steps 1–3):** Smart Preference Input & Consent Panel.
 
-![UC-F9-01 Screen 1: AI Preference Input Form](evidence/prototypes/UC_F9_01_Input_Panel.png)
+![UC-F9-01 Screen 1: AI Preference Input Form](evidence/UC_F9_01_Input_Panel.png)
 
 * **Screen 2 (Basic Flow Steps 6–8):** Ranked Venue Results with Explainable Reason Badges.
 
-![UC-F9-01 Screen 2: Explainable Recommendation Results](evidence/prototypes/UC_F9_01_Ranked_Results.png)
+![UC-F9-01 Screen 2: Explainable Recommendation Results](evidence/UC_F9_01_Ranked_Results.png)
 
 * **Screen 3 (Alternative Flows AF-1 / AF-2 / AF-3):** Zero Exact Match Banner, Relaxed Alternatives & Manual Filter Fallback State.
 
-![UC-F9-01 Screen 3: Empty Match and Fallback to Manual Filters](evidence/prototypes/UC_F9_01_Fallback_Empty_State.png)
+![UC-F9-01 Screen 3: Empty Match and Fallback to Manual Filters](evidence/UC_F9_01_Fallback_Empty_State.png)
 
 ---
 
@@ -154,7 +154,7 @@ flowchart LR
 
 * **Screen 4 (Basic Flow & AF-1 Abstention):** Contextual Venue Q&A Drawer showing (a) a cited answer from verified policy/menu data and (b) an explicit abstention response when data is unverified.
 
-![UC-F9-02 Screen 4: RAG Assistant Cited Answer and Abstention State](evidence/prototypes/UC_F9_02_RAG_Assistant_States.png)
+![UC-F9-02 Screen 4: RAG Assistant Cited Answer and Abstention State](evidence/UC_F9_02_RAG_Assistant_States.png)
 
 ---
 
@@ -190,4 +190,4 @@ flowchart LR
 
 * **Screen 5 (Basic Flow & AF-1 Low-Confidence Warning):** Partner Menu OCR Upload & Editable Draft Review Table with amber low-confidence verification highlights.
 
-![UC-F9-03 Screen 5: Partner Menu OCR Draft Review Table](evidence/prototypes/UC_F9_03_OCR_Draft_Review.png)
+![UC-F9-03 Screen 5: Partner Menu OCR Draft Review Table](evidence/UC_F9_03_OCR_Draft_Review.png)
