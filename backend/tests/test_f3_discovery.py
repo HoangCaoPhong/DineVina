@@ -1,4 +1,3 @@
-import http.client
 import json
 import os
 import urllib.error
@@ -149,8 +148,8 @@ def _fetch_supabase_table(table: str, select: str) -> list[dict[str, Any]]:
     try:
         with urllib.request.urlopen(req, timeout=2.5) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-    except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError):
-        data = _build_fallback_supabase_table(table)
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        pytest.skip(f"Live Supabase check unavailable: {exc}")
     _SUPABASE_CACHE[table] = data
     return data
 

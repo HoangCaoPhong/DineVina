@@ -1,0 +1,40 @@
+d3de816 2026-11-14T22:19:29+07:00 HoangCaoPhong Submit PA3 video by YouTube link without MP4 copy
+7d5862e 2026-11-14T22:07:54+07:00 HoangCaoPhong Polish PA3 evidence, F9 cases and PostgreSQL verification
+bba7461 2026-11-14T21:27:23+07:00 HoangCaoPhong Verify PA3 archive and correct prototype path
+5362dcf 2026-11-14T21:21:10+07:00 HoangCaoPhong Add verified PA3 demo link and submission evidence
+43e9817 2026-11-14T18:33:01+07:00 HoangCaoPhong docs(pa3): assemble submission materials locally
+ac5785c 2026-11-14T18:23:08+07:00 HoangCaoPhong fix(pa3): restore F3 frontend and pass backend CI
+e39e633 2026-11-14T18:05:19+07:00 Hoang Cao Phong Merge pull request #28 from HoangCaoPhong/research/PA3_Kien
+1c23671 2026-11-14T17:57:13+07:00 Hoang Cao Phong Merge pull request #27 from HoangCaoPhong/research/Ngoc_PA3
+ab18e50 2026-11-14T17:52:52+07:00 Hoang Cao Phong Merge pull request #26 from HoangCaoPhong/research/PA3_Nhan
+1a04167 2026-11-14T17:52:24+07:00 Hoang Cao Phong Merge pull request #25 from HoangCaoPhong/research/PA3_Duy
+0321b4f 2026-11-14T16:13:59+07:00 Nguyễn Trung Kiên fix(test): add fast timeout and offline fallback for Supabase rollout checks
+983aa8a 2026-11-14T15:50:58+07:00 tkduy2414-hue docs(pa3): add AI usage report to PA3-Tasks.md
+690c288 2026-11-14T15:17:44+07:00 Nguyễn Trung Kiên chore(test): suppress Starlette testclient httpx2 deprecation warning
+8307d01 2026-11-14T15:13:06+07:00 Nguyễn Trung Kiên docs(video): align F3 narration script with 27 tests, UC IDs, and live UI flow
+038e3a1 2026-11-14T13:24:00+07:00 Nguyễn Trung Kiên test(f3): add v1 contract aliases, verify Supabase rollout, and expand pytest suite to 27 tests
+f7b113e 2026-11-14T12:56:44+07:00 Nguyễn Trung Kiên chore(pa3): keep research/PA3_Kien_Deliverables scoped to F3 backend, Spec Kit, and Kien reports
+cf4c5f2 2026-11-14T12:55:10+07:00 nhankun2006 feat(f3-fixture): add non-destructive Supabase F3 upsert seed and sync test
+1369992 2026-11-14T12:40:42+07:00 Nguyễn Trung Kiên fix(backend): resolve Pyrefly and Pylance import and SQLAlchemy type diagnostics
+a6c3acf 2026-11-14T12:26:47+07:00 Nguyễn Trung Kiên chore(frontend): remove top demo/offline announcement bar
+00b4a5e 2026-11-14T12:21:33+07:00 Nguyễn Trung Kiên feat(f3-fullstack): integrate Ngoc's frontend UI with Kien's FastAPI + PostgreSQL F3 backend
+384153f 2026-11-14T11:57:24+07:00 nhankun2006 docs(pa3): add Nhan Partner/Admin UCs, prototypes, F3 fixture, and PA3 reports
+bf26759 2026-11-14T10:16:07+07:00 Nguyễn Trung Kiên docs: add AI usage record for Kien in PA3 Week 4-5 report
+d84d612 2026-11-14T10:11:42+07:00 Nguyễn Trung Kiên docs(pa3): add Kien individual AI usage record
+28724ad 2026-11-14T09:19:53+07:00 tkduy2414-hue docs(pa3): fix prototype image paths in PA3-Tasks.md
+6c6d630 2026-11-14T09:13:47+07:00 tkduy2414-hue docs(pa3): add F9 AI use-case specifications and UI prototypes
+54a625d 2026-11-13T23:25:43+07:00 moonshine-v docs(PA3): add Ngoc AI usage record
+065dfd5 2026-11-13T23:04:28+07:00 moonshine-v docs(PA3): add Vision v2 and Vision changes
+78b601e 2026-11-13T22:48:29+07:00 moonshine-v docs(PA3): add customer use-case specs and prototypes
+0d0ccfe 2026-11-13T20:42:24+07:00 moonshine-v docs(PA3): fix Mermaid relationship syntax
+6ef6838 2026-11-13T20:27:11+07:00 moonshine-v docs(PA3): add use-case model for F1-F9
+3e064e7 2026-11-12T21:14:37+07:00 Nguyễn Trung Kiên feat(f3-backend): implement PA3 F3 Spec Kit artifacts, FastAPI + PostgreSQL discovery API, and Kien deliverables
+e6b7b5f 2026-11-12T20:09:39+07:00 HoangCaoPhong prepare for PA3 submit
+915e854 2026-11-12T20:05:13+07:00 HoangCaoPhong chore(git): update .gitignore rules
+6fae7ee 2026-11-01T00:33:45+07:00 Hoang Cao Phong Revise team member roles and emails in README
+d1b1909 2026-11-01T00:05:27+07:00 Hoang Cao Phong Merge pull request #21 from HoangCaoPhong/research/PA2_final
+f324f65 2026-11-01T00:04:10+07:00 Hoang Cao Phong Merge pull request #20 from HoangCaoPhong/chores/sumary-PA2
+df4956d 2026-11-01T00:02:12+07:00 HoangCaoPhong learning
+3565d14 2026-10-31T23:41:46+07:00 HoangCaoPhong update PA2 final
+4f05f95 2026-10-31T23:20:44+07:00 nhankun2006 fix: ai usage & speckit evidence
+6e418c1 2026-10-31T23:16:26+07:00 HoangCaoPhong prepare for submit PA2
