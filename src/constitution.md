@@ -1,30 +1,33 @@
-# DineVina Backend Constitution
+# DineVina Backend & Full-Stack Constitution
+
+**Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
 
 ## Core Principles
 
 ### I. API Contract-First & Schema Determinism
-Every backend capability must begin with a formal API contract. All request parameters, response bodies, and error formats must be strictly typed using Pydantic v2 schemas and conform to OpenAPI 3.1 specifications. Code is not implemented until the schema and endpoints are reviewed.
+Every backend capability must begin with a formal API contract. All request parameters, query filters, response bodies, and error envelopes must be strictly typed using Pydantic v2 schemas and conform to OpenAPI 3.1 specifications before route implementation.
 
-### II. Test-First & Automated Verification (NON-NEGOTIABLE)
-All business workflows must have automated unit and integration tests using `pytest` and FastAPI `TestClient`. Every state transition, boundary condition, and error response must be verified by automated tests. Red-Green-Refactor cycle is strictly enforced: test cases are authored against contract specifications before final route logic is completed.
+### II. Approved-Only Public Discovery & Sample Data Transparency (NON-NEGOTIABLE)
+Public discovery and venue detail endpoints (`GET /api/venues`, `GET /api/venues/filters`, `GET /api/venues/{id}`) must strictly filter for administrator-approved records (`status = 'approved'`). Unapproved, pending, returned, rejected, or suspended venues must never leak into public search results, filter facet aggregations, or detail responses. All fixture records must carry explicit sample metadata (`is_sample`, `sample_label`).
 
-### III. Reservation State Machine Integrity & Concurrency Safety
-Table and event reservations must follow deterministic state transitions (`PENDING_CONFIRMATION` → `CONFIRMED` / `DECLINED` / `EXPIRED`, `CONFIRMED` → `CANCELLED_BY_CUSTOMER` / `CANCELLED_BY_RESTAURANT` / `COMPLETED` / `NO_SHOW`). Terminal states are immutable. Race conditions on seat capacity must be protected via atomic operations and slot quota checks.
+### III. Persistent Relational Storage with PostgreSQL
+All functional groups implemented from PA3 onward must persist data in a relational database managed via SQLAlchemy 2.0 ORM (`DATABASE_URL` targeting PostgreSQL 17 in Docker Compose and production environments, with deterministic test database isolation for automated `pytest` execution).
 
-### IV. Zero Credential Exposure & Secret Isolation
-No API credentials, secret keys, or environment-specific tokens may ever be hardcoded or committed to version control. Configuration must be loaded from environment variables (`.env`). Local `.gitignore` must actively filter all agent tokens and temporary caches.
+### IV. Test-First & Automated Verification
+All business workflows, multi-attribute filters, boundary conditions, and negative paths (`404 Not Found` for unapproved/non-existent venues, `422 Unprocessable Entity` for invalid query parameters) must be verified by automated integration tests using `pytest` and FastAPI `TestClient`.
 
-### V. Human-in-the-Loop AI Engineering
-AI coding assistants (Spec Kit, Antigravity, Gemini CLI) are used as productivity amplifiers under strict human oversight. The engineer reviews every generated line of code, validates business invariants against course requirements, and executes all test suites locally before committing.
+### V. Zero Credential Exposure & Secret Isolation
+No API credentials, database passwords, or environment-specific tokens may ever be hardcoded or committed to version control. Configuration is injected via environment variables (`DATABASE_URL`, `.env`).
+
+### VI. Human-in-the-Loop Spec-Driven Engineering
+AI coding agents operate strictly within the boundaries of ratified `spec.md`, `plan.md`, and `tasks.md` artifacts. Every generated module is reviewed by the responsible engineer and verified against the use-case specifications.
 
 ## Technology Stack & Architectural Constraints
-* **Runtime:** Python 3.13+
-* **Web Framework:** FastAPI (RESTful JSON APIs, CORS enabled)
-* **Validation:** Pydantic v2 (Strict typing, ISO 8601 timestamps, Vietnamese phone validation)
+* **Runtime:** Python 3.12+ / 3.13+
+* **Web Framework:** FastAPI (RESTful JSON APIs, CORS enabled, OpenAPI 3.1)
+* **ORM & Persistence:** SQLAlchemy 2.0 + PostgreSQL (`psycopg2-binary`)
+* **Validation:** Pydantic v2
 * **Testing:** `pytest`, `httpx`, `TestClient`
-* **Data Layer:** In-memory atomic store for prototype verification; PostgreSQL schema compatibility for production
+* **Frontend Integration:** React 18 + TypeScript + Vite via `/api/*` REST proxy
 
-## Governance
-This Constitution establishes the baseline engineering principles for DineVina backend development in PA2 and beyond. All pull requests, AI-assisted code generations, and task breakdowns must adhere to these non-negotiables.
-
-**Version**: 1.0.0 | **Ratified**: 2026-10-26 | **Author**: Nguyễn Trung Kiên (Backend Engineer)
+**Version**: 1.1.0 | **Ratified**: 2026-10-26 | **Updated for PA3**: 2026-11-12 | **Author**: Nguyễn Trung Kiên (Backend Engineer)
