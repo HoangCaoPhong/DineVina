@@ -245,7 +245,7 @@ def _to_reservation_out(
     history_items = [
         ReservationStatusHistoryOut.model_validate(h)
         for h in sorted(
-            list(reservation.status_history),
+            reservation.status_history,
             key=lambda item: _ensure_aware(item.created_at),
         )
     ]
