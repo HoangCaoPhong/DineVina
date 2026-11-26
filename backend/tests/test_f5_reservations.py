@@ -1,5 +1,10 @@
+import json
+import os
+import urllib.error
+import urllib.request
 from collections.abc import Iterator
 from datetime import datetime, timedelta
+from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
@@ -420,3 +425,138 @@ def test_partner_checkin_and_30m_no_show_grace_and_admin_support() -> None:
         "Confirmed",
         "Completed",
     ]
+
+
+def test_partner_queue_list_filters_and_ownership_guardrail() -> None:
+    d1 = _future_date_str(16)
+    d2 = _future_date_str(17)
+    b1 = _create_booking(
+        headers=CUST_1, reserved_date=d1, reserved_time="19:00", party_size=2
+    )
+    b2 = _create_booking(
+        headers=CUST_2, reserved_date=d2, reserved_time="19:30", party_size=3
+    )
+    client.post(
+        f"/api/partner/reservations/{b1['id']}/confirm", headers=PARTNER_V1
+    )
+
+    res_all = client.get("/api/partner/reservations", headers=PARTNER_V1)
+    assert res_all.status_code == 200
+    returned_ids = {item["id"] for item in res_all.json()["items"]}
+    assert {b1["id"], b2["id"]}.issubset(returned_ids)
+
+    res_filtered = client.get(
+        "/api/partner/reservations",
+        params={"status": "Confirmed", "reserved_date": d1},
+        headers=PARTNER_V1,
+    )
+    assert res_filtered.status_code == 200
+    assert [i["id"] for i in res_filtered.json()["items"]] == [b1["id"]]
+
+    res_wrong_venue = client.get(
+        "/api/partner/reservations",
+        params={"venue_id": "v-hcmc-002"},
+        headers=PARTNER_V1,
+    )
+    assert res_wrong_venue.status_code == 403
+
+    res_cust_forbidden = client.get("/api/partner/reservations", headers=CUST_1)
+    assert res_cust_forbidden.status_code == 403
+
+
+def test_overlapping_capacity_and_release_on_decline() -> None:
+    target_date = _future_date_str(18)
+    # v-hcmc-008 max_capacity = 50
+    b1 = _create_booking(
+        headers=CUST_1,
+        venue_id="v-hcmc-008",
+        reserved_date=target_date,
+        reserved_time="19:00",
+        party_size=30,
+    )
+    _create_booking(
+        headers=CUST_2,
+        venue_id="v-hcmc-008",
+        reserved_date=target_date,
+        reserved_time="19:00",
+        party_size=20,
+    )
+
+    res_overflow = client.post(
+        "/api/reservations",
+        json={
+            "venue_id": "v-hcmc-008",
+            "reserved_date": target_date,
+            "reserved_time": "19:00",
+            "party_size": 1,
+            "customer_name": "Late Guest",
+            "customer_phone": "0909333444",
+        },
+        headers=CUST_1,
+    )
+    assert res_overflow.status_code == 409
+
+    partner_v8 = {
+        "X-User-Id": "test-partner-8",
+        "X-User-Role": "partner_staff",
+        "X-Partner-Venues": "v-hcmc-008",
+    }
+    res_decline = client.post(
+        f"/api/partner/reservations/{b1['id']}/decline",
+        json={"reason": "Khách đổi ngày"},
+        headers=partner_v8,
+    )
+    assert res_decline.status_code == 200
+
+    res_after_release = client.post(
+        "/api/reservations",
+        json={
+            "venue_id": "v-hcmc-008",
+            "reserved_date": target_date,
+            "reserved_time": "19:00",
+            "party_size": 10,
+            "customer_name": "New Guest",
+            "customer_phone": "0909333555",
+        },
+        headers=CUST_1,
+    )
+    assert res_after_release.status_code == 201
+
+
+def test_supabase_reservations_table_reachability() -> None:
+    env_path = Path(__file__).resolve().parents[2] / ".env"
+    env_vars: dict[str, str] = {}
+    if env_path.exists():
+        for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", maxsplit=1)
+                env_vars[k.strip()] = v.strip().strip('"').strip("'")
+
+    url = (os.getenv("SUPABASE_URL") or env_vars.get("SUPABASE_URL") or "").rstrip(
+        "/"
+    )
+    key = (
+        os.getenv("SUPABASE_SERVICE_ROLE_KEY")
+        or env_vars.get("SUPABASE_SERVICE_ROLE_KEY")
+        or os.getenv("SUPABASE_ANON_KEY")
+        or env_vars.get("SUPABASE_ANON_KEY")
+    )
+    if not url or not key:
+        pytest.skip("Supabase credentials (.env) not configured.")
+
+    req = urllib.request.Request(
+        f"{url}/rest/v1/reservations?select=id,venue_id,status&limit=5",
+        headers={
+            "apikey": key,
+            "Authorization": f"Bearer {key}",
+            "Accept": "application/json",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=6.0) as resp:
+            assert resp.status == 200
+            rows = json.loads(resp.read().decode("utf-8"))
+            assert isinstance(rows, list)
+    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        pytest.skip(f"Supabase network unavailable: {exc}")

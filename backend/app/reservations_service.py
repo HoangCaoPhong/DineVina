@@ -609,6 +609,62 @@ def _enforce_partner_ownership(actor: ActorContext, venue_id: str) -> None:
         )
 
 
+def list_partner_reservations(
+    db: Session,
+    actor: ActorContext,
+    venue_id: str | None = None,
+    status_filter: str | None = None,
+    reserved_date: str | None = None,
+    page: int = 1,
+    page_size: int = 20,
+    now: datetime | None = None,
+) -> ReservationListResponse:
+    ref_now = now or current_vn_time()
+    if venue_id is not None:
+        _enforce_partner_ownership(actor, venue_id)
+        target_venues = frozenset({venue_id})
+    else:
+        target_venues = actor.owned_venue_ids
+
+    if not target_venues:
+        return ReservationListResponse(
+            total=0, page=page, page_size=page_size, items=[]
+        )
+
+    all_rows: list[Any] = (
+        db.query(ReservationModel)
+        .options(
+            selectinload(ReservationModel.status_history),
+            selectinload(ReservationModel.venue),
+        )
+        .filter(ReservationModel.venue_id.in_(list(target_venues)))
+        .order_by(ReservationModel.created_at.desc())
+        .all()
+    )
+
+    changed = False
+    for row in all_rows:
+        if _expire_if_stale(db, row, ref_now):
+            changed = True
+    if changed:
+        db.commit()
+
+    if status_filter:
+        all_rows = [r for r in all_rows if r.status == status_filter]
+    if reserved_date:
+        all_rows = [r for r in all_rows if r.reserved_date == reserved_date]
+
+    total = len(all_rows)
+    start = (page - 1) * page_size
+    paged = all_rows[start : start + page_size]
+    return ReservationListResponse(
+        total=total,
+        page=page,
+        page_size=page_size,
+        items=[_to_reservation_out(r) for r in paged],
+    )
+
+
 def partner_confirm(
     db: Session,
     actor: ActorContext,

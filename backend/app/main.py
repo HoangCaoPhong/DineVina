@@ -18,6 +18,7 @@ from .reservations_service import (
     get_customer_reservation,
     get_venue_availability,
     list_customer_reservations,
+    list_partner_reservations,
     partner_cancel,
     partner_check_in,
     partner_confirm,
@@ -479,6 +480,23 @@ def cancel_my_reservation(
     """UC-C11: Customer cancels a Confirmed booking at least 2 hours prior."""
     ensure_db_seeded()
     return cancel_by_customer(db, actor, reservation_id, payload.reason)
+
+
+@app.get("/api/partner/reservations", response_model=ReservationListResponse)
+def list_venue_reservation_queue(
+    venue_id: str | None = Query(default=None),
+    status: str | None = Query(default=None),
+    reserved_date: str | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=50),
+    actor: ActorContext = _PARTNER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationListResponse:
+    """UC-P05 / F5: List persisted reservation queue for partner venues."""
+    ensure_db_seeded()
+    return list_partner_reservations(
+        db, actor, venue_id, status, reserved_date, page, page_size
+    )
 
 
 @app.post(
