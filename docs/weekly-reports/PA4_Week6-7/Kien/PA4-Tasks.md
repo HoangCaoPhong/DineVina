@@ -75,12 +75,32 @@
 
 ## 3. Sprint Coordination & Handoff Checklist
 
+**Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
+
 | Dependency / Handoff | Counterpart(s) | Topic to Align | Status |
 | :--- | :--- | :--- | :---: |
 | Sprint Planning & Scope Lock | Toàn nhóm | Confirm F5 & F7 scope (PA3 Project Plan §3.1) and F6 event-queue boundary | [ ] |
 | Role / Session & API Contracts | Võ Mỹ Ngọc, Trương Khánh Duy | Customer, Partner, and Admin auth/role dependencies before API handoff | [ ] |
 | Atomic Capacity & Slot Lookup | Lương Thiện Nhân | Shared availability, blocked slots, capacity locking between F5 & F7 | [ ] |
-| C4 Container Names & Interfaces | Võ Mỹ Ngọc, Hoàng Cao Phong | Consistent container names/protocols across C4 L2/L3, frontend & deployment | [ ] |
-| F5 Implementation & Tests | Nguyễn Trung Kiên | Spec Kit (`spec`/`plan`/`tasks`), PostgreSQL migrations/seeds, `pytest` suite | [ ] |
+| C4 Container Names & Interfaces | Võ Mỹ Ngọc, Hoàng Cao Phong | Consistent container names/protocols across C4 L2/L3, frontend & deployment | [x] |
+| F5 Spec Kit Artifacts (`spec`/`plan`/`tasks`) | Nguyễn Trung Kiên | Draft `src/specs/003-f5-table-reservation/` specifications | [x] |
+| F5 Implementation & Tests | Nguyễn Trung Kiên | PostgreSQL migrations/seeds, API implementation, retained `pytest` suite | [ ] |
 | Review of Nhân's PA4 Tasks | Lương Thiện Nhân | Review F7 implementation/tests and `UC-Partner-Admin.md` reconciliation | [ ] |
 | Narrated Demo Video | Lương Thiện Nhân, Hoàng Cao Phong | Record E2E F5 & F7 demo, upload Unlisted/Public YouTube, send URL + chapters | [ ] |
+
+---
+
+## 4. PA4 Deliverables Index (Nguyễn Trung Kiên)
+
+**Performed by:** Nguyễn Trung Kiên | **Reviewed by:** Trương Khánh Duy | **Edited by:** Nguyễn Trung Kiên
+
+### 4.1 Spec Kit Artifacts — Functional Group F5 (`src/specs/003-f5-table-reservation/`)
+* `src/specs/003-f5-table-reservation/spec.md` — F5 functional specification, reservation state machine, business invariants, and Given–When–Then acceptance scenarios (`FR-5.1`–`FR-5.10`, `FR-7.3`).
+* `src/specs/003-f5-table-reservation/plan.md` — Technical architecture plan, PostgreSQL schema extensions (`reservations`, `reservation_status_history`), atomic capacity locking strategy, REST API contracts, and migration/test plan.
+* `src/specs/003-f5-table-reservation/tasks.md` — Actionable F5 engineering checklist (`TASK-F5-01` $\rightarrow$ `TASK-F5-08`).
+
+### 4.2 Architecture, AI Usage & Demo Documentation (`docs/weekly-reports/PA4_Week6-7/Kien/`)
+* `docs/weekly-reports/PA4_Week6-7/Kien/C4-Architecture-L2-L3.md` — Mermaid C4 Level 2 (Container Diagram) and C4 Level 3 (Backend Component Diagram) plus container/interface handoff table for Võ Mỹ Ngọc and Hoàng Cao Phong (`PA4 §C`).
+* `docs/weekly-reports/PA4_Week6-7/Kien/F5-F7-Video-Narration-Script.md` — Draft narrated demo storyboard and YouTube chapter plan for F5 & F7 (`PA4 §E`).
+* `docs/weekly-reports/PA4_Week6-7/Kien/AI-Usage-Kien.md` — Individual PA4 AI usage declaration and log (`PA4 §F`).
+* `docs/weekly-reports/PA4_Week6-7/Kien/PA4-Tasks.md` — Task ownership, review responsibilities, and coordination checklist.
