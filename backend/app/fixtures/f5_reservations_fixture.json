@@ -1,0 +1,93 @@
+{
+  "fixture_version": "PA4-F5-1.0",
+  "description": "Seeded F5 reservations covering Pending, Confirmed, Cancelled, Completed, and No-show history states.",
+  "reservations": [
+    {
+      "id": "res-demo-001",
+      "reservation_code": "DV-F50001",
+      "venue_id": "v-hcmc-001",
+      "customer_id": "cust-demo-01",
+      "customer_name": "Nguyễn Minh Anh",
+      "customer_phone": "0909123456",
+      "reserved_date": "2027-06-15",
+      "reserved_time": "19:00",
+      "party_size": 4,
+      "special_requests": "Bàn yên tĩnh gần cửa sổ",
+      "status": "Confirmed",
+      "history": [
+        {
+          "from_state": null,
+          "to_state": "Pending confirmation",
+          "actor_id": "cust-demo-01",
+          "actor_role": "customer",
+          "reason": "Customer submitted table reservation request."
+        },
+        {
+          "from_state": "Pending confirmation",
+          "to_state": "Confirmed",
+          "actor_id": "partner-001",
+          "actor_role": "partner_staff",
+          "reason": "Partner staff confirmed reservation after capacity recheck."
+        }
+      ]
+    },
+    {
+      "id": "res-demo-002",
+      "reservation_code": "DV-F50002",
+      "venue_id": "v-hcmc-002",
+      "customer_id": "cust-demo-01",
+      "customer_name": "Nguyễn Minh Anh",
+      "customer_phone": "0909123456",
+      "reserved_date": "2027-06-16",
+      "reserved_time": "18:30",
+      "party_size": 6,
+      "special_requests": "Cần bàn nướng gần khu vực thoáng",
+      "status": "Pending confirmation",
+      "history": [
+        {
+          "from_state": null,
+          "to_state": "Pending confirmation",
+          "actor_id": "cust-demo-01",
+          "actor_role": "customer",
+          "reason": "Customer submitted table reservation request."
+        }
+      ]
+    },
+    {
+      "id": "res-demo-003",
+      "reservation_code": "DV-F50003",
+      "venue_id": "v-hcmc-001",
+      "customer_id": "cust-demo-02",
+      "customer_name": "Trần Thanh Nam",
+      "customer_phone": "0918222333",
+      "reserved_date": "2026-10-12",
+      "reserved_time": "19:00",
+      "party_size": 2,
+      "special_requests": "",
+      "status": "Completed",
+      "history": [
+        {
+          "from_state": null,
+          "to_state": "Pending confirmation",
+          "actor_id": "cust-demo-02",
+          "actor_role": "customer",
+          "reason": "Customer submitted table reservation request."
+        },
+        {
+          "from_state": "Pending confirmation",
+          "to_state": "Confirmed",
+          "actor_id": "partner-001",
+          "actor_role": "partner_staff",
+          "reason": "Confirmed for dinner service."
+        },
+        {
+          "from_state": "Confirmed",
+          "to_state": "Completed",
+          "actor_id": "partner-001",
+          "actor_role": "partner_staff",
+          "reason": "Customer checked in on time."
+        }
+      ]
+    }
+  ]
+}

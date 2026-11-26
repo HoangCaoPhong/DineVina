@@ -84,7 +84,7 @@
 | Atomic Capacity & Slot Lookup | Lương Thiện Nhân | Shared availability, blocked slots, capacity locking between F5 & F7 | [ ] |
 | C4 Container Names & Interfaces | Võ Mỹ Ngọc, Hoàng Cao Phong | Consistent container names/protocols across C4 L2/L3, frontend & deployment | [x] |
 | F5 Spec Kit Artifacts (`spec`/`plan`/`tasks`) | Nguyễn Trung Kiên | Draft `src/specs/003-f5-table-reservation/` specifications | [x] |
-| F5 Implementation & Tests | Nguyễn Trung Kiên | PostgreSQL migrations/seeds, API implementation, retained `pytest` suite | [ ] |
+| F5 Implementation & Tests | Nguyễn Trung Kiên | PostgreSQL migrations/seeds, API implementation, retained `pytest` suite | [x] |
 | Review of Nhân's PA4 Tasks | Lương Thiện Nhân | Review F7 implementation/tests and `UC-Partner-Admin.md` reconciliation | [ ] |
 | Narrated Demo Video | Lương Thiện Nhân, Hoàng Cao Phong | Record E2E F5 & F7 demo, upload Unlisted/Public YouTube, send URL + chapters | [ ] |
 

@@ -1,4 +1,17 @@
-from sqlalchemy import JSON, Boolean, Float, ForeignKey, Integer, String, Text
+from datetime import datetime
+
+from sqlalchemy import (
+    JSON,
+    Boolean,
+    DateTime,
+    Float,
+    ForeignKey,
+    Index,
+    Integer,
+    String,
+    Text,
+    UniqueConstraint,
+)
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .database import Base
@@ -69,3 +82,91 @@ class DishModel(Base):
     is_available: Mapped[bool] = mapped_column(Boolean, nullable=False, default=True)
 
     venue: Mapped["VenueModel"] = relationship("VenueModel", back_populates="dishes")
+
+
+class ReservationModel(Base):
+    __tablename__ = "reservations"
+    __table_args__ = (
+        Index(
+            "ix_res_slot_lookup",
+            "venue_id",
+            "reserved_date",
+            "reserved_time",
+            "status",
+        ),
+        UniqueConstraint(
+            "customer_id",
+            "idempotency_key",
+            name="uq_customer_idempotency",
+        ),
+    )
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True, index=True)
+    reservation_code: Mapped[str] = mapped_column(
+        String(24), unique=True, nullable=False, index=True
+    )
+    venue_id: Mapped[str] = mapped_column(
+        String(64),
+        ForeignKey("venues.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    customer_id: Mapped[str] = mapped_column(String(64), nullable=False, index=True)
+    customer_name: Mapped[str] = mapped_column(String(120), nullable=False)
+    customer_phone: Mapped[str] = mapped_column(String(32), nullable=False)
+    reserved_date: Mapped[str] = mapped_column(
+        String(10), nullable=False, index=True
+    )
+    reserved_time: Mapped[str] = mapped_column(
+        String(5), nullable=False, index=True
+    )
+    party_size: Mapped[int] = mapped_column(Integer, nullable=False)
+    special_requests: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    status: Mapped[str] = mapped_column(String(32), nullable=False, index=True)
+    idempotency_key: Mapped[str | None] = mapped_column(
+        String(128), nullable=True
+    )
+    response_deadline: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False
+    )
+    cancellation_deadline: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False
+    )
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False
+    )
+
+    venue: Mapped["VenueModel"] = relationship("VenueModel")
+    status_history: Mapped[list["ReservationStatusHistoryModel"]] = relationship(
+        "ReservationStatusHistoryModel",
+        back_populates="reservation",
+        cascade="all, delete-orphan",
+        order_by="ReservationStatusHistoryModel.created_at",
+    )
+
+
+class ReservationStatusHistoryModel(Base):
+    __tablename__ = "reservation_status_history"
+
+    id: Mapped[str] = mapped_column(String(64), primary_key=True, index=True)
+    reservation_id: Mapped[str] = mapped_column(
+        String(64),
+        ForeignKey("reservations.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    from_state: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    to_state: Mapped[str] = mapped_column(String(32), nullable=False)
+    actor_id: Mapped[str] = mapped_column(String(64), nullable=False)
+    actor_role: Mapped[str] = mapped_column(String(32), nullable=False)
+    reason: Mapped[str] = mapped_column(Text, nullable=False, default="")
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, index=True
+    )
+
+    reservation: Mapped["ReservationModel"] = relationship(
+        "ReservationModel", back_populates="status_history"
+    )

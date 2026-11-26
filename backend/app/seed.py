@@ -1,11 +1,19 @@
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from sqlalchemy.orm import Session
 
-from .models import DishModel, VenueModel
+from .models import (
+    DishModel,
+    ReservationModel,
+    ReservationStatusHistoryModel,
+    VenueModel,
+)
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "f3_venues_fixture.json"
+F5_FIXTURE_PATH = Path(__file__).parent / "fixtures" / "f5_reservations_fixture.json"
+_VN_TZ = timezone(timedelta(hours=7))
 
 
 def load_fixture_data() -> dict:
@@ -98,3 +106,77 @@ def seed_f3_database(db: Session, force_refresh: bool = False) -> dict[str, int]
         "total_approved_venues": total_approved,
         "total_venues_in_db": total_all,
     }
+
+
+def seed_f5_database(db: Session, force_refresh: bool = False) -> dict[str, int]:
+    """Idempotently seeds PA4 F5 reservations and status history fixtures."""
+    if not F5_FIXTURE_PATH.exists():
+        return {"inserted_reservations": 0, "total_reservations": 0}
+
+    payload = json.loads(F5_FIXTURE_PATH.read_text(encoding="utf-8"))
+    items = payload.get("reservations", [])
+
+    if force_refresh:
+        db.query(ReservationStatusHistoryModel).delete()
+        db.query(ReservationModel).delete()
+        db.commit()
+
+    inserted = 0
+    base_now = datetime.now(_VN_TZ)
+    for item in items:
+        if (
+            db.query(ReservationModel)
+            .filter(ReservationModel.id == item["id"])
+            .first()
+            is not None
+        ):
+            continue
+        venue_exists = (
+            db.query(VenueModel)
+            .filter(VenueModel.id == item["venue_id"])
+            .first()
+        )
+        if venue_exists is None:
+            continue
+
+        reserved_dt = datetime.fromisoformat(
+            f"{item['reserved_date']}T{item['reserved_time']}:00+07:00"
+        )
+        res_obj = ReservationModel(
+            id=item["id"],
+            reservation_code=item["reservation_code"],
+            venue_id=item["venue_id"],
+            customer_id=item["customer_id"],
+            customer_name=item["customer_name"],
+            customer_phone=item["customer_phone"],
+            reserved_date=item["reserved_date"],
+            reserved_time=item["reserved_time"],
+            party_size=int(item["party_size"]),
+            special_requests=item.get("special_requests", ""),
+            status=item["status"],
+            idempotency_key=None,
+            response_deadline=base_now + timedelta(minutes=30),
+            cancellation_deadline=reserved_dt - timedelta(hours=2),
+            created_at=base_now,
+            updated_at=base_now,
+        )
+        db.add(res_obj)
+        db.flush()
+        for idx, h in enumerate(item.get("history", [])):
+            db.add(
+                ReservationStatusHistoryModel(
+                    id=f"hist-{item['id']}-{idx + 1}",
+                    reservation_id=item["id"],
+                    from_state=h.get("from_state"),
+                    to_state=h["to_state"],
+                    actor_id=h["actor_id"],
+                    actor_role=h["actor_role"],
+                    reason=h.get("reason", ""),
+                    created_at=base_now + timedelta(seconds=idx),
+                )
+            )
+        inserted += 1
+
+    db.commit()
+    total = db.query(ReservationModel).count()
+    return {"inserted_reservations": inserted, "total_reservations": total}
