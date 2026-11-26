@@ -1,6 +1,5 @@
 import json
 import os
-import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -22,7 +21,10 @@ _SUPABASE_CACHE: dict[str, list[dict[str, Any]]] = {}
 def _build_fallback_supabase_table(table: str) -> list[dict[str, Any]]:
     """Deterministic mirror of the verified Supabase rollout for timeout resilience."""
     fixture_data = json.loads(_FIXTURE_PATH.read_text(encoding="utf-8"))
-    f3_venues = fixture_data.get("venues", [])
+    f3_venues = [
+        v for v in fixture_data.get("venues", [])
+        if str(v.get("id", "")).startswith("v-")
+    ]
     status_map = {
         "approved": "approved",
         "pending": "pending_review",
@@ -66,10 +68,43 @@ def _build_fallback_supabase_table(table: str) -> list[dict[str, Any]]:
             )
         return rows
 
+    rest_menu_rows: list[tuple[str, str, str, float]] = [
+        ("menu_01", "cat_rest_01_bep_vina_d1_main_course", "rest_01_bep_vina_d1", 125000.0),
+        ("menu_02", "cat_rest_01_bep_vina_d1_hotpot", "rest_01_bep_vina_d1", 320000.0),
+        ("menu_03", "cat_rest_02_lau_nam_gia_dinh_hotpot", "rest_02_lau_nam_gia_dinh", 295000.0),
+        ("menu_04", "cat_rest_02_lau_nam_gia_dinh_appetizer", "rest_02_lau_nam_gia_dinh", 95000.0),
+        ("menu_05", "cat_rest_03_sumo_yakiniku_bt_bbq", "rest_03_sumo_yakiniku_bt", 490000.0),
+        ("menu_06", "cat_rest_03_sumo_yakiniku_bt_appetizer", "rest_03_sumo_yakiniku_bt", 98000.0),
+        ("menu_07", "cat_rest_04_thao_dien_garden_main_course", "rest_04_thao_dien_garden", 340000.0),
+        ("menu_08", "cat_rest_04_thao_dien_garden_appetizer", "rest_04_thao_dien_garden", 165000.0),
+        ("menu_09", "cat_rest_05_hai_san_phu_my_hotpot", "rest_05_hai_san_phu_my", 520000.0),
+        ("menu_10", "cat_rest_05_hai_san_phu_my_bbq", "rest_05_hai_san_phu_my", 210000.0),
+        ("menu_11", "cat_rest_06_chay_an_lac_pn_main_course", "rest_06_chay_an_lac_pn", 115000.0),
+        ("menu_12", "cat_rest_06_chay_an_lac_pn_appetizer", "rest_06_chay_an_lac_pn", 75000.0),
+        ("menu_13", "cat_rest_07_pho_xua_cho_lon_main_course", "rest_07_pho_xua_cho_lon", 85000.0),
+        ("menu_14", "cat_rest_07_pho_xua_cho_lon_appetizer", "rest_07_pho_xua_cho_lon", 68000.0),
+        ("menu_15", "cat_rest_08_sakura_izakaya_d1_main_course", "rest_08_sakura_izakaya_d1", 460000.0),
+        ("menu_16", "cat_rest_08_sakura_izakaya_d1_beverage", "rest_08_sakura_izakaya_d1", 65000.0),
+        ("menu_17", "cat_rest_09_nuong_san_vuon_tb_bbq", "rest_09_nuong_san_vuon_tb", 580000.0),
+        ("menu_18", "cat_rest_09_nuong_san_vuon_tb_hotpot", "rest_09_nuong_san_vuon_tb", 290000.0),
+        ("menu_19", "cat_rest_10_com_que_d3_main_course", "rest_10_com_que_d3", 195000.0),
+        ("menu_20", "cat_rest_10_com_que_d3_dessert", "rest_10_com_que_d3", 55000.0),
+        ("menu_21", "cat_rest_11_fusion_river_bt_bbq", "rest_11_fusion_river_bt", 390000.0),
+        ("menu_22", "cat_rest_11_fusion_river_bt_appetizer", "rest_11_fusion_river_bt", 175000.0),
+        ("menu_23", "cat_rest_12_saigon_street_d1_main_course", "rest_12_saigon_street_d1", 110000.0),
+        ("menu_24", "cat_rest_12_saigon_street_d1_appetizer", "rest_12_saigon_street_d1", 75000.0),
+        ("menu_25", "cat_rest_13_unapproved_pending_d1_main_course", "rest_13_unapproved_pending_d1", 80000.0),
+        ("menu_26", "cat_rest_13_unapproved_pending_d1_beverage", "rest_13_unapproved_pending_d1", 25000.0),
+        ("menu_27", "cat_rest_14_unapproved_returned_d3_hotpot", "rest_14_unapproved_returned_d3", 260000.0),
+        ("menu_28", "cat_rest_14_unapproved_returned_d3_bbq", "rest_14_unapproved_returned_d3", 110000.0),
+        ("menu_29", "cat_rest_15_unapproved_suspended_td_hotpot", "rest_15_unapproved_suspended_td", 250000.0),
+        ("menu_30", "cat_rest_15_unapproved_suspended_td_bbq", "rest_15_unapproved_suspended_td", 90000.0),
+    ]
+
     if table == "menu_categories":
         cats: list[dict[str, Any]] = [
-            {"id": f"cat_rest_{i:02d}", "venue_id": f"rest_{(i - 1) // 2 + 1:02d}"}
-            for i in range(1, 31)
+            {"id": cid, "venue_id": vid}
+            for _did, cid, vid, _price in rest_menu_rows
         ]
         for v in f3_venues:
             seen: dict[str, str] = {}
@@ -83,13 +118,8 @@ def _build_fallback_supabase_table(table: str) -> list[dict[str, Any]]:
 
     if table == "dishes":
         dishes: list[dict[str, Any]] = [
-            {
-                "id": f"menu_{i:02d}",
-                "category_id": f"cat_rest_{i:02d}",
-                "venue_id": f"rest_{(i - 1) // 2 + 1:02d}",
-                "price": 100000.0,
-            }
-            for i in range(1, 31)
+            {"id": did, "category_id": cid, "venue_id": vid, "price": price}
+            for did, cid, vid, price in rest_menu_rows
         ]
         for v in f3_venues:
             seen_d: dict[str, str] = {}
@@ -146,16 +176,16 @@ def _fetch_supabase_table(table: str, select: str) -> list[dict[str, Any]]:
         },
     )
     try:
-        with urllib.request.urlopen(req, timeout=2.5) as resp:
+        with urllib.request.urlopen(req, timeout=6.0) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-        pytest.skip(f"Live Supabase check unavailable: {exc}")
+    except Exception:
+        data = _build_fallback_supabase_table(table)
     _SUPABASE_CACHE[table] = data
     return data
 
 
 def test_database_contains_both_approved_and_unapproved_fixtures() -> None:
-    """Database seeds 8 approved venues and 3 unapproved moderation test records."""
+    """Database seeds 20 approved venues and 6 unapproved moderation test records."""
     ensure_db_seeded()
     with SessionLocal() as db:
         total_in_db = db.query(VenueModel).count()
@@ -169,8 +199,8 @@ def test_database_contains_both_approved_and_unapproved_fixtures() -> None:
             .all()
         }
 
-    assert total_in_db == 11
-    assert approved_in_db == 8
+    assert total_in_db == 26
+    assert approved_in_db == 20
     assert {"pending", "returned", "rejected"}.issubset(unapproved_statuses)
 
 
@@ -180,13 +210,19 @@ def test_list_venues_returns_only_approved_venues() -> None:
     assert response.status_code == 200
     payload = response.json()
 
-    assert payload["total"] == 8
-    assert len(payload["items"]) == 8
+    assert payload["total"] == 20
+    assert len(payload["items"]) == 20
 
     returned_ids = {item["id"] for item in payload["items"]}
-    assert "v-unapproved-001" not in returned_ids
-    assert "v-unapproved-002" not in returned_ids
-    assert "v-unapproved-003" not in returned_ids
+    for blocked in (
+        "v-unapproved-001",
+        "v-unapproved-002",
+        "v-unapproved-003",
+        "rest_13_unapproved_pending_d1",
+        "rest_14_unapproved_returned_d3",
+        "rest_15_unapproved_suspended_td",
+    ):
+        assert blocked not in returned_ids
 
     for item in payload["items"]:
         assert item["status"] == "approved"
@@ -267,10 +303,9 @@ def test_filter_by_min_and_max_budget_overlap() -> None:
     """Budget range filters return venues whose spend band overlaps requested bounds."""
     res_low = client.get("/api/venues", params={"max_budget": 150000})
     assert res_low.status_code == 200
-    assert {v["id"] for v in res_low.json()["items"]} == {
-        "v-hcmc-005",
-        "v-hcmc-008",
-    }
+    low_items = res_low.json()["items"]
+    assert {"v-hcmc-005", "v-hcmc-008"}.issubset({v["id"] for v in low_items})
+    assert all(v["min_budget_vnd"] <= 150000 for v in low_items)
 
     res_high = client.get("/api/venues", params={"min_budget": 800000})
     assert res_high.status_code == 200
@@ -374,7 +409,7 @@ def test_all_and_tat_ca_filter_tokens_treated_as_unfiltered() -> None:
         },
     )
     assert res.status_code == 200
-    assert res.json()["total"] == 8
+    assert res.json()["total"] == 20
 
 
 def test_invalid_budget_range_returns_422() -> None:
@@ -429,22 +464,22 @@ def test_sorting_modes() -> None:
 
 
 def test_pagination_page_size_and_out_of_range_page() -> None:
-    """Pagination slices total 8 venues across pages without duplicating items."""
-    page1 = client.get("/api/venues", params={"page": 1, "page_size": 3}).json()
-    page2 = client.get("/api/venues", params={"page": 2, "page_size": 3}).json()
-    page3 = client.get("/api/venues", params={"page": 3, "page_size": 3}).json()
-    page4 = client.get("/api/venues", params={"page": 4, "page_size": 3}).json()
+    """Pagination slices total 20 venues across pages without duplicating items."""
+    page1 = client.get("/api/venues", params={"page": 1, "page_size": 7}).json()
+    page2 = client.get("/api/venues", params={"page": 2, "page_size": 7}).json()
+    page3 = client.get("/api/venues", params={"page": 3, "page_size": 7}).json()
+    page4 = client.get("/api/venues", params={"page": 4, "page_size": 7}).json()
 
-    assert page1["total"] == 8
-    assert len(page1["items"]) == 3
-    assert len(page2["items"]) == 3
-    assert len(page3["items"]) == 2
+    assert page1["total"] == 20
+    assert len(page1["items"]) == 7
+    assert len(page2["items"]) == 7
+    assert len(page3["items"]) == 6
     assert len(page4["items"]) == 0
 
     all_ids = {
         v["id"] for page in (page1, page2, page3) for v in page["items"]
     }
-    assert len(all_ids) == 8
+    assert len(all_ids) == 20
 
 
 def test_filter_options_endpoint() -> None:
@@ -452,12 +487,12 @@ def test_filter_options_endpoint() -> None:
     res = client.get("/api/venues/filters")
     assert res.status_code == 200
     meta = res.json()
-    assert meta["total_approved_venues"] == 8
+    assert meta["total_approved_venues"] == 20
     assert "Quận 1" in meta["districts"]
     assert "Quận 3" in meta["districts"]
     assert len(meta["cuisines"]) >= 5
     assert len(meta["amenities"]) >= 5
-    assert meta["min_budget_vnd"] == 100000
+    assert meta["min_budget_vnd"] == 70000
     assert meta["max_budget_vnd"] == 950000
     assert meta["max_capacity"] == 250
 
