@@ -23,6 +23,7 @@ from .seed import seed_f3_database
 from .supabase_sync import get_supabase_status, sync_f3_to_supabase
 
 _DB_INITIALIZED = False
+_DB_DEPENDENCY = Depends(get_db)
 
 
 def ensure_db_seeded() -> None:
@@ -134,7 +135,7 @@ def supabase_status() -> dict[str, Any]:
 
 
 @app.get("/api/venues/filters", response_model=FilterOptionsOut)
-def get_venue_filter_options(db: Session = Depends(get_db)) -> FilterOptionsOut:
+def get_venue_filter_options(db: Session = _DB_DEPENDENCY) -> FilterOptionsOut:
     """
     Returns distinct districts, cuisines, amenities, budget bounds, and maximum capacity
     aggregated strictly from administrator-approved venues (`status == 'approved'`).
@@ -187,7 +188,7 @@ def list_approved_venues(
     page_size: int = Query(
         default=20, ge=1, le=50, description="Số lượng kết quả mỗi trang"
     ),
-    db: Session = Depends(get_db),
+    db: Session = _DB_DEPENDENCY,
 ) -> VenueListResponse:
     """
     F3 Restaurant Discovery Endpoint.
@@ -341,7 +342,7 @@ def list_approved_venues(
 @app.get("/api/v1/restaurants/{venue_id}", response_model=VenueDetailOut)
 def get_approved_venue_detail(
     venue_id: str,
-    db: Session = Depends(get_db),
+    db: Session = _DB_DEPENDENCY,
 ) -> VenueDetailOut:
     """
     Returns full venue metadata and categorized menu dishes for an approved venue

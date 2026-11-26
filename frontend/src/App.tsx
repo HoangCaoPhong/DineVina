@@ -469,7 +469,7 @@ function App() {
   const [serviceType, setServiceType] = useState('Kiểu phục vụ')
   const [advancedFiltersOpen, setAdvancedFiltersOpen] = useState(false)
 
-  const [venuesData, setVenuesData] = useState<Venue[]>(fallbackVenues)
+  const [venuesData, setVenuesData] = useState<Venue[]>([])
   const [apiConnected, setApiConnected] = useState(false)
   const [loadingVenues, setLoadingVenues] = useState(true)
 
@@ -541,7 +541,7 @@ function App() {
       })
       .catch(() => {
         if (!active) return
-        setVenuesData(fallbackVenues)
+        setVenuesData([])
         setApiConnected(false)
       })
       .finally(() => {
@@ -636,7 +636,7 @@ function App() {
             <label className="search-field"><span>◷</span><div><small>Thời gian</small><select><option>Tối nay · 19:00</option><option>Trưa nay · 12:00</option><option>Ngày mai · 19:00</option></select></div></label>
             <button className="primary-button search-submit" type="submit">Tìm bàn</button>
           </form>
-          <div className="trust-row"><span><b>{apiConnected ? `${filteredVenues.length} nhà hàng đã duyệt` : '120+ nhà hàng tuyển chọn'}</b></span><span><b>4.8/5</b> trải nghiệm trung bình</span><span><b>0đ</b> phí đặt chỗ</span></div>
+          <div className="trust-row"><span><b>{apiConnected ? `${filteredVenues.length} nhà hàng đã duyệt` : 'Đang kết nối dữ liệu nhà hàng'}</b></span><span><b>Dữ liệu mẫu PA3</b></span></div>
         </section>
 
         <section className="top-filter-section content-width" aria-label="Tìm và lọc nhà hàng">
@@ -673,7 +673,7 @@ function App() {
 
         <section id="restaurants" className="restaurants-section content-width">
           <div className="section-heading" data-reveal><div><p className="eyebrow">Tuyển chọn cho bạn</p><h2>Nhà hàng nổi bật tại Sài Gòn</h2><p>Không gian đẹp, thông tin rõ ràng và khung giờ còn trống theo thời gian thực.</p></div><span className="result-count">{loadingVenues ? 'Đang tải...' : `${filteredVenues.length} kết quả`}</span></div>
-          {filteredVenues.length > 0 ? <div className="venue-grid">{filteredVenues.map((venue) => <VenueCard key={venue.id} venue={venue} onBook={(item) => requireAccount(() => setSelectedVenue(item))} onDetail={setDetailVenue} />)}</div> : <div className="empty-state"><span>⌕</span><h3>Chưa tìm thấy lựa chọn phù hợp</h3><p>Thử nới lỏng một vài tiêu chí trong bộ lọc hoặc xóa từ khóa tìm kiếm.</p><button className="ghost-button" onClick={() => { setQuery(''); clearFilters() }}>Xóa bộ lọc</button></div>}
+          {filteredVenues.length > 0 ? <div className="venue-grid">{filteredVenues.map((venue) => <VenueCard key={venue.id} venue={venue} onBook={(item) => requireAccount(() => setSelectedVenue(item))} onDetail={setDetailVenue} />)}</div> : <div className="empty-state"><span>⌕</span><h3>{!loadingVenues && !apiConnected ? 'Không kết nối được dữ liệu nhà hàng' : 'Chưa tìm thấy lựa chọn phù hợp'}</h3><p>{!loadingVenues && !apiConnected ? 'Hãy kiểm tra API rồi tải lại trang.' : 'Thử nới lỏng một vài tiêu chí trong bộ lọc hoặc xóa từ khóa tìm kiếm.'}</p>{apiConnected && <button className="ghost-button" onClick={() => { setQuery(''); clearFilters() }}>Xóa bộ lọc</button>}</div>}
         </section>
 
         <section id="events" className="event-section"><div className="content-width event-inner" data-reveal><div><p className="eyebrow light">Dành cho khoảnh khắc đặc biệt</p><h2>Đặt tiệc không còn là một bài toán khó.</h2><p>Gửi nhu cầu một lần, nhận gợi ý địa điểm phù hợp với số khách, không gian và ngân sách.</p><div className="event-stats"><span><b>01</b>Tìm đúng địa điểm</span><span><b>02</b>Gửi yêu cầu tiệc</span><span><b>03</b>Nhà hàng xác nhận</span></div></div><button className="cream-button" onClick={() => requireAccount(() => setEventOpen(true))}>Gửi yêu cầu đặt tiệc</button></div></section>
@@ -694,4 +694,3 @@ function App() {
 }
 
 export default App
-

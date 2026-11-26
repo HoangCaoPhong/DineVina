@@ -5,11 +5,10 @@ from pathlib import Path
 from typing import Any
 
 import pytest
-from fastapi.testclient import TestClient
-
 from app.database import SessionLocal
 from app.main import app, ensure_db_seeded
 from app.models import VenueModel
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
 _ROOT_ENV = Path(__file__).resolve().parents[2] / ".env"
@@ -69,10 +68,43 @@ def _build_fallback_supabase_table(table: str) -> list[dict[str, Any]]:
             )
         return rows
 
+    rest_menu_rows: list[tuple[str, str, str, float]] = [
+        ("menu_01", "cat_rest_01_bep_vina_d1_main_course", "rest_01_bep_vina_d1", 125000.0),
+        ("menu_02", "cat_rest_01_bep_vina_d1_hotpot", "rest_01_bep_vina_d1", 320000.0),
+        ("menu_03", "cat_rest_02_lau_nam_gia_dinh_hotpot", "rest_02_lau_nam_gia_dinh", 295000.0),
+        ("menu_04", "cat_rest_02_lau_nam_gia_dinh_appetizer", "rest_02_lau_nam_gia_dinh", 95000.0),
+        ("menu_05", "cat_rest_03_sumo_yakiniku_bt_bbq", "rest_03_sumo_yakiniku_bt", 490000.0),
+        ("menu_06", "cat_rest_03_sumo_yakiniku_bt_appetizer", "rest_03_sumo_yakiniku_bt", 98000.0),
+        ("menu_07", "cat_rest_04_thao_dien_garden_main_course", "rest_04_thao_dien_garden", 340000.0),
+        ("menu_08", "cat_rest_04_thao_dien_garden_appetizer", "rest_04_thao_dien_garden", 165000.0),
+        ("menu_09", "cat_rest_05_hai_san_phu_my_hotpot", "rest_05_hai_san_phu_my", 520000.0),
+        ("menu_10", "cat_rest_05_hai_san_phu_my_bbq", "rest_05_hai_san_phu_my", 210000.0),
+        ("menu_11", "cat_rest_06_chay_an_lac_pn_main_course", "rest_06_chay_an_lac_pn", 115000.0),
+        ("menu_12", "cat_rest_06_chay_an_lac_pn_appetizer", "rest_06_chay_an_lac_pn", 75000.0),
+        ("menu_13", "cat_rest_07_pho_xua_cho_lon_main_course", "rest_07_pho_xua_cho_lon", 85000.0),
+        ("menu_14", "cat_rest_07_pho_xua_cho_lon_appetizer", "rest_07_pho_xua_cho_lon", 68000.0),
+        ("menu_15", "cat_rest_08_sakura_izakaya_d1_main_course", "rest_08_sakura_izakaya_d1", 460000.0),
+        ("menu_16", "cat_rest_08_sakura_izakaya_d1_beverage", "rest_08_sakura_izakaya_d1", 65000.0),
+        ("menu_17", "cat_rest_09_nuong_san_vuon_tb_bbq", "rest_09_nuong_san_vuon_tb", 580000.0),
+        ("menu_18", "cat_rest_09_nuong_san_vuon_tb_hotpot", "rest_09_nuong_san_vuon_tb", 290000.0),
+        ("menu_19", "cat_rest_10_com_que_d3_main_course", "rest_10_com_que_d3", 195000.0),
+        ("menu_20", "cat_rest_10_com_que_d3_dessert", "rest_10_com_que_d3", 55000.0),
+        ("menu_21", "cat_rest_11_fusion_river_bt_bbq", "rest_11_fusion_river_bt", 390000.0),
+        ("menu_22", "cat_rest_11_fusion_river_bt_appetizer", "rest_11_fusion_river_bt", 175000.0),
+        ("menu_23", "cat_rest_12_saigon_street_d1_main_course", "rest_12_saigon_street_d1", 110000.0),
+        ("menu_24", "cat_rest_12_saigon_street_d1_appetizer", "rest_12_saigon_street_d1", 75000.0),
+        ("menu_25", "cat_rest_13_unapproved_pending_d1_main_course", "rest_13_unapproved_pending_d1", 80000.0),
+        ("menu_26", "cat_rest_13_unapproved_pending_d1_beverage", "rest_13_unapproved_pending_d1", 25000.0),
+        ("menu_27", "cat_rest_14_unapproved_returned_d3_hotpot", "rest_14_unapproved_returned_d3", 260000.0),
+        ("menu_28", "cat_rest_14_unapproved_returned_d3_bbq", "rest_14_unapproved_returned_d3", 110000.0),
+        ("menu_29", "cat_rest_15_unapproved_suspended_td_hotpot", "rest_15_unapproved_suspended_td", 250000.0),
+        ("menu_30", "cat_rest_15_unapproved_suspended_td_bbq", "rest_15_unapproved_suspended_td", 90000.0),
+    ]
+
     if table == "menu_categories":
         cats: list[dict[str, Any]] = [
-            {"id": f"cat_rest_{i:02d}", "venue_id": f"rest_{(i - 1) // 2 + 1:02d}"}
-            for i in range(1, 31)
+            {"id": cid, "venue_id": vid}
+            for _did, cid, vid, _price in rest_menu_rows
         ]
         for v in f3_venues:
             seen: dict[str, str] = {}
@@ -86,13 +118,8 @@ def _build_fallback_supabase_table(table: str) -> list[dict[str, Any]]:
 
     if table == "dishes":
         dishes: list[dict[str, Any]] = [
-            {
-                "id": f"menu_{i:02d}",
-                "category_id": f"cat_rest_{i:02d}",
-                "venue_id": f"rest_{(i - 1) // 2 + 1:02d}",
-                "price": 100000.0,
-            }
-            for i in range(1, 31)
+            {"id": did, "category_id": cid, "venue_id": vid, "price": price}
+            for did, cid, vid, price in rest_menu_rows
         ]
         for v in f3_venues:
             seen_d: dict[str, str] = {}
@@ -149,7 +176,7 @@ def _fetch_supabase_table(table: str, select: str) -> list[dict[str, Any]]:
         },
     )
     try:
-        with urllib.request.urlopen(req, timeout=2.5) as resp:
+        with urllib.request.urlopen(req, timeout=6.0) as resp:
             data = json.loads(resp.read().decode("utf-8"))
     except Exception:
         data = _build_fallback_supabase_table(table)
