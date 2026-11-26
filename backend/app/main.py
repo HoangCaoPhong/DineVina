@@ -35,7 +35,7 @@ def ensure_db_seeded() -> None:
         seed_f3_database(session, force_refresh=False)
     try:
         sync_f3_to_supabase()
-    except Exception as exc:
+    except (OSError, RuntimeError, ValueError) as exc:
         print(f"[SupabaseSync] Non-fatal sync fallback: {exc}")
     _DB_INITIALIZED = True
 

@@ -6,10 +6,22 @@ import json
 import os
 import sys
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
-from dotenv import load_dotenv
-from supabase import Client, create_client
+if TYPE_CHECKING:
+    from supabase import Client
+
+_load_dotenv: Any
+try:
+    from dotenv import load_dotenv as _load_dotenv
+except ImportError:
+    _load_dotenv = None
+
+_create_client: Any
+try:
+    from supabase import create_client as _create_client
+except ImportError:
+    _create_client = None
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "f3_venues_fixture.json"
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -51,10 +63,11 @@ def _parse_opening_hours(hours_str: str | None) -> tuple[str, str]:
 def _get_supabase_credentials() -> tuple[str | None, str | None]:
     """Load .env from repository root and return (url, key) if configured."""
     env_file = PROJECT_ROOT / ".env"
-    if env_file.exists():
-        load_dotenv(env_file)
-    else:
-        load_dotenv()
+    if _load_dotenv is not None:
+        if env_file.exists():
+            _load_dotenv(env_file)
+        else:
+            _load_dotenv()
     url = os.getenv("SUPABASE_URL")
     key = (
         os.getenv("SUPABASE_SERVICE_ROLE_KEY")
@@ -65,10 +78,12 @@ def _get_supabase_credentials() -> tuple[str | None, str | None]:
 
 
 def _create_supabase_client() -> tuple[Client | None, str | None]:
+    if _create_client is None:
+        return None, None
     url, key = _get_supabase_credentials()
     if not url or not key:
         return None, None
-    return create_client(url, key), url
+    return _create_client(url, key), url
 
 
 def _mask_project_url(url: str | None) -> str | None:
@@ -255,7 +270,7 @@ def get_supabase_status() -> dict[str, Any]:
             "project_url": masked_url,
             **counts,
         }
-    except Exception:
+    except (OSError, RuntimeError, ValueError, KeyError, TypeError):
         fallback_counts = _LAST_LIVE_COUNTS or _VERIFIED_FALLBACK_COUNTS
         return {
             "enabled": True,
