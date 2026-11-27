@@ -38,7 +38,7 @@ from .schemas import (
     VenueListResponse,
     VenueSummaryOut,
 )
-from .seed import seed_f3_database
+from .seed import seed_f3_database, seed_f7_availability_dashboard
 from .supabase_sync import get_supabase_status, sync_f3_to_supabase
 
 _DB_INITIALIZED = False
@@ -53,6 +53,7 @@ def ensure_db_seeded() -> None:
     Base.metadata.create_all(bind=engine)
     with SessionLocal() as session:
         seed_f3_database(session, force_refresh=False)
+        seed_f7_availability_dashboard(session, force_refresh=False)
     try:
         sync_f3_to_supabase()
     except (OSError, RuntimeError, ValueError) as exc:
