@@ -987,40 +987,43 @@ None.
 
 **1.1 Brief Description**
 
-An Administrator reviews a venue profile in `Pending Review` status and either approves it for public discovery (`Approved`) or returns it to Partner Staff for correction (`Returned`). Realizes FR-2.2.
+An Administrator reviews a venue profile in `Pending Review` status and either approves it for public discovery (`Approved`) or returns it to Partner Staff for correction (`Returned`). The decision is audited and immediately controls whether the venue may appear in F3 public discovery. Realizes FR-2.2 and supports FR-2.4.
 
 **2. Flow of Events**
 
 **2.1 Basic Flow**
 
-1. The Administrator opens **Onboarding Queue** in the Admin Console.
-2. The system displays all venues with `approval_status = Pending Review` (paginated, 20 per page).
-3. The Administrator selects a venue to inspect all submitted fields (identity, district, cuisine, budget, capacity, amenities, photos, hotline).
+1. The Administrator signs in (`UC-C02`) and opens **Onboarding Queue** in the Admin Console.
+2. The system verifies role `administrator` and displays venues with `approval_status = Pending Review`, paginated at 20 items per page.
+3. The Administrator selects a venue and inspects all submitted fields: identity, district, street address, cuisine, budget range, total capacity, maximum party size, amenities, photos, hotline, and Partner Staff account information.
 4. Finding the submission complete and compliant, the Administrator selects **Approve Venue**.
-5. The system transitions `approval_status` to `Approved`, records the admin actor and timestamp, makes the venue eligible for public F3 discovery (`FR-2.4`), and notifies Partner Staff.
+5. Within one transaction, the system verifies that the venue is still `Pending Review`, transitions it to `Approved`, records the administrator actor, decision timestamp, and decision note, makes the venue eligible for public F3 discovery (`FR-2.4`), and notifies Partner Staff.
+6. The system displays the updated `Approved` status and removes the item from the pending onboarding queue.
 
 **2.2 Alternative Flows**
 
-**2.2.1 A1 - Return for correction.** At step 4, if fields are incomplete, inaccurate, or non-compliant, the Administrator selects **Return for Correction**, enters mandatory correction notes, and submits. The venue transitions to `Returned`, remains excluded from public discovery, and Partner Staff is notified (`UC-P02` A1). Empty correction notes are rejected.
+**2.2.1 A1 - Return for correction.** At step 4, if fields are incomplete, inaccurate, or non-compliant but can be corrected, the Administrator selects **Return for Correction**, enters mandatory correction notes, and submits. Within one transaction, the venue transitions to `Returned`, remains excluded from public discovery, records the audit entry, and notifies Partner Staff (`UC-P02` A1). Empty correction notes are rejected with `422 VALIDATION_FAILED`.
 
-**2.2.2 A2 - Empty onboarding queue.** At step 2, if no venues are pending review, the system displays an empty queue state.
+**2.2.2 A2 - Empty onboarding queue.** At step 2, if no venues are pending review, the system displays an empty queue state and no decision action is available.
 
-**2.2.3 A3 - Storage unavailable.** At step 5, if persistence fails, the system displays a retryable error and keeps the venue in `Pending Review`.
+**2.2.3 A3 - Storage unavailable or concurrent decision.** At step 5, if persistence fails or another administrator has already decided the venue, the transaction is rolled back. The system displays a retryable error or refreshes the current state; the venue is never partially approved.
 
 **3. Special Requirements**
 
-- SEC-01, SEC-04: only `administrator` role may execute onboarding decisions; `403 Forbidden` for any other role.
-- FR-2.4: only `Approved` venues are exposed in public F3 discovery.
+- SEC-01, SEC-04: only the `administrator` role may execute onboarding decisions; any other role receives `403 FORBIDDEN_ROLE`.
+- FR-2.4: only `Approved` venues are exposed in public F3 search and detail endpoints.
+- REL-02: every decision stores actor ID, role, previous state, new state, timestamp, and reason/note in an immutable audit record.
+- PERF-04: queue pagination defaults to 20 items per page and caps `page_size` at 50.
 
 **4. Preconditions**
 
-- Administrator is signed in (`UC-C02`).
-- At least one venue exists in `Pending Review` state (for basic flow).
+- Administrator is signed in (`UC-C02`) with role `administrator`.
+- At least one venue exists in `Pending Review` state for the basic flow.
 
 **5. Postconditions**
 
-- Success: venue is `Approved` (publicly discoverable) or `Returned` (with correction notes).
-- Failure: venue remains `Pending Review`.
+- Success: venue is `Approved` (publicly discoverable) or `Returned` (with correction notes), with an audit record.
+- Failure: venue remains `Pending Review` and no public visibility change occurs.
 
 **6. Extension Points**
 
@@ -1055,39 +1058,45 @@ None.
 
 **1.1 Brief Description**
 
-An Administrator moderates an already-published (`Approved`) venue when policy, accuracy, or operational issues arise—either suspending/unpublishing it from public discovery or flagging required updates. Realizes FR-2.5.
+An Administrator moderates an already-published (`Approved`) venue when policy, accuracy, safety, or operational issues arise. The primary enforcement action is suspension/unpublication with a mandatory reason; less severe feedback may be recorded as an advisory without changing public visibility. Realizes FR-2.5.
 
 **2. Flow of Events**
 
 **2.1 Basic Flow**
 
-1. The Administrator opens **Published Venues** in the Admin Console and selects a venue.
-2. The system displays the published venue's current profile and moderation history.
-3. The Administrator selects **Suspend / Unpublish Venue** (or **Require Update**), enters a mandatory moderation reason, and confirms.
-4. The system validates that a moderation reason is provided.
-5. The system updates `approval_status` to `Suspended` (or `Returned`), immediately excludes the venue from public F3 discovery, records the audit entry, and notifies Partner Staff.
+1. The Administrator opens **Published Venues** in the Admin Console and selects an `Approved` venue.
+2. The system verifies role `administrator` and displays the venue profile, public visibility state, onboarding history, and prior moderation entries.
+3. The Administrator selects **Suspend / Unpublish Venue**, enters a mandatory moderation reason, and confirms.
+4. The system validates that the moderation reason is non-empty.
+5. Within one transaction, the system verifies that the venue is still `Approved`, transitions `approval_status` to `Suspended`, immediately excludes the venue from public F3 discovery, records the administrator actor/reason/timestamp, and notifies Partner Staff.
+6. The system displays the updated `Suspended` state and the moderation history entry.
 
 **2.2 Alternative Flows**
 
-**2.2.1 A1 - Missing moderation reason.** At step 4, if the reason field is empty, the system blocks submission with an inline error and returns to step 3.
+**2.2.1 A1 - Missing moderation reason.** At step 4, if the reason field is empty, the system blocks submission with an inline error and returns to step 3. No status change occurs.
 
-**2.2.2 A2 - Venue not found or already suspended.** At step 1 or 5, if the venue was removed or already suspended, the system displays a clear status notice and refreshes the directory.
+**2.2.2 A2 - Venue not found or already suspended.** At step 1 or step 5, if the venue was removed, is not `Approved`, or was already suspended by another administrator, the system displays a clear status notice and refreshes the directory. No duplicate transition is written.
 
-**2.2.3 A3 - Storage unavailable.** At step 5, if persistence fails, the system displays a retryable error and leaves the venue's status unchanged.
+**2.2.3 A3 - Advisory without visibility change.** At step 3, for a minor issue that does not require unpublication, the Administrator records an advisory note. The venue remains `Approved`, and the advisory appears in moderation history and the partner notification center.
+
+**2.2.4 A4 - Storage unavailable.** At step 5, if persistence fails, the system displays a retryable error and leaves the venue's status unchanged.
 
 **3. Special Requirements**
 
-- SEC-01, SEC-04: restricted strictly to `administrator` role (`403 Forbidden` otherwise).
-- FR-2.4: suspended venues are immediately excluded from public search/discovery.
+- SEC-01, SEC-04: restricted strictly to the `administrator` role (`403 FORBIDDEN_ROLE` otherwise).
+- FR-2.4: suspended venues are immediately excluded from public search, detail, recommendation, and booking-entry endpoints.
+- REL-02: moderation history is immutable and contains actor, reason, previous state, new state, and timestamp.
+- PRIV-01: internal moderation notes are not exposed to guests.
 
 **4. Preconditions**
 
-- Administrator is signed in (`UC-C02`).
+- Administrator is signed in (`UC-C02`) with role `administrator`.
+- The venue exists and is currently `Approved` for the suspension basic flow.
 
 **5. Postconditions**
 
-- Success: venue moderation action is logged and public visibility updated.
-- Failure: venue status remains unchanged.
+- Success: venue is `Suspended` and hidden from public discovery, or an advisory is recorded while the venue remains `Approved`.
+- Failure: venue status and public visibility remain unchanged.
 
 **6. Extension Points**
 
@@ -1107,9 +1116,9 @@ None.
 
 ![UC-A02 Alternative flow A2: Venue not found](prototype/UC-A02-A2-venue-not-found.png)
 
-*UC-A02 - Alternative flow A3: Storage unavailable*
+*UC-A02 - Alternative flow A4: Storage unavailable*
 
-![UC-A02 Alternative flow A3: Storage unavailable](prototype/UC-A02-A3-storage-unavailable.png)
+![UC-A02 Alternative flow A4: Storage unavailable](prototype/UC-A02-A3-storage-unavailable.png)
 
 ---
 
@@ -1122,39 +1131,43 @@ None.
 
 **1.1 Brief Description**
 
-An Administrator reviews partner-submitted promotions and venue editorial content in `Pending Moderation` status and either approves them for public display (`UC-C07`) or rejects them with a reason. Realizes FR-8.3.
+An Administrator reviews partner-submitted promotions and venue editorial content in `Pending Moderation` status. The Administrator may publish compliant content, return it for revision, or reject policy-violating content with a mandatory reason. Realizes FR-8.3.
 
 **2. Flow of Events**
 
 **2.1 Basic Flow**
 
 1. The Administrator opens **Content & Promotions Moderation** in the Admin Console.
-2. The system lists items in `Pending Moderation` status.
-3. The Administrator selects an item to verify eligibility conditions, expiry date, and compliance with platform rules.
-4. The Administrator selects **Approve**.
-5. The system transitions the item to `Approved`, makes it visible on the public venue/promotions pages (`UC-C07`), and records the audit entry.
+2. The system verifies role `administrator` and lists items in `Pending Moderation` status, paginated at 20 items per page.
+3. The Administrator selects an item and verifies the title, body/offer, eligibility conditions, start date, expiry date, linked venue, and compliance with platform rules.
+4. The Administrator selects **Approve and Publish**.
+5. Within one transaction, the system verifies that the item is still `Pending Moderation`, transitions it to `Published`, makes it visible on public venue/promotion surfaces (`UC-C07`) according to its start/expiry dates, and records the audit entry.
+6. The system confirms publication and removes the item from the pending queue.
 
 **2.2 Alternative Flows**
 
-**2.2.1 A1 - Reject promotion or content.** At step 4, if the item violates platform rules or has unclear conditions, the Administrator selects **Reject**, enters a mandatory reason, and confirms. The item becomes `Rejected`, remains hidden from guests, and Partner Staff is notified.
+**2.2.1 A1 - Reject or return for revision.** At step 4, if the item violates platform rules, the Administrator selects **Reject**, enters a mandatory reason, and confirms; the item becomes terminal `Rejected`, remains hidden, and Partner Staff is notified. If the item is potentially compliant but needs correction, the Administrator selects **Return for Revision**, enters mandatory correction notes, and the item becomes `Returned` so Partner Staff can edit and resubmit it.
 
 **2.2.2 A2 - Empty moderation queue.** At step 2, if no items are pending moderation, the system displays an empty queue state.
 
-**2.2.3 A3 - Storage unavailable.** At step 5, if persistence fails, the system displays a retryable error and keeps the item in `Pending Moderation`.
+**2.2.3 A3 - Storage unavailable or concurrent decision.** At step 5, if persistence fails or another administrator has already decided the item, the transaction is rolled back. The system displays a retryable error or refreshes the current state; the item is never partially published.
 
 **3. Special Requirements**
 
-- SEC-01, SEC-04: restricted to `administrator` role.
-- STD-01: moderation decisions record ISO 8601 timestamps and admin actor ID.
+- SEC-01, SEC-04: restricted to the `administrator` role.
+- STD-01, REL-02: moderation decisions record ISO 8601 timestamps, admin actor ID, previous state, new state, and mandatory reason/note.
+- PERF-04: queue pagination defaults to 20 items per page and caps `page_size` at 50.
+- PRIV-01: internal rejection or correction notes are visible only to the owning partner and administrators.
 
 **4. Preconditions**
 
-- Administrator is signed in (`UC-C02`).
+- Administrator is signed in (`UC-C02`) with role `administrator`.
+- At least one promotion/content item exists in `Pending Moderation` for the basic flow.
 
 **5. Postconditions**
 
-- Success: item is `Approved` (visible to guests) or `Rejected` (with reason).
-- Failure: item remains `Pending Moderation`.
+- Success: item is `Published` (visible subject to schedule), `Returned` (editable and not visible), or `Rejected` (terminal and not visible), with an audit record.
+- Failure: item remains `Pending Moderation` and public visibility is unchanged.
 
 **6. Extension Points**
 
@@ -1166,7 +1179,7 @@ None.
 
 ![UC-A03 Basic flow: Moderate promotions and content](prototype/UC-A03-Main-moderate-content.png)
 
-*UC-A03 - Alternative flow A1: Reject with mandatory reason*
+*UC-A03 - Alternative flow A1: Reject or return with mandatory reason*
 
 ![UC-A03 Alternative flow A1: Reject content](prototype/UC-A03-A1-reject-content.png)
 
@@ -1189,40 +1202,49 @@ None.
 
 **1.1 Brief Description**
 
-An Administrator looks up a table reservation or event inquiry by reference ID or customer/venue filter to inspect its immutable status history, timestamps, actors, and reasons during a support investigation. Realizes FR-5.7.
+An Administrator investigates a table reservation or event inquiry by reference code, customer contact, venue, date, or status. The Administrator can inspect the immutable chronological status history, actors, timestamps, and reasons needed for support resolution, but this use case does not itself mutate reservation or event state. Realizes FR-5.7.
 
 **2. Flow of Events**
 
 **2.1 Basic Flow**
 
 1. The Administrator opens **Support Case Investigation** in the Admin Console.
-2. The Administrator enters a reservation ID, event inquiry ID, or customer/venue search key and submits.
-3. The system retrieves the matching record and its complete chronological status history.
-4. The system displays the record summary and every state transition (previous state, new state, timestamp, acting role/user, and recorded reason or cancellation note).
+2. The system verifies role `administrator` and displays search fields for reservation code, event inquiry code, customer phone/email, venue, service date, and status.
+3. The Administrator enters at least one search key and submits.
+4. The system retrieves matching persisted records and displays a paginated result list (default 20, maximum 50) with record type, reference code, venue, customer display name, service date/time, current state, and last-updated timestamp.
+5. The Administrator selects one reservation or event inquiry.
+6. The system displays the record summary and complete chronological audit history: previous state, new state, actor role/ID, timestamp, and recorded reason or cancellation note.
+7. The Administrator uses the read-only evidence to answer the support case or decides whether a separate moderation use case (`UC-A02` or `UC-A03`) is required.
 
 **2.2 Alternative Flows**
 
-**2.2.1 A1 - Case not found.** At step 3, if no reservation or event inquiry matches the query, the system displays a "No matching case found" message and invites the Administrator to refine the search key.
+**2.2.1 A1 - Case not found.** At step 4, if no reservation or event inquiry matches the query, the system displays a “No matching case found” message and invites the Administrator to refine the search key.
 
-**2.2.2 A2 - Service unavailable.** At step 3, if the audit history query fails, the system displays a retryable error banner.
+**2.2.2 A2 - Missing search key or invalid filter.** At step 3, if no search key is supplied or a date/status filter is malformed, the system returns `422 VALIDATION_FAILED` and highlights the invalid input.
+
+**2.2.3 A3 - Service unavailable.** At step 4 or step 6, if the audit-history query fails, the system displays a retryable error banner and exposes no partial history.
+
+**2.2.4 A4 - Attempted write from support view.** If an actor attempts to mutate a reservation/event directly from the support investigation endpoint, the system rejects the request because `UC-A04` is read-only. Operational changes must use the appropriate Partner Staff use case or a separate admin moderation use case.
 
 **3. Special Requirements**
 
-- SEC-01, SEC-04: only `administrator` role may inspect cross-venue status histories (`403 Forbidden` for customers/partners).
-- REL-02, STD-01: status history is read-only/immutable and timestamps are shown in ISO 8601 / `Asia/Ho_Chi_Minh`.
+- SEC-01, SEC-04: only the `administrator` role may inspect cross-venue status histories (`403 FORBIDDEN_ROLE` for customers/partners).
+- REL-02, STD-01: status history is read-only/immutable and timestamps are shown in ISO 8601 using `Asia/Ho_Chi_Minh` for display.
+- PRIV-01: customer contact details are masked or minimized unless the Administrator has a legitimate support need.
+- PERF-04: search results default to 20 items per page and cap `page_size` at 50.
 
 **4. Preconditions**
 
-- Administrator is signed in (`UC-C02`).
+- Administrator is signed in (`UC-C02`) with role `administrator`.
 
 **5. Postconditions**
 
-- Success: full status history is displayed for support resolution.
-- Failure: no unauthorized data is exposed.
+- Success: full read-only status history is displayed for support resolution.
+- Failure: no unauthorized or partial data is exposed, and no reservation/event state is mutated.
 
 **6. Extension Points**
 
-None.
+- The Administrator may navigate to `UC-A02` or `UC-A03` when the investigation reveals a venue/content moderation issue. Those are separate write use cases.
 
 **7. Prototype Screens**
 
@@ -1234,6 +1256,6 @@ None.
 
 ![UC-A04 Alternative flow A1: Case not found](prototype/UC-A04-A1-case-not-found.png)
 
-*UC-A04 - Alternative flow A2: Service unavailable*
+*UC-A04 - Alternative flow A3: Service unavailable*
 
-![UC-A04 Alternative flow A2: Service error](prototype/UC-A04-A2-service-error.png)
+![UC-A04 Alternative flow A3: Service error](prototype/UC-A04-A2-service-error.png)
