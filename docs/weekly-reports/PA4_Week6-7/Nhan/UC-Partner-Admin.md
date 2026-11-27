@@ -76,8 +76,8 @@ No standalone TA feedback file was present in the repository when this PA4 revis
 | --- | --- | --- | --- |
 | Venue onboarding/publication | `Draft` → `Pending Review` → `Approved`; `Pending Review` → `Returned` → `Pending Review`; `Approved` → `Suspended` | `Rejected` | Only `Approved` venues appear in public discovery. `Returned` requires correction notes. `Suspended` requires a moderation reason. |
 | Table reservation | `Pending confirmation` → `Confirmed` → `Completed`; `Pending confirmation` → `Declined`; `Pending confirmation` → `Expired`; `Confirmed` → `Cancelled by customer`; `Confirmed` → `Cancelled by restaurant`; `Confirmed` → `No-show` | `Declined`, `Expired`, `Cancelled by customer`, `Cancelled by restaurant`, `Completed`, `No-show` | `Pending confirmation` and `Confirmed` hold capacity. Terminal states release or stop holding capacity. |
-| Event inquiry | `Submitted` → `Needs clarification` → `Submitted`; `Submitted` → `Proposal sent` → `Accepted` → `Confirmed`; `Submitted`/`Proposal sent` → `Closed unavailable` or `Declined by customer` | `Closed unavailable`, `Declined by customer`, `Confirmed` | Full proposal behavior belongs to F6; F7 only displays persisted inquiry queues. |
-| Promotion/content submission | `Draft` → `Pending moderation` → `Published`; `Pending moderation` → `Returned`; `Published` → `Hidden` or `Expired` | `Rejected`, `Expired` | Admin decisions require reason/audit metadata. |
+| Event inquiry | `Submitted` → `Under Review` → `Clarification Requested` → `Clarification Provided` → `Under Review`; `Under Review` → `Proposal Sent` → `Revision Requested` → `Under Review`; `Proposal Sent` → `Proposal Accepted` → `Event Confirmed`; `Under Review` → `Closed - Unavailable`; `Proposal Sent` → `Declined by Customer` | `Closed - Unavailable`, `Declined by Customer`, `Event Confirmed` | Full proposal behavior belongs to F6; F7 only displays persisted inquiry queues. Customer response behavior is specified in `UC-C13`. |
+| Promotion/content submission | `Draft` → `Pending Moderation` → `Published`; `Pending Moderation` → `Returned`; `Published` → `Hidden` or `Expired`; `Pending Moderation` → `Rejected` | `Rejected`, `Expired` | Admin decisions require reason/audit metadata. `Returned` items may be edited and resubmitted; `Rejected` items are terminal. |
 | Availability rule | `Active` ↔ `Inactive` | Not applicable | Operating hours and capacity are versioned operational settings. Inactive rules do not generate bookable slots. |
 | Blocked slot | `Active` → `Cancelled` | `Cancelled` | A new active block that overlaps a confirmed reservation is rejected unless affected bookings are first cancelled through `UC-P11`. |
 
@@ -132,8 +132,8 @@ A guest acting on behalf of a restaurant creates a Partner Staff account for aut
 
 **5. Postconditions**
 
-- Success: a `partner_staff` account exists and can sign in (`UC-C02`).
-- Failure: no account is created.
+- Success: an active `partner_staff` account exists, is not yet implicitly authorized for any venue, and can sign in (`UC-C02`) to complete venue onboarding.
+- Failure: no account is created and no venue-ownership permission is granted.
 
 **6. Extension Points**
 
@@ -199,7 +199,8 @@ Partner Staff submits a restaurant's profile (identity, Ho Chi Minh City distric
 
 **4. Preconditions**
 
-- Partner Staff is signed in (`UC-C02`).
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff`.
+- For an existing venue, the target venue belongs to the actor's authorized venue scope and is in `Draft` or `Returned` state.
 
 **5. Postconditions**
 
@@ -277,7 +278,8 @@ Partner Staff creates, updates, and removes menu items (name, category, descript
 
 **4. Preconditions**
 
-- Partner Staff is signed in (`UC-C02`) and associated with a venue.
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff`.
+- The target venue belongs to the actor's authorized venue scope and is in an editable operational state.
 
 **5. Postconditions**
 
@@ -530,8 +532,8 @@ Partner Staff reviews a `Pending confirmation` table reservation request, perfor
 
 **4. Preconditions**
 
-- Partner Staff is signed in (`UC-C02`).
-- Reservation request exists for the partner's venue.
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff`.
+- Reservation request exists for a venue in the actor's authorized venue scope.
 
 **5. Postconditions**
 
@@ -602,7 +604,8 @@ Partner Staff inspects an incoming group-event inquiry (occasion, party size, pr
 
 **4. Preconditions**
 
-- Partner Staff is signed in (`UC-C02`) and an event inquiry exists for the venue.
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff`.
+- The event inquiry exists for a venue in the actor's authorized venue scope and is not in a terminal state (`Closed - Unavailable`, `Declined by Customer`, or `Event Confirmed`).
 
 **5. Postconditions**
 
@@ -672,6 +675,7 @@ Partner Staff drafts and sends a structured event proposal containing menu packa
 
 **4. Preconditions**
 
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff` and is authorized for the inquiry's venue.
 - An active event inquiry exists in `Under Review`, `Clarification Provided`, or `Revision Requested` state.
 
 **5. Postconditions**
@@ -738,6 +742,7 @@ After the customer accepts an event proposal (`UC-C13`), Partner Staff performs 
 
 **4. Preconditions**
 
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff` and is authorized for the inquiry's venue.
 - Customer has accepted the latest proposal (`Proposal Accepted`).
 
 **5. Postconditions**
@@ -802,7 +807,8 @@ Partner Staff submits a time-bound promotion (with eligibility conditions and ex
 
 **4. Preconditions**
 
-- Partner Staff is signed in (`UC-C02`) and has an approved or onboarding venue.
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff`.
+- The target venue belongs to the actor's authorized venue scope and is `Approved` or otherwise eligible under platform content rules.
 
 **5. Postconditions**
 
@@ -872,6 +878,7 @@ In an exceptional operational situation, Partner Staff cancels a `Confirmed` tab
 
 **4. Preconditions**
 
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff` and is authorized for the reservation's venue.
 - Reservation is currently in `Confirmed` state.
 
 **5. Postconditions**
@@ -939,6 +946,7 @@ Partner Staff validates a customer's arrival and check-in at the venue (`Complet
 
 **4. Preconditions**
 
+- Partner Staff is signed in (`UC-C02`) with role `partner_staff` and is authorized for the reservation's venue.
 - Reservation is in `Confirmed` state.
 
 **5. Postconditions**
