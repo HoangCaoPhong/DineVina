@@ -2,28 +2,53 @@ from collections.abc import AsyncGenerator
 from contextlib import asynccontextmanager
 from typing import Any
 
-from fastapi import Depends, FastAPI, HTTPException, Query
+from fastapi import Depends, FastAPI, HTTPException, Query, Response
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import or_, select
 from sqlalchemy.orm import Session, selectinload
 
+from .auth import ActorContext, require_roles
 from .database import Base, SessionLocal, engine, get_db
 from .models import DishModel, VenueModel
+from .reservations_service import (
+    admin_get_reservation,
+    admin_search_reservations,
+    cancel_by_customer,
+    create_reservation,
+    get_customer_reservation,
+    get_venue_availability,
+    list_customer_reservations,
+    list_partner_reservations,
+    partner_cancel,
+    partner_check_in,
+    partner_confirm,
+    partner_decline,
+    partner_no_show,
+)
 from .schemas import (
     AppliedFiltersOut,
     DishOut,
     FilterOptionsOut,
     MenuCategoryOut,
+    ReservationCreateIn,
+    ReservationListResponse,
+    ReservationNoShowIn,
+    ReservationOut,
+    ReservationReasonIn,
     TimeSlotInfo,
+    VenueAvailabilityOut,
     VenueDetailOut,
     VenueListResponse,
     VenueSummaryOut,
 )
-from .seed import seed_f3_database
+from .seed import seed_f3_database, seed_f5_database
 from .supabase_sync import get_supabase_status, sync_f3_to_supabase
 
 _DB_INITIALIZED = False
 _DB_DEPENDENCY = Depends(get_db)
+_CUSTOMER_ACTOR = Depends(require_roles("customer"))
+_PARTNER_ACTOR = Depends(require_roles("partner_staff"))
+_ADMIN_ACTOR = Depends(require_roles("administrator"))
 
 
 def ensure_db_seeded() -> None:
@@ -33,6 +58,7 @@ def ensure_db_seeded() -> None:
     Base.metadata.create_all(bind=engine)
     with SessionLocal() as session:
         seed_f3_database(session, force_refresh=False)
+        seed_f5_database(session, force_refresh=False)
     try:
         sync_f3_to_supabase()
     except (OSError, RuntimeError, ValueError) as exc:
@@ -394,3 +420,197 @@ def get_approved_venue_detail(
         dishes=dishes_out,
         menu_categories=menu_categories,
     )
+
+
+@app.get(
+    "/api/venues/{venue_id}/availability",
+    response_model=VenueAvailabilityOut,
+)
+def lookup_venue_availability(
+    venue_id: str,
+    date: str = Query(description="Reservation date (YYYY-MM-DD)"),
+    party_size: int = Query(default=2, ge=1, le=50),
+    db: Session = _DB_DEPENDENCY,
+) -> VenueAvailabilityOut:
+    """UC-C08: Return 30-minute slots and remaining seats for an approved venue."""
+    ensure_db_seeded()
+    return get_venue_availability(db, venue_id, date, party_size)
+
+
+@app.post("/api/reservations", response_model=ReservationOut)
+def submit_reservation_request(
+    payload: ReservationCreateIn,
+    response: Response,
+    actor: ActorContext = _CUSTOMER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-C09: Create a Pending confirmation booking with atomic slot hold."""
+    ensure_db_seeded()
+    result, created = create_reservation(db, actor, payload)
+    response.status_code = 201 if created else 200
+    return result
+
+
+@app.get("/api/reservations", response_model=ReservationListResponse)
+def list_my_reservations(
+    status: str | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=50),
+    actor: ActorContext = _CUSTOMER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationListResponse:
+    """UC-C10: List reservations owned by the signed-in Customer."""
+    ensure_db_seeded()
+    return list_customer_reservations(db, actor, status, page, page_size)
+
+
+@app.get(
+    "/api/reservations/{reservation_id}",
+    response_model=ReservationOut,
+)
+def get_my_reservation_detail(
+    reservation_id: str,
+    actor: ActorContext = _CUSTOMER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-C10: Retrieve a reservation and full chronological status history."""
+    ensure_db_seeded()
+    return get_customer_reservation(db, actor, reservation_id)
+
+
+@app.post(
+    "/api/reservations/{reservation_id}/cancel",
+    response_model=ReservationOut,
+)
+def cancel_my_reservation(
+    reservation_id: str,
+    payload: ReservationReasonIn,
+    actor: ActorContext = _CUSTOMER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-C11: Customer cancels a Confirmed booking at least 2 hours prior."""
+    ensure_db_seeded()
+    return cancel_by_customer(db, actor, reservation_id, payload.reason)
+
+
+@app.get("/api/partner/reservations", response_model=ReservationListResponse)
+def list_venue_reservation_queue(
+    venue_id: str | None = Query(default=None),
+    status: str | None = Query(default=None),
+    reserved_date: str | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=50),
+    actor: ActorContext = _PARTNER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationListResponse:
+    """UC-P05 / F5: List persisted reservation queue for partner venues."""
+    ensure_db_seeded()
+    return list_partner_reservations(
+        db, actor, venue_id, status, reserved_date, page, page_size
+    )
+
+
+@app.post(
+    "/api/partner/reservations/{reservation_id}/confirm",
+    response_model=ReservationOut,
+)
+def partner_confirm_reservation(
+    reservation_id: str,
+    actor: ActorContext = _PARTNER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-P06: Partner confirms a Pending confirmation reservation atomically."""
+    ensure_db_seeded()
+    return partner_confirm(db, actor, reservation_id)
+
+
+@app.post(
+    "/api/partner/reservations/{reservation_id}/decline",
+    response_model=ReservationOut,
+)
+def partner_decline_reservation(
+    reservation_id: str,
+    payload: ReservationReasonIn,
+    actor: ActorContext = _PARTNER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-P06 A1: Partner declines a Pending confirmation booking with reason."""
+    ensure_db_seeded()
+    return partner_decline(db, actor, reservation_id, payload.reason)
+
+
+@app.post(
+    "/api/partner/reservations/{reservation_id}/cancel",
+    response_model=ReservationOut,
+)
+def partner_cancel_reservation(
+    reservation_id: str,
+    payload: ReservationReasonIn,
+    actor: ActorContext = _PARTNER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-P11: Partner operationally cancels a Confirmed booking with reason."""
+    ensure_db_seeded()
+    return partner_cancel(db, actor, reservation_id, payload.reason)
+
+
+@app.post(
+    "/api/partner/reservations/{reservation_id}/check-in",
+    response_model=ReservationOut,
+)
+def partner_check_in_reservation(
+    reservation_id: str,
+    actor: ActorContext = _PARTNER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-P12: Partner validates guest arrival and transitions to Completed."""
+    ensure_db_seeded()
+    return partner_check_in(db, actor, reservation_id)
+
+
+@app.post(
+    "/api/partner/reservations/{reservation_id}/no-show",
+    response_model=ReservationOut,
+)
+def partner_mark_no_show(
+    reservation_id: str,
+    payload: ReservationNoShowIn | None = None,
+    actor: ActorContext = _PARTNER_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-P12 A1: Partner marks No-show after the 30-minute grace period."""
+    ensure_db_seeded()
+    reason = payload.reason if payload is not None else ""
+    return partner_no_show(db, actor, reservation_id, reason)
+
+
+@app.get(
+    "/api/admin/reservations/support",
+    response_model=ReservationListResponse,
+)
+def admin_support_lookup(
+    q: str | None = Query(default=None),
+    venue_id: str | None = Query(default=None),
+    status: str | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=50),
+    _actor: ActorContext = _ADMIN_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationListResponse:
+    """UC-A04: Administrator searches reservations across venues for support."""
+    ensure_db_seeded()
+    return admin_search_reservations(db, q, venue_id, status, page, page_size)
+
+
+@app.get(
+    "/api/admin/reservations/{reservation_id}",
+    response_model=ReservationOut,
+)
+def admin_support_detail(
+    reservation_id: str,
+    _actor: ActorContext = _ADMIN_ACTOR,
+    db: Session = _DB_DEPENDENCY,
+) -> ReservationOut:
+    """UC-A04: Administrator inspects immutable chronological audit history."""
+    ensure_db_seeded()
+    return admin_get_reservation(db, reservation_id)
