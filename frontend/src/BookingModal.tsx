@@ -18,7 +18,7 @@ type Availability =
 const steps = ['Thông tin buổi ăn', 'Chọn khung giờ', 'Thông tin đặt bàn']
 
 function isBookable(slot: AvailabilitySlot) {
-  return slot.status === 'Available' && !slot.is_blocked
+  return slot.status.toLowerCase() === 'available' && !slot.is_blocked
 }
 
 function minutesAt(time: string) {
