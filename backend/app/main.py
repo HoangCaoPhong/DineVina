@@ -8,6 +8,18 @@ from sqlalchemy import or_, select
 from sqlalchemy.orm import Session, selectinload
 
 from .auth import ActorContext, require_roles
+from .availability_service import (
+    calculate_public_availability,
+    cancel_blocked_slot,
+    create_blocked_slot,
+    ensure_partner_access,
+    get_or_create_settings,
+    get_partner_dashboard,
+    get_venue_or_404,
+    list_blocked_slots,
+    save_availability_settings,
+    serialize_settings,
+)
 from .database import Base, SessionLocal, engine, get_db
 from .models import DishModel, VenueModel
 from .reservations_service import (
@@ -16,7 +28,6 @@ from .reservations_service import (
     cancel_by_customer,
     create_reservation,
     get_customer_reservation,
-    get_venue_availability,
     list_customer_reservations,
     list_partner_reservations,
     partner_cancel,
@@ -27,9 +38,14 @@ from .reservations_service import (
 )
 from .schemas import (
     AppliedFiltersOut,
+    AvailabilitySettingsOut,
+    AvailabilitySettingsUpdateIn,
+    BlockedSlotCreateIn,
+    BlockedSlotOut,
     DishOut,
     FilterOptionsOut,
     MenuCategoryOut,
+    PartnerDashboardOut,
     ReservationCreateIn,
     ReservationListResponse,
     ReservationNoShowIn,
@@ -41,7 +57,11 @@ from .schemas import (
     VenueListResponse,
     VenueSummaryOut,
 )
-from .seed import seed_f3_database, seed_f5_database
+from .seed import (
+    seed_f3_database,
+    seed_f5_database,
+    seed_f7_availability_dashboard,
+)
 from .supabase_sync import get_supabase_status, sync_f3_to_supabase
 
 _DB_INITIALIZED = False
@@ -49,6 +69,7 @@ _DB_DEPENDENCY = Depends(get_db)
 _CUSTOMER_ACTOR = Depends(require_roles("customer"))
 _PARTNER_ACTOR = Depends(require_roles("partner_staff"))
 _ADMIN_ACTOR = Depends(require_roles("administrator"))
+_PARTNER_DEPENDENCY = Depends(require_roles("partner_staff", "administrator"))
 
 
 def ensure_db_seeded() -> None:
@@ -59,6 +80,7 @@ def ensure_db_seeded() -> None:
     with SessionLocal() as session:
         seed_f3_database(session, force_refresh=False)
         seed_f5_database(session, force_refresh=False)
+        seed_f7_availability_dashboard(session, force_refresh=False)
     try:
         sync_f3_to_supabase()
     except (OSError, RuntimeError, ValueError) as exc:
@@ -422,21 +444,6 @@ def get_approved_venue_detail(
     )
 
 
-@app.get(
-    "/api/venues/{venue_id}/availability",
-    response_model=VenueAvailabilityOut,
-)
-def lookup_venue_availability(
-    venue_id: str,
-    date: str = Query(description="Reservation date (YYYY-MM-DD)"),
-    party_size: int = Query(default=2, ge=1, le=50),
-    db: Session = _DB_DEPENDENCY,
-) -> VenueAvailabilityOut:
-    """UC-C08: Return 30-minute slots and remaining seats for an approved venue."""
-    ensure_db_seeded()
-    return get_venue_availability(db, venue_id, date, party_size)
-
-
 @app.post("/api/reservations", response_model=ReservationOut)
 def submit_reservation_request(
     payload: ReservationCreateIn,
@@ -614,3 +621,113 @@ def admin_support_detail(
     """UC-A04: Administrator inspects immutable chronological audit history."""
     ensure_db_seeded()
     return admin_get_reservation(db, reservation_id)
+
+
+@app.get(
+    "/api/partner/venues/{venue_id}/availability-settings",
+    response_model=AvailabilitySettingsOut,
+)
+def partner_get_availability_settings(
+    venue_id: str,
+    actor: ActorContext = _PARTNER_DEPENDENCY,
+    db: Session = _DB_DEPENDENCY,
+) -> AvailabilitySettingsOut:
+    ensure_db_seeded()
+    venue = get_venue_or_404(db, venue_id)
+    ensure_partner_access(actor, venue_id)
+    return serialize_settings(venue, get_or_create_settings(db, venue))
+
+
+@app.put(
+    "/api/partner/venues/{venue_id}/availability-settings",
+    response_model=AvailabilitySettingsOut,
+)
+def partner_put_availability_settings(
+    venue_id: str,
+    payload: AvailabilitySettingsUpdateIn,
+    actor: ActorContext = _PARTNER_DEPENDENCY,
+    db: Session = _DB_DEPENDENCY,
+) -> AvailabilitySettingsOut:
+    ensure_db_seeded()
+    return save_availability_settings(db, venue_id, payload, actor)
+
+
+@app.get(
+    "/api/partner/venues/{venue_id}/blocked-slots",
+    response_model=list[BlockedSlotOut],
+)
+def partner_list_blocked_slots(
+    venue_id: str,
+    status: str = Query(default="Active"),
+    actor: ActorContext = _PARTNER_DEPENDENCY,
+    db: Session = _DB_DEPENDENCY,
+) -> list[BlockedSlotOut]:
+    ensure_db_seeded()
+    return list_blocked_slots(db, venue_id, actor, status)
+
+
+@app.post(
+    "/api/partner/venues/{venue_id}/blocked-slots",
+    response_model=BlockedSlotOut,
+    status_code=201,
+)
+def partner_create_blocked_slot(
+    venue_id: str,
+    payload: BlockedSlotCreateIn,
+    actor: ActorContext = _PARTNER_DEPENDENCY,
+    db: Session = _DB_DEPENDENCY,
+) -> BlockedSlotOut:
+    ensure_db_seeded()
+    return create_blocked_slot(db, venue_id, payload, actor)
+
+
+@app.delete(
+    "/api/partner/venues/{venue_id}/blocked-slots/{blocked_slot_id}",
+    response_model=BlockedSlotOut,
+)
+def partner_cancel_blocked_slot(
+    venue_id: str,
+    blocked_slot_id: str,
+    actor: ActorContext = _PARTNER_DEPENDENCY,
+    db: Session = _DB_DEPENDENCY,
+) -> BlockedSlotOut:
+    ensure_db_seeded()
+    return cancel_blocked_slot(db, venue_id, blocked_slot_id, actor)
+
+
+@app.get("/api/venues/{venue_id}/availability", response_model=VenueAvailabilityOut)
+def public_venue_availability(
+    venue_id: str,
+    date: str = Query(...),
+    party_size: int = Query(default=2, ge=1, le=50),
+    db: Session = _DB_DEPENDENCY,
+) -> VenueAvailabilityOut:
+    ensure_db_seeded()
+    return calculate_public_availability(db, venue_id, date, party_size)
+
+
+@app.get(
+    "/api/partner/venues/{venue_id}/dashboard",
+    response_model=PartnerDashboardOut,
+)
+def partner_dashboard(
+    venue_id: str,
+    status: str | None = Query(default=None),
+    date: str | None = Query(default=None),
+    query: str | None = Query(default=None),
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=100),
+    actor: ActorContext = _PARTNER_DEPENDENCY,
+    db: Session = _DB_DEPENDENCY,
+) -> PartnerDashboardOut:
+    ensure_db_seeded()
+    return get_partner_dashboard(
+        db,
+        venue_id,
+        actor,
+        status_filter=status,
+        date_filter=date,
+        query=query,
+        page=page,
+        page_size=page_size,
+    )

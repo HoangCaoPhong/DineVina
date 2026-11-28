@@ -5,6 +5,7 @@ import BookingFlow from './BookingFlow'
 import type { BookingCriteria } from './BookingModal'
 import { demoLocations } from './branchBookingDemo'
 import CustomerReservations from './CustomerReservations'
+import PartnerF7Modal from './PartnerF7'
 import ReservationDialog from './ReservationDialog'
 import { bookingDateLabel, demoCustomerId, todayInVietnam } from './reservationApi'
 
@@ -732,7 +733,8 @@ function App() {
       {detailVenue && <VenueDetailModal venue={detailVenue} onClose={() => setDetailVenue(null)} onBook={openBooking} />}
       {eventOpen && <EventBookingModal venuesList={venuesData} onClose={() => setEventOpen(false)} onSubmit={(request) => { setEventRequests((items) => [{ ...request, id: Date.now(), status: 'Đã gửi', messages: ['Bạn: Đã gửi yêu cầu sự kiện đến nhà hàng.'] }, ...items]); addNotification('Đã gửi yêu cầu tiệc', `${request.venueName} sẽ phản hồi bằng đề xuất.`) }} />}
       {modalAccount}
-      {workspaceOpen && <WorkspaceModal role={role} customerId={customerId} initialReservationId={workspaceReservationId} reservations={reservations} events={eventRequests} onClose={() => setWorkspaceOpen(false)} onReservationStatus={updateReservationStatus} onEventAccept={(id) => { setEventRequests((items) => items.map((item) => item.id === id ? { ...item, status: 'Đã chấp nhận', messages: [...item.messages, 'Bạn: Đã chấp nhận đề xuất.'] } : item)); addNotification('Đề xuất đã được chấp nhận', 'Điều khoản sự kiện đã được lưu trong lịch sử trao đổi.') }} />}
+      {workspaceOpen && role === 'partner' && <PartnerF7Modal onClose={() => setWorkspaceOpen(false)} />}
+      {workspaceOpen && role !== 'partner' && <WorkspaceModal role={role} customerId={customerId} initialReservationId={workspaceReservationId} reservations={reservations} events={eventRequests} onClose={() => setWorkspaceOpen(false)} onReservationStatus={updateReservationStatus} onEventAccept={(id) => { setEventRequests((items) => items.map((item) => item.id === id ? { ...item, status: 'Đã chấp nhận', messages: [...item.messages, 'Bạn: Đã chấp nhận đề xuất.'] } : item)); addNotification('Đề xuất đã được chấp nhận', 'Điều khoản sự kiện đã được lưu trong lịch sử trao đổi.') }} />}
     </div>
   )
 }

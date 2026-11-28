@@ -51,3 +51,6 @@ docs/ans/
 
 #media
 .mp4
+# Playwright artifacts
+frontend/test-results/
+frontend/playwright-report/

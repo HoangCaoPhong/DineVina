@@ -1,4 +1,3 @@
-
 from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
@@ -96,6 +95,52 @@ class VenueListResponse(BaseModel):
     available_filters: FilterOptionsOut
 
 
+class OperatingHourItem(BaseModel):
+    day_of_week: int = Field(ge=0, le=6)
+    open_time: str = Field(pattern=r"^\d{2}:\d{2}$")
+    close_time: str = Field(pattern=r"^\d{2}:\d{2}$")
+    is_active: bool = True
+
+
+class AvailabilitySettingsUpdateIn(BaseModel):
+    default_slot_capacity: int = Field(ge=1)
+    operating_hours: list[OperatingHourItem] = Field(default_factory=list)
+    expected_revision: int | None = None
+
+
+class BlockedSlotCreateIn(BaseModel):
+    blocked_date: str = Field(pattern=r"^\d{4}-\d{2}-\d{2}$")
+    start_time: str = Field(pattern=r"^\d{2}:\d{2}$")
+    end_time: str = Field(pattern=r"^\d{2}:\d{2}$")
+    reason: str = Field(min_length=1, max_length=500)
+
+
+class BlockedSlotOut(BaseModel):
+    id: str
+    venue_id: str
+    blocked_date: str
+    start_time: str
+    end_time: str
+    reason: str
+    status: str
+    created_by: str
+    created_at: datetime | None = None
+    cancelled_by: str | None = None
+    cancelled_at: datetime | None = None
+    affected_pending_reservation_ids: list[str] = Field(default_factory=list)
+
+
+class AvailabilitySettingsOut(BaseModel):
+    venue_id: str
+    venue_name: str
+    max_capacity: int
+    default_slot_capacity: int
+    slot_granularity_minutes: int
+    revision: int
+    updated_by: str
+    updated_at: datetime | None = None
+    operating_hours: list[OperatingHourItem]
+    blocked_slots: list[BlockedSlotOut]
 class SlotAvailabilityItemOut(BaseModel):
     time: str
     status: str
@@ -109,6 +154,8 @@ class VenueAvailabilityOut(BaseModel):
     venue_id: str
     date: str
     party_size: int
+    slot_granularity_minutes: int = 30
+    closed_reason: str | None = None
     slots: list[SlotAvailabilityItemOut]
 
 
@@ -189,3 +236,64 @@ class ReservationListResponse(BaseModel):
     page: int
     page_size: int
     items: list[ReservationOut]
+
+
+class DashboardReservationOut(BaseModel):
+    id: str
+    reservation_code: str
+    customer_name: str
+    customer_phone: str
+    reserved_date: str
+    reserved_time: str
+    party_size: int
+    status: str
+    special_requests: str
+    response_deadline: datetime | None = None
+    created_at: datetime | None = None
+
+
+class DashboardEventOut(BaseModel):
+    id: str
+    inquiry_code: str
+    customer_name: str
+    occasion: str
+    preferred_date: str
+    party_size: int
+    budget_min_vnd: int
+    budget_max_vnd: int
+    status: str
+    special_needs: str
+    last_message_preview: str
+    updated_at: datetime | None = None
+
+
+class DashboardReservationQueue(BaseModel):
+    total: int
+    page: int
+    page_size: int
+    items: list[DashboardReservationOut]
+
+
+class DashboardEventQueue(BaseModel):
+    total: int
+    page: int
+    page_size: int
+    items: list[DashboardEventOut]
+
+
+class DashboardSummaryOut(BaseModel):
+    pending_reservations: int
+    confirmed_today: int
+    open_event_inquiries: int
+    seats_reserved_today: int
+    active_blocked_slots_next_7_days: int
+    nearest_response_deadline: datetime | None = None
+
+
+class PartnerDashboardOut(BaseModel):
+    venue_id: str
+    venue_name: str
+    generated_at: datetime
+    summary: DashboardSummaryOut
+    reservation_queue: DashboardReservationQueue
+    event_queue: DashboardEventQueue
