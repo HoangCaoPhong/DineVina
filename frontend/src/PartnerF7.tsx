@@ -49,6 +49,15 @@ type Dashboard = {
 }
 
 const dayNames = ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ nhật']
+const timeOptions24h = Array.from({ length: 48 }, (_, index) => {
+  const hour = String(Math.floor(index / 2)).padStart(2, '0')
+  const minute = index % 2 === 0 ? '00' : '30'
+  return `${hour}:${minute}`
+})
+const timeOptionsFor = (current: string) =>
+  !current || timeOptions24h.includes(current)
+    ? timeOptions24h
+    : [current, ...timeOptions24h].sort()
 const demoVenues = ['v-hcmc-001', 'v-hcmc-002']
 const headers = {
   'Content-Type': 'application/json',
@@ -228,12 +237,12 @@ export default function PartnerF7Modal({ onClose }: { onClose: () => void }) {
             <form className="f7-panel" onSubmit={saveSettings}>
               <div className="detail-section-heading"><div><h3>Giờ mở cửa & sức chứa</h3><p>Áp dụng cho tính năng công khai và giữ chỗ F5.</p></div><span>rev. {settings?.revision}</span></div>
               <label className="f7-capacity">Sức chứa mỗi khung 30 phút<input type="number" min="1" max={settings?.max_capacity || 999} value={capacity} onChange={(event) => setCapacity(Number(event.target.value))} /><small>Tối đa venue: {settings?.max_capacity}</small></label>
-              <div className="f7-hours">{hours.map((row) => <div className="f7-hour-row" key={row.day_of_week}><label><input type="checkbox" checked={row.is_active} onChange={(event) => updateHour(row.day_of_week, { is_active: event.target.checked })} />{dayNames[row.day_of_week]}</label><input type="time" value={row.open_time} onChange={(event) => updateHour(row.day_of_week, { open_time: event.target.value })} /><span>–</span><input type="time" value={row.close_time} onChange={(event) => updateHour(row.day_of_week, { close_time: event.target.value })} /></div>)}</div>
+              <div className="f7-hours">{hours.map((row) => <div className="f7-hour-row" key={row.day_of_week}><label><input type="checkbox" checked={row.is_active} onChange={(event) => updateHour(row.day_of_week, { is_active: event.target.checked })} />{dayNames[row.day_of_week]}</label><select aria-label={`Giờ mở cửa ${dayNames[row.day_of_week]}`} value={row.open_time} onChange={(event) => updateHour(row.day_of_week, { open_time: event.target.value })}>{timeOptionsFor(row.open_time).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select><span>–</span><select aria-label={`Giờ đóng cửa ${dayNames[row.day_of_week]}`} value={row.close_time} onChange={(event) => updateHour(row.day_of_week, { close_time: event.target.value })}>{timeOptionsFor(row.close_time).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select></div>)}</div>
               <button className="primary-button" disabled={saving}>{saving ? 'Đang lưu...' : 'Lưu cấu hình'}</button>
             </form>
             <div className="f7-panel">
               <div className="detail-section-heading"><div><h3>Khung giờ khóa</h3><p>Không cho phép khóa nếu trùng booking đã xác nhận.</p></div><span>{activeBlocks.length} đang hoạt động</span></div>
-              <form className="f7-block-form" onSubmit={createBlock}><input required type="date" value={blockDate} onChange={(event) => setBlockDate(event.target.value)} /><input type="time" step="1800" value={blockStart} onChange={(event) => setBlockStart(event.target.value)} /><input type="time" step="1800" value={blockEnd} onChange={(event) => setBlockEnd(event.target.value)} /><input required value={blockReason} onChange={(event) => setBlockReason(event.target.value)} placeholder="Lý do khóa" /><button className="primary-button small" disabled={saving}>Khóa khung giờ</button></form>
+              <form className="f7-block-form" onSubmit={createBlock}><input required type="date" value={blockDate} onChange={(event) => setBlockDate(event.target.value)} /><select aria-label="Giờ bắt đầu" value={blockStart} onChange={(event) => setBlockStart(event.target.value)}>{timeOptionsFor(blockStart).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select><select aria-label="Giờ kết thúc" value={blockEnd} onChange={(event) => setBlockEnd(event.target.value)}>{timeOptionsFor(blockEnd).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select><input required value={blockReason} onChange={(event) => setBlockReason(event.target.value)} placeholder="Lý do khóa" /><button className="primary-button small" disabled={saving}>Khóa khung giờ</button></form>
               <div className="f7-block-list">{activeBlocks.length === 0 ? <div className="empty-inline">Chưa có khung giờ bị khóa.</div> : activeBlocks.map((item) => <article key={item.id}><div><b>{item.blocked_date} · {item.start_time}–{item.end_time}</b><p>{item.reason}</p></div><button className="outline-button" onClick={() => void cancelBlock(item.id)}>Hủy khóa</button></article>)}</div>
             </div>
           </div>
