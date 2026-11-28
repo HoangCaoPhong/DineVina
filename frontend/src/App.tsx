@@ -660,7 +660,7 @@ function App() {
             <label className="search-field"><span>◷</span><div><small>Giờ mong muốn</small><input type="time" aria-label="Giờ mong muốn" value={heroTime} onChange={(event) => setHeroTime(event.target.value)} /></div></label>
             <button className="primary-button search-submit" type="submit">Tìm bàn</button>
           </form>
-          <div className="trust-row"><span><b>{apiConnected ? `${filteredVenues.length} nhà hàng đã duyệt` : 'Đang kết nối dữ liệu nhà hàng'}</b></span><span><b>Dữ liệu mẫu PA3</b></span></div>
+          <div className="trust-row"><span><b>{apiConnected ? `${filteredVenues.length} nhà hàng đã duyệt` : 'Đang kết nối dữ liệu nhà hàng'}</b></span></div>
         </section>
 
         <section className="top-filter-section content-width" aria-label="Tìm và lọc nhà hàng">
