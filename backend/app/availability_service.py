@@ -460,7 +460,16 @@ def calculate_public_availability(
     db: Session, venue_id: str, date_value: str, party_size: int
 ) -> VenueAvailabilityOut:
     venue = get_venue_or_404(db, venue_id)
+    if str(venue.status) != "approved":
+        _api_error(
+            404,
+            "VENUE_NOT_FOUND",
+            "Approved venue not found.",
+            venue_id=venue_id,
+        )
     target_date = _parse_date(date_value)
+    if target_date < _now().date():
+        _api_error(422, "PAST_DATE", "Reservation date cannot be in the past.")
     expire_due_reservations(db, venue_id)
     settings = get_or_create_settings(db, venue)
     weekday = target_date.weekday()

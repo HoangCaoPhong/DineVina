@@ -1,5 +1,5 @@
 import json
-from datetime import UTC, date, datetime, time, timedelta, timezone
+from datetime import UTC, date, datetime, time, timedelta
 from pathlib import Path
 
 from sqlalchemy.orm import Session
@@ -17,7 +17,6 @@ from .models import (
 
 FIXTURE_PATH = Path(__file__).parent / "fixtures" / "f3_venues_fixture.json"
 F5_FIXTURE_PATH = Path(__file__).parent / "fixtures" / "f5_reservations_fixture.json"
-_VN_TZ = timezone(timedelta(hours=7))
 
 
 def load_fixture_data() -> dict:
@@ -126,7 +125,7 @@ def seed_f5_database(db: Session, force_refresh: bool = False) -> dict[str, int]
         db.commit()
 
     inserted = 0
-    base_now = datetime.now(_VN_TZ)
+    base_now = datetime.now(UTC)
     for item in items:
         if (
             db.query(ReservationModel)
@@ -160,7 +159,7 @@ def seed_f5_database(db: Session, force_refresh: bool = False) -> dict[str, int]
             status=item["status"],
             idempotency_key=None,
             response_deadline=base_now + timedelta(minutes=30),
-            cancellation_deadline=reserved_dt - timedelta(hours=2),
+            cancellation_deadline=(reserved_dt - timedelta(hours=2)).astimezone(UTC),
             created_at=base_now,
             updated_at=base_now,
         )

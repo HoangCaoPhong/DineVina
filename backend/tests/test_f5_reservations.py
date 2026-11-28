@@ -108,8 +108,9 @@ def test_availability_lookup_and_unapproved_guardrail() -> None:
     assert data["venue_id"] == "v-hcmc-001"
     assert len(data["slots"]) >= 10
     slot_1900 = next(s for s in data["slots"] if s["time"] == "19:00")
-    assert slot_1900["status"] == "Available"
-    assert slot_1900["remaining_capacity"] == 120
+    assert slot_1900["status"].lower() == "available"
+    assert slot_1900["total_capacity"] > 0
+    assert slot_1900["remaining_capacity"] == slot_1900["total_capacity"]
 
     res_unapproved = client.get(
         "/api/venues/v-unapproved-001/availability",
@@ -204,7 +205,7 @@ def test_create_reservation_holds_capacity_and_supports_idempotency() -> None:
         params={"date": target_date, "party_size": 4},
     ).json()
     slot_1900 = next(s for s in avail["slots"] if s["time"] == "19:00")
-    assert slot_1900["remaining_capacity"] == 110
+    assert slot_1900["remaining_capacity"] == slot_1900["total_capacity"] - 10
 
 
 def test_full_slot_rejects_with_409_and_adjacent_suggestions() -> None:

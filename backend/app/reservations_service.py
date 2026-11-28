@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date, datetime, time, timedelta, timezone
+from datetime import UTC, date, datetime, time, timedelta, timezone
 from typing import Any
 from uuid import uuid4
 
@@ -43,8 +43,14 @@ def current_vn_time() -> datetime:
 
 def _ensure_aware(dt: datetime) -> datetime:
     if dt.tzinfo is None:
-        return dt.replace(tzinfo=VN_TZ)
+        return dt.replace(tzinfo=UTC).astimezone(VN_TZ)
     return dt.astimezone(VN_TZ)
+
+
+def _to_utc(dt: datetime) -> datetime:
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=VN_TZ).astimezone(UTC)
+    return dt.astimezone(UTC)
 
 
 def _raise_api_error(
@@ -133,7 +139,7 @@ def _append_history(
         actor_id=actor_id,
         actor_role=actor_role,
         reason=reason,
-        created_at=timestamp,
+        created_at=_to_utc(timestamp),
     )
     db.add(entry)
     return entry
@@ -151,7 +157,7 @@ def _expire_if_stale(
     ):
         prev = reservation.status
         reservation.status = STATE_EXPIRED
-        reservation.updated_at = now
+        reservation.updated_at = _to_utc(now)
         _append_history(
             db=db,
             reservation_id=reservation.id,
@@ -439,10 +445,10 @@ def create_reservation(
         special_requests=payload.special_requests.strip(),
         status=STATE_PENDING,
         idempotency_key=payload.idempotency_key,
-        response_deadline=response_deadline,
-        cancellation_deadline=cancellation_deadline,
-        created_at=ref_now,
-        updated_at=ref_now,
+        response_deadline=_to_utc(response_deadline),
+        cancellation_deadline=_to_utc(cancellation_deadline),
+        created_at=_to_utc(ref_now),
+        updated_at=_to_utc(ref_now),
     )
     db.add(reservation)
     db.flush()
@@ -584,7 +590,7 @@ def cancel_by_customer(
 
     prev = row.status
     row.status = STATE_CANCELLED_CUSTOMER
-    row.updated_at = ref_now
+    row.updated_at = _to_utc(ref_now)
     _append_history(
         db=db,
         reservation_id=row.id,
@@ -710,7 +716,7 @@ def partner_confirm(
 
     prev = row.status
     row.status = STATE_CONFIRMED
-    row.updated_at = ref_now
+    row.updated_at = _to_utc(ref_now)
     _append_history(
         db=db,
         reservation_id=row.id,
@@ -754,7 +760,7 @@ def partner_decline(
 
     prev = row.status
     row.status = STATE_DECLINED
-    row.updated_at = ref_now
+    row.updated_at = _to_utc(ref_now)
     _append_history(
         db=db,
         reservation_id=row.id,
@@ -790,7 +796,7 @@ def partner_cancel(
 
     prev = row.status
     row.status = STATE_CANCELLED_RESTAURANT
-    row.updated_at = ref_now
+    row.updated_at = _to_utc(ref_now)
     _append_history(
         db=db,
         reservation_id=row.id,
@@ -835,7 +841,7 @@ def partner_check_in(
 
     prev = row.status
     row.status = STATE_COMPLETED
-    row.updated_at = ref_now
+    row.updated_at = _to_utc(ref_now)
     _append_history(
         db=db,
         reservation_id=row.id,
@@ -880,7 +886,7 @@ def partner_no_show(
 
     prev = row.status
     row.status = STATE_NO_SHOW
-    row.updated_at = ref_now
+    row.updated_at = _to_utc(ref_now)
     _append_history(
         db=db,
         reservation_id=row.id,
