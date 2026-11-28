@@ -459,8 +459,14 @@ nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); 
 
 /* F7 Availability & Partner Dashboard */
 .f7-modal { max-height: 92vh; overflow: auto; }
-.f7-heading { align-items: flex-start; }
+.f7-heading { align-items: flex-start; padding: 26px 64px 16px 30px; }
+.f7-heading h2 { margin: 6px 0 6px; font-size: 1.65rem; letter-spacing: -.035em; }
+.f7-heading p:not(.eyebrow) { margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
 .f7-toolbar { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 0 30px 14px; border-bottom: 1px solid var(--line); }
+.f7-toolbar .detail-tab-row { display: inline-flex; gap: 6px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--cream); }
+.f7-toolbar .detail-tab-row button { border: 0; border-radius: 999px; padding: 8px 16px; background: transparent; color: var(--muted); font-size: .84rem; font-weight: 700; transition: all .15s ease; }
+.f7-toolbar .detail-tab-row button.active { background: var(--ink); color: #fff; }
+.f7-toolbar .detail-tab-row button:hover:not(.active) { color: var(--ink); }
 .f7-toolbar label { display: grid; gap: 5px; font-size: .78rem; font-weight: 800; color: var(--muted); }
 .f7-toolbar select, .f7-filter-row select, .f7-filter-row input, .f7-panel input, .f7-panel select { border: 1px solid var(--line); border-radius: 9px; padding: 9px 10px; font: inherit; background: #fff; }
 .f7-body { padding: 18px 30px 28px; display: grid; gap: 20px; }
@@ -488,6 +494,8 @@ nav a:hover, nav a.active { color: var(--red); border-bottom-color: var(--red); 
 .f7-error { margin: 14px 30px 0; padding: 11px 13px; border-radius: 9px; background: #fff0ed; color: #9f2f21; font-size: .8rem; font-weight: 800; }
 .f7-empty { padding: 40px 30px; color: var(--muted); font-weight: 700; }
 @media (max-width: 850px) {
+  .f7-heading { padding: 20px 56px 14px 20px; }
+  .f7-toolbar, .f7-body { padding-left: 20px; padding-right: 20px; }
   .f7-toolbar, .f7-two-column { grid-template-columns: 1fr; display: grid; }
   .f7-summary-grid { grid-template-columns: repeat(2, 1fr); }
   .f7-filter-row, .f7-hour-row, .f7-block-form { grid-template-columns: 1fr; }
