@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useMemo, useState } from 'react'
+import PartnerF7Modal from './PartnerF7'
 
 type DishItem = {
   id: string
@@ -688,7 +689,8 @@ function App() {
       {detailVenue && <VenueDetailModal venue={detailVenue} onClose={() => setDetailVenue(null)} onBook={(item) => requireAccount(() => setSelectedVenue(item))} />}
       {eventOpen && <EventBookingModal venuesList={venuesData} onClose={() => setEventOpen(false)} onSubmit={(request) => { setEventRequests((items) => [{ ...request, id: Date.now(), status: 'Đã gửi', messages: ['Bạn: Đã gửi yêu cầu sự kiện đến nhà hàng.'] }, ...items]); addNotification('Đã gửi yêu cầu tiệc', `${request.venueName} sẽ phản hồi bằng đề xuất.`) }} />}
       {modalAccount}
-      {workspaceOpen && <WorkspaceModal role={role} reservations={reservations} events={eventRequests} onClose={() => setWorkspaceOpen(false)} onReservationStatus={updateReservationStatus} onReview={(id) => setReservations((items) => items.map((item) => item.id === id ? { ...item, reviewed: true } : item))} onEventAccept={(id) => { setEventRequests((items) => items.map((item) => item.id === id ? { ...item, status: 'Đã chấp nhận', messages: [...item.messages, 'Bạn: Đã chấp nhận đề xuất.'] } : item)); addNotification('Đề xuất đã được chấp nhận', 'Điều khoản sự kiện đã được lưu trong lịch sử trao đổi.') }} />}
+      {workspaceOpen && role === 'partner' && <PartnerF7Modal onClose={() => setWorkspaceOpen(false)} />}
+      {workspaceOpen && role !== 'partner' && <WorkspaceModal role={role} reservations={reservations} events={eventRequests} onClose={() => setWorkspaceOpen(false)} onReservationStatus={updateReservationStatus} onReview={(id) => setReservations((items) => items.map((item) => item.id === id ? { ...item, reviewed: true } : item))} onEventAccept={(id) => { setEventRequests((items) => items.map((item) => item.id === id ? { ...item, status: 'Đã chấp nhận', messages: [...item.messages, 'Bạn: Đã chấp nhận đề xuất.'] } : item)); addNotification('Đề xuất đã được chấp nhận', 'Điều khoản sự kiện đã được lưu trong lịch sử trao đổi.') }} />}
     </div>
   )
 }
