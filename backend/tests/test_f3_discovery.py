@@ -1,5 +1,6 @@
 import json
 import os
+import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -178,7 +179,7 @@ def _fetch_supabase_table(table: str, select: str) -> list[dict[str, Any]]:
     try:
         with urllib.request.urlopen(req, timeout=6.0) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-    except Exception:
+    except (urllib.error.URLError, OSError, ValueError, json.JSONDecodeError):
         data = _build_fallback_supabase_table(table)
     _SUPABASE_CACHE[table] = data
     return data

@@ -1,0 +1,106 @@
+{
+  "availability_settings": [
+    {
+      "venue_id": "v-hcmc-001",
+      "default_slot_capacity": 24,
+      "open_time": "10:00",
+      "close_time": "22:00",
+      "closed_days": [0]
+    },
+    {
+      "venue_id": "v-hcmc-002",
+      "default_slot_capacity": 18,
+      "open_time": "11:00",
+      "close_time": "23:00",
+      "closed_days": []
+    }
+  ],
+  "reservations": [
+    {
+      "id": "f7-res-001",
+      "reservation_code": "DVF70001",
+      "venue_id": "v-hcmc-001",
+      "customer_id": "cust-mai",
+      "customer_name": "Mai Nguyễn",
+      "customer_phone": "0901234567",
+      "day_offset": 1,
+      "reserved_time": "18:00",
+      "party_size": 4,
+      "special_requests": "Bàn gần cửa sổ",
+      "status": "Pending confirmation",
+      "response_minutes": 25
+    },
+    {
+      "id": "f7-res-002",
+      "reservation_code": "DVF70002",
+      "venue_id": "v-hcmc-001",
+      "customer_id": "cust-an",
+      "customer_name": "An Trần",
+      "customer_phone": "0912345678",
+      "day_offset": 1,
+      "reserved_time": "18:00",
+      "party_size": 6,
+      "special_requests": "Ghế trẻ em",
+      "status": "Confirmed",
+      "response_minutes": 120
+    },
+    {
+      "id": "f7-res-003",
+      "reservation_code": "DVF70003",
+      "venue_id": "v-hcmc-001",
+      "customer_id": "cust-linh",
+      "customer_name": "Linh Phạm",
+      "customer_phone": "0923456789",
+      "day_offset": 2,
+      "reserved_time": "12:00",
+      "party_size": 2,
+      "special_requests": "",
+      "status": "Pending confirmation",
+      "response_minutes": 10
+    }
+  ],
+  "blocked_slots": [
+    {
+      "id": "f7-block-001",
+      "venue_id": "v-hcmc-001",
+      "day_offset": 3,
+      "start_time": "14:00",
+      "end_time": "16:00",
+      "reason": "Bảo trì hệ thống bếp"
+    }
+  ],
+  "event_inquiries": [
+    {
+      "id": "f7-event-001",
+      "inquiry_code": "EVF70001",
+      "venue_id": "v-hcmc-001",
+      "customer_id": "cust-hoa",
+      "customer_name": "Hoa Lê",
+      "customer_phone": "0934567890",
+      "occasion": "Sinh nhật gia đình",
+      "day_offset": 7,
+      "party_size": 18,
+      "budget_min_vnd": 5000000,
+      "budget_max_vnd": 9000000,
+      "special_needs": "Bánh kem và màn hình chiếu",
+      "status": "New",
+      "last_message_preview": "Mình muốn tổ chức sinh nhật cho 18 khách."
+    },
+    {
+      "id": "f7-event-002",
+      "inquiry_code": "EVF70002",
+      "venue_id": "v-hcmc-001",
+      "customer_id": "cust-quan",
+      "customer_name": "Quân Võ",
+      "customer_phone": "0945678901",
+      "occasion": "Tiệc công ty",
+      "day_offset": 10,
+      "party_size": 35,
+      "budget_min_vnd": 15000000,
+      "budget_max_vnd": 25000000,
+      "special_needs": "Set menu và âm thanh",
+      "status": "In discussion",
+      "last_message_preview": "Nhà hàng có thể gửi menu theo ngân sách không?"
+    }
+  ]
+}
