@@ -17,32 +17,32 @@
   * **Description**: Confirm F5 & F7 scope from PA3 Project Plan §3.1 at Sprint Planning. Lock `Customer` / `Partner Staff` / `Administrator` session/role dependency with Ngọc & Duy, and finalize shared slot capacity, blocked-slot lookup, and transaction boundary with Nhân (F7).
   * **Verification**: Shared dependency contract and F5/F7 schema interface documented before API implementation.
 
-- [ ] **TASK-F5-02: Extend Relational Models & Migration/Seed Setup**
+- [x] **TASK-F5-02: Extend Relational Models & Migration/Seed Setup**
   * **Files**: `backend/app/models.py`, `backend/app/seed.py`, `backend/app/fixtures/f5_reservations_fixture.json`, `README.md` / report migration notes
   * **Description**: Add `ReservationModel` (`reservations`) and `ReservationStatusHistoryModel` (`reservation_status_history`) with composite `(venue_id, reserved_date, reserved_time, status)` indexing, foreign keys, and idempotent demo fixture records spanning all 8 reservation states.
   * **Verification**: Schema initializes cleanly against both PostgreSQL 17 (`compose.yaml`) and SQLite test runs (`Base.metadata.create_all()`).
 
-- [ ] **TASK-F5-03: Define F5 Pydantic v2 Schemas & Error Envelopes**
+- [x] **TASK-F5-03: Define F5 Pydantic v2 Schemas & Error Envelopes**
   * **Files**: `backend/app/schemas.py`
   * **Description**: Author typed request/response contracts for slot availability (`SlotAvailabilityOut`), reservation creation/detail/list (`ReservationCreateIn`, `ReservationOut`, `ReservationStatusHistoryOut`), decision/cancel payloads (`ReasonActionIn`), admin support search, and `STD-01` structured error responses (including `suggested_slots` and `venue_hotline`).
   * **Verification**: OpenAPI `/openapi.json` schema validates cleanly with `pyrefly` reporting 0 errors.
 
-- [ ] **TASK-F5-04: Implement Atomic Slot Availability & Customer Reservation Flow (`UC-C08`–`UC-C11`)**
+- [x] **TASK-F5-04: Implement Atomic Slot Availability & Customer Reservation Flow (`UC-C08`–`UC-C11`)**
   * **Files**: `backend/app/reservations_service.py`, `backend/app/auth.py`, `backend/app/main.py`
   * **Description**: Implement `GET /api/venues/{venue_id}/availability`, `POST /api/reservations` (idempotency + atomic slot capacity hold + adjacent slot suggestions on `409`), `GET /api/reservations`, `GET /api/reservations/{id}`, and `POST /api/reservations/{id}/cancel` (enforcing exact 2-hour cutoff and hotline return).
   * **Verification**: Customer booking lifecycle persists across server restarts and respects F7 operating hours and blocked slots.
 
-- [ ] **TASK-F5-05: Implement Partner Decisions, Operational Cancel & Attendance (`UC-P06`, `UC-P11`, `UC-P12`)**
+- [x] **TASK-F5-05: Implement Partner Decisions, Operational Cancel & Attendance (`UC-P06`, `UC-P11`, `UC-P12`)**
   * **Files**: `backend/app/reservations_service.py`, `backend/app/main.py`
   * **Description**: Implement `confirm`, `decline` (mandatory reason), `cancel` (`Cancelled by restaurant` with mandatory reason), `check-in` (`Completed`), and `no-show` (`No-show` after 30-min grace period), plus lazy 30-minute partner-response expiry (`Expired`). Enforce `partner_staff` venue ownership (`SEC-04`).
   * **Verification**: Concurrent confirmation attempts never exceed slot capacity; expired or terminal bookings reject illegal transitions (`REL-01`).
 
-- [ ] **TASK-F5-06: Implement Admin Support History Investigation (`UC-A04`)**
+- [x] **TASK-F5-06: Implement Admin Support History Investigation (`UC-A04`)**
   * **Files**: `backend/app/main.py`, `backend/app/reservations_service.py`
   * **Description**: Implement `GET /api/admin/reservations/support` and `GET /api/admin/reservations/{id}` scoped strictly to `administrator` role (`403` for customer/partner), returning full chronological `reservation_status_history`.
   * **Verification**: Support queries return full immutable transition log (`actor_id`, `actor_role`, `reason`, `created_at`).
 
-- [ ] **TASK-F5-07: Generate & Retain Automated Pytest Integration Suite (`PA4 §E`)**
+- [x] **TASK-F5-07: Generate & Retain Automated Pytest Integration Suite (`PA4 §E`)**
   * **Files**: `backend/tests/test_f5_reservations.py`
   * **Description**: Generate and retain automated `pytest` tests verifying slot availability, request creation + idempotency, 2-hour cancel cutoff boundary, 30-minute expiry window, atomic capacity locking, partner cancel/attendance transitions, role isolation (`401`/`403`), and admin history retrieval—while keeping all 27 existing F3/health tests passing.
   * **Verification**: `python -m pytest -v` passes 100% with 0 regressions.

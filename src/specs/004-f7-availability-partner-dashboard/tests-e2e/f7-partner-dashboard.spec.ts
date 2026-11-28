@@ -9,6 +9,7 @@ test.describe('F7 Availability & Partner Dashboard', () => {
     await page.getByRole('button', { name: 'Đăng nhập bản demo' }).click()
 
     await page.getByRole('button', { name: 'Lịch của tôi' }).click()
+    await page.getByRole('button', { name: /Lịch mở cửa & Tổng quan/ }).click()
     await expect(page.getByRole('heading', { name: 'Điều phối vận hành nhà hàng' })).toBeVisible()
     await expect(page.getByText('Chờ xác nhận', { exact: true })).toBeVisible()
     await expect(page.getByRole('heading', { name: 'Yêu cầu đặt bàn' })).toBeVisible()

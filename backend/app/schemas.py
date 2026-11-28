@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class TimeSlotInfo(BaseModel):
@@ -141,8 +141,6 @@ class AvailabilitySettingsOut(BaseModel):
     updated_at: datetime | None = None
     operating_hours: list[OperatingHourItem]
     blocked_slots: list[BlockedSlotOut]
-
-
 class SlotAvailabilityItemOut(BaseModel):
     time: str
     status: str
@@ -156,9 +154,88 @@ class VenueAvailabilityOut(BaseModel):
     venue_id: str
     date: str
     party_size: int
-    slot_granularity_minutes: int
+    slot_granularity_minutes: int = 30
     closed_reason: str | None = None
     slots: list[SlotAvailabilityItemOut]
+
+
+class ReservationCreateIn(BaseModel):
+    venue_id: str = Field(min_length=1, max_length=64)
+    reserved_date: str = Field(pattern=r"^\d{4}-\d{2}-\d{2}$")
+    reserved_time: str = Field(pattern=r"^\d{2}:\d{2}$")
+    party_size: int = Field(ge=1, le=50)
+    customer_name: str = Field(min_length=1, max_length=120)
+    customer_phone: str = Field(min_length=6, max_length=32)
+    special_requests: str = Field(default="", max_length=500)
+    idempotency_key: str | None = Field(default=None, max_length=128)
+
+    @field_validator("customer_name", "customer_phone")
+    @classmethod
+    def _strip_required_text(cls, value: str) -> str:
+        cleaned = value.strip()
+        if not cleaned:
+            raise ValueError("Field must not be blank.")
+        return cleaned
+
+
+class ReservationReasonIn(BaseModel):
+    reason: str = Field(min_length=1, max_length=500)
+
+    @field_validator("reason")
+    @classmethod
+    def _strip_reason(cls, value: str) -> str:
+        cleaned = value.strip()
+        if not cleaned:
+            raise ValueError("Reason is required and cannot be blank.")
+        return cleaned
+
+
+class ReservationNoShowIn(BaseModel):
+    reason: str = Field(default="", max_length=500)
+
+
+class ReservationStatusHistoryOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: str
+    from_state: str | None = None
+    to_state: str
+    actor_id: str
+    actor_role: str
+    reason: str = ""
+    created_at: datetime
+
+
+class ReservationOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: str
+    reservation_code: str
+    venue_id: str
+    venue_name: str = ""
+    venue_hotline: str = ""
+    customer_id: str
+    customer_name: str
+    customer_phone: str
+    reserved_date: str
+    reserved_time: str
+    party_size: int
+    special_requests: str
+    status: str
+    response_deadline: datetime
+    cancellation_deadline: datetime
+    created_at: datetime
+    updated_at: datetime
+    status_history: list[ReservationStatusHistoryOut] = Field(
+        default_factory=list
+    )
+
+
+class ReservationListResponse(BaseModel):
+    total: int
+    page: int
+    page_size: int
+    items: list[ReservationOut]
 
 
 class DashboardReservationOut(BaseModel):
