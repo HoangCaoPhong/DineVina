@@ -516,7 +516,7 @@ export default function PartnerReservations({
                       <b>
                         {formatBookingDate(item.reserved_date)} lúc {item.reserved_time}
                       </b>{' '}
-                      · <b>{item.party_size} khách</b> · Venue ID: <code>{item.venue_id}</code>
+                      · <b>{item.party_size} khách</b>
                     </p>
                     {item.special_requests && (
                       <p className="staff-note-line">Ghi chú: {item.special_requests}</p>
