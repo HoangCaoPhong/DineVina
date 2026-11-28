@@ -266,10 +266,10 @@ export default function PartnerReservations({
     <section className="staff-panel" aria-labelledby="partner-f5-heading">
       <div className="staff-header-row">
         <div>
-          <h3 id="partner-f5-heading">Hàng chờ đặt bàn & Quyết định đối tác (F5)</h3>
+          <h3 id="partner-f5-heading">Hàng chờ & xử lý đặt bàn</h3>
           <p className="staff-subtitle">
-            Nhân viên: <b>{staffName || 'Đối tác'}</b> (`{staffId}` · `partner_staff`) · Quyền nhà hàng:{' '}
-            <b>{ownedVenues.length > 0 ? ownedVenues.join(', ') : 'Chưa gán quán'}</b>
+            Nhân viên phụ trách: <b>{staffName || 'Đối tác'}</b> · Đang quản lý{' '}
+            <b>{ownedVenues.length}</b> nhà hàng
           </p>
         </div>
         <button type="button" className="outline-button" onClick={refreshQueue} disabled={loading}>
@@ -287,7 +287,7 @@ export default function PartnerReservations({
       <div className="staff-scope-box">
         <div className="staff-scope-row">
           <label className="staff-inline-field">
-            <span>Mã nhân viên (`X-User-Id`)</span>
+            <span>Mã nhân viên</span>
             <input
               value={staffId}
               onChange={(event) => {
@@ -298,7 +298,7 @@ export default function PartnerReservations({
             />
           </label>
           <div className="staff-chip-group">
-            <span>Phạm vi quán được phân quyền (`X-Partner-Venues`):</span>
+            <span>Nhà hàng được phân quyền:</span>
             <div className="staff-chips">
               {quickScopeVenues.map((venue) => {
                 const active = ownedVenues.includes(venue.id)
@@ -310,7 +310,7 @@ export default function PartnerReservations({
                     onClick={() => toggleOwnedVenue(venue.id)}
                   >
                     {active ? '✓ ' : '+ '}
-                    {venue.id}
+                    {venue.name}
                   </button>
                 )
               })}
@@ -318,41 +318,46 @@ export default function PartnerReservations({
           </div>
         </div>
 
-        <div className="staff-rbac-bar">
-          <span>Kiểm tra phân quyền API (RBAC):</span>
-          <button
-            type="button"
-            className="outline-button"
-            disabled={probing}
-            onClick={() => runRbacProbe('customer-role')}
-          >
-            Thử gọi bằng quyền Customer (403)
-          </button>
-          <button
-            type="button"
-            className="outline-button"
-            disabled={probing}
-            onClick={() => runRbacProbe('foreign-venue')}
-          >
-            Thử xem quán ngoài quyền (403)
-          </button>
-        </div>
-
-        {rbacProbe && (
-          <div
-            className={`staff-probe-result ${rbacProbe.blocked ? 'ok' : 'warn'}`}
-            role="status"
-          >
-            <b>
-              {rbacProbe.blocked ? '✓ Phân quyền đã chặn đúng:' : 'Kết quả kiểm tra:'} HTTP{' '}
-              {rbacProbe.status} · {rbacProbe.code}
-            </b>
-            <span>
-              Endpoint: <code>{rbacProbe.endpoint}</code> · Role gửi đi:{' '}
-              <code>{rbacProbe.roleSent}</code> — {rbacProbe.message}
-            </span>
+        <details>
+          <summary style={{ cursor: 'pointer', fontSize: '.8rem', color: 'var(--muted)' }}>
+            Kiểm tra phân quyền nâng cao
+          </summary>
+          <div className="staff-rbac-bar" style={{ marginTop: 10 }}>
+            <span>Kiểm tra phân quyền API:</span>
+            <button
+              type="button"
+              className="outline-button"
+              disabled={probing}
+              onClick={() => runRbacProbe('customer-role')}
+            >
+              Thử gọi bằng quyền Customer (403)
+            </button>
+            <button
+              type="button"
+              className="outline-button"
+              disabled={probing}
+              onClick={() => runRbacProbe('foreign-venue')}
+            >
+              Thử xem quán ngoài quyền (403)
+            </button>
           </div>
-        )}
+
+          {rbacProbe && (
+            <div
+              className={`staff-probe-result ${rbacProbe.blocked ? 'ok' : 'warn'}`}
+              role="status"
+            >
+              <b>
+                {rbacProbe.blocked ? '✓ Phân quyền đã chặn đúng:' : 'Kết quả kiểm tra:'} HTTP{' '}
+                {rbacProbe.status} · {rbacProbe.code}
+              </b>
+              <span>
+                Endpoint: <code>{rbacProbe.endpoint}</code> · Role gửi đi:{' '}
+                <code>{rbacProbe.roleSent}</code> — {rbacProbe.message}
+              </span>
+            </div>
+          )}
+        </details>
       </div>
 
       <div className="staff-filter-bar">

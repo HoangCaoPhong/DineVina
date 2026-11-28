@@ -164,10 +164,9 @@ export default function AdminReservations({ adminName, venues }: AdminReservatio
     <section className="staff-panel" aria-labelledby="admin-f5-heading">
       <div className="staff-header-row">
         <div>
-          <h3 id="admin-f5-heading">Tra cứu & Lịch sử đặt bàn toàn hệ thống (UC-A04)</h3>
+          <h3 id="admin-f5-heading">Tra cứu & lịch sử đặt bàn toàn hệ thống</h3>
           <p className="staff-subtitle">
-            Quản trị viên: <b>{adminName || 'Admin'}</b> (`{adminId}` · `administrator`) · Chế độ
-            kiểm tra chỉ đọc (Read-only Audit Log)
+            Quản trị viên: <b>{adminName || 'Quản trị viên'}</b> · Chế độ tra cứu và kiểm tra lịch sử
           </p>
         </div>
         <button type="button" className="outline-button" onClick={refreshList} disabled={loading}>
@@ -185,7 +184,7 @@ export default function AdminReservations({ adminName, venues }: AdminReservatio
       <div className="staff-scope-box">
         <div className="staff-scope-row">
           <label className="staff-inline-field">
-            <span>Mã quản trị viên (`X-User-Id`)</span>
+            <span>Mã quản trị viên</span>
             <input
               value={adminId}
               onChange={(event) => {
@@ -195,7 +194,13 @@ export default function AdminReservations({ adminName, venues }: AdminReservatio
               placeholder="admin-001"
             />
           </label>
-          <div className="staff-rbac-bar">
+        </div>
+
+        <details>
+          <summary style={{ cursor: 'pointer', fontSize: '.8rem', color: 'var(--muted)' }}>
+            Kiểm tra phân quyền nâng cao
+          </summary>
+          <div className="staff-rbac-bar" style={{ marginTop: 10 }}>
             <span>Kiểm tra phân quyền Admin API:</span>
             <button
               type="button"
@@ -214,32 +219,32 @@ export default function AdminReservations({ adminName, venues }: AdminReservatio
               Thử không có Header xác thực (401)
             </button>
           </div>
-        </div>
 
-        {rbacProbe && (
-          <div
-            className={`staff-probe-result ${rbacProbe.blocked ? 'ok' : 'warn'}`}
-            role="status"
-          >
-            <b>
-              {rbacProbe.blocked ? '✓ API đã chặn đúng phân quyền:' : 'Kết quả:'} HTTP{' '}
-              {rbacProbe.status} · {rbacProbe.code}
-            </b>
-            <span>
-              Endpoint: <code>{rbacProbe.endpoint}</code> · Role gửi đi:{' '}
-              <code>{rbacProbe.roleSent}</code> — {rbacProbe.message}
-            </span>
-          </div>
-        )}
+          {rbacProbe && (
+            <div
+              className={`staff-probe-result ${rbacProbe.blocked ? 'ok' : 'warn'}`}
+              role="status"
+            >
+              <b>
+                {rbacProbe.blocked ? '✓ API đã chặn đúng phân quyền:' : 'Kết quả:'} HTTP{' '}
+                {rbacProbe.status} · {rbacProbe.code}
+              </b>
+              <span>
+                Endpoint: <code>{rbacProbe.endpoint}</code> · Role gửi đi:{' '}
+                <code>{rbacProbe.roleSent}</code> — {rbacProbe.message}
+              </span>
+            </div>
+          )}
+        </details>
       </div>
 
       <form className="staff-filter-bar" onSubmit={handleSearchSubmit}>
         <label className="staff-search-grow">
-          <span>Tìm theo mã đơn, ID khách hàng hoặc tên khách</span>
+          <span>Tìm theo mã đơn, mã khách hàng hoặc tên khách</span>
           <input
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
-            placeholder="VD: DV-F50001, Minh Anh, cust-demo-01..."
+            placeholder="Nhập mã đặt bàn, tên khách hàng hoặc SĐT..."
           />
         </label>
 
@@ -380,8 +385,7 @@ export default function AdminReservations({ adminName, venues }: AdminReservatio
         <aside className="admin-detail-column" aria-label="Chi tiết kiểm toán đặt bàn">
           {!selectedId ? (
             <div className="staff-empty">
-              Chọn một đơn đặt bàn bên trái để xem chi tiết đầy đủ và lịch sử chuyển trạng thái
-              bất biến từ <code>/api/admin/reservations/&#123;id&#125;</code>.
+              Chọn một đơn đặt bàn bên trái để xem chi tiết và toàn bộ lịch sử thay đổi trạng thái.
             </div>
           ) : detailLoading ? (
             <p className="staff-empty" role="status">

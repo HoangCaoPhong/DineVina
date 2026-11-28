@@ -58,6 +58,10 @@ const timeOptionsFor = (current: string) =>
   !current || timeOptions24h.includes(current)
     ? timeOptions24h
     : [current, ...timeOptions24h].sort()
+const demoVenueLabels: Record<string, string> = {
+  'v-hcmc-001': 'Nhà Hàng Việt Xưa Sài Gòn',
+  'v-hcmc-002': 'Hoàng Gia Lẩu & Nướng Than Hoa',
+}
 const demoVenues = ['v-hcmc-001', 'v-hcmc-002']
 const headers = {
   'Content-Type': 'application/json',
@@ -117,7 +121,7 @@ export default function PartnerF7Modal({ onClose }: { onClose: () => void }) {
         setHours(settingsBody.operating_hours)
         setDashboard(dashboardBody)
       } catch (err) {
-        if (active) setError(err instanceof Error ? err.message : 'Không tải được dữ liệu F7')
+        if (active) setError(err instanceof Error ? err.message : 'Không tải được dữ liệu vận hành')
       } finally {
         if (active) setLoading(false)
       }
@@ -201,12 +205,12 @@ export default function PartnerF7Modal({ onClose }: { onClose: () => void }) {
     <div className="modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <section className="feature-modal workspace-modal f7-modal" role="dialog" aria-modal="true" aria-labelledby="f7-title">
         <div className="modal-heading f7-heading">
-          <div><p className="eyebrow">F7 · Availability & Partner Dashboard</p><h2 id="f7-title">Điều phối vận hành nhà hàng</h2><p>Giờ mở cửa, sức chứa, khung giờ khóa và hàng chờ yêu cầu được lưu trong PostgreSQL.</p></div>
+          <div><p className="eyebrow">DineVina Partner · Quản lý vận hành</p><h2 id="f7-title">Điều phối vận hành nhà hàng</h2><p>Quản lý giờ mở cửa, sức chứa, khung giờ khóa và danh sách yêu cầu đặt bàn của nhà hàng.</p></div>
           <button className="modal-close" onClick={onClose} aria-label="Đóng">×</button>
         </div>
         <div className="f7-toolbar">
-          <label>Nhà hàng demo<select value={venueId} onChange={(event) => { setVenueId(event.target.value); setPage(1) }}>{demoVenues.map((id) => <option key={id} value={id}>{id}</option>)}</select></label>
-          <div className="detail-tab-row"><button className={tab === 'dashboard' ? 'active' : ''} onClick={() => setTab('dashboard')}>Dashboard</button><button className={tab === 'availability' ? 'active' : ''} onClick={() => setTab('availability')}>Giờ & sức chứa</button></div>
+          <label>Nhà hàng đang quản lý<select value={venueId} onChange={(event) => { setVenueId(event.target.value); setPage(1) }}>{demoVenues.map((id) => <option key={id} value={id}>{demoVenueLabels[id] ?? id}</option>)}</select></label>
+          <div className="detail-tab-row"><button className={tab === 'dashboard' ? 'active' : ''} onClick={() => setTab('dashboard')}>Tổng quan</button><button className={tab === 'availability' ? 'active' : ''} onClick={() => setTab('availability')}>Giờ & sức chứa</button></div>
         </div>
         {error && <div className="f7-error">{error}</div>}
         {notice && <div className="workspace-message">{notice}</div>}
@@ -224,24 +228,24 @@ export default function PartnerF7Modal({ onClose }: { onClose: () => void }) {
               <input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1) }} placeholder="Tìm mã, tên hoặc SĐT" />
               <button type="button" className="outline-button" onClick={() => void refreshAll()}>Làm mới</button>
             </form>
-            <section><div className="detail-section-heading"><div><h3>Yêu cầu đặt bàn</h3><p>Ưu tiên yêu cầu chờ xác nhận theo deadline phản hồi.</p></div><span>{dashboard?.reservation_queue.total ?? 0} yêu cầu</span></div>
+            <section><div className="detail-section-heading"><div><h3>Yêu cầu đặt bàn</h3><p>Ưu tiên các yêu cầu chờ xác nhận sắp đến hạn phản hồi.</p></div><span>{dashboard?.reservation_queue.total ?? 0} yêu cầu</span></div>
               <div className="record-list compact f7-list">{reservationItems.length === 0 ? <div className="empty-inline">Không có yêu cầu phù hợp.</div> : reservationItems.map((item) => <article key={item.id}><div className="record-main"><div className="record-title"><h4>{item.customer_name} · {item.party_size} khách</h4><span className="status-chip pending">{item.status}</span></div><p>{item.reserved_date} · {item.reserved_time} · Mã {item.reservation_code} · {item.customer_phone}</p><p>{item.special_requests || 'Không có ghi chú đặc biệt'}</p></div><small>{item.response_deadline ? new Date(item.response_deadline).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) : ''}</small></article>)}</div>
               <div className="f7-pagination"><button disabled={page <= 1} onClick={() => setPage((value) => Math.max(1, value - 1))}>← Trước</button><span>Trang {dashboard?.reservation_queue.page ?? page}</span><button disabled={reservationItems.length < 8} onClick={() => setPage((value) => value + 1)}>Sau →</button></div>
             </section>
-            <section><div className="detail-section-heading"><div><h3>Yêu cầu đặt tiệc</h3><p>Theo dõi inquiry mới và đang trao đổi.</p></div><span>{dashboard?.event_queue.total ?? 0} inquiry</span></div>
-              <div className="record-list compact f7-list">{eventItems.length === 0 ? <div className="empty-inline">Chưa có inquiry mở.</div> : eventItems.map((item) => <article key={item.id}><div className="record-main"><div className="record-title"><h4>{item.occasion} · {item.party_size} khách</h4><span className="status-chip confirmed">{item.status}</span></div><p>{item.customer_name} · {item.preferred_date} · Ngân sách {item.budget_min_vnd.toLocaleString('vi-VN')}–{item.budget_max_vnd.toLocaleString('vi-VN')}đ</p><p>{item.last_message_preview}</p></div></article>)}</div>
+            <section><div className="detail-section-heading"><div><h3>Yêu cầu đặt tiệc</h3><p>Theo dõi các yêu cầu đặt tiệc mới và đang trao đổi.</p></div><span>{dashboard?.event_queue.total ?? 0} yêu cầu</span></div>
+              <div className="record-list compact f7-list">{eventItems.length === 0 ? <div className="empty-inline">Chưa có yêu cầu đặt tiệc nào.</div> : eventItems.map((item) => <article key={item.id}><div className="record-main"><div className="record-title"><h4>{item.occasion} · {item.party_size} khách</h4><span className="status-chip confirmed">{item.status}</span></div><p>{item.customer_name} · {item.preferred_date} · Ngân sách {item.budget_min_vnd.toLocaleString('vi-VN')}–{item.budget_max_vnd.toLocaleString('vi-VN')}đ</p><p>{item.last_message_preview}</p></div></article>)}</div>
             </section>
           </div>
         ) : (
           <div className="workspace-body f7-body f7-two-column">
             <form className="f7-panel" onSubmit={saveSettings}>
-              <div className="detail-section-heading"><div><h3>Giờ mở cửa & sức chứa</h3><p>Áp dụng cho tính năng công khai và giữ chỗ F5.</p></div><span>rev. {settings?.revision}</span></div>
-              <label className="f7-capacity">Sức chứa mỗi khung 30 phút<input type="number" min="1" max={settings?.max_capacity || 999} value={capacity} onChange={(event) => setCapacity(Number(event.target.value))} /><small>Tối đa venue: {settings?.max_capacity}</small></label>
+              <div className="detail-section-heading"><div><h3>Giờ mở cửa & sức chứa</h3><p>Tự động áp dụng cho khung giờ đặt bàn hiển thị với khách hàng.</p></div><span>Đang áp dụng</span></div>
+              <label className="f7-capacity">Sức chứa mỗi khung 30 phút<input type="number" min="1" max={settings?.max_capacity || 999} value={capacity} onChange={(event) => setCapacity(Number(event.target.value))} /><small>Sức chứa tối đa của nhà hàng: {settings?.max_capacity} khách</small></label>
               <div className="f7-hours">{hours.map((row) => <div className="f7-hour-row" key={row.day_of_week}><label><input type="checkbox" checked={row.is_active} onChange={(event) => updateHour(row.day_of_week, { is_active: event.target.checked })} />{dayNames[row.day_of_week]}</label><select aria-label={`Giờ mở cửa ${dayNames[row.day_of_week]}`} value={row.open_time} onChange={(event) => updateHour(row.day_of_week, { open_time: event.target.value })}>{timeOptionsFor(row.open_time).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select><span>–</span><select aria-label={`Giờ đóng cửa ${dayNames[row.day_of_week]}`} value={row.close_time} onChange={(event) => updateHour(row.day_of_week, { close_time: event.target.value })}>{timeOptionsFor(row.close_time).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select></div>)}</div>
               <button className="primary-button" disabled={saving}>{saving ? 'Đang lưu...' : 'Lưu cấu hình'}</button>
             </form>
             <div className="f7-panel">
-              <div className="detail-section-heading"><div><h3>Khung giờ khóa</h3><p>Không cho phép khóa nếu trùng booking đã xác nhận.</p></div><span>{activeBlocks.length} đang hoạt động</span></div>
+              <div className="detail-section-heading"><div><h3>Khung giờ khóa</h3><p>Không thể khóa khung giờ đang có đơn đặt bàn đã xác nhận.</p></div><span>{activeBlocks.length} đang hoạt động</span></div>
               <form className="f7-block-form" onSubmit={createBlock}><input required type="date" value={blockDate} onChange={(event) => setBlockDate(event.target.value)} /><select aria-label="Giờ bắt đầu" value={blockStart} onChange={(event) => setBlockStart(event.target.value)}>{timeOptionsFor(blockStart).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select><select aria-label="Giờ kết thúc" value={blockEnd} onChange={(event) => setBlockEnd(event.target.value)}>{timeOptionsFor(blockEnd).map((slot) => <option key={slot} value={slot}>{slot}</option>)}</select><input required value={blockReason} onChange={(event) => setBlockReason(event.target.value)} placeholder="Lý do khóa" /><button className="primary-button small" disabled={saving}>Khóa khung giờ</button></form>
               <div className="f7-block-list">{activeBlocks.length === 0 ? <div className="empty-inline">Chưa có khung giờ bị khóa.</div> : activeBlocks.map((item) => <article key={item.id}><div><b>{item.blocked_date} · {item.start_time}–{item.end_time}</b><p>{item.reason}</p></div><button className="outline-button" onClick={() => void cancelBlock(item.id)}>Hủy khóa</button></article>)}</div>
             </div>
